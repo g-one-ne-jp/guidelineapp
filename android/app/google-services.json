@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "541108438363",
+    "project_id": "g-one-pdf",
+    "storage_bucket": "g-one-pdf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:541108438363:android:23de66f441d1336364c67e",
+        "android_client_info": {
+          "package_name": "com.example.flutter_template"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7IRdhO9lLu7ehdROTGlSli4wFrEQ98GA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
