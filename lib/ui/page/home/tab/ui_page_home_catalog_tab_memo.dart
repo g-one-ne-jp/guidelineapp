@@ -40,8 +40,11 @@ class UiPageHomeCatalogTabMemo extends HookConsumerWidget
       return () => customDebugPrint('dispose!');
     }, []);
 
-    return Container(
-      color: Colors.yellow,
+    return Scaffold(
+      appBar: AppBar(title: const Text('メモ')),
+      body: Container(
+        color: Colors.yellow,
+      ),
     );
   }
 }

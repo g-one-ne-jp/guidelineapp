@@ -605,7 +605,7 @@ mixin _$MinorCategory {
   String get minorTitle => throw _privateConstructorUsedError;
   String get minorSummary => throw _privateConstructorUsedError;
   String get markdown => throw _privateConstructorUsedError;
-  String get pdfId => throw _privateConstructorUsedError;
+  Map<String, DeteilCategory> get deteils => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -624,7 +624,7 @@ abstract class $MinorCategoryCopyWith<$Res> {
       String minorTitle,
       String minorSummary,
       String markdown,
-      String pdfId});
+      Map<String, DeteilCategory> deteils});
 }
 
 /// @nodoc
@@ -644,7 +644,7 @@ class _$MinorCategoryCopyWithImpl<$Res, $Val extends MinorCategory>
     Object? minorTitle = null,
     Object? minorSummary = null,
     Object? markdown = null,
-    Object? pdfId = null,
+    Object? deteils = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -663,10 +663,10 @@ class _$MinorCategoryCopyWithImpl<$Res, $Val extends MinorCategory>
           ? _value.markdown
           : markdown // ignore: cast_nullable_to_non_nullable
               as String,
-      pdfId: null == pdfId
-          ? _value.pdfId
-          : pdfId // ignore: cast_nullable_to_non_nullable
-              as String,
+      deteils: null == deteils
+          ? _value.deteils
+          : deteils // ignore: cast_nullable_to_non_nullable
+              as Map<String, DeteilCategory>,
     ) as $Val);
   }
 }
@@ -684,7 +684,7 @@ abstract class _$$MinorCategoryImplCopyWith<$Res>
       String minorTitle,
       String minorSummary,
       String markdown,
-      String pdfId});
+      Map<String, DeteilCategory> deteils});
 }
 
 /// @nodoc
@@ -702,7 +702,7 @@ class __$$MinorCategoryImplCopyWithImpl<$Res>
     Object? minorTitle = null,
     Object? minorSummary = null,
     Object? markdown = null,
-    Object? pdfId = null,
+    Object? deteils = null,
   }) {
     return _then(_$MinorCategoryImpl(
       id: null == id
@@ -721,10 +721,10 @@ class __$$MinorCategoryImplCopyWithImpl<$Res>
           ? _value.markdown
           : markdown // ignore: cast_nullable_to_non_nullable
               as String,
-      pdfId: null == pdfId
-          ? _value.pdfId
-          : pdfId // ignore: cast_nullable_to_non_nullable
-              as String,
+      deteils: null == deteils
+          ? _value._deteils
+          : deteils // ignore: cast_nullable_to_non_nullable
+              as Map<String, DeteilCategory>,
     ));
   }
 }
@@ -737,7 +737,8 @@ class _$MinorCategoryImpl implements _MinorCategory {
       this.minorTitle = '',
       this.minorSummary = '',
       this.markdown = '',
-      this.pdfId = ''});
+      final Map<String, DeteilCategory> deteils = const {}})
+      : _deteils = deteils;
 
   factory _$MinorCategoryImpl.fromJson(Map<String, dynamic> json) =>
       _$$MinorCategoryImplFromJson(json);
@@ -754,13 +755,18 @@ class _$MinorCategoryImpl implements _MinorCategory {
   @override
   @JsonKey()
   final String markdown;
+  final Map<String, DeteilCategory> _deteils;
   @override
   @JsonKey()
-  final String pdfId;
+  Map<String, DeteilCategory> get deteils {
+    if (_deteils is EqualUnmodifiableMapView) return _deteils;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_deteils);
+  }
 
   @override
   String toString() {
-    return 'MinorCategory(id: $id, minorTitle: $minorTitle, minorSummary: $minorSummary, markdown: $markdown, pdfId: $pdfId)';
+    return 'MinorCategory(id: $id, minorTitle: $minorTitle, minorSummary: $minorSummary, markdown: $markdown, deteils: $deteils)';
   }
 
   @override
@@ -775,13 +781,13 @@ class _$MinorCategoryImpl implements _MinorCategory {
                 other.minorSummary == minorSummary) &&
             (identical(other.markdown, markdown) ||
                 other.markdown == markdown) &&
-            (identical(other.pdfId, pdfId) || other.pdfId == pdfId));
+            const DeepCollectionEquality().equals(other._deteils, _deteils));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, minorTitle, minorSummary, markdown, pdfId);
+  int get hashCode => Object.hash(runtimeType, id, minorTitle, minorSummary,
+      markdown, const DeepCollectionEquality().hash(_deteils));
 
   @JsonKey(ignore: true)
   @override
@@ -803,7 +809,7 @@ abstract class _MinorCategory implements MinorCategory {
       final String minorTitle,
       final String minorSummary,
       final String markdown,
-      final String pdfId}) = _$MinorCategoryImpl;
+      final Map<String, DeteilCategory> deteils}) = _$MinorCategoryImpl;
 
   factory _MinorCategory.fromJson(Map<String, dynamic> json) =
       _$MinorCategoryImpl.fromJson;
@@ -817,9 +823,212 @@ abstract class _MinorCategory implements MinorCategory {
   @override
   String get markdown;
   @override
-  String get pdfId;
+  Map<String, DeteilCategory> get deteils;
   @override
   @JsonKey(ignore: true)
   _$$MinorCategoryImplCopyWith<_$MinorCategoryImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+DeteilCategory _$DeteilCategoryFromJson(Map<String, dynamic> json) {
+  return _DeteilCategory.fromJson(json);
+}
+
+/// @nodoc
+mixin _$DeteilCategory {
+  String get id => throw _privateConstructorUsedError;
+  String get detailTitle => throw _privateConstructorUsedError;
+  String get detailSummary => throw _privateConstructorUsedError;
+  String get markdown => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $DeteilCategoryCopyWith<DeteilCategory> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $DeteilCategoryCopyWith<$Res> {
+  factory $DeteilCategoryCopyWith(
+          DeteilCategory value, $Res Function(DeteilCategory) then) =
+      _$DeteilCategoryCopyWithImpl<$Res, DeteilCategory>;
+  @useResult
+  $Res call(
+      {String id, String detailTitle, String detailSummary, String markdown});
+}
+
+/// @nodoc
+class _$DeteilCategoryCopyWithImpl<$Res, $Val extends DeteilCategory>
+    implements $DeteilCategoryCopyWith<$Res> {
+  _$DeteilCategoryCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? detailTitle = null,
+    Object? detailSummary = null,
+    Object? markdown = null,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      detailTitle: null == detailTitle
+          ? _value.detailTitle
+          : detailTitle // ignore: cast_nullable_to_non_nullable
+              as String,
+      detailSummary: null == detailSummary
+          ? _value.detailSummary
+          : detailSummary // ignore: cast_nullable_to_non_nullable
+              as String,
+      markdown: null == markdown
+          ? _value.markdown
+          : markdown // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$DeteilCategoryImplCopyWith<$Res>
+    implements $DeteilCategoryCopyWith<$Res> {
+  factory _$$DeteilCategoryImplCopyWith(_$DeteilCategoryImpl value,
+          $Res Function(_$DeteilCategoryImpl) then) =
+      __$$DeteilCategoryImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String id, String detailTitle, String detailSummary, String markdown});
+}
+
+/// @nodoc
+class __$$DeteilCategoryImplCopyWithImpl<$Res>
+    extends _$DeteilCategoryCopyWithImpl<$Res, _$DeteilCategoryImpl>
+    implements _$$DeteilCategoryImplCopyWith<$Res> {
+  __$$DeteilCategoryImplCopyWithImpl(
+      _$DeteilCategoryImpl _value, $Res Function(_$DeteilCategoryImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? detailTitle = null,
+    Object? detailSummary = null,
+    Object? markdown = null,
+  }) {
+    return _then(_$DeteilCategoryImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      detailTitle: null == detailTitle
+          ? _value.detailTitle
+          : detailTitle // ignore: cast_nullable_to_non_nullable
+              as String,
+      detailSummary: null == detailSummary
+          ? _value.detailSummary
+          : detailSummary // ignore: cast_nullable_to_non_nullable
+              as String,
+      markdown: null == markdown
+          ? _value.markdown
+          : markdown // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$DeteilCategoryImpl implements _DeteilCategory {
+  _$DeteilCategoryImpl(
+      {this.id = '',
+      this.detailTitle = '',
+      this.detailSummary = '',
+      this.markdown = ''});
+
+  factory _$DeteilCategoryImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DeteilCategoryImplFromJson(json);
+
+  @override
+  @JsonKey()
+  final String id;
+  @override
+  @JsonKey()
+  final String detailTitle;
+  @override
+  @JsonKey()
+  final String detailSummary;
+  @override
+  @JsonKey()
+  final String markdown;
+
+  @override
+  String toString() {
+    return 'DeteilCategory(id: $id, detailTitle: $detailTitle, detailSummary: $detailSummary, markdown: $markdown)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeteilCategoryImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.detailTitle, detailTitle) ||
+                other.detailTitle == detailTitle) &&
+            (identical(other.detailSummary, detailSummary) ||
+                other.detailSummary == detailSummary) &&
+            (identical(other.markdown, markdown) ||
+                other.markdown == markdown));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, id, detailTitle, detailSummary, markdown);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeteilCategoryImplCopyWith<_$DeteilCategoryImpl> get copyWith =>
+      __$$DeteilCategoryImplCopyWithImpl<_$DeteilCategoryImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$DeteilCategoryImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _DeteilCategory implements DeteilCategory {
+  factory _DeteilCategory(
+      {final String id,
+      final String detailTitle,
+      final String detailSummary,
+      final String markdown}) = _$DeteilCategoryImpl;
+
+  factory _DeteilCategory.fromJson(Map<String, dynamic> json) =
+      _$DeteilCategoryImpl.fromJson;
+
+  @override
+  String get id;
+  @override
+  String get detailTitle;
+  @override
+  String get detailSummary;
+  @override
+  String get markdown;
+  @override
+  @JsonKey(ignore: true)
+  _$$DeteilCategoryImplCopyWith<_$DeteilCategoryImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

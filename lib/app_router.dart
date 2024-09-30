@@ -37,13 +37,9 @@ class AppRouter extends _$AppRouter {
           path: '/catalog',
           children: [
             AutoRoute(
-                page: UiRouteHomeCatalogTabHome.page,
-                path: 'tabHome',
-                children: [
-                  AutoRoute(
-                      page: UiRouteHomeCatalogTabHomeMinor.page,
-                      path: 'tabHomeMinor'),
-                ]),
+              page: UiRouteHomeCatalogTabHome.page,
+              path: 'tabHome',
+            ),
             AutoRoute(
               page: UiRouteHomeCatalogTabSearch.page,
               path: 'catalogTab2',
@@ -56,6 +52,8 @@ class AppRouter extends _$AppRouter {
                 page: UiRouteHomeCatalogTabMypage.page, path: 'catalogTab5'),
           ],
         ),
+        AutoRoute(
+            page: UiRouteHomeCatalogTabHomeMinor.page, path: '/tabHomeMinor'),
       ];
 }
 

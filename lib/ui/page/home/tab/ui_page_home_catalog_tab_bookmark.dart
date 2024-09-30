@@ -40,8 +40,11 @@ class UiPageHomeCatalogTabBookmark extends HookConsumerWidget
       return () => customDebugPrint('dispose!');
     }, []);
 
-    return Container(
-      color: Colors.red,
+    return Scaffold(
+      appBar: AppBar(title: const Text('ブックマーク')),
+      body: Container(
+        color: Colors.red,
+      ),
     );
   }
 }

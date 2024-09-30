@@ -14,10 +14,15 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
     with RepositoryFireStore {
   UiPageHomeCatalogTabHomeMinor({
     super.key,
+    required this.aaa,
   });
+  final int aaa;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    // Navigatorから渡されたデータを受け取る
+    final String data = ModalRoute.of(context)!.settings.arguments as String;
+
     final _tocProvider = ref.watch(tocProvider);
     final _tocNotifer = ref.watch(tocProvider.notifier);
 
@@ -28,40 +33,43 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
       return () => customDebugPrint('dispose!');
     }, []);
 
-    return Column(
-      children: [
-        Container(
-          width: double.infinity,
-          height: 60.h,
-          color: Colors.pink,
-          child: const Center(
-            child: FittedBox(
-              fit: BoxFit.scaleDown,
-              child: Text(
-                'ガイドライン改訂版',
-                style: TextStyle(
-                  color: Colors.white,
+    return Scaffold(
+      appBar: AppBar(title: const Text('ブックマーク')),
+      body: Column(
+        children: [
+          Container(
+            width: double.infinity,
+            height: 60.h,
+            color: Colors.pink,
+            child: const Center(
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text(
+                  'ガイドライン改訂版',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),
           ),
-        ),
-        Expanded(
-          child: ListView.builder(
-            itemCount: _tocProvider.subs.keys.toList().length,
-            itemBuilder: (BuildContext context, int index) {
-              var value = _tocProvider.subs.values.toList()[index];
+          Expanded(
+            child: ListView.builder(
+              itemCount: _tocProvider.subs.keys.toList().length,
+              itemBuilder: (BuildContext context, int index) {
+                var value = _tocProvider.subs.values.toList()[index];
 
-              return UiUtilWidgetTile(
-                  sub: value,
-                  onMinorTap: (minor) {
-                    var b = 0;
-                    var a = 0;
-                  });
-            },
+                return UiUtilWidgetTile(
+                    sub: value,
+                    onMinorTap: (minor) {
+                      var b = 0;
+                      var a = 0;
+                    });
+              },
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

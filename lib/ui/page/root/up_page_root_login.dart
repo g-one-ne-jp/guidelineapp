@@ -132,7 +132,7 @@ class UiPageLogin extends HookConsumerWidget {
                     backgroundColor: Colors.transparent,
                   ),
                   onPressed: () async {
-                    await uitlAuthPasswordReset(email: _email.value);
+                    await uitlAuthEmeailPasswordReset(email: _email.value);
                   },
                   child: Text('パスワードを忘れた方'),
                 ),

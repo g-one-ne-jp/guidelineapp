@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 //Googleサインイン
@@ -72,14 +73,65 @@ Future<bool> utilAuthLogin({
   }
 }
 
-//パスワードリセット
-Future<bool> uitlAuthPasswordReset({
-  required String email,
-}) async {
+//ログアウト
+Future<bool> utilAuthLogout() async {
   try {
-    await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+    await FirebaseAuth.instance.signOut();
     return true;
   } catch (e) {
     return false;
   }
+}
+
+//パスワードリセット
+Future<bool> uitlAuthEmeailPasswordReset({
+  required String email,
+}) async {
+  try {
+    await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+    return false;
+  } catch (e) {
+    await Fluttertoast.showToast(
+      msg: 'パスワードリセット失敗+$e',
+    );
+    return false;
+  }
+}
+
+//パスワードリセット
+Future<bool> uitlAuthLoggedInPasswordReset() async {
+  try {
+    final email = FirebaseAuth.instance.currentUser?.email;
+    if (email == null) {
+      await Fluttertoast.showToast(
+        msg: 'メールアドレスが登録されておりません。',
+      );
+      return false;
+    } else {
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+      await Fluttertoast.showToast(
+        msg: 'メールアドレスが登録されておりません。',
+      );
+      return true;
+    }
+  } catch (e) {
+    await Fluttertoast.showToast(
+      msg: 'メールアドレスが登録されておりません。+$e',
+    );
+    return false;
+  }
+}
+
+//ログインタイプ(パスワードログインかどうか)
+bool utilAuthIsLoginTypePassWord() {
+  final user = FirebaseAuth.instance.currentUser;
+  if (user != null) {
+    for (final provider in user.providerData) {
+      if (provider.providerId == 'password') {
+        return true;
+      }
+    }
+  }
+  // その他のSNSログインも同様
+  return false;
 }

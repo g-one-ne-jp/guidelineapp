@@ -21,7 +21,6 @@ class UiPageHomeCatalog extends HookConsumerWidget with RepositoryFireStore {
     }, []);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('ガイドライン')),
       body: AutoTabsRouter(
         routes: [
           UiRouteHomeCatalogTabHome(),

@@ -30,7 +30,6 @@ class UiPageHome extends HookConsumerWidget with RepositoryFireStore {
     }, []);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('ガイドライン')),
       body: SafeArea(
           child: Column(
         children: [

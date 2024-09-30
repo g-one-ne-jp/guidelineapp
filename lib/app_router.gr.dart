@@ -48,11 +48,13 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     UiRouteHomeCatalogTabHomeMinor.name: (routeData) {
-      final args = routeData.argsAs<UiRouteHomeCatalogTabHomeMinorArgs>(
-          orElse: () => const UiRouteHomeCatalogTabHomeMinorArgs());
+      final args = routeData.argsAs<UiRouteHomeCatalogTabHomeMinorArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: UiPageHomeCatalogTabHomeMinor(key: args.key),
+        child: UiPageHomeCatalogTabHomeMinor(
+          key: args.key,
+          aaa: args.aaa,
+        ),
       );
     },
     UiRouteHomeCatalogTabMemo.name: (routeData) {
@@ -225,10 +227,14 @@ class UiRouteHomeCatalogTabHomeMinor
     extends PageRouteInfo<UiRouteHomeCatalogTabHomeMinorArgs> {
   UiRouteHomeCatalogTabHomeMinor({
     Key? key,
+    required int aaa,
     List<PageRouteInfo>? children,
   }) : super(
           UiRouteHomeCatalogTabHomeMinor.name,
-          args: UiRouteHomeCatalogTabHomeMinorArgs(key: key),
+          args: UiRouteHomeCatalogTabHomeMinorArgs(
+            key: key,
+            aaa: aaa,
+          ),
           initialChildren: children,
         );
 
@@ -239,13 +245,18 @@ class UiRouteHomeCatalogTabHomeMinor
 }
 
 class UiRouteHomeCatalogTabHomeMinorArgs {
-  const UiRouteHomeCatalogTabHomeMinorArgs({this.key});
+  const UiRouteHomeCatalogTabHomeMinorArgs({
+    this.key,
+    required this.aaa,
+  });
 
   final Key? key;
 
+  final int aaa;
+
   @override
   String toString() {
-    return 'UiRouteHomeCatalogTabHomeMinorArgs{key: $key}';
+    return 'UiRouteHomeCatalogTabHomeMinorArgs{key: $key, aaa: $aaa}';
   }
 }
 
