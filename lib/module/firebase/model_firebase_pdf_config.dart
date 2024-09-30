@@ -48,9 +48,22 @@ abstract class MinorCategory with _$MinorCategory {
     @Default('') String minorTitle,
     @Default('') String minorSummary,
     @Default('') String markdown,
-    @Default('') String pdfId,
+    @Default({}) Map<String, DeteilCategory> deteils,
   }) = _MinorCategory;
 
   factory MinorCategory.fromJson(Map<String, dynamic> json) =>
       _$MinorCategoryFromJson(json);
+}
+
+@freezed
+abstract class DeteilCategory with _$DeteilCategory {
+  factory DeteilCategory({
+    @Default('') String id,
+    @Default('') String detailTitle,
+    @Default('') String detailSummary,
+    @Default('') String markdown,
+  }) = _DeteilCategory;
+
+  factory DeteilCategory.fromJson(Map<String, dynamic> json) =>
+      _$DeteilCategoryFromJson(json);
 }

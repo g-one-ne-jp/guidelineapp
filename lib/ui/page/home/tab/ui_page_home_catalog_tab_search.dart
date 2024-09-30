@@ -40,8 +40,11 @@ class UiPageHomeCatalogTabSearch extends HookConsumerWidget
       return () => customDebugPrint('dispose!');
     }, []);
 
-    return Container(
-      color: Colors.grey,
+    return Scaffold(
+      appBar: AppBar(title: const Text('検索')),
+      body: Container(
+        color: Colors.grey,
+      ),
     );
   }
 }

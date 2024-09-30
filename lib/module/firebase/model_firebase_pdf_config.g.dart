@@ -68,7 +68,11 @@ _$MinorCategoryImpl _$$MinorCategoryImplFromJson(Map<String, dynamic> json) =>
       minorTitle: json['minorTitle'] as String? ?? '',
       minorSummary: json['minorSummary'] as String? ?? '',
       markdown: json['markdown'] as String? ?? '',
-      pdfId: json['pdfId'] as String? ?? '',
+      deteils: (json['deteils'] as Map<String, dynamic>?)?.map(
+            (k, e) =>
+                MapEntry(k, DeteilCategory.fromJson(e as Map<String, dynamic>)),
+          ) ??
+          const {},
     );
 
 Map<String, dynamic> _$$MinorCategoryImplToJson(_$MinorCategoryImpl instance) =>
@@ -77,5 +81,22 @@ Map<String, dynamic> _$$MinorCategoryImplToJson(_$MinorCategoryImpl instance) =>
       'minorTitle': instance.minorTitle,
       'minorSummary': instance.minorSummary,
       'markdown': instance.markdown,
-      'pdfId': instance.pdfId,
+      'deteils': instance.deteils,
+    };
+
+_$DeteilCategoryImpl _$$DeteilCategoryImplFromJson(Map<String, dynamic> json) =>
+    _$DeteilCategoryImpl(
+      id: json['id'] as String? ?? '',
+      detailTitle: json['detailTitle'] as String? ?? '',
+      detailSummary: json['detailSummary'] as String? ?? '',
+      markdown: json['markdown'] as String? ?? '',
+    );
+
+Map<String, dynamic> _$$DeteilCategoryImplToJson(
+        _$DeteilCategoryImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'detailTitle': instance.detailTitle,
+      'detailSummary': instance.detailSummary,
+      'markdown': instance.markdown,
     };

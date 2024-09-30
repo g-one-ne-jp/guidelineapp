@@ -113,3 +113,85 @@ class UiUtilWidgetTile extends HookConsumerWidget {
     }
   }
 }
+
+// ignore: must_be_immutable
+class UiUtilWidgetTile2 extends HookConsumerWidget {
+  UiUtilWidgetTile2({
+    super.key,
+    required this.minor,
+    required this.onMinorTap,
+  });
+
+  var minor = MinorCategory();
+  final Function(MinorCategory) onMinorTap;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final _isExpanded = useState(false);
+
+    useEffect(() {
+      Future<void>(() async {});
+      return () => customDebugPrint('dispose!');
+    }, []);
+
+    Widget createCard({
+      required String title,
+      required String summary,
+      required Function onTap,
+      required Map<String, DeteilCategory> children,
+    }) {
+      return Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(title),
+          ),
+          Card(
+            color: Colors.white,
+            child: children.isEmpty
+                ? ListTile(
+                    trailing: const Icon(Icons.arrow_forward_ios),
+                    title:
+                        Text(minor.deteils.entries.first.value.detailSummary),
+                    onTap: () {
+                      onTap();
+                    },
+                  )
+                : ExpansionTile(
+                    trailing: Icon(
+                      _isExpanded.value
+                          ? Icons.remove // 展開されている場合のアイコン
+                          : Icons.add, // 折りたたまれている場合のアイコン
+                    ),
+                    onExpansionChanged: (bool expanded) {
+                      _isExpanded.value = expanded;
+                    },
+                    title: Text(minor.minorTitle),
+                    subtitle: Text(minor.minorSummary),
+                    children: minor.deteils.entries.map((item) {
+                      return ListTile(
+                        trailing: const Icon(Icons.arrow_forward_ios),
+                        title: Text(item.value.detailTitle),
+                        onTap: () {
+                          onTap();
+                        },
+                      );
+                    }).toList(),
+                  ),
+          ),
+        ],
+      );
+    }
+
+    return createCard(
+      title: minor.minorTitle,
+      summary: minor.minorTitle,
+      onTap: () {
+        //onMinorTap(sub.minors.entries.first.value);
+      },
+      children: minor.deteils,
+    );
+  }
+}
