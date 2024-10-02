@@ -48,12 +48,15 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     UiRouteHomeCatalogTabHomeMinor.name: (routeData) {
-      final args = routeData.argsAs<UiRouteHomeCatalogTabHomeMinorArgs>();
+      final pathParams = routeData.inheritedPathParams;
+      final args = routeData.argsAs<UiRouteHomeCatalogTabHomeMinorArgs>(
+          orElse: () => UiRouteHomeCatalogTabHomeMinorArgs(
+              mainorKey: pathParams.getString('mainorKey')));
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: UiPageHomeCatalogTabHomeMinor(
           key: args.key,
-          aaa: args.aaa,
+          mainorKey: args.mainorKey,
         ),
       );
     },
@@ -227,14 +230,15 @@ class UiRouteHomeCatalogTabHomeMinor
     extends PageRouteInfo<UiRouteHomeCatalogTabHomeMinorArgs> {
   UiRouteHomeCatalogTabHomeMinor({
     Key? key,
-    required int aaa,
+    required String mainorKey,
     List<PageRouteInfo>? children,
   }) : super(
           UiRouteHomeCatalogTabHomeMinor.name,
           args: UiRouteHomeCatalogTabHomeMinorArgs(
             key: key,
-            aaa: aaa,
+            mainorKey: mainorKey,
           ),
+          rawPathParams: {'mainorKey': mainorKey},
           initialChildren: children,
         );
 
@@ -247,16 +251,16 @@ class UiRouteHomeCatalogTabHomeMinor
 class UiRouteHomeCatalogTabHomeMinorArgs {
   const UiRouteHomeCatalogTabHomeMinorArgs({
     this.key,
-    required this.aaa,
+    required this.mainorKey,
   });
 
   final Key? key;
 
-  final int aaa;
+  final String mainorKey;
 
   @override
   String toString() {
-    return 'UiRouteHomeCatalogTabHomeMinorArgs{key: $key, aaa: $aaa}';
+    return 'UiRouteHomeCatalogTabHomeMinorArgs{key: $key, mainorKey: $mainorKey}';
   }
 }
 

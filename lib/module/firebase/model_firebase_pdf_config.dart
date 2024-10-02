@@ -18,7 +18,7 @@ abstract class ModelFirebasePdfConfig with _$ModelFirebasePdfConfig {
 @freezed
 abstract class MajorCategory with _$MajorCategory {
   factory MajorCategory({
-    @Default('') String id,
+    @Default('') String majorKey,
     @Default('') String majorTitle,
     @Default('') String majorSummary,
     @Default({}) Map<String, SubCategory> subs,
@@ -31,7 +31,7 @@ abstract class MajorCategory with _$MajorCategory {
 @freezed
 abstract class SubCategory with _$SubCategory {
   factory SubCategory({
-    @Default('') String id,
+    @Default('') String subKey,
     @Default('') String subTitle,
     @Default('') String subSummary,
     @Default({}) Map<String, MinorCategory> minors,
@@ -44,11 +44,10 @@ abstract class SubCategory with _$SubCategory {
 @freezed
 abstract class MinorCategory with _$MinorCategory {
   factory MinorCategory({
-    @Default('') String id,
+    @Default('') String mainorKey,
     @Default('') String minorTitle,
     @Default('') String minorSummary,
-    @Default('') String markdown,
-    @Default({}) Map<String, DeteilCategory> deteils,
+    @Default({}) Map<String, DetailCategory> details,
   }) = _MinorCategory;
 
   factory MinorCategory.fromJson(Map<String, dynamic> json) =>
@@ -56,14 +55,38 @@ abstract class MinorCategory with _$MinorCategory {
 }
 
 @freezed
-abstract class DeteilCategory with _$DeteilCategory {
-  factory DeteilCategory({
-    @Default('') String id,
+abstract class DetailCategory with _$DetailCategory {
+  factory DetailCategory({
+    @Default('') String detailKey,
     @Default('') String detailTitle,
     @Default('') String detailSummary,
-    @Default('') String markdown,
+    @Default({}) Map<String, Content> contents,
   }) = _DeteilCategory;
 
-  factory DeteilCategory.fromJson(Map<String, dynamic> json) =>
-      _$DeteilCategoryFromJson(json);
+  factory DetailCategory.fromJson(Map<String, dynamic> json) =>
+      _$DetailCategoryFromJson(json);
+}
+
+@freezed
+abstract class Content with _$Content {
+  factory Content({
+    @Default('') String contentKey,
+    @Default('') String contentTitle,
+    @Default({}) Map<String, Settion> settions,
+  }) = _Content;
+
+  factory Content.fromJson(Map<String, dynamic> json) =>
+      _$ContentFromJson(json);
+}
+
+@freezed
+abstract class Settion with _$Settion {
+  factory Settion({
+    @Default('') String settionTitle,
+    @Default('') String pdfId,
+    @Default('') String markdown,
+  }) = _Settion;
+
+  factory Settion.fromJson(Map<String, dynamic> json) =>
+      _$SettionFromJson(json);
 }

@@ -175,7 +175,7 @@ MajorCategory _$MajorCategoryFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$MajorCategory {
-  String get id => throw _privateConstructorUsedError;
+  String get majorKey => throw _privateConstructorUsedError;
   String get majorTitle => throw _privateConstructorUsedError;
   String get majorSummary => throw _privateConstructorUsedError;
   Map<String, SubCategory> get subs => throw _privateConstructorUsedError;
@@ -193,7 +193,7 @@ abstract class $MajorCategoryCopyWith<$Res> {
       _$MajorCategoryCopyWithImpl<$Res, MajorCategory>;
   @useResult
   $Res call(
-      {String id,
+      {String majorKey,
       String majorTitle,
       String majorSummary,
       Map<String, SubCategory> subs});
@@ -212,15 +212,15 @@ class _$MajorCategoryCopyWithImpl<$Res, $Val extends MajorCategory>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
+    Object? majorKey = null,
     Object? majorTitle = null,
     Object? majorSummary = null,
     Object? subs = null,
   }) {
     return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
+      majorKey: null == majorKey
+          ? _value.majorKey
+          : majorKey // ignore: cast_nullable_to_non_nullable
               as String,
       majorTitle: null == majorTitle
           ? _value.majorTitle
@@ -247,7 +247,7 @@ abstract class _$$MajorCategoryImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String id,
+      {String majorKey,
       String majorTitle,
       String majorSummary,
       Map<String, SubCategory> subs});
@@ -264,15 +264,15 @@ class __$$MajorCategoryImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
+    Object? majorKey = null,
     Object? majorTitle = null,
     Object? majorSummary = null,
     Object? subs = null,
   }) {
     return _then(_$MajorCategoryImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
+      majorKey: null == majorKey
+          ? _value.majorKey
+          : majorKey // ignore: cast_nullable_to_non_nullable
               as String,
       majorTitle: null == majorTitle
           ? _value.majorTitle
@@ -294,7 +294,7 @@ class __$$MajorCategoryImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$MajorCategoryImpl implements _MajorCategory {
   _$MajorCategoryImpl(
-      {this.id = '',
+      {this.majorKey = '',
       this.majorTitle = '',
       this.majorSummary = '',
       final Map<String, SubCategory> subs = const {}})
@@ -305,7 +305,7 @@ class _$MajorCategoryImpl implements _MajorCategory {
 
   @override
   @JsonKey()
-  final String id;
+  final String majorKey;
   @override
   @JsonKey()
   final String majorTitle;
@@ -323,7 +323,7 @@ class _$MajorCategoryImpl implements _MajorCategory {
 
   @override
   String toString() {
-    return 'MajorCategory(id: $id, majorTitle: $majorTitle, majorSummary: $majorSummary, subs: $subs)';
+    return 'MajorCategory(majorKey: $majorKey, majorTitle: $majorTitle, majorSummary: $majorSummary, subs: $subs)';
   }
 
   @override
@@ -331,7 +331,8 @@ class _$MajorCategoryImpl implements _MajorCategory {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MajorCategoryImpl &&
-            (identical(other.id, id) || other.id == id) &&
+            (identical(other.majorKey, majorKey) ||
+                other.majorKey == majorKey) &&
             (identical(other.majorTitle, majorTitle) ||
                 other.majorTitle == majorTitle) &&
             (identical(other.majorSummary, majorSummary) ||
@@ -341,8 +342,8 @@ class _$MajorCategoryImpl implements _MajorCategory {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, majorTitle, majorSummary,
-      const DeepCollectionEquality().hash(_subs));
+  int get hashCode => Object.hash(runtimeType, majorKey, majorTitle,
+      majorSummary, const DeepCollectionEquality().hash(_subs));
 
   @JsonKey(ignore: true)
   @override
@@ -360,7 +361,7 @@ class _$MajorCategoryImpl implements _MajorCategory {
 
 abstract class _MajorCategory implements MajorCategory {
   factory _MajorCategory(
-      {final String id,
+      {final String majorKey,
       final String majorTitle,
       final String majorSummary,
       final Map<String, SubCategory> subs}) = _$MajorCategoryImpl;
@@ -369,7 +370,7 @@ abstract class _MajorCategory implements MajorCategory {
       _$MajorCategoryImpl.fromJson;
 
   @override
-  String get id;
+  String get majorKey;
   @override
   String get majorTitle;
   @override
@@ -388,7 +389,7 @@ SubCategory _$SubCategoryFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SubCategory {
-  String get id => throw _privateConstructorUsedError;
+  String get subKey => throw _privateConstructorUsedError;
   String get subTitle => throw _privateConstructorUsedError;
   String get subSummary => throw _privateConstructorUsedError;
   Map<String, MinorCategory> get minors => throw _privateConstructorUsedError;
@@ -406,7 +407,7 @@ abstract class $SubCategoryCopyWith<$Res> {
       _$SubCategoryCopyWithImpl<$Res, SubCategory>;
   @useResult
   $Res call(
-      {String id,
+      {String subKey,
       String subTitle,
       String subSummary,
       Map<String, MinorCategory> minors});
@@ -425,15 +426,15 @@ class _$SubCategoryCopyWithImpl<$Res, $Val extends SubCategory>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
+    Object? subKey = null,
     Object? subTitle = null,
     Object? subSummary = null,
     Object? minors = null,
   }) {
     return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
+      subKey: null == subKey
+          ? _value.subKey
+          : subKey // ignore: cast_nullable_to_non_nullable
               as String,
       subTitle: null == subTitle
           ? _value.subTitle
@@ -460,7 +461,7 @@ abstract class _$$SubCategoryImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String id,
+      {String subKey,
       String subTitle,
       String subSummary,
       Map<String, MinorCategory> minors});
@@ -477,15 +478,15 @@ class __$$SubCategoryImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
+    Object? subKey = null,
     Object? subTitle = null,
     Object? subSummary = null,
     Object? minors = null,
   }) {
     return _then(_$SubCategoryImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
+      subKey: null == subKey
+          ? _value.subKey
+          : subKey // ignore: cast_nullable_to_non_nullable
               as String,
       subTitle: null == subTitle
           ? _value.subTitle
@@ -507,7 +508,7 @@ class __$$SubCategoryImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$SubCategoryImpl implements _SubCategory {
   _$SubCategoryImpl(
-      {this.id = '',
+      {this.subKey = '',
       this.subTitle = '',
       this.subSummary = '',
       final Map<String, MinorCategory> minors = const {}})
@@ -518,7 +519,7 @@ class _$SubCategoryImpl implements _SubCategory {
 
   @override
   @JsonKey()
-  final String id;
+  final String subKey;
   @override
   @JsonKey()
   final String subTitle;
@@ -536,7 +537,7 @@ class _$SubCategoryImpl implements _SubCategory {
 
   @override
   String toString() {
-    return 'SubCategory(id: $id, subTitle: $subTitle, subSummary: $subSummary, minors: $minors)';
+    return 'SubCategory(subKey: $subKey, subTitle: $subTitle, subSummary: $subSummary, minors: $minors)';
   }
 
   @override
@@ -544,7 +545,7 @@ class _$SubCategoryImpl implements _SubCategory {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SubCategoryImpl &&
-            (identical(other.id, id) || other.id == id) &&
+            (identical(other.subKey, subKey) || other.subKey == subKey) &&
             (identical(other.subTitle, subTitle) ||
                 other.subTitle == subTitle) &&
             (identical(other.subSummary, subSummary) ||
@@ -554,7 +555,7 @@ class _$SubCategoryImpl implements _SubCategory {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, subTitle, subSummary,
+  int get hashCode => Object.hash(runtimeType, subKey, subTitle, subSummary,
       const DeepCollectionEquality().hash(_minors));
 
   @JsonKey(ignore: true)
@@ -573,7 +574,7 @@ class _$SubCategoryImpl implements _SubCategory {
 
 abstract class _SubCategory implements SubCategory {
   factory _SubCategory(
-      {final String id,
+      {final String subKey,
       final String subTitle,
       final String subSummary,
       final Map<String, MinorCategory> minors}) = _$SubCategoryImpl;
@@ -582,7 +583,7 @@ abstract class _SubCategory implements SubCategory {
       _$SubCategoryImpl.fromJson;
 
   @override
-  String get id;
+  String get subKey;
   @override
   String get subTitle;
   @override
@@ -601,11 +602,10 @@ MinorCategory _$MinorCategoryFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$MinorCategory {
-  String get id => throw _privateConstructorUsedError;
+  String get mainorKey => throw _privateConstructorUsedError;
   String get minorTitle => throw _privateConstructorUsedError;
   String get minorSummary => throw _privateConstructorUsedError;
-  String get markdown => throw _privateConstructorUsedError;
-  Map<String, DeteilCategory> get deteils => throw _privateConstructorUsedError;
+  Map<String, DetailCategory> get details => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -620,11 +620,10 @@ abstract class $MinorCategoryCopyWith<$Res> {
       _$MinorCategoryCopyWithImpl<$Res, MinorCategory>;
   @useResult
   $Res call(
-      {String id,
+      {String mainorKey,
       String minorTitle,
       String minorSummary,
-      String markdown,
-      Map<String, DeteilCategory> deteils});
+      Map<String, DetailCategory> details});
 }
 
 /// @nodoc
@@ -640,16 +639,15 @@ class _$MinorCategoryCopyWithImpl<$Res, $Val extends MinorCategory>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
+    Object? mainorKey = null,
     Object? minorTitle = null,
     Object? minorSummary = null,
-    Object? markdown = null,
-    Object? deteils = null,
+    Object? details = null,
   }) {
     return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
+      mainorKey: null == mainorKey
+          ? _value.mainorKey
+          : mainorKey // ignore: cast_nullable_to_non_nullable
               as String,
       minorTitle: null == minorTitle
           ? _value.minorTitle
@@ -659,14 +657,10 @@ class _$MinorCategoryCopyWithImpl<$Res, $Val extends MinorCategory>
           ? _value.minorSummary
           : minorSummary // ignore: cast_nullable_to_non_nullable
               as String,
-      markdown: null == markdown
-          ? _value.markdown
-          : markdown // ignore: cast_nullable_to_non_nullable
-              as String,
-      deteils: null == deteils
-          ? _value.deteils
-          : deteils // ignore: cast_nullable_to_non_nullable
-              as Map<String, DeteilCategory>,
+      details: null == details
+          ? _value.details
+          : details // ignore: cast_nullable_to_non_nullable
+              as Map<String, DetailCategory>,
     ) as $Val);
   }
 }
@@ -680,11 +674,10 @@ abstract class _$$MinorCategoryImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String id,
+      {String mainorKey,
       String minorTitle,
       String minorSummary,
-      String markdown,
-      Map<String, DeteilCategory> deteils});
+      Map<String, DetailCategory> details});
 }
 
 /// @nodoc
@@ -698,16 +691,15 @@ class __$$MinorCategoryImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
+    Object? mainorKey = null,
     Object? minorTitle = null,
     Object? minorSummary = null,
-    Object? markdown = null,
-    Object? deteils = null,
+    Object? details = null,
   }) {
     return _then(_$MinorCategoryImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
+      mainorKey: null == mainorKey
+          ? _value.mainorKey
+          : mainorKey // ignore: cast_nullable_to_non_nullable
               as String,
       minorTitle: null == minorTitle
           ? _value.minorTitle
@@ -717,14 +709,10 @@ class __$$MinorCategoryImplCopyWithImpl<$Res>
           ? _value.minorSummary
           : minorSummary // ignore: cast_nullable_to_non_nullable
               as String,
-      markdown: null == markdown
-          ? _value.markdown
-          : markdown // ignore: cast_nullable_to_non_nullable
-              as String,
-      deteils: null == deteils
-          ? _value._deteils
-          : deteils // ignore: cast_nullable_to_non_nullable
-              as Map<String, DeteilCategory>,
+      details: null == details
+          ? _value._details
+          : details // ignore: cast_nullable_to_non_nullable
+              as Map<String, DetailCategory>,
     ));
   }
 }
@@ -733,40 +721,36 @@ class __$$MinorCategoryImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$MinorCategoryImpl implements _MinorCategory {
   _$MinorCategoryImpl(
-      {this.id = '',
+      {this.mainorKey = '',
       this.minorTitle = '',
       this.minorSummary = '',
-      this.markdown = '',
-      final Map<String, DeteilCategory> deteils = const {}})
-      : _deteils = deteils;
+      final Map<String, DetailCategory> details = const {}})
+      : _details = details;
 
   factory _$MinorCategoryImpl.fromJson(Map<String, dynamic> json) =>
       _$$MinorCategoryImplFromJson(json);
 
   @override
   @JsonKey()
-  final String id;
+  final String mainorKey;
   @override
   @JsonKey()
   final String minorTitle;
   @override
   @JsonKey()
   final String minorSummary;
+  final Map<String, DetailCategory> _details;
   @override
   @JsonKey()
-  final String markdown;
-  final Map<String, DeteilCategory> _deteils;
-  @override
-  @JsonKey()
-  Map<String, DeteilCategory> get deteils {
-    if (_deteils is EqualUnmodifiableMapView) return _deteils;
+  Map<String, DetailCategory> get details {
+    if (_details is EqualUnmodifiableMapView) return _details;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_deteils);
+    return EqualUnmodifiableMapView(_details);
   }
 
   @override
   String toString() {
-    return 'MinorCategory(id: $id, minorTitle: $minorTitle, minorSummary: $minorSummary, markdown: $markdown, deteils: $deteils)';
+    return 'MinorCategory(mainorKey: $mainorKey, minorTitle: $minorTitle, minorSummary: $minorSummary, details: $details)';
   }
 
   @override
@@ -774,20 +758,19 @@ class _$MinorCategoryImpl implements _MinorCategory {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MinorCategoryImpl &&
-            (identical(other.id, id) || other.id == id) &&
+            (identical(other.mainorKey, mainorKey) ||
+                other.mainorKey == mainorKey) &&
             (identical(other.minorTitle, minorTitle) ||
                 other.minorTitle == minorTitle) &&
             (identical(other.minorSummary, minorSummary) ||
                 other.minorSummary == minorSummary) &&
-            (identical(other.markdown, markdown) ||
-                other.markdown == markdown) &&
-            const DeepCollectionEquality().equals(other._deteils, _deteils));
+            const DeepCollectionEquality().equals(other._details, _details));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, minorTitle, minorSummary,
-      markdown, const DeepCollectionEquality().hash(_deteils));
+  int get hashCode => Object.hash(runtimeType, mainorKey, minorTitle,
+      minorSummary, const DeepCollectionEquality().hash(_details));
 
   @JsonKey(ignore: true)
   @override
@@ -805,62 +788,62 @@ class _$MinorCategoryImpl implements _MinorCategory {
 
 abstract class _MinorCategory implements MinorCategory {
   factory _MinorCategory(
-      {final String id,
+      {final String mainorKey,
       final String minorTitle,
       final String minorSummary,
-      final String markdown,
-      final Map<String, DeteilCategory> deteils}) = _$MinorCategoryImpl;
+      final Map<String, DetailCategory> details}) = _$MinorCategoryImpl;
 
   factory _MinorCategory.fromJson(Map<String, dynamic> json) =
       _$MinorCategoryImpl.fromJson;
 
   @override
-  String get id;
+  String get mainorKey;
   @override
   String get minorTitle;
   @override
   String get minorSummary;
   @override
-  String get markdown;
-  @override
-  Map<String, DeteilCategory> get deteils;
+  Map<String, DetailCategory> get details;
   @override
   @JsonKey(ignore: true)
   _$$MinorCategoryImplCopyWith<_$MinorCategoryImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-DeteilCategory _$DeteilCategoryFromJson(Map<String, dynamic> json) {
+DetailCategory _$DetailCategoryFromJson(Map<String, dynamic> json) {
   return _DeteilCategory.fromJson(json);
 }
 
 /// @nodoc
-mixin _$DeteilCategory {
-  String get id => throw _privateConstructorUsedError;
+mixin _$DetailCategory {
+  String get detailKey => throw _privateConstructorUsedError;
   String get detailTitle => throw _privateConstructorUsedError;
   String get detailSummary => throw _privateConstructorUsedError;
-  String get markdown => throw _privateConstructorUsedError;
+  Map<String, Content> get contents => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $DeteilCategoryCopyWith<DeteilCategory> get copyWith =>
+  $DetailCategoryCopyWith<DetailCategory> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $DeteilCategoryCopyWith<$Res> {
-  factory $DeteilCategoryCopyWith(
-          DeteilCategory value, $Res Function(DeteilCategory) then) =
-      _$DeteilCategoryCopyWithImpl<$Res, DeteilCategory>;
+abstract class $DetailCategoryCopyWith<$Res> {
+  factory $DetailCategoryCopyWith(
+          DetailCategory value, $Res Function(DetailCategory) then) =
+      _$DetailCategoryCopyWithImpl<$Res, DetailCategory>;
   @useResult
   $Res call(
-      {String id, String detailTitle, String detailSummary, String markdown});
+      {String detailKey,
+      String detailTitle,
+      String detailSummary,
+      Map<String, Content> contents});
 }
 
 /// @nodoc
-class _$DeteilCategoryCopyWithImpl<$Res, $Val extends DeteilCategory>
-    implements $DeteilCategoryCopyWith<$Res> {
-  _$DeteilCategoryCopyWithImpl(this._value, this._then);
+class _$DetailCategoryCopyWithImpl<$Res, $Val extends DetailCategory>
+    implements $DetailCategoryCopyWith<$Res> {
+  _$DetailCategoryCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -870,15 +853,15 @@ class _$DeteilCategoryCopyWithImpl<$Res, $Val extends DeteilCategory>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
+    Object? detailKey = null,
     Object? detailTitle = null,
     Object? detailSummary = null,
-    Object? markdown = null,
+    Object? contents = null,
   }) {
     return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
+      detailKey: null == detailKey
+          ? _value.detailKey
+          : detailKey // ignore: cast_nullable_to_non_nullable
               as String,
       detailTitle: null == detailTitle
           ? _value.detailTitle
@@ -888,29 +871,32 @@ class _$DeteilCategoryCopyWithImpl<$Res, $Val extends DeteilCategory>
           ? _value.detailSummary
           : detailSummary // ignore: cast_nullable_to_non_nullable
               as String,
-      markdown: null == markdown
-          ? _value.markdown
-          : markdown // ignore: cast_nullable_to_non_nullable
-              as String,
+      contents: null == contents
+          ? _value.contents
+          : contents // ignore: cast_nullable_to_non_nullable
+              as Map<String, Content>,
     ) as $Val);
   }
 }
 
 /// @nodoc
 abstract class _$$DeteilCategoryImplCopyWith<$Res>
-    implements $DeteilCategoryCopyWith<$Res> {
+    implements $DetailCategoryCopyWith<$Res> {
   factory _$$DeteilCategoryImplCopyWith(_$DeteilCategoryImpl value,
           $Res Function(_$DeteilCategoryImpl) then) =
       __$$DeteilCategoryImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {String id, String detailTitle, String detailSummary, String markdown});
+      {String detailKey,
+      String detailTitle,
+      String detailSummary,
+      Map<String, Content> contents});
 }
 
 /// @nodoc
 class __$$DeteilCategoryImplCopyWithImpl<$Res>
-    extends _$DeteilCategoryCopyWithImpl<$Res, _$DeteilCategoryImpl>
+    extends _$DetailCategoryCopyWithImpl<$Res, _$DeteilCategoryImpl>
     implements _$$DeteilCategoryImplCopyWith<$Res> {
   __$$DeteilCategoryImplCopyWithImpl(
       _$DeteilCategoryImpl _value, $Res Function(_$DeteilCategoryImpl) _then)
@@ -919,15 +905,15 @@ class __$$DeteilCategoryImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
+    Object? detailKey = null,
     Object? detailTitle = null,
     Object? detailSummary = null,
-    Object? markdown = null,
+    Object? contents = null,
   }) {
     return _then(_$DeteilCategoryImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
+      detailKey: null == detailKey
+          ? _value.detailKey
+          : detailKey // ignore: cast_nullable_to_non_nullable
               as String,
       detailTitle: null == detailTitle
           ? _value.detailTitle
@@ -937,10 +923,10 @@ class __$$DeteilCategoryImplCopyWithImpl<$Res>
           ? _value.detailSummary
           : detailSummary // ignore: cast_nullable_to_non_nullable
               as String,
-      markdown: null == markdown
-          ? _value.markdown
-          : markdown // ignore: cast_nullable_to_non_nullable
-              as String,
+      contents: null == contents
+          ? _value._contents
+          : contents // ignore: cast_nullable_to_non_nullable
+              as Map<String, Content>,
     ));
   }
 }
@@ -949,30 +935,36 @@ class __$$DeteilCategoryImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$DeteilCategoryImpl implements _DeteilCategory {
   _$DeteilCategoryImpl(
-      {this.id = '',
+      {this.detailKey = '',
       this.detailTitle = '',
       this.detailSummary = '',
-      this.markdown = ''});
+      final Map<String, Content> contents = const {}})
+      : _contents = contents;
 
   factory _$DeteilCategoryImpl.fromJson(Map<String, dynamic> json) =>
       _$$DeteilCategoryImplFromJson(json);
 
   @override
   @JsonKey()
-  final String id;
+  final String detailKey;
   @override
   @JsonKey()
   final String detailTitle;
   @override
   @JsonKey()
   final String detailSummary;
+  final Map<String, Content> _contents;
   @override
   @JsonKey()
-  final String markdown;
+  Map<String, Content> get contents {
+    if (_contents is EqualUnmodifiableMapView) return _contents;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_contents);
+  }
 
   @override
   String toString() {
-    return 'DeteilCategory(id: $id, detailTitle: $detailTitle, detailSummary: $detailSummary, markdown: $markdown)';
+    return 'DetailCategory(detailKey: $detailKey, detailTitle: $detailTitle, detailSummary: $detailSummary, contents: $contents)';
   }
 
   @override
@@ -980,19 +972,19 @@ class _$DeteilCategoryImpl implements _DeteilCategory {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DeteilCategoryImpl &&
-            (identical(other.id, id) || other.id == id) &&
+            (identical(other.detailKey, detailKey) ||
+                other.detailKey == detailKey) &&
             (identical(other.detailTitle, detailTitle) ||
                 other.detailTitle == detailTitle) &&
             (identical(other.detailSummary, detailSummary) ||
                 other.detailSummary == detailSummary) &&
-            (identical(other.markdown, markdown) ||
-                other.markdown == markdown));
+            const DeepCollectionEquality().equals(other._contents, _contents));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, detailTitle, detailSummary, markdown);
+  int get hashCode => Object.hash(runtimeType, detailKey, detailTitle,
+      detailSummary, const DeepCollectionEquality().hash(_contents));
 
   @JsonKey(ignore: true)
   @override
@@ -1009,26 +1001,382 @@ class _$DeteilCategoryImpl implements _DeteilCategory {
   }
 }
 
-abstract class _DeteilCategory implements DeteilCategory {
+abstract class _DeteilCategory implements DetailCategory {
   factory _DeteilCategory(
-      {final String id,
+      {final String detailKey,
       final String detailTitle,
       final String detailSummary,
-      final String markdown}) = _$DeteilCategoryImpl;
+      final Map<String, Content> contents}) = _$DeteilCategoryImpl;
 
   factory _DeteilCategory.fromJson(Map<String, dynamic> json) =
       _$DeteilCategoryImpl.fromJson;
 
   @override
-  String get id;
+  String get detailKey;
   @override
   String get detailTitle;
   @override
   String get detailSummary;
   @override
-  String get markdown;
+  Map<String, Content> get contents;
   @override
   @JsonKey(ignore: true)
   _$$DeteilCategoryImplCopyWith<_$DeteilCategoryImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+Content _$ContentFromJson(Map<String, dynamic> json) {
+  return _Content.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Content {
+  String get contentKey => throw _privateConstructorUsedError;
+  String get contentTitle => throw _privateConstructorUsedError;
+  Map<String, Settion> get settions => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ContentCopyWith<Content> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ContentCopyWith<$Res> {
+  factory $ContentCopyWith(Content value, $Res Function(Content) then) =
+      _$ContentCopyWithImpl<$Res, Content>;
+  @useResult
+  $Res call(
+      {String contentKey, String contentTitle, Map<String, Settion> settions});
+}
+
+/// @nodoc
+class _$ContentCopyWithImpl<$Res, $Val extends Content>
+    implements $ContentCopyWith<$Res> {
+  _$ContentCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? contentKey = null,
+    Object? contentTitle = null,
+    Object? settions = null,
+  }) {
+    return _then(_value.copyWith(
+      contentKey: null == contentKey
+          ? _value.contentKey
+          : contentKey // ignore: cast_nullable_to_non_nullable
+              as String,
+      contentTitle: null == contentTitle
+          ? _value.contentTitle
+          : contentTitle // ignore: cast_nullable_to_non_nullable
+              as String,
+      settions: null == settions
+          ? _value.settions
+          : settions // ignore: cast_nullable_to_non_nullable
+              as Map<String, Settion>,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$ContentImplCopyWith<$Res> implements $ContentCopyWith<$Res> {
+  factory _$$ContentImplCopyWith(
+          _$ContentImpl value, $Res Function(_$ContentImpl) then) =
+      __$$ContentImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String contentKey, String contentTitle, Map<String, Settion> settions});
+}
+
+/// @nodoc
+class __$$ContentImplCopyWithImpl<$Res>
+    extends _$ContentCopyWithImpl<$Res, _$ContentImpl>
+    implements _$$ContentImplCopyWith<$Res> {
+  __$$ContentImplCopyWithImpl(
+      _$ContentImpl _value, $Res Function(_$ContentImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? contentKey = null,
+    Object? contentTitle = null,
+    Object? settions = null,
+  }) {
+    return _then(_$ContentImpl(
+      contentKey: null == contentKey
+          ? _value.contentKey
+          : contentKey // ignore: cast_nullable_to_non_nullable
+              as String,
+      contentTitle: null == contentTitle
+          ? _value.contentTitle
+          : contentTitle // ignore: cast_nullable_to_non_nullable
+              as String,
+      settions: null == settions
+          ? _value._settions
+          : settions // ignore: cast_nullable_to_non_nullable
+              as Map<String, Settion>,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ContentImpl implements _Content {
+  _$ContentImpl(
+      {this.contentKey = '',
+      this.contentTitle = '',
+      final Map<String, Settion> settions = const {}})
+      : _settions = settions;
+
+  factory _$ContentImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ContentImplFromJson(json);
+
+  @override
+  @JsonKey()
+  final String contentKey;
+  @override
+  @JsonKey()
+  final String contentTitle;
+  final Map<String, Settion> _settions;
+  @override
+  @JsonKey()
+  Map<String, Settion> get settions {
+    if (_settions is EqualUnmodifiableMapView) return _settions;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_settions);
+  }
+
+  @override
+  String toString() {
+    return 'Content(contentKey: $contentKey, contentTitle: $contentTitle, settions: $settions)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ContentImpl &&
+            (identical(other.contentKey, contentKey) ||
+                other.contentKey == contentKey) &&
+            (identical(other.contentTitle, contentTitle) ||
+                other.contentTitle == contentTitle) &&
+            const DeepCollectionEquality().equals(other._settions, _settions));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, contentKey, contentTitle,
+      const DeepCollectionEquality().hash(_settions));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ContentImplCopyWith<_$ContentImpl> get copyWith =>
+      __$$ContentImplCopyWithImpl<_$ContentImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ContentImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Content implements Content {
+  factory _Content(
+      {final String contentKey,
+      final String contentTitle,
+      final Map<String, Settion> settions}) = _$ContentImpl;
+
+  factory _Content.fromJson(Map<String, dynamic> json) = _$ContentImpl.fromJson;
+
+  @override
+  String get contentKey;
+  @override
+  String get contentTitle;
+  @override
+  Map<String, Settion> get settions;
+  @override
+  @JsonKey(ignore: true)
+  _$$ContentImplCopyWith<_$ContentImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+Settion _$SettionFromJson(Map<String, dynamic> json) {
+  return _Settion.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Settion {
+  String get settionTitle => throw _privateConstructorUsedError;
+  String get pdfId => throw _privateConstructorUsedError;
+  String get markdown => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $SettionCopyWith<Settion> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SettionCopyWith<$Res> {
+  factory $SettionCopyWith(Settion value, $Res Function(Settion) then) =
+      _$SettionCopyWithImpl<$Res, Settion>;
+  @useResult
+  $Res call({String settionTitle, String pdfId, String markdown});
+}
+
+/// @nodoc
+class _$SettionCopyWithImpl<$Res, $Val extends Settion>
+    implements $SettionCopyWith<$Res> {
+  _$SettionCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? settionTitle = null,
+    Object? pdfId = null,
+    Object? markdown = null,
+  }) {
+    return _then(_value.copyWith(
+      settionTitle: null == settionTitle
+          ? _value.settionTitle
+          : settionTitle // ignore: cast_nullable_to_non_nullable
+              as String,
+      pdfId: null == pdfId
+          ? _value.pdfId
+          : pdfId // ignore: cast_nullable_to_non_nullable
+              as String,
+      markdown: null == markdown
+          ? _value.markdown
+          : markdown // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$SettionImplCopyWith<$Res> implements $SettionCopyWith<$Res> {
+  factory _$$SettionImplCopyWith(
+          _$SettionImpl value, $Res Function(_$SettionImpl) then) =
+      __$$SettionImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String settionTitle, String pdfId, String markdown});
+}
+
+/// @nodoc
+class __$$SettionImplCopyWithImpl<$Res>
+    extends _$SettionCopyWithImpl<$Res, _$SettionImpl>
+    implements _$$SettionImplCopyWith<$Res> {
+  __$$SettionImplCopyWithImpl(
+      _$SettionImpl _value, $Res Function(_$SettionImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? settionTitle = null,
+    Object? pdfId = null,
+    Object? markdown = null,
+  }) {
+    return _then(_$SettionImpl(
+      settionTitle: null == settionTitle
+          ? _value.settionTitle
+          : settionTitle // ignore: cast_nullable_to_non_nullable
+              as String,
+      pdfId: null == pdfId
+          ? _value.pdfId
+          : pdfId // ignore: cast_nullable_to_non_nullable
+              as String,
+      markdown: null == markdown
+          ? _value.markdown
+          : markdown // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$SettionImpl implements _Settion {
+  _$SettionImpl({this.settionTitle = '', this.pdfId = '', this.markdown = ''});
+
+  factory _$SettionImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SettionImplFromJson(json);
+
+  @override
+  @JsonKey()
+  final String settionTitle;
+  @override
+  @JsonKey()
+  final String pdfId;
+  @override
+  @JsonKey()
+  final String markdown;
+
+  @override
+  String toString() {
+    return 'Settion(settionTitle: $settionTitle, pdfId: $pdfId, markdown: $markdown)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SettionImpl &&
+            (identical(other.settionTitle, settionTitle) ||
+                other.settionTitle == settionTitle) &&
+            (identical(other.pdfId, pdfId) || other.pdfId == pdfId) &&
+            (identical(other.markdown, markdown) ||
+                other.markdown == markdown));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, settionTitle, pdfId, markdown);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SettionImplCopyWith<_$SettionImpl> get copyWith =>
+      __$$SettionImplCopyWithImpl<_$SettionImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$SettionImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Settion implements Settion {
+  factory _Settion(
+      {final String settionTitle,
+      final String pdfId,
+      final String markdown}) = _$SettionImpl;
+
+  factory _Settion.fromJson(Map<String, dynamic> json) = _$SettionImpl.fromJson;
+
+  @override
+  String get settionTitle;
+  @override
+  String get pdfId;
+  @override
+  String get markdown;
+  @override
+  @JsonKey(ignore: true)
+  _$$SettionImplCopyWith<_$SettionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
