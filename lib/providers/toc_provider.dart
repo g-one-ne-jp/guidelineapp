@@ -21,4 +21,19 @@ class ProviderToc extends StateNotifier<MajorCategory>
     state = data;
     return Future.value();
   }
+
+  // データを読み込むメソッド
+  MinorCategory searchMinorCategoryByKeyFromMajor(
+      MajorCategory majorCategory, String mainorKey) {
+    for (var sub in majorCategory.subs.values) {
+      for (var minor in sub.minors.values) {
+        if (minor.mainorKey == mainorKey) {
+          // 更新されたMinorCategoryを返す
+          return minor;
+        }
+      }
+    }
+    // 見つからなかった場合はnullを返す
+    return MinorCategory();
+  }
 }

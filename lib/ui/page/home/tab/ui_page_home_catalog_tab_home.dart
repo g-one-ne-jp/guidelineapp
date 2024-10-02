@@ -57,12 +57,9 @@ class UiPageHomeCatalogTabHome extends HookConsumerWidget
                 return UiUtilWidgetTile(
                     sub: value,
                     onMinorTap: (minor) {
-                      AutoRouter.of(context).push(
-                        UiPageHomeCatalogTabHomeMinor(aaa: 1) as PageRouteInfo,
+                      context.router.pushNamed(
+                        '/tabHomeMinor/${minor.mainorKey}',
                       );
-
-                      var b = 0;
-                      var a = 0;
                     });
               },
             ),

@@ -53,7 +53,8 @@ class AppRouter extends _$AppRouter {
           ],
         ),
         AutoRoute(
-            page: UiRouteHomeCatalogTabHomeMinor.page, path: '/tabHomeMinor'),
+            page: UiRouteHomeCatalogTabHomeMinor.page,
+            path: '/tabHomeMinor/:mainorKey'),
       ];
 }
 

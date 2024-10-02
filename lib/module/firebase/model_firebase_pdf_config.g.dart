@@ -24,7 +24,7 @@ Map<String, dynamic> _$$ModelFirebasePdfConfigImplToJson(
 
 _$MajorCategoryImpl _$$MajorCategoryImplFromJson(Map<String, dynamic> json) =>
     _$MajorCategoryImpl(
-      id: json['id'] as String? ?? '',
+      majorKey: json['majorKey'] as String? ?? '',
       majorTitle: json['majorTitle'] as String? ?? '',
       majorSummary: json['majorSummary'] as String? ?? '',
       subs: (json['subs'] as Map<String, dynamic>?)?.map(
@@ -36,7 +36,7 @@ _$MajorCategoryImpl _$$MajorCategoryImplFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$MajorCategoryImplToJson(_$MajorCategoryImpl instance) =>
     <String, dynamic>{
-      'id': instance.id,
+      'majorKey': instance.majorKey,
       'majorTitle': instance.majorTitle,
       'majorSummary': instance.majorSummary,
       'subs': instance.subs,
@@ -44,7 +44,7 @@ Map<String, dynamic> _$$MajorCategoryImplToJson(_$MajorCategoryImpl instance) =>
 
 _$SubCategoryImpl _$$SubCategoryImplFromJson(Map<String, dynamic> json) =>
     _$SubCategoryImpl(
-      id: json['id'] as String? ?? '',
+      subKey: json['subKey'] as String? ?? '',
       subTitle: json['subTitle'] as String? ?? '',
       subSummary: json['subSummary'] as String? ?? '',
       minors: (json['minors'] as Map<String, dynamic>?)?.map(
@@ -56,7 +56,7 @@ _$SubCategoryImpl _$$SubCategoryImplFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$SubCategoryImplToJson(_$SubCategoryImpl instance) =>
     <String, dynamic>{
-      'id': instance.id,
+      'subKey': instance.subKey,
       'subTitle': instance.subTitle,
       'subSummary': instance.subSummary,
       'minors': instance.minors,
@@ -64,39 +64,71 @@ Map<String, dynamic> _$$SubCategoryImplToJson(_$SubCategoryImpl instance) =>
 
 _$MinorCategoryImpl _$$MinorCategoryImplFromJson(Map<String, dynamic> json) =>
     _$MinorCategoryImpl(
-      id: json['id'] as String? ?? '',
+      mainorKey: json['mainorKey'] as String? ?? '',
       minorTitle: json['minorTitle'] as String? ?? '',
       minorSummary: json['minorSummary'] as String? ?? '',
-      markdown: json['markdown'] as String? ?? '',
-      deteils: (json['deteils'] as Map<String, dynamic>?)?.map(
+      details: (json['details'] as Map<String, dynamic>?)?.map(
             (k, e) =>
-                MapEntry(k, DeteilCategory.fromJson(e as Map<String, dynamic>)),
+                MapEntry(k, DetailCategory.fromJson(e as Map<String, dynamic>)),
           ) ??
           const {},
     );
 
 Map<String, dynamic> _$$MinorCategoryImplToJson(_$MinorCategoryImpl instance) =>
     <String, dynamic>{
-      'id': instance.id,
+      'mainorKey': instance.mainorKey,
       'minorTitle': instance.minorTitle,
       'minorSummary': instance.minorSummary,
-      'markdown': instance.markdown,
-      'deteils': instance.deteils,
+      'details': instance.details,
     };
 
 _$DeteilCategoryImpl _$$DeteilCategoryImplFromJson(Map<String, dynamic> json) =>
     _$DeteilCategoryImpl(
-      id: json['id'] as String? ?? '',
+      detailKey: json['detailKey'] as String? ?? '',
       detailTitle: json['detailTitle'] as String? ?? '',
       detailSummary: json['detailSummary'] as String? ?? '',
-      markdown: json['markdown'] as String? ?? '',
+      contents: (json['contents'] as Map<String, dynamic>?)?.map(
+            (k, e) => MapEntry(k, Content.fromJson(e as Map<String, dynamic>)),
+          ) ??
+          const {},
     );
 
 Map<String, dynamic> _$$DeteilCategoryImplToJson(
         _$DeteilCategoryImpl instance) =>
     <String, dynamic>{
-      'id': instance.id,
+      'detailKey': instance.detailKey,
       'detailTitle': instance.detailTitle,
       'detailSummary': instance.detailSummary,
+      'contents': instance.contents,
+    };
+
+_$ContentImpl _$$ContentImplFromJson(Map<String, dynamic> json) =>
+    _$ContentImpl(
+      contentKey: json['contentKey'] as String? ?? '',
+      contentTitle: json['contentTitle'] as String? ?? '',
+      settions: (json['settions'] as Map<String, dynamic>?)?.map(
+            (k, e) => MapEntry(k, Settion.fromJson(e as Map<String, dynamic>)),
+          ) ??
+          const {},
+    );
+
+Map<String, dynamic> _$$ContentImplToJson(_$ContentImpl instance) =>
+    <String, dynamic>{
+      'contentKey': instance.contentKey,
+      'contentTitle': instance.contentTitle,
+      'settions': instance.settions,
+    };
+
+_$SettionImpl _$$SettionImplFromJson(Map<String, dynamic> json) =>
+    _$SettionImpl(
+      settionTitle: json['settionTitle'] as String? ?? '',
+      pdfId: json['pdfId'] as String? ?? '',
+      markdown: json['markdown'] as String? ?? '',
+    );
+
+Map<String, dynamic> _$$SettionImplToJson(_$SettionImpl instance) =>
+    <String, dynamic>{
+      'settionTitle': instance.settionTitle,
+      'pdfId': instance.pdfId,
       'markdown': instance.markdown,
     };
