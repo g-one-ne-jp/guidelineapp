@@ -1,12 +1,22 @@
+import 'dart:io';
+
 import 'package:auto_route/auto_route.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_template/debug/debug_print.dart';
 import 'package:flutter_template/main.dart';
 import 'package:flutter_template/module/firebase/model_firebase_pdf_config.dart';
+import 'package:flutter_template/repotitory/mixin_repository_firestorage.dart';
 import 'package:flutter_template/ui/page/home/tab/ui_page_home_catalog_tab_home.dart';
+import 'package:flutter_template/ui/page/home/ui_page_home.dart';
+import 'package:flutter_template/ui/util/uiUtilWidget.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:markdown_widget/markdown_widget.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
 // ignore: must_be_immutable
 class UiUtilWidgetTile extends HookConsumerWidget {
@@ -198,44 +208,78 @@ class UiUtilWidgetTile2 extends HookConsumerWidget {
   }
 }
 
-class UiUtilWidgetTile3 extends HookConsumerWidget {
+class UiUtilWidgetTile3 extends HookConsumerWidget with RepositoryFireStorage {
   UiUtilWidgetTile3({
     super.key,
     required this.deteil,
-    required this.onMinorTap,
+    required this.onPdfTap,
+    required this.onDeteilEdit,
   });
 
   var deteil = DetailCategory();
-  final Function(MinorCategory) onMinorTap;
+
+  final Function(DetailCategory) onDeteilEdit;
+  final Function(String path) onPdfTap;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final _settions = useState(<Widget>[]);
-
+    var _pdfPath = '';
     useEffect(() {
       deteil.contents.entries.map((a) => a).toList().forEach((element) {
         element.value.settions.entries
             .map((b) => b)
             .toList()
             .forEach((element) {
-          _settions.value.insert(
-            0,
-            UiUtilWidgetExpansionTile(
-              titile: element.value.settionTitle,
-              children: [
-                Column(
-                  children: [
-                    const Divider(),
-                    Container(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(element.value.markdown),
-                    ),
-                    const Divider(),
-                  ],
-                ),
-              ],
-            ),
-          );
+          _settions.value = List.from(_settions.value)
+            ..insert(
+              0,
+              UiUtilWidgetExpansionTile(
+                titile: element.value.settionTitle,
+                children: [
+                  Column(
+                    children: [
+                      const Divider(),
+                      ConstrainedBox(
+                        constraints: BoxConstraints(
+                            minHeight: 120.h, maxHeight: 360.h), // 最大の高さを200に設定
+                        child:
+                            //
+                            element.value.pdfId.isEmpty
+                                ? MarkdownWidget(data: element.value.markdown)
+                                : GestureDetector(
+                                    onTap: () {
+                                      onPdfTap(_pdfPath);
+                                    },
+                                    child: Stack(
+                                      children: [
+                                        FutureBuilder(
+                                          future: downLoadData(
+                                              path: element.value.pdfId),
+                                          builder: (context, snapshot) {
+                                            if (snapshot.connectionState ==
+                                                ConnectionState.done) {
+                                              _pdfPath = snapshot.data!.path;
+                                              return SfPdfViewer.file(
+                                                  snapshot.data as File);
+                                            }
+
+                                            return const CircularProgressIndicator();
+                                          },
+                                        ),
+                                        Container(
+                                          color: Colors.transparent,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                      ),
+                      const Divider(),
+                    ],
+                  ),
+                ],
+              ),
+            );
         });
       });
 
@@ -253,7 +297,12 @@ class UiUtilWidgetTile3 extends HookConsumerWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(deteil.detailTitle),
-              IconButton(onPressed: () {}, icon: const Icon(Icons.edit)),
+              IconButton(
+                onPressed: () {
+                  onDeteilEdit(deteil);
+                },
+                icon: const Icon(Icons.edit),
+              ),
             ],
           ),
         ),

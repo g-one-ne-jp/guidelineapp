@@ -9,6 +9,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_template/debug/debug_print.dart';
 import 'package:flutter_template/util/util_googlesingin.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'package:flutter_signin_button/flutter_signin_button.dart';
@@ -21,8 +22,8 @@ class UiPageLogin extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final _email = useState('xl1200n.09@gmail.com');
-    final _password = useState('Test01234&');
+    final _email = useState('');
+    final _password = useState('');
 
     useEffect(() {}, []);
 
@@ -51,7 +52,7 @@ class UiPageLogin extends HookConsumerWidget {
                       filled: true,
                       fillColor: Colors.grey[100], // 背景色を指定
                     ),
-                    onChanged: (String value) {
+                    onSubmitted: (String value) {
                       _email.value = value;
                     },
                   ),
@@ -74,7 +75,7 @@ class UiPageLogin extends HookConsumerWidget {
                       fillColor: Colors.grey[100], // 背景色を指定
                     ),
                     obscureText: true,
-                    onChanged: (String value) {
+                    onSubmitted: (String value) {
                       _password.value;
                     },
                   ),
@@ -96,7 +97,11 @@ class UiPageLogin extends HookConsumerWidget {
                         // ignore: use_build_context_synchronously
                         context.router.popUntilRoot();
                         context.router.replaceNamed('/home');
-                      } else {}
+                      } else {
+                        await Fluttertoast.showToast(
+                          msg: 'ログインに失敗しました。',
+                        );
+                      }
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.blue,
@@ -151,7 +156,11 @@ class UiPageLogin extends HookConsumerWidget {
                           // ignore: use_build_context_synchronously
                           context.router.popUntilRoot();
                           context.router.replaceNamed('/home');
-                        } else {}
+                        } else {
+                          await Fluttertoast.showToast(
+                            msg: 'Googleログインに失敗しました',
+                          );
+                        }
                       },
                     ),
                   ),

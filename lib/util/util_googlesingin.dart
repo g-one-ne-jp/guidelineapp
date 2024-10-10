@@ -64,7 +64,7 @@ Future<bool> utilAuthLogin({
       debugPrint("ログインしました　${user.email} , ${user.uid}");
       return true;
     }
-    //ログイン失敗ws
+    //ログイン失敗
     else {
       return false;
     }
