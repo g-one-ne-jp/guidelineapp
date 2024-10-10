@@ -1,8 +1,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Required to read and write documents from device storage -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- Required if you want to record audio annotations -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
     <application
         android:label="flutter_template"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        android:largeHeap="true"
+        android:usesCleartextTraffic="true"
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -15,6 +24,11 @@
                  the Android process has started. This theme is visible to the user
                  while the Flutter UI initializes. After that, this theme continues
                  to determine the Window background behind the Flutter UI. -->
+            <meta-data
+                android:name="pdftron_license_key"
+                android:value="${pdftronLicenseKey}"
+                />
+
             <meta-data
               android:name="io.flutter.embedding.android.NormalTheme"
               android:resource="@style/NormalTheme"

@@ -24,7 +24,7 @@ Widget uiUtilTitleTextFeild({
           hintText: hintText,
           border: const OutlineInputBorder(),
         ),
-        onChanged: (text) {
+        onSubmitted: (text) {
           onChenged(text);
         },
       ),

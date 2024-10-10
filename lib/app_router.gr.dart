@@ -15,6 +15,19 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    FunctionRoutePdfEdit.name: (routeData) {
+      final pathParams = routeData.inheritedPathParams;
+      final args = routeData.argsAs<FunctionRoutePdfEditArgs>(
+          orElse: () =>
+              FunctionRoutePdfEditArgs(path: pathParams.getString('path')));
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: FunctionPagePdfEdit(
+          key: args.key,
+          path: args.path,
+        ),
+      );
+    },
     UiRouteHome.name: (routeData) {
       final args = routeData.argsAs<UiRouteHomeArgs>(
           orElse: () => const UiRouteHomeArgs());
@@ -105,6 +118,45 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [FunctionPagePdfEdit]
+class FunctionRoutePdfEdit extends PageRouteInfo<FunctionRoutePdfEditArgs> {
+  FunctionRoutePdfEdit({
+    Key? key,
+    required String path,
+    List<PageRouteInfo>? children,
+  }) : super(
+          FunctionRoutePdfEdit.name,
+          args: FunctionRoutePdfEditArgs(
+            key: key,
+            path: path,
+          ),
+          rawPathParams: {'path': path},
+          initialChildren: children,
+        );
+
+  static const String name = 'FunctionRoutePdfEdit';
+
+  static const PageInfo<FunctionRoutePdfEditArgs> page =
+      PageInfo<FunctionRoutePdfEditArgs>(name);
+}
+
+class FunctionRoutePdfEditArgs {
+  const FunctionRoutePdfEditArgs({
+    this.key,
+    required this.path,
+  });
+
+  final Key? key;
+
+  final String path;
+
+  @override
+  String toString() {
+    return 'FunctionRoutePdfEditArgs{key: $key, path: $path}';
+  }
 }
 
 /// generated route for
