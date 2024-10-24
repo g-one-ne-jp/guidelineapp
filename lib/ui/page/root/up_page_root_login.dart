@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_template/debug/debug_print.dart';
+import 'package:flutter_template/ui/util/uiUtilDialog.dart';
 import 'package:flutter_template/util/util_googlesingin.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -91,6 +92,8 @@ class UiPageLogin extends HookConsumerWidget {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () async {
+                      //タップされたらプログレスを表示
+                      uiUtilshowProgress(context);
                       //ログイン実行
                       if (await utilAuthLogin(
                           email: _email.value, password: _password.value)) {
@@ -102,6 +105,7 @@ class UiPageLogin extends HookConsumerWidget {
                           msg: 'ログインに失敗しました。',
                         );
                       }
+                      uiUtilhideProgress(context);
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.blue,
@@ -152,6 +156,8 @@ class UiPageLogin extends HookConsumerWidget {
                       Buttons.Google,
                       text: "Googleでログイン",
                       onPressed: () async {
+                        //タップされたらプログレスを表示
+                        uiUtilshowProgress(context);
                         if (await utilGoogleSignin()) {
                           // ignore: use_build_context_synchronously
                           context.router.popUntilRoot();
@@ -161,6 +167,8 @@ class UiPageLogin extends HookConsumerWidget {
                             msg: 'Googleログインに失敗しました',
                           );
                         }
+                        //タップされたらプログレスを表示
+                        uiUtilshowProgress(context);
                       },
                     ),
                   ),
