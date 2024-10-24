@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_template/debug/debug_print.dart';
+import 'package:flutter_template/ui/util/uiUtilDialog.dart';
 import 'package:flutter_template/util/util_googlesingin.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -22,8 +23,8 @@ class UiPageSingup extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final _email = useState('xl1200n.09@gmail.com');
-    final _password = useState('Test01234&');
+    final _email = useState('');
+    final _password = useState('');
 
     useEffect(() {}, []);
 
@@ -98,6 +99,9 @@ class UiPageSingup extends HookConsumerWidget {
                   child: ElevatedButton(
                     onPressed: () async {
                       try {
+                        //タップされたらプログレスを表示
+                        uiUtilshowProgress(context);
+
                         //アカウント作成
                         if (await utilAuthSingup(
                             email: _email.value, password: _password.value)) {
@@ -110,8 +114,9 @@ class UiPageSingup extends HookConsumerWidget {
                             msg: 'すでにアカウントがあるのかもしれません。',
                           );
                         }
+                        uiUtilhideProgress(context);
                       } catch (e) {
-                        var a = 0;
+                        uiUtilhideProgress(context);
                       }
                     },
                     style: ElevatedButton.styleFrom(
@@ -152,6 +157,8 @@ class UiPageSingup extends HookConsumerWidget {
                       Buttons.Google,
                       text: "Googleでログイン",
                       onPressed: () async {
+                        //タップされたらプログレスを表示
+                        uiUtilshowProgress(context);
                         if (await utilGoogleSignin()) {
                           // ignore: use_build_context_synchronously
                           context.router.pushNamed('/profileCreate');
@@ -160,6 +167,7 @@ class UiPageSingup extends HookConsumerWidget {
                             msg: 'Googleサインインに失敗しました',
                           );
                         }
+                        uiUtilhideProgress(context);
                       },
                     ),
                   ),
