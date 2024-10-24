@@ -155,7 +155,7 @@ class UiPageSingup extends HookConsumerWidget {
                   child: FittedBox(
                     child: SignInButton(
                       Buttons.Google,
-                      text: "Googleでログイン",
+                      text: "Googleでアカウント作成",
                       onPressed: () async {
                         //タップされたらプログレスを表示
                         uiUtilshowProgress(context);
@@ -164,7 +164,7 @@ class UiPageSingup extends HookConsumerWidget {
                           context.router.pushNamed('/profileCreate');
                         } else {
                           await Fluttertoast.showToast(
-                            msg: 'Googleサインインに失敗しました',
+                            msg: 'Googleでアカウント作成に失敗しました',
                           );
                         }
                         uiUtilhideProgress(context);
