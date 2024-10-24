@@ -23,8 +23,8 @@ class UiPageSingup extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final _email = useState('');
-    final _password = useState('');
+    final _emailController = useState(useTextEditingController());
+    final _passwordController = useState(useTextEditingController());
 
     useEffect(() {}, []);
 
@@ -47,7 +47,7 @@ class UiPageSingup extends HookConsumerWidget {
                 Padding(
                   padding: EdgeInsets.all(10.0.w),
                   child: TextField(
-                    controller: TextEditingController(text: _email.value),
+                    controller: _emailController.value,
                     decoration: InputDecoration(
                       hintText: 'Email',
                       hintStyle: const TextStyle(
@@ -59,16 +59,14 @@ class UiPageSingup extends HookConsumerWidget {
                       filled: true,
                       fillColor: Colors.grey[100], // 背景色を指定
                     ),
-                    onSubmitted: (String value) {
-                      _email.value = value;
-                    },
+                    onSubmitted: (String value) {},
                   ),
                 ),
                 //パスワード入力欄
                 Padding(
                   padding: EdgeInsets.all(10.0.w),
                   child: TextField(
-                    controller: TextEditingController(text: _password.value),
+                    controller: _passwordController.value,
                     decoration: InputDecoration(
                       hintText: 'パスワード',
                       hintStyle: const TextStyle(
@@ -82,9 +80,7 @@ class UiPageSingup extends HookConsumerWidget {
                       fillColor: Colors.grey[100], // 背景色を指定
                     ),
                     obscureText: true,
-                    onSubmitted: (String value) {
-                      _password.value;
-                    },
+                    onSubmitted: (String value) {},
                   ),
                 ),
                 //
@@ -104,14 +100,15 @@ class UiPageSingup extends HookConsumerWidget {
 
                         //アカウント作成
                         if (await utilAuthSingup(
-                            email: _email.value, password: _password.value)) {
+                            email: _emailController.value.text,
+                            password: _passwordController.value.text)) {
                           // ignore: use_build_context_synchronously
                           context.router.pushNamed('/profileCreate');
                         }
                         //ログイン失敗
                         else {
                           await Fluttertoast.showToast(
-                            msg: 'すでにアカウントがあるのかもしれません。',
+                            msg: 'アカウント作成に失敗しました',
                           );
                         }
                         uiUtilhideProgress(context);

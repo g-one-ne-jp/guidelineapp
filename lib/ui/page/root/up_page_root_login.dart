@@ -23,9 +23,8 @@ class UiPageLogin extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final _email = useState('');
-    final _password = useState('');
-
+    final _emailController = useState(useTextEditingController());
+    final _passwordController = useState(useTextEditingController());
     useEffect(() {}, []);
 
     return Scaffold(
@@ -41,7 +40,7 @@ class UiPageLogin extends HookConsumerWidget {
                 Padding(
                   padding: EdgeInsets.all(10.0.w),
                   child: TextField(
-                    controller: TextEditingController(text: _email.value),
+                    controller: _emailController.value,
                     decoration: InputDecoration(
                       hintText: 'Email',
                       hintStyle: const TextStyle(
@@ -53,16 +52,13 @@ class UiPageLogin extends HookConsumerWidget {
                       filled: true,
                       fillColor: Colors.grey[100], // 背景色を指定
                     ),
-                    onSubmitted: (String value) {
-                      _email.value = value;
-                    },
                   ),
                 ),
                 //パスワード入力欄
                 Padding(
                   padding: EdgeInsets.all(10.0.w),
                   child: TextField(
-                    controller: TextEditingController(text: _password.value),
+                    controller: _passwordController.value,
                     decoration: InputDecoration(
                       hintText: 'パスワード',
                       hintStyle: const TextStyle(
@@ -76,9 +72,6 @@ class UiPageLogin extends HookConsumerWidget {
                       fillColor: Colors.grey[100], // 背景色を指定
                     ),
                     obscureText: true,
-                    onSubmitted: (String value) {
-                      _password.value;
-                    },
                   ),
                 ),
                 //
@@ -96,7 +89,8 @@ class UiPageLogin extends HookConsumerWidget {
                       uiUtilshowProgress(context);
                       //ログイン実行
                       if (await utilAuthLogin(
-                          email: _email.value, password: _password.value)) {
+                          email: _emailController.value.text,
+                          password: _passwordController.value.text)) {
                         // ignore: use_build_context_synchronously
                         context.router.popUntilRoot();
                         context.router.replaceNamed('/home');
@@ -141,7 +135,8 @@ class UiPageLogin extends HookConsumerWidget {
                     backgroundColor: Colors.transparent,
                   ),
                   onPressed: () async {
-                    await uitlAuthEmeailPasswordReset(email: _email.value);
+                    await uitlAuthEmeailPasswordReset(
+                        email: _emailController.value.text);
                   },
                   child: Text('パスワードを忘れた方'),
                 ),
