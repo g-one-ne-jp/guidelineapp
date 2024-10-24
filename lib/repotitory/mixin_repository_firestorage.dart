@@ -17,10 +17,10 @@ mixin RepositoryFireStorage {
   }) async {
     final islandRef = FirebaseStorage.instance.ref().child(path);
 
-    final appDocDir = await getApplicationDocumentsDirectory();
+    final appDocDir = await getApplicationCacheDirectory();
     final fileDire = "${appDocDir.path}/pdf/";
-    final fileName = path.split('/').last; // ファイル名を取得
-    final filePath = "$fileDire$fileName"; // ファイルパスを修正
+    final fileName = path.split('/').last;
+    final filePath = "$fileDire$fileName";
     final file = File(filePath);
 
     // ローカルにファイルが存在する場合は、ダウンロードせずに true を返す
@@ -29,12 +29,18 @@ mixin RepositoryFireStorage {
       return file;
     }
 
-    final downloadTask = islandRef.writeToFile(file);
-    downloadTask.snapshotEvents.listen((taskSnapshot) {
-      customDebugPrint('${taskSnapshot.state}');
-    });
+    try {
+      // ディレクトリが存在しない場合は作成
+      await Directory(fileDire).create(recursive: true);
 
-    return file;
+      final downloadTask = islandRef.writeToFile(file);
+
+      debugPrint('ファイルのダウンロードが完了しました: $filePath');
+      return file;
+    } on FirebaseException catch (e) {
+      debugPrint('ファイルのダウンロード中にエラーが発生しました: ${e.message}');
+      rethrow;
+    }
   }
 
   // ファイルをアップロードする

@@ -4,6 +4,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_pdfview/flutter_pdfview.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_template/debug/debug_print.dart';
 import 'package:flutter_template/main.dart';
@@ -260,8 +261,25 @@ class UiUtilWidgetTile3 extends HookConsumerWidget with RepositoryFireStorage {
                                             if (snapshot.connectionState ==
                                                 ConnectionState.done) {
                                               _pdfPath = snapshot.data!.path;
-                                              return SfPdfViewer.file(
-                                                  snapshot.data as File);
+                                              return PDFView(
+                                                filePath: _pdfPath,
+                                                enableSwipe: true,
+                                                swipeHorizontal: true,
+                                                autoSpacing: false,
+                                                pageFling: false,
+                                                backgroundColor: Colors.grey,
+                                                onRender: (_pages) {},
+                                                onError: (error) {
+                                                  print(error.toString());
+                                                },
+                                                onPageError: (page, error) {
+                                                  print(
+                                                      '$page: ${error.toString()}');
+                                                },
+                                                onViewCreated:
+                                                    (PDFViewController
+                                                        pdfViewController) {},
+                                              );
                                             }
 
                                             return const CircularProgressIndicator();

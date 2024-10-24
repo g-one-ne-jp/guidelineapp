@@ -47,14 +47,7 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
     void showViewer({required String document}) async {
       //ビューワーのカスタムコンフィグ
       var config = Config();
-      // How to disable functionality:
-      //      config.disabledElements = [Buttons.shareButton, Buttons.searchButton];
-      //      config.disabledTools = [Tools.annotationCreateLine, Tools.annotationCreateRectangle];
-      // Other viewer configurations:
-      //      config.multiTabEnabled = true;
-      //      config.customHeaders = {'headerName': 'headerValue'};
 
-      // An event listener for document loading
       var documentLoadedCancel = startDocumentLoadedListener((filePath) {
         print("document loaded: $filePath");
       });
@@ -100,8 +93,6 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
 
       var path = await PdftronFlutter.saveDocument();
       print("flutter save: $path");
-
-      var a = 0;
     }
 
     return Scaffold(
