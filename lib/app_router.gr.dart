@@ -108,45 +108,6 @@ abstract class _$AppRouter extends RootStackRouter {
 }
 
 /// generated route for
-/// [FunctionPagePdfEdit]
-class FunctionRoutePdfEdit extends PageRouteInfo<FunctionRoutePdfEditArgs> {
-  FunctionRoutePdfEdit({
-    Key? key,
-    required String path,
-    List<PageRouteInfo>? children,
-  }) : super(
-          FunctionRoutePdfEdit.name,
-          args: FunctionRoutePdfEditArgs(
-            key: key,
-            path: path,
-          ),
-          rawPathParams: {'path': path},
-          initialChildren: children,
-        );
-
-  static const String name = 'FunctionRoutePdfEdit';
-
-  static const PageInfo<FunctionRoutePdfEditArgs> page =
-      PageInfo<FunctionRoutePdfEditArgs>(name);
-}
-
-class FunctionRoutePdfEditArgs {
-  const FunctionRoutePdfEditArgs({
-    this.key,
-    required this.path,
-  });
-
-  final Key? key;
-
-  final String path;
-
-  @override
-  String toString() {
-    return 'FunctionRoutePdfEditArgs{key: $key, path: $path}';
-  }
-}
-
-/// generated route for
 /// [UiPageHome]
 class UiRouteHome extends PageRouteInfo<UiRouteHomeArgs> {
   UiRouteHome({

@@ -4,27 +4,28 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_template/debug/debug_print.dart';
 import 'package:flutter_template/providers/toc_provider.dart';
-import 'package:flutter_template/repotitory/mixin_repository_firestore.dart';
-import 'package:flutter_template/ui/page/home/tab/ui_page_home_catalog_tab_home_minor.dart';
+import 'package:flutter_template/providers/user_provider.dart';
 import 'package:flutter_template/ui/util/uiUtilTile.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 @RoutePage()
 // ignore: must_be_immutable
-class UiPageHomeCatalogTabHome extends HookConsumerWidget
-    with RepositoryFireStore {
+class UiPageHomeCatalogTabHome extends HookConsumerWidget {
   UiPageHomeCatalogTabHome({
     super.key,
   });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final _userProvider = ref.watch(userProvider);
+    final _userNotifer = ref.watch(userProvider.notifier);
+
     final _tocProvider = ref.watch(tocProvider);
     final _tocNotifer = ref.watch(tocProvider.notifier);
 
     useEffect(() {
       Future<void>(() async {
-        await readTocs();
+        await _userNotifer.readTocs();
       });
       return () => customDebugPrint('dispose!');
     }, []);

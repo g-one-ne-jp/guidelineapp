@@ -1,16 +1,37 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_template/module/firebase/model_firebase_pdf_config.dart';
 import 'package:flutter_template/module/firebase/model_firebase_user.dart';
+import 'package:flutter_template/repotitory/mixin_repository_file.dart';
+import 'package:flutter_template/repotitory/mixin_repository_http.dart';
 
-mixin RepositoryFireStore2 {
+// StateNotifierクラスを外部ファイルで呼び出すプロバイダー.
+final userProvider = StateNotifierProvider<ProviderUser, ModelFirebaseUser>(
+    (ref) => ProviderUser());
+
+class ProviderUser extends StateNotifier<ModelFirebaseUser>
+    with RepositoryHttp, RepositoryFile {
+  // コンストラクタ内での初期状態を設定し、非同期にデータをロードします。
+  ProviderUser() : super(ModelFirebaseUser()) {
+    _initializeUserData();
+  }
+
   final user = FirebaseAuth.instance.currentUser!; // 認証済みユーザーを取得
   final firestore = FirebaseFirestore.instance;
   var userData = ModelFirebaseUser();
-  var selectedData = MajorCategory();
+  var selectedData = ModelFirebaseUser();
+
+  Future<void> _initializeUserData() async {
+    userData =
+        await readUser<ModelFirebaseUser>(fromJson: ModelFirebaseUser.fromJson);
+
+    state = userData;
+  }
 
   Future<bool> writeUser({
     required Map<String, dynamic> data,
@@ -77,6 +98,8 @@ mixin RepositoryFireStore2 {
     //更新実行
     try {
       await writeUser(data: updateData.toJson());
+      userData = updateData;
+      state = userData;
       return true;
     } catch (e) {
       return false;
@@ -101,6 +124,8 @@ mixin RepositoryFireStore2 {
     //更新実行
     try {
       await writeUser(data: updateData.toJson());
+      userData = updateData;
+      state = userData;
       return true;
     } catch (e) {
       return false;
@@ -108,7 +133,41 @@ mixin RepositoryFireStore2 {
   }
 
   // ブックマークの状態を取得
-  bool getBookmarkState(String key) {
+  bool getBookmarkState({required String key}) {
     return userData.bookmarks[key] ?? false;
+  }
+
+  // メモデータを更新する
+  Future<bool> updateMemo({
+    required String key,
+    required String memo,
+  }) async {
+    //ユーザーデータ更新
+    userData =
+        await readUser<ModelFirebaseUser>(fromJson: ModelFirebaseUser.fromJson);
+    //ユーザーデータの更新
+    final updateData = userData.copyWith(
+      memos: {
+        ...userData.memos,
+        key: memo,
+      },
+    );
+    //更新実行
+    try {
+      await writeUser(data: updateData.toJson());
+      userData = updateData;
+      state = userData;
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+// メモデータを取得する
+  List<dynamic> getMemo({required String key}) {
+    final txt = userData.memos[key] ?? '[]'; // デフォルト値を空のJSON配列に設定
+    final json = jsonDecode(txt);
+    final result = json as List<dynamic>;
+    return result;
   }
 }

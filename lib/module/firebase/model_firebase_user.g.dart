@@ -17,6 +17,14 @@ _$ModelFirebaseUserImpl _$$ModelFirebaseUserImplFromJson(
             (k, e) => MapEntry(k, EditItem.fromJson(e as Map<String, dynamic>)),
           ) ??
           const {},
+      memos: (json['memos'] as Map<String, dynamic>?)?.map(
+            (k, e) => MapEntry(k, e as String),
+          ) ??
+          const {},
+      bookmarks: (json['bookmarks'] as Map<String, dynamic>?)?.map(
+            (k, e) => MapEntry(k, e as bool),
+          ) ??
+          const {},
     );
 
 Map<String, dynamic> _$$ModelFirebaseUserImplToJson(
@@ -27,6 +35,8 @@ Map<String, dynamic> _$$ModelFirebaseUserImplToJson(
       'specialty': instance.specialty,
       'address': instance.address,
       'editItems': instance.editItems,
+      'memos': instance.memos,
+      'bookmarks': instance.bookmarks,
     };
 
 _$EditItemImpl _$$EditItemImplFromJson(Map<String, dynamic> json) =>

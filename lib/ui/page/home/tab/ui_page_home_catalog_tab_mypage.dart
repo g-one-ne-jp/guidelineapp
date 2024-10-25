@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_template/debug/debug_print.dart';
 import 'package:flutter_template/module/firebase/model_firebase_pdf_config.dart';
 import 'package:flutter_template/module/firebase/model_firebase_user.dart';
+import 'package:flutter_template/providers/user_provider.dart';
 import 'package:flutter_template/repotitory/mixin_repository_firestore.dart';
 import 'package:flutter_template/ui/util/uiUtilWidget.dart';
 import 'package:flutter_template/util/util_googlesingin.dart';
@@ -13,14 +14,15 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 @RoutePage()
-class UiPageHomeCatalogTabMypage extends HookConsumerWidget
-    with RepositoryFireStore {
+class UiPageHomeCatalogTabMypage extends HookConsumerWidget {
   UiPageHomeCatalogTabMypage({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final _userProvider = ref.watch(userProvider);
+    final _userNotifer = ref.watch(userProvider.notifier);
     final _tos = useState(ModelFirebasePdfConfig());
     final _panelController = useState(PanelController());
     final _isOpen = useState(false);
@@ -35,7 +37,7 @@ class UiPageHomeCatalogTabMypage extends HookConsumerWidget
     useEffect(() {
       Future<void>(() async {
         //ユーザーデータを読み込み
-        _user.value = await readUser<ModelFirebaseUser>(
+        _user.value = await _userNotifer.readUser<ModelFirebaseUser>(
             fromJson: ModelFirebaseUser.fromJson);
         _name.value = _user.value.name;
         _affiliation.value = _user.value.name;
@@ -100,7 +102,7 @@ class UiPageHomeCatalogTabMypage extends HookConsumerWidget
                   child: ElevatedButton(
                     onPressed: _isChecked.value
                         ? () async {
-                            if (await updateUserProfile(
+                            if (await _userNotifer.updateUserProfile(
                               name: _name.value,
                               affiliation: _affiliation.value,
                               specialty: _specialty.value,

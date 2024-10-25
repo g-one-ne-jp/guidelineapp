@@ -8,7 +8,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 @RoutePage()
 // ignore: must_be_immutable
-class UiPageHomeCatalog extends HookConsumerWidget with RepositoryFireStore {
+class UiPageHomeCatalog extends HookConsumerWidget {
   UiPageHomeCatalog({
     super.key,
   });

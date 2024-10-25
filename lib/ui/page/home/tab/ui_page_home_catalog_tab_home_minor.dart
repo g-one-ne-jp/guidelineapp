@@ -1,16 +1,17 @@
+// ignore_for_file: use_build_context_synchronously
+
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_quill/flutter_quill.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_template/debug/debug_print.dart';
 import 'package:flutter_template/module/firebase/model_firebase_pdf_config.dart';
 import 'package:flutter_template/providers/toc_provider.dart';
+import 'package:flutter_template/providers/user_provider.dart';
 import 'package:flutter_template/repotitory/mixin_repository_firestorage.dart';
-import 'package:flutter_template/repotitory/mixin_repository_firestore.dart';
 import 'package:flutter_template/ui/util/uiUtilTile.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pdftron_flutter/pdftron_flutter.dart';
@@ -19,7 +20,7 @@ import 'package:sliding_up_panel/sliding_up_panel.dart';
 @RoutePage()
 // ignore: must_be_immutable
 class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
-    with RepositoryFireStore, RepositoryFireStorage {
+    with RepositoryFireStorage {
   UiPageHomeCatalogTabHomeMinor({
     super.key,
     @PathParam('mainorKey') required this.mainorKey,
@@ -28,16 +29,19 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final _userProvider = ref.watch(userProvider);
+    final _userNotifer = ref.watch(userProvider.notifier);
+
     final _tocProvider = ref.watch(tocProvider);
     final _tocNotifer = ref.watch(tocProvider.notifier);
 
     final _mainor = useState(MinorCategory());
-    final _isBookMark = useState(false);
 
     final _panelController = useState(PanelController());
+    final _panelKey = useState('');
     final _isOpen = useState(false);
     final _controller = useState(QuillController.basic());
-
+    final _focusNode = useState(FocusNode());
     // 再描画用の状態変数
     final _shouldRebuild = useState(false);
 
@@ -66,10 +70,13 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
         title: Text(_mainor.value.minorTitle),
         actions: <Widget>[
           IconButton(
-            icon: Icon(
-                _isBookMark.value ? Icons.bookmark_outline : Icons.bookmark),
+            icon: Icon(_userNotifer.getBookmarkState(key: mainorKey)
+                ? Icons.bookmark_outline
+                : Icons.bookmark),
             onPressed: () {
-              _isBookMark.value = !_isBookMark.value;
+              _userNotifer.updateBookmark(
+                  key: mainorKey,
+                  isBookmark: !_userNotifer.getBookmarkState(key: mainorKey));
             },
           ),
         ],
@@ -91,8 +98,12 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
               automaticallyImplyLeading: false,
               title: Text(_mainor.value.minorTitle),
               leading: IconButton(
-                icon: Icon(Icons.close), // バツアイコン
-                onPressed: () {
+                icon: const Icon(Icons.close), // バツアイコン
+                onPressed: () async {
+                  await _userNotifer.updateMemo(
+                      key: _panelKey.value,
+                      memo: jsonEncode(
+                          _controller.value.document.toDelta().toJson()));
                   _panelController.value.close();
                   _isOpen.value = false;
                   FocusScope.of(context).unfocus();
@@ -101,8 +112,12 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
               ),
               actions: <Widget>[
                 IconButton(
-                  icon: Icon(Icons.save),
-                  onPressed: () {
+                  icon: const Icon(Icons.save),
+                  onPressed: () async {
+                    await _userNotifer.updateMemo(
+                        key: _panelKey.value,
+                        memo: jsonEncode(
+                            _controller.value.document.toDelta().toJson()));
                     _isOpen.value = false;
                     FocusScope.of(context).unfocus();
                     FocusScope.of(context).nextFocus();
@@ -146,17 +161,19 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
                 ),
               ),
             ),
+            //
             Expanded(
               child: Container(
                 width: double.infinity,
                 color: Colors.white70,
                 child: QuillEditor.basic(
+                  focusNode: _focusNode.value,
                   configurations: QuillEditorConfigurations(
                     placeholder: 'ここをタップしてメモを入力してください。',
                     controller: _controller.value,
                     scrollable: true,
                     padding: const EdgeInsets.all(16.0),
-                    autoFocus: false,
+                    autoFocus: true,
                     expands: false,
                   ),
                 ),
@@ -175,6 +192,8 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
                   showViewer(document: path);
                 },
                 onDeteilEdit: (deteil) {
+                  _panelKey.value = deteil.detailKey;
+
                   if (_isOpen.value) {
                     _panelController.value.close();
                     _isOpen.value = false;
@@ -182,6 +201,10 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
                     FocusScope.of(context).nextFocus();
                   } else {
                     _panelController.value.open();
+                    final json = _userNotifer.getMemo(key: _panelKey.value);
+                    if (json.isNotEmpty) {
+                      _controller.value.document = Document.fromJson(json);
+                    }
                     _isOpen.value = true;
                   }
                 });

@@ -25,6 +25,8 @@ mixin _$ModelFirebaseUser {
   String get specialty => throw _privateConstructorUsedError;
   String get address => throw _privateConstructorUsedError;
   Map<String, EditItem> get editItems => throw _privateConstructorUsedError;
+  Map<String, String> get memos => throw _privateConstructorUsedError;
+  Map<String, bool> get bookmarks => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,7 +45,9 @@ abstract class $ModelFirebaseUserCopyWith<$Res> {
       String affiliation,
       String specialty,
       String address,
-      Map<String, EditItem> editItems});
+      Map<String, EditItem> editItems,
+      Map<String, String> memos,
+      Map<String, bool> bookmarks});
 }
 
 /// @nodoc
@@ -64,6 +68,8 @@ class _$ModelFirebaseUserCopyWithImpl<$Res, $Val extends ModelFirebaseUser>
     Object? specialty = null,
     Object? address = null,
     Object? editItems = null,
+    Object? memos = null,
+    Object? bookmarks = null,
   }) {
     return _then(_value.copyWith(
       name: null == name
@@ -86,6 +92,14 @@ class _$ModelFirebaseUserCopyWithImpl<$Res, $Val extends ModelFirebaseUser>
           ? _value.editItems
           : editItems // ignore: cast_nullable_to_non_nullable
               as Map<String, EditItem>,
+      memos: null == memos
+          ? _value.memos
+          : memos // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>,
+      bookmarks: null == bookmarks
+          ? _value.bookmarks
+          : bookmarks // ignore: cast_nullable_to_non_nullable
+              as Map<String, bool>,
     ) as $Val);
   }
 }
@@ -103,7 +117,9 @@ abstract class _$$ModelFirebaseUserImplCopyWith<$Res>
       String affiliation,
       String specialty,
       String address,
-      Map<String, EditItem> editItems});
+      Map<String, EditItem> editItems,
+      Map<String, String> memos,
+      Map<String, bool> bookmarks});
 }
 
 /// @nodoc
@@ -122,6 +138,8 @@ class __$$ModelFirebaseUserImplCopyWithImpl<$Res>
     Object? specialty = null,
     Object? address = null,
     Object? editItems = null,
+    Object? memos = null,
+    Object? bookmarks = null,
   }) {
     return _then(_$ModelFirebaseUserImpl(
       name: null == name
@@ -144,6 +162,14 @@ class __$$ModelFirebaseUserImplCopyWithImpl<$Res>
           ? _value._editItems
           : editItems // ignore: cast_nullable_to_non_nullable
               as Map<String, EditItem>,
+      memos: null == memos
+          ? _value._memos
+          : memos // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>,
+      bookmarks: null == bookmarks
+          ? _value._bookmarks
+          : bookmarks // ignore: cast_nullable_to_non_nullable
+              as Map<String, bool>,
     ));
   }
 }
@@ -156,8 +182,12 @@ class _$ModelFirebaseUserImpl implements _ModelFirebaseUser {
       this.affiliation = '',
       this.specialty = '',
       this.address = '',
-      final Map<String, EditItem> editItems = const {}})
-      : _editItems = editItems;
+      final Map<String, EditItem> editItems = const {},
+      final Map<String, String> memos = const {},
+      final Map<String, bool> bookmarks = const {}})
+      : _editItems = editItems,
+        _memos = memos,
+        _bookmarks = bookmarks;
 
   factory _$ModelFirebaseUserImpl.fromJson(Map<String, dynamic> json) =>
       _$$ModelFirebaseUserImplFromJson(json);
@@ -183,9 +213,27 @@ class _$ModelFirebaseUserImpl implements _ModelFirebaseUser {
     return EqualUnmodifiableMapView(_editItems);
   }
 
+  final Map<String, String> _memos;
+  @override
+  @JsonKey()
+  Map<String, String> get memos {
+    if (_memos is EqualUnmodifiableMapView) return _memos;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_memos);
+  }
+
+  final Map<String, bool> _bookmarks;
+  @override
+  @JsonKey()
+  Map<String, bool> get bookmarks {
+    if (_bookmarks is EqualUnmodifiableMapView) return _bookmarks;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_bookmarks);
+  }
+
   @override
   String toString() {
-    return 'ModelFirebaseUser(name: $name, affiliation: $affiliation, specialty: $specialty, address: $address, editItems: $editItems)';
+    return 'ModelFirebaseUser(name: $name, affiliation: $affiliation, specialty: $specialty, address: $address, editItems: $editItems, memos: $memos, bookmarks: $bookmarks)';
   }
 
   @override
@@ -200,13 +248,23 @@ class _$ModelFirebaseUserImpl implements _ModelFirebaseUser {
                 other.specialty == specialty) &&
             (identical(other.address, address) || other.address == address) &&
             const DeepCollectionEquality()
-                .equals(other._editItems, _editItems));
+                .equals(other._editItems, _editItems) &&
+            const DeepCollectionEquality().equals(other._memos, _memos) &&
+            const DeepCollectionEquality()
+                .equals(other._bookmarks, _bookmarks));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, affiliation, specialty,
-      address, const DeepCollectionEquality().hash(_editItems));
+  int get hashCode => Object.hash(
+      runtimeType,
+      name,
+      affiliation,
+      specialty,
+      address,
+      const DeepCollectionEquality().hash(_editItems),
+      const DeepCollectionEquality().hash(_memos),
+      const DeepCollectionEquality().hash(_bookmarks));
 
   @JsonKey(ignore: true)
   @override
@@ -229,7 +287,9 @@ abstract class _ModelFirebaseUser implements ModelFirebaseUser {
       final String affiliation,
       final String specialty,
       final String address,
-      final Map<String, EditItem> editItems}) = _$ModelFirebaseUserImpl;
+      final Map<String, EditItem> editItems,
+      final Map<String, String> memos,
+      final Map<String, bool> bookmarks}) = _$ModelFirebaseUserImpl;
 
   factory _ModelFirebaseUser.fromJson(Map<String, dynamic> json) =
       _$ModelFirebaseUserImpl.fromJson;
@@ -244,6 +304,10 @@ abstract class _ModelFirebaseUser implements ModelFirebaseUser {
   String get address;
   @override
   Map<String, EditItem> get editItems;
+  @override
+  Map<String, String> get memos;
+  @override
+  Map<String, bool> get bookmarks;
   @override
   @JsonKey(ignore: true)
   _$$ModelFirebaseUserImplCopyWith<_$ModelFirebaseUserImpl> get copyWith =>
