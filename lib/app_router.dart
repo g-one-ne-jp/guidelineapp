@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_template/ui/page/function/function_page_pdfeditt.dart';
 import 'package:flutter_template/ui/page/home/tab/ui_page_home_catalog_tab_bookmark.dart';
 import 'package:flutter_template/ui/page/home/tab/ui_page_home_catalog_tab_home.dart';
 import 'package:flutter_template/ui/page/home/tab/ui_page_home_catalog_tab_home_minor.dart';

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -7,6 +9,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_template/debug/debug_print.dart';
 import 'package:flutter_template/module/firebase/model_firebase_pdf_config.dart';
 import 'package:flutter_template/providers/toc_provider.dart';
+import 'package:flutter_template/repotitory/mixin_repository_firestorage.dart';
 import 'package:flutter_template/repotitory/mixin_repository_firestore.dart';
 import 'package:flutter_template/ui/util/uiUtilTile.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -16,7 +19,7 @@ import 'package:sliding_up_panel/sliding_up_panel.dart';
 @RoutePage()
 // ignore: must_be_immutable
 class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
-    with RepositoryFireStore {
+    with RepositoryFireStore, RepositoryFireStorage {
   UiPageHomeCatalogTabHomeMinor({
     super.key,
     @PathParam('mainorKey') required this.mainorKey,
@@ -29,12 +32,14 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
     final _tocNotifer = ref.watch(tocProvider.notifier);
 
     final _mainor = useState(MinorCategory());
-
     final _isBookMark = useState(false);
 
     final _panelController = useState(PanelController());
     final _isOpen = useState(false);
     final _controller = useState(QuillController.basic());
+
+    // 再描画用の状態変数
+    final _shouldRebuild = useState(false);
 
     useEffect(() {
       Future<void>(() async {
@@ -47,52 +52,13 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
     void showViewer({required String document}) async {
       //ビューワーのカスタムコンフィグ
       var config = Config();
-
-      var documentLoadedCancel = startDocumentLoadedListener((filePath) {
-        print("document loaded: $filePath");
+      PdftronFlutter.openDocument(document, config: config);
+      startLeadingNavButtonPressedListener(() async {
+        var path = await PdftronFlutter.saveDocument();
+        uploadData(path: path!, file: File(path));
+        // 再描画をトリガー
+        _shouldRebuild.value = !_shouldRebuild.value;
       });
-
-      await PdftronFlutter.openDocument(document, config: config);
-
-      try {
-        // The imported command is in XFDF format and tells whether to add, modify or delete annotations in the current document.
-        PdftronFlutter.importAnnotationCommand(
-            "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
-                "    <xfdf xmlns=\"http://ns.adobe.com/xfdf/\" xml:space=\"preserve\">\n" +
-                "      <add>\n" +
-                "        <square style=\"solid\" width=\"5\" color=\"#E44234\" opacity=\"1\" creationdate=\"D:20200619203211Z\" flags=\"print\" date=\"D:20200619203211Z\" name=\"c684da06-12d2-4ccd-9361-0a1bf2e089e3\" page=\"1\" rect=\"113.312,277.056,235.43,350.173\" title=\"\" />\n" +
-                "      </add>\n" +
-                "      <modify />\n" +
-                "      <delete />\n" +
-                "      <pdf-info import-version=\"3\" version=\"2\" xmlns=\"http://www.pdftron.com/pdfinfo\" />\n" +
-                "    </xfdf>");
-      } on PlatformException catch (e) {
-        print("Failed to importAnnotationCommand '${e.message}'.");
-      }
-
-      // An event listener for when local annotation changes are committed to the document.
-      // xfdfCommand is the XFDF Command of the annotation that was last changed.
-      var annotCancel = startExportAnnotationCommandListener((xfdfCommand) {
-        String command = xfdfCommand;
-        print("flutter xfdfCommand:\n");
-        // Dart limits how many characters are printed onto the console.
-        // The code below ensures that all of the XFDF command is printed.
-        if (command.length > 1024) {
-          int start = 0;
-          int end = 1023;
-          while (end < command.length) {
-            print(command.substring(start, end) + "\n");
-            start += 1024;
-            end += 1024;
-          }
-          print(command.substring(start));
-        } else {
-          print("flutter xfdfCommand:\n $command");
-        }
-      });
-
-      var path = await PdftronFlutter.saveDocument();
-      print("flutter save: $path");
     }
 
     return Scaffold(
