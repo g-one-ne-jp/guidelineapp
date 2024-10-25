@@ -24,8 +24,10 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
   UiPageHomeCatalogTabHomeMinor({
     super.key,
     @PathParam('mainorKey') required this.mainorKey,
+    @PathParam('viewTypeMemo') required this.viewTypeMemo,
   });
   final String mainorKey;
+  final bool viewTypeMemo;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -185,28 +187,34 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
           itemBuilder: (BuildContext context, int index) {
             var value = _mainor.value.details.values.toList()[index];
 
-            return UiUtilWidgetTile3(
-                deteil: value,
-                onPdfTap: (String path) {
-                  showViewer(document: path);
-                },
-                onDeteilEdit: (deteil) {
-                  _panelKey.value = deteil.detailKey;
+            //memoにkeyが存在しているか？
+            final isMemo =
+                _userNotifer.getMemo(key: value.detailKey).isNotEmpty;
 
-                  if (_isOpen.value) {
-                    _panelController.value.close();
-                    _isOpen.value = false;
-                    FocusScope.of(context).unfocus();
-                    FocusScope.of(context).nextFocus();
-                  } else {
-                    _panelController.value.open();
-                    final json = _userNotifer.getMemo(key: _panelKey.value);
-                    if (json.isNotEmpty) {
-                      _controller.value.document = Document.fromJson(json);
-                    }
-                    _isOpen.value = true;
-                  }
-                });
+            return isMemo || !viewTypeMemo
+                ? UiUtilWidgetTile3(
+                    deteil: value,
+                    onPdfTap: (String path) {
+                      showViewer(document: path);
+                    },
+                    onDeteilEdit: (deteil) {
+                      _panelKey.value = deteil.detailKey;
+
+                      if (_isOpen.value) {
+                        _panelController.value.close();
+                        _isOpen.value = false;
+                        FocusScope.of(context).unfocus();
+                        FocusScope.of(context).nextFocus();
+                      } else {
+                        _panelController.value.open();
+                        final json = _userNotifer.getMemo(key: _panelKey.value);
+                        if (json.isNotEmpty) {
+                          _controller.value.document = Document.fromJson(json);
+                        }
+                        _isOpen.value = true;
+                      }
+                    })
+                : Container();
           },
         ),
       ),

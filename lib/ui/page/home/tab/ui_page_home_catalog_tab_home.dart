@@ -31,7 +31,10 @@ class UiPageHomeCatalogTabHome extends HookConsumerWidget {
     }, []);
 
     return Scaffold(
-      appBar: AppBar(title: Text(_tocProvider.majorTitle)),
+      appBar: AppBar(
+        title: Text(_tocProvider.majorTitle),
+        automaticallyImplyLeading: false, // 戻るボタンを表示しない
+      ),
       body: Column(
         children: [
           Container(
@@ -59,7 +62,7 @@ class UiPageHomeCatalogTabHome extends HookConsumerWidget {
                     sub: value,
                     onMinorTap: (minor) {
                       context.router.pushNamed(
-                        '/tabHomeMinor/${minor.mainorKey}',
+                        '/tabHomeMinor/${minor.mainorKey}/false',
                       );
                     });
               },

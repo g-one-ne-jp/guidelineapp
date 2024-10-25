@@ -49,7 +49,10 @@ class UiPageHomeCatalogTabMypage extends HookConsumerWidget {
     }, []);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('マイページ')),
+      appBar: AppBar(
+        title: const Text('マイページ'),
+        automaticallyImplyLeading: false, // 戻るボタンを表示しない
+      ),
       body: Center(
         child: Container(
           padding: const EdgeInsets.all(24),

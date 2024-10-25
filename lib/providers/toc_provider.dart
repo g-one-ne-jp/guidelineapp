@@ -22,7 +22,7 @@ class ProviderToc extends StateNotifier<MajorCategory>
     return Future.value();
   }
 
-  // データを読み込むメソッド
+  // MajorCategoryからデータを読み込むメソッド(mainorKeyを指定してMinorCategoryを取得)
   MinorCategory searchMinorCategoryByKeyFromMajor(
       MajorCategory majorCategory, String mainorKey) {
     for (var sub in majorCategory.subs.values) {
@@ -35,5 +35,39 @@ class ProviderToc extends StateNotifier<MajorCategory>
     }
     // 見つからなかった場合はnullを返す
     return MinorCategory();
+  }
+
+  // MajorCategoryからデータを読み込むメソッド(detailKeyを指定してDetailCategoryを取得)
+  DetailCategory searchDetailCategoryByKeyFromMajor(
+      MajorCategory majorCategory, String detailKey) {
+    for (var sub in majorCategory.subs.values) {
+      for (var minor in sub.minors.values) {
+        for (var detail in minor.details.values) {
+          if (detail.detailKey == detailKey) {
+            // 更新されたDetailCategoryを返す
+            return detail;
+          }
+        }
+      }
+    }
+    // 見つからなかった場合はnullを返す
+    return DetailCategory();
+  }
+
+  // MajorCategoryからデータを読み込むメソッド(detailKeyを指定してmainorKeyを取得)
+  String searchMainorKeyFromDetailKeyFromMajor(
+      MajorCategory majorCategory, String detailKey) {
+    for (var sub in majorCategory.subs.values) {
+      for (var minor in sub.minors.values) {
+        for (var detail in minor.details.values) {
+          if (detail.detailKey == detailKey) {
+            // 更新されたDetailCategoryを返す
+            return minor.mainorKey;
+          }
+        }
+      }
+    }
+    // 見つからなかった場合はnullを返す
+    return '';
   }
 }
