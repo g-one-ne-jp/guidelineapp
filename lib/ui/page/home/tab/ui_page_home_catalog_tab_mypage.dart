@@ -136,9 +136,15 @@ class UiPageHomeCatalogTabMypage extends HookConsumerWidget
                           backgroundColor: Colors.transparent,
                         ),
                         onPressed: () async {
-                          if (await uitlAuthLoggedInPasswordReset()) {
-                            var a = 0;
-                          }
+                          uitlAuthLoggedInPasswordReset(
+                            context: context,
+                          ).then((onValue) async {
+                            if (onValue.isNotEmpty) {
+                              await Fluttertoast.showToast(
+                                msg: onValue,
+                              );
+                            }
+                          });
                         },
                         child: const Text('パスワードリセット'),
                       )

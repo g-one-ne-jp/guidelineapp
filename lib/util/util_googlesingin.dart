@@ -1,10 +1,14 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_template/ui/util/uiUtilDialog.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 //Googleサインイン
-Future<bool> utilGoogleSignin() async {
+Future<String> utilGoogleSignin({required BuildContext context}) async {
+  //タップされたらプログレスを表示
+  uiUtilshowProgress(context);
+
   try {
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
     final googleAuth = await googleUser?.authentication;
@@ -15,61 +19,99 @@ Future<bool> utilGoogleSignin() async {
     //サインイン実行
     UserCredential userCredential =
         await FirebaseAuth.instance.signInWithCredential(credential);
+    uiUtilhideProgress(context);
     if (userCredential.additionalUserInfo!.isNewUser) {
       //新規ユーザーの場合の処理
-      return true;
+      return '';
     } else {
       //既存ユーザーの場合の処理
-      return true;
+      return '';
     }
   } catch (e) {
-    return false;
+    uiUtilhideProgress(context);
+    return _errorCoce(e: e as FirebaseAuthException);
   }
 }
 
 //メール/パスワードでアカウント作成
-Future<bool> utilAuthSingup({
-  required String email,
-  required String password,
-}) async {
+Future<String> utilAuthSignup(
+    {required String email,
+    required String password,
+    required BuildContext context}) async {
+  //タップされたらプログレスを表示
+  uiUtilshowProgress(context);
   try {
     final result = await FirebaseAuth.instance
         .createUserWithEmailAndPassword(email: email, password: password);
-    //ログイン成功
+    uiUtilhideProgress(context);
     if (result.user != null) {
       debugPrint("ログインしました　${result.user!.email} , ${result.user!.uid}");
-      return true;
-    }
-    //ログイン失敗ws
-    else {
-      return false;
+      return '';
+    } else {
+      //ログイン失敗
+      return '';
     }
   } catch (e) {
-    return false;
+    uiUtilhideProgress(context);
+    return _errorCoce(e: e as FirebaseAuthException);
   }
 }
 
 //メール/パスワードでログイン
-Future<bool> utilAuthLogin({
-  required String email,
-  required String password,
-}) async {
+Future<String> utilAuthLogin(
+    {required String email,
+    required String password,
+    required BuildContext context}) async {
+  //タップされたらプログレスを表示
+  uiUtilshowProgress(context);
+
   try {
     // メール/パスワードでログイン
     final User? user = (await FirebaseAuth.instance
             .signInWithEmailAndPassword(email: email, password: password))
         .user;
+    uiUtilhideProgress(context);
     //ログイン成功
     if (user != null) {
       debugPrint("ログインしました　${user.email} , ${user.uid}");
-      return true;
-    }
-    //ログイン失敗
-    else {
-      return false;
+      return ': ${user.email}';
+    } else {
+      //ログイン失敗
+      return 'ログインに失敗しました。';
     }
   } catch (e) {
-    return false;
+    uiUtilhideProgress(context);
+    return _errorCoce(e: e as FirebaseAuthException);
+  }
+}
+
+String _errorCoce({FirebaseAuthException? e}) {
+  if (e != null) {
+    switch (e.code) {
+      case 'account-exists-with-different-credential':
+        return 'このアカウントは既に別の資格情報で存在します。';
+      case 'invalid-credential':
+        return '無効な資格情報です。';
+      case 'operation-not-allowed':
+        return 'この操作は許可されていません。';
+      case 'user-disabled':
+        return 'このユーザーは無効になっています。';
+      case 'user-not-found':
+        return 'ユーザーが見つかりません。';
+      case 'wrong-password':
+        return 'パスワードが間違っています。';
+      case 'email-already-in-use':
+        return 'このメールアドレスは登録済みです。';
+      case 'invalid-email':
+        return '無効なメールアドレスです。';
+      case 'weak-password':
+        return '大文字小文字英字、数字、記号の組み合わせで8文字以上にしてください。';
+      default:
+        return '不明なエラーが発生しました。';
+    }
+  } else {
+    // その他の例外の場合の処理
+    return 'エラーが発生しました。';
   }
 }
 
@@ -84,41 +126,42 @@ Future<bool> utilAuthLogout() async {
 }
 
 //パスワードリセット
-Future<bool> uitlAuthEmeailPasswordReset({
-  required String email,
-}) async {
+Future<String> uitlAuthEmeailPasswordReset(
+    {required String email, required BuildContext context}) async {
   try {
     await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
-    return false;
+    return 'パスワードリセット確認メールを送信しました。';
   } catch (e) {
-    await Fluttertoast.showToast(
-      msg: 'パスワードリセット失敗+$e',
-    );
-    return false;
+    if (e is FirebaseAuthException) {
+      switch (e.code) {
+        case 'invalid-email':
+          return '無効なメールアドレスです。';
+        case 'user-not-found':
+          return 'ユーザーが見つかりません。';
+        default:
+          return 'パスワードリセットに失敗しました: ${e.message}';
+      }
+    } else {
+      return 'パスワードリセットに失敗しました: $e';
+    }
   }
 }
 
 //パスワードリセット
-Future<bool> uitlAuthLoggedInPasswordReset() async {
+Future<String> uitlAuthLoggedInPasswordReset(
+    {required BuildContext context}) async {
+  //タップされたらプログレスを表示
+  uiUtilshowProgress(context);
+
   try {
     final email = FirebaseAuth.instance.currentUser?.email;
-    if (email == null) {
-      await Fluttertoast.showToast(
-        msg: 'メールアドレスが登録されておりません。',
-      );
-      return false;
-    } else {
-      await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
-      await Fluttertoast.showToast(
-        msg: 'メールアドレスが登録されておりません。',
-      );
-      return true;
-    }
+    await FirebaseAuth.instance.sendPasswordResetEmail(email: email!);
+    uiUtilhideProgress(context);
+    return 'パスワードリセット確認メールを送信しました。';
   } catch (e) {
-    await Fluttertoast.showToast(
-      msg: 'メールアドレスが登録されておりません。+$e',
-    );
-    return false;
+    uiUtilhideProgress(context);
+
+    return _errorCoce(e: e as FirebaseAuthException);
   }
 }
 
