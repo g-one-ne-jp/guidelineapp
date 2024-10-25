@@ -27,87 +27,93 @@ class UiPageProfileCreate extends HookConsumerWidget with RepositoryFireStore {
 
     useEffect(() {}, []);
 
-    return Scaffold(
-      appBar: AppBar(title: const Text('アカウント登録')),
-      body: Center(
-        child: Container(
-          padding: const EdgeInsets.all(24),
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                uiUtilTitleTextFeild(
-                    title: '姓名',
-                    hintText: '山田太郎',
-                    onChenged: (String value) {
-                      _name.value = value;
-                    }),
-                uiUtilTitleTextFeild(
-                    title: '所属',
-                    hintText: '〇〇病院',
-                    onChenged: (String value) {
-                      _affiliation.value = value;
-                    }),
-                uiUtilTitleTextFeild(
-                    title: '専門',
-                    hintText: '〇〇科',
-                    onChenged: (String value) {
-                      _specialty.value = value;
-                    }),
-                uiUtilTitleTextFeild(
-                    title: '住所',
-                    hintText: '東京都',
-                    onChenged: (String value) {
-                      _address.value = value;
-                    }),
-                //利用規約
-                uiUtilTitleScrollableText(title: '利用規約', content: 'aaaaas'),
+    return PopScope(
+      canPop: false,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('アカウント登録'),
+          automaticallyImplyLeading: false,
+        ),
+        body: Center(
+          child: Container(
+            padding: const EdgeInsets.all(24),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  uiUtilTitleTextFeild(
+                      title: '姓名',
+                      hintText: '山田太郎',
+                      onChenged: (String value) {
+                        _name.value = value;
+                      }),
+                  uiUtilTitleTextFeild(
+                      title: '所属',
+                      hintText: '〇〇病院',
+                      onChenged: (String value) {
+                        _affiliation.value = value;
+                      }),
+                  uiUtilTitleTextFeild(
+                      title: '専門',
+                      hintText: '〇〇科',
+                      onChenged: (String value) {
+                        _specialty.value = value;
+                      }),
+                  uiUtilTitleTextFeild(
+                      title: '住所',
+                      hintText: '東京都',
+                      onChenged: (String value) {
+                        _address.value = value;
+                      }),
+                  //利用規約
+                  uiUtilTitleScrollableText(title: '利用規約', content: 'aaaaas'),
 
-                //
-                uiUtilCheckBox(
-                  text: '同意する',
-                  onChanged: (bool? value) {
-                    _isChecked.value = value!;
-                  },
-                  isChecked: _isChecked.value,
-                ),
-
-                //
-                SizedBox(
-                  height: 16.0.h,
-                ),
-                //登録ボタン
-                Container(
-                  padding: EdgeInsets.all(10.0.w),
-                  // 横幅いっぱいにする
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: _isChecked.value
-                        ? () async {
-                            if (await updateUserProfile(
-                              name: _name.value,
-                              affiliation: _affiliation.value,
-                              specialty: _specialty.value,
-                              address: _address.value,
-                            )) {
-                              context.router.popUntilRoot();
-                              context.router.replaceNamed('/home');
-                            }
-                          }
-                        : null,
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue,
-                      foregroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0.r),
-                      ),
-                      padding: EdgeInsets.symmetric(
-                          horizontal: 30.w, vertical: 15.h),
-                    ),
-                    child: Text('登録'),
+                  //
+                  uiUtilCheckBox(
+                    text: '同意する',
+                    onChanged: (bool? value) {
+                      _isChecked.value = value!;
+                    },
+                    isChecked: _isChecked.value,
                   ),
-                ),
-              ],
+
+                  //
+                  SizedBox(
+                    height: 16.0.h,
+                  ),
+                  //登録ボタン
+                  Container(
+                    padding: EdgeInsets.all(10.0.w),
+                    // 横幅いっぱいにする
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: _isChecked.value
+                          ? () async {
+                              if (await updateUserProfile(
+                                name: _name.value,
+                                affiliation: _affiliation.value,
+                                specialty: _specialty.value,
+                                address: _address.value,
+                              )) {
+                                context.router.popUntilRoot();
+                                context.router.replaceNamed('/home');
+                              }
+                            }
+                          : null,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.blue,
+                        foregroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0.r),
+                        ),
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 30.w, vertical: 15.h),
+                      ),
+                      child: Text('登録'),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

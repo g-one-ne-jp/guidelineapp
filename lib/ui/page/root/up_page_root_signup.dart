@@ -25,6 +25,7 @@ class UiPageSingup extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final _emailController = useState(useTextEditingController());
     final _passwordController = useState(useTextEditingController());
+    final _isPasswordVisible = useState(false);
 
     useEffect(() {}, []);
 
@@ -75,11 +76,20 @@ class UiPageSingup extends HookConsumerWidget {
                         borderSide: const BorderSide(color: Colors.grey),
                         borderRadius: BorderRadius.circular(10.0.r), // 角丸の半径を指定
                       ),
-
                       filled: true,
                       fillColor: Colors.grey[100], // 背景色を指定
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          _isPasswordVisible.value
+                              ? Icons.visibility
+                              : Icons.visibility_off,
+                        ),
+                        onPressed: () {
+                          _isPasswordVisible.value = !_isPasswordVisible.value;
+                        },
+                      ),
                     ),
-                    obscureText: true,
+                    obscureText: !_isPasswordVisible.value,
                     onSubmitted: (String value) {},
                   ),
                 ),
@@ -94,27 +104,21 @@ class UiPageSingup extends HookConsumerWidget {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () async {
-                      try {
-                        //タップされたらプログレスを表示
-                        uiUtilshowProgress(context);
-
-                        //アカウント作成
-                        if (await utilAuthSingup(
-                            email: _emailController.value.text,
-                            password: _passwordController.value.text)) {
+                      //アカウント作成
+                      utilAuthSignup(
+                              email: _emailController.value.text,
+                              password: _passwordController.value.text,
+                              context: context)
+                          .then((onValue) async {
+                        if (onValue.isNotEmpty) {
+                          await Fluttertoast.showToast(
+                            msg: onValue,
+                          );
+                        } else {
                           // ignore: use_build_context_synchronously
                           context.router.pushNamed('/profileCreate');
                         }
-                        //ログイン失敗
-                        else {
-                          await Fluttertoast.showToast(
-                            msg: 'アカウント作成に失敗しました',
-                          );
-                        }
-                        uiUtilhideProgress(context);
-                      } catch (e) {
-                        uiUtilhideProgress(context);
-                      }
+                      });
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.blue,
@@ -152,19 +156,20 @@ class UiPageSingup extends HookConsumerWidget {
                   child: FittedBox(
                     child: SignInButton(
                       Buttons.Google,
-                      text: "Googleでアカウント作成",
+                      text: "Googleで登録",
                       onPressed: () async {
-                        //タップされたらプログレスを表示
-                        uiUtilshowProgress(context);
-                        if (await utilGoogleSignin()) {
-                          // ignore: use_build_context_synchronously
-                          context.router.pushNamed('/profileCreate');
-                        } else {
-                          await Fluttertoast.showToast(
-                            msg: 'Googleでアカウント作成に失敗しました',
-                          );
-                        }
-                        uiUtilhideProgress(context);
+                        utilGoogleSignin(context: context)
+                            .then((onValue) async {
+                          if (onValue.isNotEmpty) {
+                            await Fluttertoast.showToast(
+                              msg: onValue,
+                            );
+                          } else {
+                            // ignore: use_build_context_synchronously
+                            context.router.popUntilRoot();
+                            context.router.replaceNamed('/home');
+                          }
+                        });
                       },
                     ),
                   ),

@@ -25,6 +25,8 @@ class UiPageLogin extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final _emailController = useState(useTextEditingController());
     final _passwordController = useState(useTextEditingController());
+    final _isPasswordVisible = useState(false);
+
     useEffect(() {}, []);
 
     return Scaffold(
@@ -67,11 +69,21 @@ class UiPageLogin extends HookConsumerWidget {
                         borderSide: const BorderSide(color: Colors.grey),
                         borderRadius: BorderRadius.circular(10.0.r), // 角丸の半径を指定
                       ),
-
                       filled: true,
                       fillColor: Colors.grey[100], // 背景色を指定
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          _isPasswordVisible.value
+                              ? Icons.visibility
+                              : Icons.visibility_off,
+                        ),
+                        onPressed: () {
+                          _isPasswordVisible.value = !_isPasswordVisible.value;
+                        },
+                      ),
                     ),
-                    obscureText: true,
+                    obscureText: !_isPasswordVisible.value,
+                    onSubmitted: (String value) {},
                   ),
                 ),
                 //
@@ -85,21 +97,21 @@ class UiPageLogin extends HookConsumerWidget {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () async {
-                      //タップされたらプログレスを表示
-                      uiUtilshowProgress(context);
-                      //ログイン実行
-                      if (await utilAuthLogin(
-                          email: _emailController.value.text,
-                          password: _passwordController.value.text)) {
-                        // ignore: use_build_context_synchronously
-                        context.router.popUntilRoot();
-                        context.router.replaceNamed('/home');
-                      } else {
-                        await Fluttertoast.showToast(
-                          msg: 'ログインに失敗しました。',
-                        );
-                      }
-                      uiUtilhideProgress(context);
+                      //アカウント作成
+                      utilAuthLogin(
+                              email: _emailController.value.text,
+                              password: _passwordController.value.text,
+                              context: context)
+                          .then((onValue) async {
+                        if (onValue.isNotEmpty) {
+                          await Fluttertoast.showToast(
+                            msg: onValue,
+                          );
+                        } else {
+                          // ignore: use_build_context_synchronously
+                          context.router.pushNamed('/profileCreate');
+                        }
+                      });
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.blue,
@@ -135,8 +147,47 @@ class UiPageLogin extends HookConsumerWidget {
                     backgroundColor: Colors.transparent,
                   ),
                   onPressed: () async {
-                    await uitlAuthEmeailPasswordReset(
-                        email: _emailController.value.text);
+                    final emailController = TextEditingController();
+                    final email = await showDialog<String>(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: Text('メールアドレスを入力してください'),
+                          content: TextField(
+                            controller: emailController,
+                            decoration: InputDecoration(hintText: 'メールアドレス'),
+                            autofocus: true, // AlertDialogが表示されたらすぐにfocusを当てる
+                          ),
+                          actions: <Widget>[
+                            TextButton(
+                              child: Text('キャンセル'),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                            ),
+                            TextButton(
+                              child: Text('送信'),
+                              onPressed: () {
+                                Navigator.of(context).pop(emailController.text);
+                              },
+                            ),
+                          ],
+                        );
+                      },
+                    );
+
+                    if (email != null && email.isNotEmpty) {
+                      uitlAuthEmeailPasswordReset(
+                        email: email,
+                        context: context,
+                      ).then((onValue) async {
+                        if (onValue.isNotEmpty) {
+                          await Fluttertoast.showToast(
+                            msg: onValue,
+                          );
+                        }
+                      });
+                    }
                   },
                   child: Text('パスワードを忘れた方'),
                 ),
@@ -151,19 +202,18 @@ class UiPageLogin extends HookConsumerWidget {
                       Buttons.Google,
                       text: "Googleでログイン",
                       onPressed: () async {
-                        //タップされたらプログレスを表示
-                        uiUtilshowProgress(context);
-                        if (await utilGoogleSignin()) {
-                          // ignore: use_build_context_synchronously
-                          context.router.popUntilRoot();
-                          context.router.replaceNamed('/home');
-                        } else {
-                          await Fluttertoast.showToast(
-                            msg: 'Googleログインに失敗しました',
-                          );
-                        }
-                        //タップされたらプログレスを表示
-                        uiUtilshowProgress(context);
+                        utilGoogleSignin(context: context)
+                            .then((onValue) async {
+                          if (onValue.isNotEmpty) {
+                            await Fluttertoast.showToast(
+                              msg: onValue,
+                            );
+                          } else {
+                            // ignore: use_build_context_synchronously
+                            context.router.popUntilRoot();
+                            context.router.replaceNamed('/home');
+                          }
+                        });
                       },
                     ),
                   ),
