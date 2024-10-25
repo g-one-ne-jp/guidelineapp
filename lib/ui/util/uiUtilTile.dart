@@ -245,9 +245,22 @@ class UiUtilWidgetTile3 extends HookConsumerWidget with RepositoryFireStorage {
                         constraints: BoxConstraints(
                             minHeight: 120.h, maxHeight: 360.h), // 最大の高さを200に設定
                         child:
-                            //
+                            //MarkdownWidget(data: element.value.markdown)
                             element.value.pdfId.isEmpty
-                                ? MarkdownWidget(data: element.value.markdown)
+                                ? FutureBuilder(
+                                    future: downLoadData(
+                                        path: element.value.markdown),
+                                    builder: (context, snapshot) {
+                                      if (snapshot.connectionState ==
+                                          ConnectionState.done) {
+                                        return MarkdownWidget(
+                                            data: File(snapshot.data!.path)
+                                                .readAsStringSync());
+                                      }
+
+                                      return const CircularProgressIndicator();
+                                    },
+                                  )
                                 : GestureDetector(
                                     onTap: () {
                                       onPdfTap(_pdfPath);
