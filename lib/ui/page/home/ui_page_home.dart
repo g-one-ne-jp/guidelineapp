@@ -5,18 +5,22 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_template/debug/debug_print.dart';
 import 'package:flutter_template/module/firebase/model_firebase_pdf_config.dart';
 import 'package:flutter_template/providers/toc_provider.dart';
+import 'package:flutter_template/providers/user_provider.dart';
 import 'package:flutter_template/repotitory/mixin_repository_firestore.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 @RoutePage()
 // ignore: must_be_immutable
-class UiPageHome extends HookConsumerWidget with RepositoryFireStore {
+class UiPageHome extends HookConsumerWidget {
   UiPageHome({
     super.key,
   });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final _userProvider = ref.watch(userProvider);
+    final _userNotifer = ref.watch(userProvider.notifier);
+
     final _tocProvider = ref.watch(tocProvider);
     final _tocNotifer = ref.watch(tocProvider.notifier);
 
@@ -24,7 +28,7 @@ class UiPageHome extends HookConsumerWidget with RepositoryFireStore {
 
     useEffect(() {
       Future<void>(() async {
-        _tos.value = await readTocs();
+        _tos.value = await _userNotifer.readTocs();
       });
       return () => customDebugPrint('dispose!');
     }, []);

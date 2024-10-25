@@ -13,6 +13,8 @@ abstract class ModelFirebaseUser with _$ModelFirebaseUser {
     @Default('') String specialty,
     @Default('') String address,
     @Default({}) Map<String, EditItem> editItems,
+    @Default({}) Map<String, String> memos,
+    @Default({}) Map<String, bool> bookmarks,
   }) = _ModelFirebaseUser;
 
   factory ModelFirebaseUser.fromJson(Map<String, dynamic> json) =>

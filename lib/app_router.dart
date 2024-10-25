@@ -55,11 +55,6 @@ class AppRouter extends _$AppRouter {
         AutoRoute(
             page: UiRouteHomeCatalogTabHomeMinor.page,
             path: '/tabHomeMinor/:mainorKey'),
-
-        AutoRoute(
-          page: FunctionRoutePdfEdit.page,
-          path: '/functionPdfEdit/:path',
-        ),
       ];
 }
 
