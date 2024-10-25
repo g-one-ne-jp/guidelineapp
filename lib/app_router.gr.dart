@@ -51,21 +51,22 @@ abstract class _$AppRouter extends RootStackRouter {
       final pathParams = routeData.inheritedPathParams;
       final args = routeData.argsAs<UiRouteHomeCatalogTabHomeMinorArgs>(
           orElse: () => UiRouteHomeCatalogTabHomeMinorArgs(
-              mainorKey: pathParams.getString('mainorKey')));
+                mainorKey: pathParams.getString('mainorKey'),
+                viewTypeMemo: pathParams.getBool('viewTypeMemo'),
+              ));
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: UiPageHomeCatalogTabHomeMinor(
           key: args.key,
           mainorKey: args.mainorKey,
+          viewTypeMemo: args.viewTypeMemo,
         ),
       );
     },
     UiRouteHomeCatalogTabMemo.name: (routeData) {
-      final args = routeData.argsAs<UiRouteHomeCatalogTabMemoArgs>(
-          orElse: () => const UiRouteHomeCatalogTabMemoArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: UiPageHomeCatalogTabMemo(key: args.key),
+        child: const UiPageHomeCatalogTabMemo(),
       );
     },
     UiRouteHomeCatalogTabMypage.name: (routeData) {
@@ -231,14 +232,19 @@ class UiRouteHomeCatalogTabHomeMinor
   UiRouteHomeCatalogTabHomeMinor({
     Key? key,
     required String mainorKey,
+    required bool viewTypeMemo,
     List<PageRouteInfo>? children,
   }) : super(
           UiRouteHomeCatalogTabHomeMinor.name,
           args: UiRouteHomeCatalogTabHomeMinorArgs(
             key: key,
             mainorKey: mainorKey,
+            viewTypeMemo: viewTypeMemo,
           ),
-          rawPathParams: {'mainorKey': mainorKey},
+          rawPathParams: {
+            'mainorKey': mainorKey,
+            'viewTypeMemo': viewTypeMemo,
+          },
           initialChildren: children,
         );
 
@@ -252,46 +258,33 @@ class UiRouteHomeCatalogTabHomeMinorArgs {
   const UiRouteHomeCatalogTabHomeMinorArgs({
     this.key,
     required this.mainorKey,
+    required this.viewTypeMemo,
   });
 
   final Key? key;
 
   final String mainorKey;
 
+  final bool viewTypeMemo;
+
   @override
   String toString() {
-    return 'UiRouteHomeCatalogTabHomeMinorArgs{key: $key, mainorKey: $mainorKey}';
+    return 'UiRouteHomeCatalogTabHomeMinorArgs{key: $key, mainorKey: $mainorKey, viewTypeMemo: $viewTypeMemo}';
   }
 }
 
 /// generated route for
 /// [UiPageHomeCatalogTabMemo]
-class UiRouteHomeCatalogTabMemo
-    extends PageRouteInfo<UiRouteHomeCatalogTabMemoArgs> {
-  UiRouteHomeCatalogTabMemo({
-    Key? key,
-    List<PageRouteInfo>? children,
-  }) : super(
+class UiRouteHomeCatalogTabMemo extends PageRouteInfo<void> {
+  const UiRouteHomeCatalogTabMemo({List<PageRouteInfo>? children})
+      : super(
           UiRouteHomeCatalogTabMemo.name,
-          args: UiRouteHomeCatalogTabMemoArgs(key: key),
           initialChildren: children,
         );
 
   static const String name = 'UiRouteHomeCatalogTabMemo';
 
-  static const PageInfo<UiRouteHomeCatalogTabMemoArgs> page =
-      PageInfo<UiRouteHomeCatalogTabMemoArgs>(name);
-}
-
-class UiRouteHomeCatalogTabMemoArgs {
-  const UiRouteHomeCatalogTabMemoArgs({this.key});
-
-  final Key? key;
-
-  @override
-  String toString() {
-    return 'UiRouteHomeCatalogTabMemoArgs{key: $key}';
-  }
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for

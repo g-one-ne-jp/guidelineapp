@@ -1,52 +1,76 @@
-import 'package:auto_route/auto_route.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:flutter_template/debug/debug_print.dart';
-import 'package:flutter_template/module/firebase/model_firebase_pdf_config.dart';
-import 'package:flutter_template/module/firebase/model_firebase_user.dart';
-import 'package:flutter_template/providers/user_provider.dart';
-import 'package:flutter_template/repotitory/mixin_repository_firestore.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:markdown_widget/markdown_widget.dart';
-import 'package:sliding_up_panel/sliding_up_panel.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 
-@RoutePage()
 class UiPageHomeCatalogTabSearch extends HookConsumerWidget {
-  UiPageHomeCatalogTabSearch({
-    Key? key,
-  }) : super(key: key);
+  const UiPageHomeCatalogTabSearch({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final _userProvider = ref.watch(userProvider);
-    final _userNotifer = ref.watch(userProvider.notifier);
+    final _searchController = useTextEditingController();
+    final _searchResults = useState<List<Map<String, dynamic>>>([]);
 
-    final _tos = useState(ModelFirebasePdfConfig());
-    final _panelController = useState(PanelController());
-    final _isOpen = useState(false);
+    Future<void> searchFirestore(String query) async {
+      final firestore = FirebaseFirestore.instance;
+      final storage = FirebaseStorage.instance;
 
-    useEffect(() {
-      Future<void>(() async {
-        //ユーザーデータを読み込み
-        final user = await _userNotifer.readUser<ModelFirebaseUser>(
-            fromJson: ModelFirebaseUser.fromJson);
-        //ユーザーデータがないときは新規作成
-        if (user == ModelFirebaseUser()) {
-          customDebugPrint('ユーザーデータがないので新規作成します');
-          await _userNotifer.writeUser(
-            data: ModelFirebaseUser().toJson(),
-          );
+      // Firestore クエリを作成してテキストファイルのパスを取得
+      final snapshot = await firestore.collection('your_collection_name').get();
+      final filePaths = snapshot.docs.map((doc) => doc['file_path']).toList();
+
+      final results = <Map<String, dynamic>>[];
+
+      // 各テキストファイルの内容を取得して検索ワードが含まれているかをチェック
+      for (final path in filePaths) {
+        final ref = storage.ref().child(path);
+        final data = await ref.getData();
+        final content = String.fromCharCodes(data!);
+
+        if (content.contains(query)) {
+          results.add({'path': path, 'content': content});
         }
+      }
 
-        _tos.value = await _userNotifer.readTocs();
-      });
-      return () => customDebugPrint('dispose!');
-    }, []);
+      _searchResults.value = results;
+    }
 
     return Scaffold(
-      appBar: AppBar(title: const Text('検索')),
-      body: Container(
-        color: Colors.grey,
+      appBar: AppBar(
+        title: const Text('検索'),
+        automaticallyImplyLeading: false, // 戻るボタンを表示しない
+      ),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              controller: _searchController,
+              decoration: InputDecoration(
+                labelText: '検索ワードを入力',
+                suffixIcon: IconButton(
+                  icon: const Icon(Icons.search),
+                  onPressed: () {
+                    searchFirestore(_searchController.text);
+                  },
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: _searchResults.value.length,
+              itemBuilder: (context, index) {
+                final result = _searchResults.value[index];
+                return ListTile(
+                  title: Text(result['path'] ?? 'No Path'),
+                  subtitle: Text(result['content'] ?? 'No Content'),
+                );
+              },
+            ),
+          ),
+        ],
       ),
     );
   }

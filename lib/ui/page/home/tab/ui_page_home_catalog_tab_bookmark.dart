@@ -1,17 +1,11 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:flutter_template/debug/debug_print.dart';
 import 'package:flutter_template/module/firebase/model_firebase_pdf_config.dart';
 import 'package:flutter_template/module/firebase/model_firebase_user.dart';
 import 'package:flutter_template/providers/toc_provider.dart';
 import 'package:flutter_template/providers/user_provider.dart';
-import 'package:flutter_template/repotitory/mixin_repository_firestore.dart';
-import 'package:flutter_template/ui/util/uiUtilTile.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:markdown_widget/markdown_widget.dart';
-import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 @RoutePage()
 class UiPageHomeCatalogTabBookmark extends HookConsumerWidget {
@@ -79,7 +73,10 @@ class UiPageHomeCatalogTabBookmark extends HookConsumerWidget {
     }, []);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('ブックマーク')),
+      appBar: AppBar(
+        title: const Text('ブックマーク'),
+        automaticallyImplyLeading: false, // 戻るボタンを表示しない
+      ),
       body: Column(
         children: [
           Expanded(
@@ -94,7 +91,7 @@ class UiPageHomeCatalogTabBookmark extends HookConsumerWidget {
                     subtitle: Text(item?.minorSummary ?? 'No Summary'),
                     onTap: () async {
                       await context.router.pushNamed(
-                        '/tabHomeMinor/${key}',
+                        '/tabHomeMinor/${key}/false',
                       );
                       fetchBookmarkedItems();
                     },
