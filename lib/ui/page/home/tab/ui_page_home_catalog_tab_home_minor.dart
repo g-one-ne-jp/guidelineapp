@@ -70,7 +70,7 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
         title: Text(_mainor.value.minorTitle),
         actions: <Widget>[
           IconButton(
-            icon: Icon(_userNotifer.getBookmarkState(key: mainorKey)
+            icon: Icon(!_userNotifer.getBookmarkState(key: mainorKey)
                 ? Icons.bookmark_outline
                 : Icons.bookmark),
             onPressed: () {
@@ -167,13 +167,12 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
                 width: double.infinity,
                 color: Colors.white70,
                 child: QuillEditor.basic(
-                  focusNode: _focusNode.value,
                   configurations: QuillEditorConfigurations(
                     placeholder: 'ここをタップしてメモを入力してください。',
                     controller: _controller.value,
                     scrollable: true,
                     padding: const EdgeInsets.all(16.0),
-                    autoFocus: true,
+                    autoFocus: false,
                     expands: false,
                   ),
                 ),

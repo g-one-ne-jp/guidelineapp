@@ -1,11 +1,14 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_template/debug/debug_print.dart';
 import 'package:flutter_template/module/firebase/model_firebase_pdf_config.dart';
 import 'package:flutter_template/module/firebase/model_firebase_user.dart';
+import 'package:flutter_template/providers/toc_provider.dart';
 import 'package:flutter_template/providers/user_provider.dart';
 import 'package:flutter_template/repotitory/mixin_repository_firestore.dart';
+import 'package:flutter_template/ui/util/uiUtilTile.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:markdown_widget/markdown_widget.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
@@ -21,32 +24,86 @@ class UiPageHomeCatalogTabBookmark extends HookConsumerWidget {
     final _userProvider = ref.watch(userProvider);
     final _userNotifer = ref.watch(userProvider.notifier);
 
-    final _tos = useState(ModelFirebasePdfConfig());
-    final _panelController = useState(PanelController());
-    final _isOpen = useState(false);
+    final _tocProvider = ref.watch(tocProvider);
+    final _tocNotifer = ref.watch(tocProvider.notifier);
+
+    final _bookmarkedItems = useState<Map<String, MinorCategory>>({});
+
+    // データ取得ロジックを関数に分離
+    Future<void> fetchBookmarkedItems() async {
+      // ユーザーデータを読み込み
+      final user = await _userNotifer.readUser<ModelFirebaseUser>(
+          fromJson: ModelFirebaseUser.fromJson);
+
+      // ブックマークが true のものを取得
+      final bookmarks = user.bookmarks;
+      final bookmarkedKeys = bookmarks.entries
+          .where((entry) => entry.value == true)
+          .map((entry) => entry.key)
+          .toList();
+
+      // Firestore からブックマークされたアイテムを取得
+      final bookmarkedItemsList =
+          await Future.wait(bookmarkedKeys.map((key) async {
+        final doc =
+            _tocNotifer.searchMinorCategoryByKeyFromMajor(_tocProvider, key);
+        return MapEntry(key, doc);
+      }));
+
+      // リストをマップに変換
+      final bookmarkedItems =
+          Map<String, MinorCategory>.fromEntries(bookmarkedItemsList);
+
+      _bookmarkedItems.value = bookmarkedItems;
+    }
 
     useEffect(() {
-      Future<void>(() async {
-        //ユーザーデータを読み込み
-        final user = await _userNotifer.readUser<ModelFirebaseUser>(
-            fromJson: ModelFirebaseUser.fromJson);
-        //ユーザーデータがないときは新規作成
-        if (user == ModelFirebaseUser()) {
-          customDebugPrint('ユーザーデータがないので新規作成します');
-          await _userNotifer.writeUser(
-            data: ModelFirebaseUser().toJson(),
-          );
-        }
+      fetchBookmarkedItems();
 
-        _tos.value = await _userNotifer.readTocs();
-      });
-      return () => customDebugPrint('dispose!');
+      // AutoTabsRouterを取得
+      final tabsRouter = AutoTabsRouter.of(context);
+
+      // タブが選択されたときに再実行
+      void handleTabSelection() {
+        if (tabsRouter.activeIndex == 3) {
+          // 1はこのタブのインデックス
+          fetchBookmarkedItems();
+        }
+      }
+
+      tabsRouter.addListener(handleTabSelection);
+
+      return () {
+        tabsRouter.removeListener(handleTabSelection);
+      };
     }, []);
 
     return Scaffold(
       appBar: AppBar(title: const Text('ブックマーク')),
-      body: Container(
-        color: Colors.red,
+      body: Column(
+        children: [
+          Expanded(
+            child: ListView.builder(
+              itemCount: _bookmarkedItems.value.length,
+              itemBuilder: (BuildContext context, int index) {
+                var key = _bookmarkedItems.value.keys.elementAt(index);
+                var item = _bookmarkedItems.value[key];
+                return Card(
+                  child: ListTile(
+                    title: Text(item?.minorTitle ?? 'No Title'),
+                    subtitle: Text(item?.minorSummary ?? 'No Summary'),
+                    onTap: () async {
+                      await context.router.pushNamed(
+                        '/tabHomeMinor/${key}',
+                      );
+                      fetchBookmarkedItems();
+                    },
+                  ),
+                );
+              },
+            ),
+          ),
+        ],
       ),
     );
   }
