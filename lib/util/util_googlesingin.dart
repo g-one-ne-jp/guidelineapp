@@ -89,9 +89,9 @@ String _errorCoce({FirebaseAuthException? e}) {
   if (e != null) {
     switch (e.code) {
       case 'account-exists-with-different-credential':
-        return 'このアカウントは既に別の資格情報で存在します。';
+        return 'このアカウントは既に存在します。';
       case 'invalid-credential':
-        return '無効な資格情報です。';
+        return 'アカウントが見つかりませんでした。アカウントをお持ちでない場合は、アカウントの登録をお願いします';
       case 'operation-not-allowed':
         return 'この操作は許可されていません。';
       case 'user-disabled':
@@ -105,7 +105,7 @@ String _errorCoce({FirebaseAuthException? e}) {
       case 'invalid-email':
         return '無効なメールアドレスです。';
       case 'weak-password':
-        return '大文字小文字英字、数字、記号の組み合わせで8文字以上にしてください。';
+        return 'パスワードは大文字小文字英字、数字、記号の組み合わせで8文字以上にしてください。';
       default:
         return '不明なエラーが発生しました。';
     }

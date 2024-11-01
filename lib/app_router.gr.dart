@@ -78,11 +78,9 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     UiRouteHomeCatalogTabSearch.name: (routeData) {
-      final args = routeData.argsAs<UiRouteHomeCatalogTabSearchArgs>(
-          orElse: () => const UiRouteHomeCatalogTabSearchArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: UiPageHomeCatalogTabSearch(key: args.key),
+        child: const UiPageHomeCatalogTabSearch(),
       );
     },
     UiRouteLogin.name: (routeData) {
@@ -319,32 +317,16 @@ class UiRouteHomeCatalogTabMypageArgs {
 
 /// generated route for
 /// [UiPageHomeCatalogTabSearch]
-class UiRouteHomeCatalogTabSearch
-    extends PageRouteInfo<UiRouteHomeCatalogTabSearchArgs> {
-  UiRouteHomeCatalogTabSearch({
-    Key? key,
-    List<PageRouteInfo>? children,
-  }) : super(
+class UiRouteHomeCatalogTabSearch extends PageRouteInfo<void> {
+  const UiRouteHomeCatalogTabSearch({List<PageRouteInfo>? children})
+      : super(
           UiRouteHomeCatalogTabSearch.name,
-          args: UiRouteHomeCatalogTabSearchArgs(key: key),
           initialChildren: children,
         );
 
   static const String name = 'UiRouteHomeCatalogTabSearch';
 
-  static const PageInfo<UiRouteHomeCatalogTabSearchArgs> page =
-      PageInfo<UiRouteHomeCatalogTabSearchArgs>(name);
-}
-
-class UiRouteHomeCatalogTabSearchArgs {
-  const UiRouteHomeCatalogTabSearchArgs({this.key});
-
-  final Key? key;
-
-  @override
-  String toString() {
-    return 'UiRouteHomeCatalogTabSearchArgs{key: $key}';
-  }
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
