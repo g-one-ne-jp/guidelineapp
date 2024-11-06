@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
@@ -40,39 +41,61 @@ class UiPageHomeCatalogTabSearch extends HookConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('検索'),
-        automaticallyImplyLeading: false, // 戻るボタンを表示しない
-      ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              controller: _searchController,
-              decoration: InputDecoration(
-                labelText: '検索ワードを入力',
-                suffixIcon: IconButton(
-                  icon: const Icon(Icons.search),
-                  onPressed: () {
-                    searchFirestore(_searchController.text);
-                  },
+        title: Container(
+          padding: const EdgeInsets.all(5.0),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12.0),
+            color: Colors.white,
+          ),
+          child: TextField(
+            controller: _searchController,
+            decoration: InputDecoration(
+              labelText: '検索ワードを入力',
+              suffixIcon: IconButton(
+                icon: const Icon(Icons.search),
+                onPressed: () {
+                  searchFirestore(_searchController.text);
+                },
+              ),
+              contentPadding: EdgeInsets.symmetric(
+                horizontal: 20.w,
+                vertical: 15.h,
+              ),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(40.r),
+                borderSide: const BorderSide(
+                  color: Color(0xFFE8E8E8),
+                ),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(40.r),
+                borderSide: const BorderSide(
+                  color: Color(0xFFE8E8E8),
                 ),
               ),
             ),
           ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: _searchResults.value.length,
-              itemBuilder: (context, index) {
-                final result = _searchResults.value[index];
-                return ListTile(
-                  title: Text(result['path'] ?? 'No Path'),
-                  subtitle: Text(result['content'] ?? 'No Content'),
-                );
-              },
+        ),
+        automaticallyImplyLeading: false, // 戻るボタンを表示しない
+      ),
+      body: Container(
+        color: Colors.grey[400],
+        child: Column(
+          children: [
+            Expanded(
+              child: ListView.builder(
+                itemCount: _searchResults.value.length,
+                itemBuilder: (context, index) {
+                  final result = _searchResults.value[index];
+                  return ListTile(
+                    title: Text(result['path'] ?? 'No Path'),
+                    subtitle: Text(result['content'] ?? 'No Content'),
+                  );
+                },
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

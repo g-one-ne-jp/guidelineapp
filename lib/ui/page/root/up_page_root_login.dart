@@ -43,16 +43,8 @@ class UiPageLogin extends HookConsumerWidget {
                   padding: EdgeInsets.all(10.0.w),
                   child: TextField(
                     controller: _emailController.value,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       hintText: 'Email',
-                      hintStyle: const TextStyle(
-                          color: Colors.grey), // hintの文字色をグレーに設定
-                      border: OutlineInputBorder(
-                        borderSide: const BorderSide(color: Colors.grey),
-                        borderRadius: BorderRadius.circular(10.0.r), // 角丸の半径を指定
-                      ),
-                      filled: true,
-                      fillColor: Colors.grey[100], // 背景色を指定
                     ),
                   ),
                 ),
@@ -63,14 +55,6 @@ class UiPageLogin extends HookConsumerWidget {
                     controller: _passwordController.value,
                     decoration: InputDecoration(
                       hintText: 'パスワード',
-                      hintStyle: const TextStyle(
-                          color: Colors.grey), // hintの文字色をグレーに設定
-                      border: OutlineInputBorder(
-                        borderSide: const BorderSide(color: Colors.grey),
-                        borderRadius: BorderRadius.circular(10.0.r), // 角丸の半径を指定
-                      ),
-                      filled: true,
-                      fillColor: Colors.grey[100], // 背景色を指定
                       suffixIcon: IconButton(
                         icon: Icon(
                           _isPasswordVisible.value
@@ -86,11 +70,12 @@ class UiPageLogin extends HookConsumerWidget {
                     onSubmitted: (String value) {},
                   ),
                 ),
-                //
-                SizedBox(
-                  height: 16.0.h,
+
+                Container(
+                  height: 180.0.h,
                 ),
                 //ログインボタン
+
                 Container(
                   padding: EdgeInsets.all(10.0.w),
                   // 横幅いっぱいにする
@@ -113,15 +98,6 @@ class UiPageLogin extends HookConsumerWidget {
                         }
                       });
                     },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue,
-                      foregroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0.r),
-                      ),
-                      padding: EdgeInsets.symmetric(
-                          horizontal: 30.w, vertical: 15.h),
-                    ),
                     child: Text('ログイン'),
                   ),
                 ),
@@ -201,6 +177,11 @@ class UiPageLogin extends HookConsumerWidget {
                     child: SignInButton(
                       Buttons.Google,
                       text: "Googleでログイン",
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(60.0.r),
+                        side: const BorderSide(color: Colors.grey), // 枠線を追加
+                      ),
+                      elevation: 0, // 影をなくす
                       onPressed: () async {
                         utilGoogleSignin(context: context)
                             .then((onValue) async {

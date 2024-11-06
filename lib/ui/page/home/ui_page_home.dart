@@ -29,6 +29,14 @@ class UiPageHome extends HookConsumerWidget {
     useEffect(() {
       Future<void>(() async {
         _tos.value = await _userNotifer.readTocs();
+        await Future.delayed(const Duration(seconds: 1));
+        var value = _tos.value.categories.values.toList()[0];
+        //選択した目次のIDを保持
+        _tocNotifer.writeToc(data: value);
+        // ignore: use_build_context_synchronously
+        context.router.pushNamed(
+          '/catalog',
+        );
       });
       return () => customDebugPrint('dispose!');
     }, []);
@@ -36,7 +44,19 @@ class UiPageHome extends HookConsumerWidget {
     return Scaffold(
       body: SafeArea(
           child: Column(
+        //真ん中揃え
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          //
+          const Text('ロード中'),
+          SizedBox(
+            height: 16.h,
+          ),
+          const Center(
+            child: CircularProgressIndicator(),
+          )
+
+          /*
           Container(
             width: double.infinity,
             height: 60.h,
@@ -71,6 +91,7 @@ class UiPageHome extends HookConsumerWidget {
               },
             ),
           ),
+          */
           /*
           Expanded(
             child: ListView.builder(

@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_template/app_router.dart';
 import 'package:flutter_template/debug/debug_print.dart';
 import 'package:flutter_template/firebase_options.dart';
+import 'package:flutter_template/theme.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -83,7 +84,7 @@ class MyApp extends HookConsumerWidget with WidgetsBindingObserver {
     }
 
     useEffect(() {
-      customDebugPrint('Sayuuアプリ起動');
+      customDebugPrint('アプリ起動');
       SystemChrome.setSystemUIOverlayStyle(
         const SystemUiOverlayStyle(
             statusBarColor: Colors.transparent, // ステータスバーの色
@@ -105,11 +106,7 @@ class MyApp extends HookConsumerWidget with WidgetsBindingObserver {
         routerConfig: _appRouter.config(),
 
         title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.red,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-          dividerColor: Colors.transparent,
-        ),
+        theme: AppTheme.lightTheme,
         localizationsDelegates: const [
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
