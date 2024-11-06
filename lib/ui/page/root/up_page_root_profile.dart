@@ -104,15 +104,6 @@ class UiPageProfileCreate extends HookConsumerWidget {
                               }
                             }
                           : null,
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blue,
-                        foregroundColor: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0.r),
-                        ),
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 30.w, vertical: 15.h),
-                      ),
                       child: Text('登録'),
                     ),
                   ),

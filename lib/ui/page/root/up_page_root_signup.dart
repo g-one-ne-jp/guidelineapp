@@ -142,8 +142,8 @@ class UiPageSingup extends HookConsumerWidget {
                             msg: onValue,
                           );
                         } else {
-                          // ignore: use_build_context_synchronously
-                          context.router.pushNamed('/profileCreate');
+                          context.router.popUntilRoot();
+                          context.router.replaceNamed('/emailVerification');
                         }
                       });
                     },
@@ -184,9 +184,8 @@ class UiPageSingup extends HookConsumerWidget {
                               msg: onValue,
                             );
                           } else {
-                            // ignore: use_build_context_synchronously
                             context.router.popUntilRoot();
-                            context.router.replaceNamed('/home');
+                            context.router.replaceNamed('/profileCreate');
                           }
                         });
                       },

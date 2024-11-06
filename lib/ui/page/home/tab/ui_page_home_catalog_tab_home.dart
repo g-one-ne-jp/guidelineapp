@@ -35,38 +35,41 @@ class UiPageHomeCatalogTabHome extends HookConsumerWidget {
         title: Text(_tocProvider.majorTitle),
         automaticallyImplyLeading: false, // 戻るボタンを表示しない
       ),
-      body: Column(
-        children: [
-          Container(
-            width: double.infinity,
-            height: 60.h,
-            color: const Color(0xFFE4007F),
-            child: Center(
-              child: FittedBox(
-                fit: BoxFit.contain,
-                child: Text(
-                  _tocProvider.majorSummary,
-                  style: TextStyle(color: Colors.white, fontSize: 20.sp),
+      body: Container(
+        color: Colors.grey[400],
+        child: Column(
+          children: [
+            Container(
+              width: double.infinity,
+              height: 60.h,
+              color: const Color(0xFFE4007F),
+              child: Center(
+                child: FittedBox(
+                  fit: BoxFit.contain,
+                  child: Text(
+                    _tocProvider.majorSummary,
+                    style: TextStyle(color: Colors.white, fontSize: 20.sp),
+                  ),
                 ),
               ),
             ),
-          ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: _tocProvider.subs.keys.toList().length,
-              itemBuilder: (BuildContext context, int index) {
-                var value = _tocProvider.subs.values.toList()[index];
-                return UiUtilWidgetTile(
-                    sub: value,
-                    onMinorTap: (minor) {
-                      context.router.pushNamed(
-                        '/tabHomeMinor/${minor.mainorKey}/false',
-                      );
-                    });
-              },
+            Expanded(
+              child: ListView.builder(
+                itemCount: _tocProvider.subs.keys.toList().length,
+                itemBuilder: (BuildContext context, int index) {
+                  var value = _tocProvider.subs.values.toList()[index];
+                  return UiUtilWidgetTile(
+                      sub: value,
+                      onMinorTap: (minor) {
+                        context.router.pushNamed(
+                          '/tabHomeMinor/${minor.mainorKey}/false',
+                        );
+                      });
+                },
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

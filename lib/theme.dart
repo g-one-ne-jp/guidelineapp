@@ -86,7 +86,15 @@ class AppTheme {
       elevation: 0,
       margin: EdgeInsets.zero,
     ),
-    //
+    //tile
+    listTileTheme: ListTileThemeData(
+      textColor: Colors.black,
+      style: ListTileStyle.list,
+      titleTextStyle: TextStyle(
+        fontSize: 20.0.sp,
+        color: Colors.black,
+      ),
+    ),
   );
 
   static ThemeData darkTheme = ThemeData(

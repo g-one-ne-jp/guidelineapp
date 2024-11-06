@@ -182,40 +182,45 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
             )
           ],
         ),
-        body: ListView.builder(
-          itemCount: _mainor.value.details.length,
-          itemBuilder: (BuildContext context, int index) {
-            var value = _mainor.value.details.values.toList()[index];
+        body: Container(
+          color: Colors.grey[400],
+          child: ListView.builder(
+            itemCount: _mainor.value.details.length,
+            itemBuilder: (BuildContext context, int index) {
+              var value = _mainor.value.details.values.toList()[index];
 
-            //memoにkeyが存在しているか？
-            final isMemo =
-                _userNotifer.getMemo(key: value.detailKey).isNotEmpty;
+              //memoにkeyが存在しているか？
+              final isMemo =
+                  _userNotifer.getMemo(key: value.detailKey).isNotEmpty;
 
-            return isMemo || !viewTypeMemo
-                ? UiUtilWidgetTile3(
-                    deteil: value,
-                    onPdfTap: (String path) {
-                      showViewer(document: path);
-                    },
-                    onDeteilEdit: (deteil) {
-                      _panelKey.value = deteil.detailKey;
+              return isMemo || !viewTypeMemo
+                  ? UiUtilWidgetTile3(
+                      deteil: value,
+                      onPdfTap: (String path) {
+                        showViewer(document: path);
+                      },
+                      onDeteilEdit: (deteil) {
+                        _panelKey.value = deteil.detailKey;
 
-                      if (_isOpen.value) {
-                        _panelController.value.close();
-                        _isOpen.value = false;
-                        FocusScope.of(context).unfocus();
-                        FocusScope.of(context).nextFocus();
-                      } else {
-                        _panelController.value.open();
-                        final json = _userNotifer.getMemo(key: _panelKey.value);
-                        if (json.isNotEmpty) {
-                          _controller.value.document = Document.fromJson(json);
+                        if (_isOpen.value) {
+                          _panelController.value.close();
+                          _isOpen.value = false;
+                          FocusScope.of(context).unfocus();
+                          FocusScope.of(context).nextFocus();
+                        } else {
+                          _panelController.value.open();
+                          final json =
+                              _userNotifer.getMemo(key: _panelKey.value);
+                          if (json.isNotEmpty) {
+                            _controller.value.document =
+                                Document.fromJson(json);
+                          }
+                          _isOpen.value = true;
                         }
-                        _isOpen.value = true;
-                      }
-                    })
-                : Container();
-          },
+                      })
+                  : Container();
+            },
+          ),
         ),
       ),
     );

@@ -18,6 +18,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:markdown_widget/markdown_widget.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // ignore: must_be_immutable
 class UiUtilWidgetTile extends HookConsumerWidget {
@@ -51,39 +52,51 @@ class UiUtilWidgetTile extends HookConsumerWidget {
         children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text(title),
+            child: Text(
+              title,
+              style: TextStyle(
+                fontSize: 20.0.sp,
+                color: const Color(0xFF50555C),
+              ),
+            ),
           ),
           Card(
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.zero,
+            ),
             color: Colors.white,
-            child: children.isEmpty
-                ? ListTile(
-                    trailing: const Icon(Icons.arrow_forward_ios),
-                    title: Text(sub.minors.entries.first.value.minorTitle),
-                    onTap: () {
-                      onTap();
-                    },
-                  )
-                : ExpansionTile(
-                    trailing: Icon(
-                      _isExpanded.value
-                          ? Icons.remove // 展開されている場合のアイコン
-                          : Icons.add, // 折りたたまれている場合のアイコン
+            child: Card(
+              color: Colors.white,
+              child: children.isEmpty
+                  ? ListTile(
+                      trailing: const Icon(Icons.arrow_forward_ios),
+                      title: Text(sub.minors.entries.first.value.minorTitle),
+                      onTap: () {
+                        onTap();
+                      },
+                    )
+                  : ExpansionTile(
+                      trailing: Icon(
+                        _isExpanded.value
+                            ? Icons.remove // 展開されている場合のアイコン
+                            : Icons.add, // 折りたたまれている場合のアイコン
+                      ),
+                      onExpansionChanged: (bool expanded) {
+                        _isExpanded.value = expanded;
+                      },
+                      title: Text(sub.subTitle),
+                      subtitle: Text(sub.subSummary),
+                      children: sub.minors.entries.map((item) {
+                        return ListTile(
+                          trailing: const Icon(Icons.arrow_forward_ios),
+                          title: Text(item.value.minorTitle),
+                          onTap: () {
+                            onTap();
+                          },
+                        );
+                      }).toList(),
                     ),
-                    onExpansionChanged: (bool expanded) {
-                      _isExpanded.value = expanded;
-                    },
-                    title: Text(sub.subTitle),
-                    subtitle: Text(sub.subSummary),
-                    children: sub.minors.entries.map((item) {
-                      return ListTile(
-                        trailing: const Icon(Icons.arrow_forward_ios),
-                        title: Text(item.value.minorTitle),
-                        onTap: () {
-                          onTap();
-                        },
-                      );
-                    }).toList(),
-                  ),
+            ),
           ),
         ],
       );
@@ -305,7 +318,6 @@ class UiUtilWidgetTile3 extends HookConsumerWidget with RepositoryFireStorage {
                                     ),
                                   ),
                       ),
-                      const Divider(),
                     ],
                   ),
                 ],
@@ -322,7 +334,7 @@ class UiUtilWidgetTile3 extends HookConsumerWidget with RepositoryFireStorage {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          color: Colors.grey[300],
+          color: Colors.transparent,
           padding: const EdgeInsets.all(8.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -337,8 +349,15 @@ class UiUtilWidgetTile3 extends HookConsumerWidget with RepositoryFireStorage {
             ],
           ),
         ),
-        Card(
-          child: Column(children: _settions.value),
+        Padding(
+          padding: EdgeInsets.symmetric(vertical: 5.h),
+          child: Card(
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.zero,
+            ),
+            color: Colors.white,
+            child: Column(children: _settions.value),
+          ),
         ),
       ],
     );
