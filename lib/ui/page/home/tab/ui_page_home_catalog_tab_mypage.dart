@@ -60,6 +60,27 @@ class UiPageHomeCatalogTabMypage extends HookConsumerWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'プロフィール',
+                    style: TextStyle(fontSize: 20.sp),
+                  ),
+                ),
+                SizedBox(
+                  height: 8.0.h,
+                ),
+                //Emailの表示
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'E-MAIL  ${_userProvider.address}',
+                    style: TextStyle(fontSize: 18.sp),
+                  ),
+                ),
+                SizedBox(
+                  height: 16.0.h,
+                ),
                 uiUtilTitleTextFeild(
                     title: '姓名',
                     hintText: '山田太郎',
@@ -118,15 +139,6 @@ class UiPageHomeCatalogTabMypage extends HookConsumerWidget {
                             }
                           }
                         : null,
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue,
-                      foregroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0.r),
-                      ),
-                      padding: EdgeInsets.symmetric(
-                          horizontal: 30.w, vertical: 15.h),
-                    ),
                     child: const Text('更新'),
                   ),
                 ),

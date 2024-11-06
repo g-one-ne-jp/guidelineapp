@@ -39,60 +39,87 @@ class UiPageSingup extends HookConsumerWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 //
-                const Center(
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    '当アプリについて',
+                    style: TextStyle(fontSize: 20.0.sp),
+                  ),
+                ),
+                SizedBox(
+                  height: 8.0.h,
+                ),
+                Container(
+                  height: 150.0.h, // Set a fixed height for the container
+                  child: SingleChildScrollView(
+                    child: Text(
+                      'このアプリは、JCSガイドラインに基づいて、心血管疾患の予防、診断、治療に関する情報を提供します。'
+                      '最新の研究成果や臨床ガイドラインを反映し、医療従事者や患者さんに役立つ情報を提供します。',
+                      style: TextStyle(fontSize: 15.0.sp),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 16.0.h,
+                ),
+                //
+                const Align(
+                  alignment: Alignment.centerLeft,
                   child: Text(
                     'ご利用にはアカウント登録が必要です',
                   ),
                 ),
+                //
+                SizedBox(
+                  height: 8.0.h,
+                ),
                 //Email入力欄
-                Padding(
-                  padding: EdgeInsets.all(10.0.w),
-                  child: TextField(
-                    controller: _emailController.value,
-                    decoration: InputDecoration(
-                      hintText: 'Email',
-                      hintStyle: const TextStyle(
-                          color: Colors.grey), // hintの文字色をグレーに設定
-                      border: OutlineInputBorder(
-                        borderSide: const BorderSide(color: Colors.grey),
-                        borderRadius: BorderRadius.circular(10.0.r), // 角丸の半径を指定
-                      ),
-                      filled: true,
-                      fillColor: Colors.grey[100], // 背景色を指定
+                TextField(
+                  controller: _emailController.value,
+                  decoration: InputDecoration(
+                    hintText: 'Email',
+                    hintStyle:
+                        const TextStyle(color: Colors.grey), // hintの文字色をグレーに設定
+                    border: OutlineInputBorder(
+                      borderSide: const BorderSide(color: Colors.grey),
+                      borderRadius: BorderRadius.circular(10.0.r), // 角丸の半径を指定
                     ),
-                    onSubmitted: (String value) {},
+                    filled: true,
+                    fillColor: Colors.grey[100], // 背景色を指定
                   ),
+                  onSubmitted: (String value) {},
                 ),
-                //パスワード入力欄
-                Padding(
-                  padding: EdgeInsets.all(10.0.w),
-                  child: TextField(
-                    controller: _passwordController.value,
-                    decoration: InputDecoration(
-                      hintText: 'パスワード',
-                      hintStyle: const TextStyle(
-                          color: Colors.grey), // hintの文字色をグレーに設定
-                      border: OutlineInputBorder(
-                        borderSide: const BorderSide(color: Colors.grey),
-                        borderRadius: BorderRadius.circular(10.0.r), // 角丸の半径を指定
-                      ),
-                      filled: true,
-                      fillColor: Colors.grey[100], // 背景色を指定
-                      suffixIcon: IconButton(
-                        icon: Icon(
-                          _isPasswordVisible.value
-                              ? Icons.visibility
-                              : Icons.visibility_off,
-                        ),
-                        onPressed: () {
-                          _isPasswordVisible.value = !_isPasswordVisible.value;
-                        },
-                      ),
+                //
+                SizedBox(
+                  height: 16.0.h,
+                ),
+                TextField(
+                  controller: _passwordController.value,
+                  decoration: InputDecoration(
+                    hintText: 'パスワード',
+                    hintStyle:
+                        const TextStyle(color: Colors.grey), // hintの文字色をグレーに設定
+                    border: OutlineInputBorder(
+                      borderSide: const BorderSide(color: Colors.grey),
+                      borderRadius: BorderRadius.circular(10.0.r), // 角丸の半径を指定
                     ),
-                    obscureText: !_isPasswordVisible.value,
-                    onSubmitted: (String value) {},
+                    filled: true,
+                    fillColor: Colors.grey[100], // 背景色を指定
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        _isPasswordVisible.value
+                            ? Icons.visibility
+                            : Icons.visibility_off,
+                      ),
+                      onPressed: () {
+                        _isPasswordVisible.value = !_isPasswordVisible.value;
+                      },
+                    ),
                   ),
+                  obscureText: !_isPasswordVisible.value,
+                  onSubmitted: (String value) {},
                 ),
+
                 //
                 SizedBox(
                   height: 16.0.h,
@@ -120,15 +147,6 @@ class UiPageSingup extends HookConsumerWidget {
                         }
                       });
                     },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue,
-                      foregroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0.r),
-                      ),
-                      padding: EdgeInsets.symmetric(
-                          horizontal: 30.w, vertical: 15.h),
-                    ),
                     child: Text('アカウント作成'),
                   ),
                 ),
@@ -138,10 +156,6 @@ class UiPageSingup extends HookConsumerWidget {
                 ),
                 //アカウントを持ってるボタン
                 TextButton(
-                  style: TextButton.styleFrom(
-                    foregroundColor: Colors.blue,
-                    backgroundColor: Colors.transparent,
-                  ),
                   onPressed: () async {
                     context.router.popUntilRoot();
                   },
@@ -157,6 +171,11 @@ class UiPageSingup extends HookConsumerWidget {
                     child: SignInButton(
                       Buttons.Google,
                       text: "Googleで登録",
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(60.0.r),
+                        side: const BorderSide(color: Colors.grey), // 枠線を追加
+                      ),
+                      elevation: 0, // 影をなくす
                       onPressed: () async {
                         utilGoogleSignin(context: context)
                             .then((onValue) async {

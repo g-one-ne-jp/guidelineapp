@@ -40,15 +40,13 @@ class UiPageHomeCatalogTabHome extends HookConsumerWidget {
           Container(
             width: double.infinity,
             height: 60.h,
-            color: Colors.pink,
+            color: const Color(0xFFE4007F),
             child: Center(
               child: FittedBox(
-                fit: BoxFit.scaleDown,
+                fit: BoxFit.contain,
                 child: Text(
                   _tocProvider.majorSummary,
-                  style: const TextStyle(
-                    color: Colors.white,
-                  ),
+                  style: TextStyle(color: Colors.white, fontSize: 20.sp),
                 ),
               ),
             ),

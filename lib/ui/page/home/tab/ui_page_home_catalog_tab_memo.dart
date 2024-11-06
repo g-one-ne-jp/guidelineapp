@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_template/module/firebase/model_firebase_pdf_config.dart';
 import 'package:flutter_template/module/firebase/model_firebase_user.dart';
 import 'package:flutter_template/providers/toc_provider.dart';
@@ -79,31 +80,41 @@ class UiPageHomeCatalogTabMemo extends HookConsumerWidget {
         title: const Text('メモ'),
         automaticallyImplyLeading: false, // 戻るボタンを表示しない
       ),
-      body: Column(
-        children: [
-          Expanded(
-            child: ListView.builder(
-              itemCount: _memoItems.value.length,
-              itemBuilder: (BuildContext context, int index) {
-                var key = _memoItems.value.keys.elementAt(index);
-                var item = _memoItems.value[key];
-                return Card(
-                  child: ListTile(
-                    title: Text(item?.detailTitle ?? 'No Title'),
-                    subtitle: Text(
-                        _userProvider.memos[item?.detailKey] ?? 'No Summary'),
-                    onTap: () async {
-                      await context.router.pushNamed(
-                        '/tabHomeMinor/${key}/true',
-                      );
-                      fetchMemoItems();
-                    },
-                  ),
-                );
-              },
+      body: Container(
+        color: Colors.grey[400],
+        child: Column(
+          children: [
+            Expanded(
+              child: ListView.builder(
+                itemCount: _memoItems.value.length,
+                itemBuilder: (BuildContext context, int index) {
+                  var key = _memoItems.value.keys.elementAt(index);
+                  var item = _memoItems.value[key];
+                  return Padding(
+                    padding: EdgeInsets.symmetric(vertical: 5.h),
+                    child: Card(
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.zero,
+                      ),
+                      color: Colors.white,
+                      child: ListTile(
+                        title: Text(item?.detailTitle ?? 'No Title'),
+                        subtitle: Text(_userProvider.memos[item?.detailKey] ??
+                            'No Summary'),
+                        onTap: () async {
+                          await context.router.pushNamed(
+                            '/tabHomeMinor/${key}/true',
+                          );
+                          fetchMemoItems();
+                        },
+                      ),
+                    ),
+                  );
+                },
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

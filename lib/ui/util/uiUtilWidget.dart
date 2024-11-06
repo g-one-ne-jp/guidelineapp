@@ -10,6 +10,7 @@ Widget uiUtilTitleTextFeild({
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start, // 題名を左寄せ
     children: [
+      /*
       Text(
         title,
         style: TextStyle(
@@ -18,6 +19,7 @@ Widget uiUtilTitleTextFeild({
         ),
       ),
       SizedBox(height: 8.h), // 題名と入力欄の間に少しスペースを入れる
+      */
       TextField(
         controller: TextEditingController(text: value),
         decoration: InputDecoration(
