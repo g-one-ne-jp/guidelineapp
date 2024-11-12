@@ -59,7 +59,7 @@ class UiPageHomeCatalogTabSearch extends HookConsumerWidget {
               ),
               contentPadding: EdgeInsets.symmetric(
                 horizontal: 20.w,
-                vertical: 15.h,
+                vertical: 12.h,
               ),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(40.r),
