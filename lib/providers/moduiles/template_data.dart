@@ -1,3 +1,4 @@
+// Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // ジェネレートされたクラスからUserクラスのprivateメンバ変数にアクセスするため

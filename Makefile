@@ -16,12 +16,12 @@ setup:
 flutter_generate:
 	flutter clean
 	flutter pub get
-	# l10nの生成コマンド
-	flutter gen-l10n
 	# import_sorterの実行コマンド
 	flutter pub run import_sorter:main
-    # flutter_launcher_iconsの生成コマンド
+    #　アイコンの生成コマンド
 	flutter pub run flutter_launcher_icons
+	# スプラッシュ画面の生成コマンド
+	dart run flutter_native_splash:create
 	# コード生成(build_runner)
 	flutter pub run build_runner build --delete-conflicting-outputs
 

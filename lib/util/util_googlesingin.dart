@@ -1,8 +1,13 @@
-import 'package:firebase_auth/firebase_auth.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:flutter_template/ui/util/uiUtilDialog.dart';
+
+// Package imports:
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+
+// Project imports:
+import 'package:flutter_template/ui/util/uiUtilDialog.dart';
 
 //Googleサインイン
 Future<String> utilGoogleSignin({required BuildContext context}) async {

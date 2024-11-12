@@ -1,4 +1,6 @@
 // プログレスを表示する関数
+
+// Flutter imports:
 import 'package:flutter/material.dart';
 
 void uiUtilshowProgress(BuildContext context) {

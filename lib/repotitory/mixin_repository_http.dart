@@ -1,10 +1,15 @@
+// Dart imports:
 import 'dart:io';
 
+// Flutter imports:
+import 'package:flutter/foundation.dart';
+
+// Package imports:
 import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter_template/debug/debug_print.dart';
 
+// Project imports:
+import 'package:flutter_template/debug/debug_print.dart';
 import 'modules/repository_http_api_result.dart';
 
 var _accessToken = '';
