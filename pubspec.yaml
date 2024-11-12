@@ -139,7 +139,7 @@ index_generator:
 
 
 flutter_native_splash:
-  image: "assets/image/splash/splash.png"
+  image: "assets/＿image/splash/splash.png"
   color: "FFFFFF"
   android: true
   ios: true
