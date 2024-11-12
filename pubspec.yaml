@@ -1,5 +1,5 @@
 name: flutter_template
-description: "A new Flutter project."
+description: "JCS Guidelines（循環器病ガイドライン）"
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 
@@ -37,7 +37,7 @@ dependencies:
 
   flutter_localization: ^0.2.0
   auto_route: ^8.0.0
-  
+  import_sorter: ^4.6.0
   flutter_hooks: ^0.20.5
   hooks_riverpod: ^2.5.1
   flutter_riverpod: ^2.5.1
@@ -45,7 +45,7 @@ dependencies:
 
   get_it: ^7.6.7
   flutter_native_splash: ^2.4.2
-  flutter_launcher_icons: ^0.13.1
+  flutter_launcher_icons: ^0.14.1
   json_serializable: ^6.7.0
   json_annotation: ^4.9.0
   freezed: ^2.4.6
@@ -139,8 +139,14 @@ index_generator:
 
 
 flutter_native_splash:
-  image: "assets/＿image/splash/splash.png"
+  image: "assets/image/splash/splash.png"
   color: "FFFFFF"
   android: true
   ios: true
-  fullscreen: true
+  
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/image/splash/splash.png"
+  min_sdk_android: 21 
+  # android min sdk min:16, default 21

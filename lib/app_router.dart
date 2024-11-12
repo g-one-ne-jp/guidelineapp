@@ -1,7 +1,12 @@
+// Flutter imports:
+import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:auto_route/auto_route.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:flutter/material.dart';
+
+// Project imports:
 import 'package:flutter_template/ui/page/home/tab/ui_page_home_catalog_tab_bookmark.dart';
 import 'package:flutter_template/ui/page/home/tab/ui_page_home_catalog_tab_home.dart';
 import 'package:flutter_template/ui/page/home/tab/ui_page_home_catalog_tab_home_minor.dart';

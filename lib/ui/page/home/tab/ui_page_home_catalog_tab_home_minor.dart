@@ -1,21 +1,27 @@
 // ignore_for_file: use_build_context_synchronously
 
+// Dart imports:
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:auto_route/auto_route.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_quill/flutter_quill.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:pdftron_flutter/pdftron_flutter.dart';
+import 'package:sliding_up_panel/sliding_up_panel.dart';
+
+// Project imports:
 import 'package:flutter_template/debug/debug_print.dart';
 import 'package:flutter_template/module/firebase/model_firebase_pdf_config.dart';
 import 'package:flutter_template/providers/toc_provider.dart';
 import 'package:flutter_template/providers/user_provider.dart';
 import 'package:flutter_template/repotitory/mixin_repository_firestorage.dart';
 import 'package:flutter_template/ui/util/uiUtilTile.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:pdftron_flutter/pdftron_flutter.dart';
-import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 @RoutePage()
 // ignore: must_be_immutable

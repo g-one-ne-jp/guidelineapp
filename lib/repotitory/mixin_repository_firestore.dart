@@ -1,8 +1,14 @@
+// Dart imports:
 import 'dart:async';
 
+// Flutter imports:
+import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
+
+// Project imports:
 import 'package:flutter_template/module/firebase/model_firebase_pdf_config.dart';
 import 'package:flutter_template/module/firebase/model_firebase_user.dart';
 
