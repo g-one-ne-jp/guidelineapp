@@ -54,20 +54,21 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyB7IRdhO9lLu7ehdROTGlSli4wFrEQ98GA',
-    appId: '1:541108438363:android:23de66f441d1336364c67e',
-    messagingSenderId: '541108438363',
-    projectId: 'g-one-pdf',
-    storageBucket: 'g-one-pdf.appspot.com',
+    apiKey: 'AIzaSyCCcGjEWSwLxrQunJWJnc_j6YoQZ8p-nAc',
+    appId: '1:256963860509:android:4424c55aeffd5e1a028ef4',
+    messagingSenderId: '256963860509',
+    projectId: 'jcsguideline',
+    storageBucket: 'jcsguideline.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBZHtzdxPPGqFdZWrmDMj8PwhKhqmpCXuU',
-    appId: '1:541108438363:ios:eb43fb8b1f13271864c67e',
-    messagingSenderId: '541108438363',
-    projectId: 'g-one-pdf',
-    storageBucket: 'g-one-pdf.appspot.com',
-    iosBundleId: 'com.example.flutterTemplate',
+    apiKey: 'AIzaSyAC3spWmWQqBTn1c9fkstdzPEccb7aFn0Q',
+    appId: '1:256963860509:ios:2ef6cff19d60e732028ef4',
+    messagingSenderId: '256963860509',
+    projectId: 'jcsguideline',
+    storageBucket: 'jcsguideline.firebasestorage.app',
+    iosClientId: '256963860509-h49klkinp44lvtv1e2uc5jtme3hqh3rd.apps.googleusercontent.com',
+    iosBundleId: 'com.guideline.dev',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(

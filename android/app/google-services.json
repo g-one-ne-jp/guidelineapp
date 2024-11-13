@@ -1,26 +1,43 @@
 {
   "project_info": {
-    "project_number": "541108438363",
-    "project_id": "g-one-pdf",
-    "storage_bucket": "g-one-pdf.appspot.com"
+    "project_number": "256963860509",
+    "project_id": "jcsguideline",
+    "storage_bucket": "jcsguideline.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:541108438363:android:23de66f441d1336364c67e",
+        "mobilesdk_app_id": "1:256963860509:android:4424c55aeffd5e1a028ef4",
         "android_client_info": {
           "package_name": "com.example.flutter_template"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "256963860509-ci7a8oj963q99det8geblssj4ifqomba.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyB7IRdhO9lLu7ehdROTGlSli4wFrEQ98GA"
+          "current_key": "AIzaSyCCcGjEWSwLxrQunJWJnc_j6YoQZ8p-nAc"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "256963860509-ci7a8oj963q99det8geblssj4ifqomba.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "256963860509-h49klkinp44lvtv1e2uc5jtme3hqh3rd.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.guideline.dev"
+              }
+            }
+          ]
         }
       }
     }

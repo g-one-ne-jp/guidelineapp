@@ -1,36 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-	<dict>
-		<key>CLIENT_ID</key>
-		<string>541108438363-bmqjoua4kb0ghvou7vq1q43jhaaibv82.apps.googleusercontent.com</string>
-		<key>REVERSED_CLIENT_ID</key>
-		<string>com.googleusercontent.apps.541108438363-bmqjoua4kb0ghvou7vq1q43jhaaibv82</string>
-		<key>ANDROID_CLIENT_ID</key>
-		<string>541108438363-utlemg3i4pjp7j48h7vdofjcvtlvaok3.apps.googleusercontent.com</string>
-		<key>API_KEY</key>
-		<string>AIzaSyBZHtzdxPPGqFdZWrmDMj8PwhKhqmpCXuU</string>
-		<key>GCM_SENDER_ID</key>
-		<string>541108438363</string>
-		<key>PLIST_VERSION</key>
-		<string>1</string>
-		<key>BUNDLE_ID</key>
-		<string>com.guideline.dev</string>
-		<key>PROJECT_ID</key>
-		<string>g-one-pdf</string>
-		<key>STORAGE_BUCKET</key>
-		<string>g-one-pdf.appspot.com</string>
-		<key>IS_ADS_ENABLED</key>
-		<false></false>
-		<key>IS_ANALYTICS_ENABLED</key>
-		<false></false>
-		<key>IS_APPINVITE_ENABLED</key>
-		<true></true>
-		<key>IS_GCM_ENABLED</key>
-		<true></true>
-		<key>IS_SIGNIN_ENABLED</key>
-		<true></true>
-		<key>GOOGLE_APP_ID</key>
-		<string>1:541108438363:ios:b57b27d3d061dd8464c67e</string>
-	</dict>
+<dict>
+	<key>CLIENT_ID</key>
+	<string>256963860509-h49klkinp44lvtv1e2uc5jtme3hqh3rd.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.256963860509-h49klkinp44lvtv1e2uc5jtme3hqh3rd</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAC3spWmWQqBTn1c9fkstdzPEccb7aFn0Q</string>
+	<key>GCM_SENDER_ID</key>
+	<string>256963860509</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.guideline.dev</string>
+	<key>PROJECT_ID</key>
+	<string>jcsguideline</string>
+	<key>STORAGE_BUCKET</key>
+	<string>jcsguideline.firebasestorage.app</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:256963860509:ios:2ef6cff19d60e732028ef4</string>
+</dict>
 </plist>
