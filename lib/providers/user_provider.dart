@@ -71,8 +71,7 @@ class ProviderUser extends StateNotifier<ModelFirebaseUser>
 
   Future<ModelFirebasePdfConfig> readTocs() async {
     try {
-      final collectionRef =
-          FirebaseFirestore.instance.collection('catalog_tocs');
+      final collectionRef = firestore.collection('guideline_data');
       final querySnapshot = await collectionRef.get();
       final documentsMap = querySnapshot.docs.fold<Map<String, dynamic>>(
         {},
