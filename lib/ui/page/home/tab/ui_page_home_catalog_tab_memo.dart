@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_quill/flutter_quill.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -102,16 +103,37 @@ class UiPageHomeCatalogTabMemo extends HookConsumerWidget {
                         borderRadius: BorderRadius.zero,
                       ),
                       color: Colors.white,
-                      child: ListTile(
-                        title: Text(item?.detailTitle ?? 'No Title'),
-                        subtitle: Text(_userProvider.memos[item?.detailKey] ??
-                            'No Summary'),
-                        onTap: () async {
-                          await context.router.pushNamed(
-                            '/tabHomeMinor/${key}/true',
-                          );
-                          fetchMemoItems();
-                        },
+                      child: GestureDetector(
+                        child: ListTile(
+                          subtitle: Container(
+                            width: double.infinity,
+                            height: 20.h,
+                            child: QuillEditor.basic(
+                              configurations: QuillEditorConfigurations(
+                                controller: QuillController.basic()
+                                  ..readOnly = true
+                                  ..document = Document.fromJson(_userNotifer
+                                      .getMemo(key: item!.detailKey)),
+                                scrollable: false,
+                                autoFocus: false,
+                                expands: true,
+                                enableSelectionToolbar: false,
+                                isOnTapOutsideEnabled: false,
+                                paintCursorAboveText: false,
+                                checkBoxReadOnly: false,
+                                minHeight: 20.h,
+                                maxHeight: 150.h,
+                              ),
+                            ),
+                          ),
+                          title: Text(item?.detailTitle ?? 'No Title'),
+                          onTap: () async {
+                            await context.router.pushNamed(
+                              '/tabHomeMinor/${key}/true',
+                            );
+                            fetchMemoItems();
+                          },
+                        ),
                       ),
                     ),
                   );

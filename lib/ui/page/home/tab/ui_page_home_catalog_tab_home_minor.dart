@@ -181,7 +181,7 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
                     scrollable: true,
                     padding: const EdgeInsets.all(16.0),
                     autoFocus: false,
-                    expands: false,
+                    expands: true,
                   ),
                 ),
               ),

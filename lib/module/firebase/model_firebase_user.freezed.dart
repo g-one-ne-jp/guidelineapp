@@ -20,10 +20,12 @@ ModelFirebaseUser _$ModelFirebaseUserFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ModelFirebaseUser {
-  String get name => throw _privateConstructorUsedError;
-  String get affiliation => throw _privateConstructorUsedError;
+  String get gender => throw _privateConstructorUsedError;
+  String get age => throw _privateConstructorUsedError;
+  String get occupation => throw _privateConstructorUsedError;
   String get specialty => throw _privateConstructorUsedError;
-  String get address => throw _privateConstructorUsedError;
+  String get number => throw _privateConstructorUsedError;
+  bool get ismailmagazine => throw _privateConstructorUsedError;
   Map<String, EditItem> get editItems => throw _privateConstructorUsedError;
   Map<String, String> get memos => throw _privateConstructorUsedError;
   Map<String, bool> get bookmarks => throw _privateConstructorUsedError;
@@ -41,10 +43,12 @@ abstract class $ModelFirebaseUserCopyWith<$Res> {
       _$ModelFirebaseUserCopyWithImpl<$Res, ModelFirebaseUser>;
   @useResult
   $Res call(
-      {String name,
-      String affiliation,
+      {String gender,
+      String age,
+      String occupation,
       String specialty,
-      String address,
+      String number,
+      bool ismailmagazine,
       Map<String, EditItem> editItems,
       Map<String, String> memos,
       Map<String, bool> bookmarks});
@@ -63,31 +67,41 @@ class _$ModelFirebaseUserCopyWithImpl<$Res, $Val extends ModelFirebaseUser>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
-    Object? affiliation = null,
+    Object? gender = null,
+    Object? age = null,
+    Object? occupation = null,
     Object? specialty = null,
-    Object? address = null,
+    Object? number = null,
+    Object? ismailmagazine = null,
     Object? editItems = null,
     Object? memos = null,
     Object? bookmarks = null,
   }) {
     return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      gender: null == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
               as String,
-      affiliation: null == affiliation
-          ? _value.affiliation
-          : affiliation // ignore: cast_nullable_to_non_nullable
+      age: null == age
+          ? _value.age
+          : age // ignore: cast_nullable_to_non_nullable
+              as String,
+      occupation: null == occupation
+          ? _value.occupation
+          : occupation // ignore: cast_nullable_to_non_nullable
               as String,
       specialty: null == specialty
           ? _value.specialty
           : specialty // ignore: cast_nullable_to_non_nullable
               as String,
-      address: null == address
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
+      number: null == number
+          ? _value.number
+          : number // ignore: cast_nullable_to_non_nullable
               as String,
+      ismailmagazine: null == ismailmagazine
+          ? _value.ismailmagazine
+          : ismailmagazine // ignore: cast_nullable_to_non_nullable
+              as bool,
       editItems: null == editItems
           ? _value.editItems
           : editItems // ignore: cast_nullable_to_non_nullable
@@ -113,10 +127,12 @@ abstract class _$$ModelFirebaseUserImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String name,
-      String affiliation,
+      {String gender,
+      String age,
+      String occupation,
       String specialty,
-      String address,
+      String number,
+      bool ismailmagazine,
       Map<String, EditItem> editItems,
       Map<String, String> memos,
       Map<String, bool> bookmarks});
@@ -133,31 +149,41 @@ class __$$ModelFirebaseUserImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
-    Object? affiliation = null,
+    Object? gender = null,
+    Object? age = null,
+    Object? occupation = null,
     Object? specialty = null,
-    Object? address = null,
+    Object? number = null,
+    Object? ismailmagazine = null,
     Object? editItems = null,
     Object? memos = null,
     Object? bookmarks = null,
   }) {
     return _then(_$ModelFirebaseUserImpl(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      gender: null == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
               as String,
-      affiliation: null == affiliation
-          ? _value.affiliation
-          : affiliation // ignore: cast_nullable_to_non_nullable
+      age: null == age
+          ? _value.age
+          : age // ignore: cast_nullable_to_non_nullable
+              as String,
+      occupation: null == occupation
+          ? _value.occupation
+          : occupation // ignore: cast_nullable_to_non_nullable
               as String,
       specialty: null == specialty
           ? _value.specialty
           : specialty // ignore: cast_nullable_to_non_nullable
               as String,
-      address: null == address
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
+      number: null == number
+          ? _value.number
+          : number // ignore: cast_nullable_to_non_nullable
               as String,
+      ismailmagazine: null == ismailmagazine
+          ? _value.ismailmagazine
+          : ismailmagazine // ignore: cast_nullable_to_non_nullable
+              as bool,
       editItems: null == editItems
           ? _value._editItems
           : editItems // ignore: cast_nullable_to_non_nullable
@@ -178,10 +204,12 @@ class __$$ModelFirebaseUserImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ModelFirebaseUserImpl implements _ModelFirebaseUser {
   _$ModelFirebaseUserImpl(
-      {this.name = '',
-      this.affiliation = '',
+      {this.gender = '',
+      this.age = '',
+      this.occupation = '',
       this.specialty = '',
-      this.address = '',
+      this.number = '',
+      this.ismailmagazine = false,
       final Map<String, EditItem> editItems = const {},
       final Map<String, String> memos = const {},
       final Map<String, bool> bookmarks = const {}})
@@ -194,16 +222,22 @@ class _$ModelFirebaseUserImpl implements _ModelFirebaseUser {
 
   @override
   @JsonKey()
-  final String name;
+  final String gender;
   @override
   @JsonKey()
-  final String affiliation;
+  final String age;
+  @override
+  @JsonKey()
+  final String occupation;
   @override
   @JsonKey()
   final String specialty;
   @override
   @JsonKey()
-  final String address;
+  final String number;
+  @override
+  @JsonKey()
+  final bool ismailmagazine;
   final Map<String, EditItem> _editItems;
   @override
   @JsonKey()
@@ -233,7 +267,7 @@ class _$ModelFirebaseUserImpl implements _ModelFirebaseUser {
 
   @override
   String toString() {
-    return 'ModelFirebaseUser(name: $name, affiliation: $affiliation, specialty: $specialty, address: $address, editItems: $editItems, memos: $memos, bookmarks: $bookmarks)';
+    return 'ModelFirebaseUser(gender: $gender, age: $age, occupation: $occupation, specialty: $specialty, number: $number, ismailmagazine: $ismailmagazine, editItems: $editItems, memos: $memos, bookmarks: $bookmarks)';
   }
 
   @override
@@ -241,12 +275,15 @@ class _$ModelFirebaseUserImpl implements _ModelFirebaseUser {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ModelFirebaseUserImpl &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.affiliation, affiliation) ||
-                other.affiliation == affiliation) &&
+            (identical(other.gender, gender) || other.gender == gender) &&
+            (identical(other.age, age) || other.age == age) &&
+            (identical(other.occupation, occupation) ||
+                other.occupation == occupation) &&
             (identical(other.specialty, specialty) ||
                 other.specialty == specialty) &&
-            (identical(other.address, address) || other.address == address) &&
+            (identical(other.number, number) || other.number == number) &&
+            (identical(other.ismailmagazine, ismailmagazine) ||
+                other.ismailmagazine == ismailmagazine) &&
             const DeepCollectionEquality()
                 .equals(other._editItems, _editItems) &&
             const DeepCollectionEquality().equals(other._memos, _memos) &&
@@ -258,10 +295,12 @@ class _$ModelFirebaseUserImpl implements _ModelFirebaseUser {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      name,
-      affiliation,
+      gender,
+      age,
+      occupation,
       specialty,
-      address,
+      number,
+      ismailmagazine,
       const DeepCollectionEquality().hash(_editItems),
       const DeepCollectionEquality().hash(_memos),
       const DeepCollectionEquality().hash(_bookmarks));
@@ -283,10 +322,12 @@ class _$ModelFirebaseUserImpl implements _ModelFirebaseUser {
 
 abstract class _ModelFirebaseUser implements ModelFirebaseUser {
   factory _ModelFirebaseUser(
-      {final String name,
-      final String affiliation,
+      {final String gender,
+      final String age,
+      final String occupation,
       final String specialty,
-      final String address,
+      final String number,
+      final bool ismailmagazine,
       final Map<String, EditItem> editItems,
       final Map<String, String> memos,
       final Map<String, bool> bookmarks}) = _$ModelFirebaseUserImpl;
@@ -295,13 +336,17 @@ abstract class _ModelFirebaseUser implements ModelFirebaseUser {
       _$ModelFirebaseUserImpl.fromJson;
 
   @override
-  String get name;
+  String get gender;
   @override
-  String get affiliation;
+  String get age;
+  @override
+  String get occupation;
   @override
   String get specialty;
   @override
-  String get address;
+  String get number;
+  @override
+  bool get ismailmagazine;
   @override
   Map<String, EditItem> get editItems;
   @override

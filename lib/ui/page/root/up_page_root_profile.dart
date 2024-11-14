@@ -30,10 +30,12 @@ class UiPageProfileCreate extends HookConsumerWidget {
 
     final _isChecked = useState(false);
 
-    final _name = useState('名前');
-    final _affiliation = useState('所属');
-    final _specialty = useState('専門');
-    final _address = useState('住所');
+    final _gender = useState('性別');
+    final _age = useState('年代');
+    final _occupation = useState('職種');
+    final _specialty = useState('専門科(医師の場合)');
+    final _number = useState('日循会員番号（会員の場合のみ）');
+    final _isMailMagazine = useState(false);
 
     useEffect(() {}, []);
 
@@ -51,32 +53,60 @@ class UiPageProfileCreate extends HookConsumerWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
+                  uiUtilTitleDropdown(
+                    title: '性別',
+                    hintText: '選択してください',
+                    value: _gender.value,
+                    items: Gender.values.map((e) => e.label).toList(),
+                    onChanged: (String value) {
+                      _gender.value = value;
+                      _isChecked.value = true;
+                    },
+                  ),
+                  uiUtilTitleDropdown(
+                    title: '年代',
+                    hintText: '選択してください',
+                    value: _age.value,
+                    items: AgeGroup.values.map((e) => e.label).toList(),
+                    onChanged: (String value) {
+                      _age.value = value;
+                      _isChecked.value = true;
+                    },
+                  ),
+                  uiUtilTitleDropdown(
+                    title: '職種',
+                    hintText: '選択してください',
+                    value: _occupation.value,
+                    items: Occupation.values.map((e) => e.label).toList(),
+                    onChanged: (String value) {
+                      _occupation.value = value;
+                    },
+                  ),
+                  uiUtilTitleDropdown(
+                    title: '専門家(医師の場合)',
+                    hintText: '選択してください',
+                    value: _specialty.value,
+                    items: Specialty.values.map((e) => e.label).toList(),
+                    onChanged: (String value) {
+                      _specialty.value = value;
+                      _isChecked.value = true;
+                    },
+                  ),
                   uiUtilTitleTextFeild(
-                      title: '姓名',
-                      hintText: '山田太郎',
+                      title: '日循会員番号（会員の場合のみ）',
+                      hintText: 'xxxxxxx',
+                      value: _number.value,
                       onChenged: (String value) {
-                        _name.value = value;
+                        _number.value = value;
+                        _isChecked.value = true;
                       }),
-                  uiUtilTitleTextFeild(
-                      title: '所属',
-                      hintText: '〇〇病院',
-                      onChenged: (String value) {
-                        _affiliation.value = value;
-                      }),
-                  uiUtilTitleTextFeild(
-                      title: '専門',
-                      hintText: '〇〇科',
-                      onChenged: (String value) {
-                        _specialty.value = value;
-                      }),
-                  uiUtilTitleTextFeild(
-                      title: '住所',
-                      hintText: '東京都',
-                      onChenged: (String value) {
-                        _address.value = value;
-                      }),
-                  //利用規約
                   uiUtilTitleScrollableText(title: '利用規約', content: 'aaaaas'),
+                  uiUtilCheckBox(
+                      text: 'メルマガなどの配信',
+                      onChanged: (value) {
+                        _isMailMagazine.value = value!;
+                      },
+                      isChecked: _isMailMagazine.value),
 
                   //
                   uiUtilCheckBox(
@@ -100,10 +130,12 @@ class UiPageProfileCreate extends HookConsumerWidget {
                       onPressed: _isChecked.value
                           ? () async {
                               if (await _userNotifer.updateUserProfile(
-                                name: _name.value,
-                                affiliation: _affiliation.value,
+                                gender: _gender.value,
+                                age: _age.value,
+                                occupation: _occupation.value,
                                 specialty: _specialty.value,
-                                address: _address.value,
+                                number: _number.value,
+                                ismailmagazine: _isMailMagazine.value,
                               )) {
                                 context.router.popUntilRoot();
                                 context.router.replaceNamed('/home');
