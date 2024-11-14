@@ -10,10 +10,12 @@ part 'model_firebase_user.g.dart';
 @freezed
 abstract class ModelFirebaseUser with _$ModelFirebaseUser {
   factory ModelFirebaseUser({
-    @Default('') String name,
-    @Default('') String affiliation,
+    @Default('') String gender,
+    @Default('') String age,
+    @Default('') String occupation,
     @Default('') String specialty,
-    @Default('') String address,
+    @Default('') String number,
+    @Default(false) bool ismailmagazine,
     @Default({}) Map<String, EditItem> editItems,
     @Default({}) Map<String, String> memos,
     @Default({}) Map<String, bool> bookmarks,

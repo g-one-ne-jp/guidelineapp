@@ -142,7 +142,7 @@ Future<String> uitlAuthEmeailPasswordReset(
         case 'invalid-email':
           return '無効なメールアドレスです。';
         case 'user-not-found':
-          return 'ユーザーが見つかりません。';
+          return '入力したメールアドレスは登録されていません';
         default:
           return 'パスワードリセットに失敗しました: ${e.message}';
       }
@@ -167,6 +167,18 @@ Future<String> uitlAuthLoggedInPasswordReset(
     uiUtilhideProgress(context);
 
     return _errorCoce(e: e as FirebaseAuthException);
+  }
+}
+
+// アカウント登録されていないかを判定
+Future<bool> utilAuthIsAccountNotRegistered(String email) async {
+  var a = 0;
+  try {
+    final methods =
+        await FirebaseAuth.instance.fetchSignInMethodsForEmail(email);
+    return methods.isEmpty;
+  } catch (e) {
+    return false;
   }
 }
 

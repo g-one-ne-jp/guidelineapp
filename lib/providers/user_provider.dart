@@ -85,20 +85,24 @@ class ProviderUser extends StateNotifier<ModelFirebaseUser>
   }
 
   Future<bool> updateUserProfile({
-    required String name,
-    required String affiliation,
+    required String gender,
+    required String age,
+    required String occupation,
     required String specialty,
-    required String address,
+    required String number,
+    required bool ismailmagazine,
   }) async {
     //ユーザーデータ更新
     userData =
         await readUser<ModelFirebaseUser>(fromJson: ModelFirebaseUser.fromJson);
     //ユーザーデータの更新
     final updateData = userData.copyWith(
-      name: name,
-      affiliation: affiliation,
+      gender: gender,
+      age: age,
+      occupation: occupation,
       specialty: specialty,
-      address: address,
+      number: number,
+      ismailmagazine: ismailmagazine,
     );
     //更新実行
     try {

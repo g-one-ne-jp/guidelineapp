@@ -4,6 +4,54 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+enum Gender {
+  male('男'),
+  female('女'),
+  other('その他');
+
+  final String label;
+  const Gender(this.label);
+}
+
+enum AgeGroup {
+  twenties('20代'),
+  thirties('30代'),
+  forties('40代'),
+  fifties('50代'),
+  sixties('60代'),
+  seventiesAndAbove('70代以上');
+
+  final String label;
+  const AgeGroup(this.label);
+}
+
+enum Occupation {
+  doctor('医師'),
+  trainee('研修医'),
+  nurse('看護師'),
+  clinicalEngineer('臨床工学技士'),
+  pharmacist('薬剤師'),
+  otherMedicalStaff('その他医療従事者'),
+  medicalCompanyEmployee('医療関連会社勤務'),
+  other('その他');
+
+  final String label;
+  const Occupation(this.label);
+}
+
+enum Specialty {
+  internalMedicineCardiology('内科（循環器専門）'),
+  internalMedicineNonCardiology('内科（循環器非専門）'),
+  surgeryCardiology('外科（循環器専門）'),
+  surgeryNonCardiology('外科（循環器非専門）'),
+  pediatricsCardiology('小児科（循環器専門）'),
+  pediatricsNonCardiology('小児科（循環器非専門）'),
+  other('その他');
+
+  final String label;
+  const Specialty(this.label);
+}
+
 Widget uiUtilTitleTextFeild({
   required String title,
   required String hintText,
@@ -13,7 +61,6 @@ Widget uiUtilTitleTextFeild({
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start, // 題名を左寄せ
     children: [
-      /*
       Text(
         title,
         style: TextStyle(
@@ -22,7 +69,7 @@ Widget uiUtilTitleTextFeild({
         ),
       ),
       SizedBox(height: 8.h), // 題名と入力欄の間に少しスペースを入れる
-      */
+
       TextField(
         controller: TextEditingController(text: value),
         decoration: InputDecoration(
@@ -87,6 +134,53 @@ Widget uiUtilCheckBox({
         onTap: () => onChanged(!isChecked),
         child: Text(text),
       ),
+    ],
+  );
+}
+
+Widget uiUtilTitleDropdown({
+  required String title,
+  required String hintText,
+  required List<String> items,
+  required Function(String) onChanged,
+  String? value,
+}) {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start, // 題名を左寄せ
+    children: [
+      Text(
+        title,
+        style: TextStyle(
+          fontSize: 12.sp,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      SizedBox(height: 8.h), // 題名と入力欄の間に少しスペースを入れる
+      Container(
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.grey), // 枠線の色と太さを指定
+          borderRadius: BorderRadius.circular(8.0), // 角丸を追加する場合
+        ),
+        padding: EdgeInsets.symmetric(horizontal: 12.0), // 内側の余白を追加
+        child: DropdownButton<String>(
+          value: items.contains(value) ? value : items.first, // 初期値を追加
+          hint: Text(hintText),
+          isExpanded: true,
+          underline: SizedBox(), // デフォルトの下線を削除
+          items: items.map<DropdownMenuItem<String>>((String item) {
+            return DropdownMenuItem<String>(
+              value: item,
+              child: Text(item),
+            );
+          }).toList(),
+          onChanged: (String? newValue) {
+            if (newValue != null) {
+              onChanged(newValue);
+            }
+          },
+        ),
+      ),
+      SizedBox(height: 16.h), // 入力欄と次の題名の間に少しスペースを入れる
     ],
   );
 }

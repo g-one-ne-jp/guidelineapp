@@ -9,10 +9,12 @@ part of 'model_firebase_user.dart';
 _$ModelFirebaseUserImpl _$$ModelFirebaseUserImplFromJson(
         Map<String, dynamic> json) =>
     _$ModelFirebaseUserImpl(
-      name: json['name'] as String? ?? '',
-      affiliation: json['affiliation'] as String? ?? '',
+      gender: json['gender'] as String? ?? '',
+      age: json['age'] as String? ?? '',
+      occupation: json['occupation'] as String? ?? '',
       specialty: json['specialty'] as String? ?? '',
-      address: json['address'] as String? ?? '',
+      number: json['number'] as String? ?? '',
+      ismailmagazine: json['ismailmagazine'] as bool? ?? false,
       editItems: (json['editItems'] as Map<String, dynamic>?)?.map(
             (k, e) => MapEntry(k, EditItem.fromJson(e as Map<String, dynamic>)),
           ) ??
@@ -30,10 +32,12 @@ _$ModelFirebaseUserImpl _$$ModelFirebaseUserImplFromJson(
 Map<String, dynamic> _$$ModelFirebaseUserImplToJson(
         _$ModelFirebaseUserImpl instance) =>
     <String, dynamic>{
-      'name': instance.name,
-      'affiliation': instance.affiliation,
+      'gender': instance.gender,
+      'age': instance.age,
+      'occupation': instance.occupation,
       'specialty': instance.specialty,
-      'address': instance.address,
+      'number': instance.number,
+      'ismailmagazine': instance.ismailmagazine,
       'editItems': instance.editItems,
       'memos': instance.memos,
       'bookmarks': instance.bookmarks,

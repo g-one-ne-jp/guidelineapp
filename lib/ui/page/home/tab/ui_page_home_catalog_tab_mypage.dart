@@ -1,4 +1,5 @@
 // Flutter imports:
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -28,15 +29,15 @@ class UiPageHomeCatalogTabMypage extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final _userProvider = ref.watch(userProvider);
     final _userNotifer = ref.watch(userProvider.notifier);
-    final _tos = useState(ModelFirebasePdfConfig());
-    final _panelController = useState(PanelController());
-    final _isOpen = useState(false);
 
     final _user = useState(ModelFirebaseUser());
-    final _name = useState('名前');
-    final _affiliation = useState('所属');
-    final _specialty = useState('専門');
-    final _address = useState('住所');
+    final _gender = useState('性別');
+    final _age = useState('年代');
+    final _occupation = useState('職種');
+    final _specialty = useState('専門科(医師の場合)');
+    final _number = useState('日循会員番号（会員の場合のみ）');
+    final _isMailMagazine = useState(false);
+
     final _isChecked = useState(false);
 
     useEffect(() {
@@ -44,11 +45,12 @@ class UiPageHomeCatalogTabMypage extends HookConsumerWidget {
         //ユーザーデータを読み込み
         _user.value = await _userNotifer.readUser<ModelFirebaseUser>(
             fromJson: ModelFirebaseUser.fromJson);
-        _name.value = _user.value.name;
-        _affiliation.value = _user.value.name;
-        _affiliation.value = _user.value.affiliation;
-        _address.value = _user.value.address;
+        _gender.value = _user.value.gender;
+        _age.value = _user.value.age;
+        _occupation.value = _user.value.occupation;
         _specialty.value = _user.value.specialty;
+        _number.value = _user.value.number;
+        _isMailMagazine.value = _user.value.ismailmagazine;
       });
       return () => customDebugPrint('dispose!');
     }, []);
@@ -79,46 +81,67 @@ class UiPageHomeCatalogTabMypage extends HookConsumerWidget {
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    'E-MAIL  ${_userProvider.address}',
+                    'E-MAIL  ${FirebaseAuth.instance.currentUser?.email}',
                     style: TextStyle(fontSize: 18.sp),
                   ),
                 ),
                 SizedBox(
                   height: 16.0.h,
                 ),
+                uiUtilTitleDropdown(
+                  title: '性別',
+                  hintText: '選択してください',
+                  value: _gender.value,
+                  items: Gender.values.map((e) => e.label).toList(),
+                  onChanged: (String value) {
+                    _gender.value = value;
+                    _isChecked.value = true;
+                  },
+                ),
+                uiUtilTitleDropdown(
+                  title: '年代',
+                  hintText: '選択してください',
+                  value: _age.value,
+                  items: AgeGroup.values.map((e) => e.label).toList(),
+                  onChanged: (String value) {
+                    _age.value = value;
+                    _isChecked.value = true;
+                  },
+                ),
+                uiUtilTitleDropdown(
+                  title: '職種',
+                  hintText: '選択してください',
+                  value: _occupation.value,
+                  items: Occupation.values.map((e) => e.label).toList(),
+                  onChanged: (String value) {
+                    _occupation.value = value;
+                  },
+                ),
+                uiUtilTitleDropdown(
+                  title: '専門家(医師の場合)',
+                  hintText: '選択してください',
+                  value: _specialty.value,
+                  items: Specialty.values.map((e) => e.label).toList(),
+                  onChanged: (String value) {
+                    _specialty.value = value;
+                    _isChecked.value = true;
+                  },
+                ),
                 uiUtilTitleTextFeild(
-                    title: '姓名',
-                    hintText: '山田太郎',
-                    value: _name.value,
+                    title: '日循会員番号（会員の場合のみ）',
+                    hintText: 'xxxxxxx',
+                    value: _number.value,
                     onChenged: (String value) {
-                      _name.value = value;
-                      _isChecked.value = true;
-                    }),
-                uiUtilTitleTextFeild(
-                    title: '所属',
-                    hintText: '〇〇病院',
-                    value: _affiliation.value,
-                    onChenged: (String value) {
-                      _affiliation.value = value;
-                      _isChecked.value = true;
-                    }),
-                uiUtilTitleTextFeild(
-                    title: '専門',
-                    hintText: '〇〇科',
-                    value: _specialty.value,
-                    onChenged: (String value) {
-                      _specialty.value = value;
-                      _isChecked.value = true;
-                    }),
-                uiUtilTitleTextFeild(
-                    title: '住所',
-                    hintText: '東京都',
-                    value: _address.value,
-                    onChenged: (String value) {
-                      _address.value = value;
+                      _number.value = value;
                       _isChecked.value = true;
                     }),
 
+                uiUtilCheckBox(
+                    text: 'メルマガなどの配信',
+                    onChanged: (value) {
+                      _isMailMagazine.value = value!;
+                    },
+                    isChecked: _isMailMagazine.value),
                 //
                 SizedBox(
                   height: 16.0.h,
@@ -132,10 +155,12 @@ class UiPageHomeCatalogTabMypage extends HookConsumerWidget {
                     onPressed: _isChecked.value
                         ? () async {
                             if (await _userNotifer.updateUserProfile(
-                              name: _name.value,
-                              affiliation: _affiliation.value,
+                              gender: _gender.value,
+                              age: _age.value,
+                              occupation: _occupation.value,
                               specialty: _specialty.value,
-                              address: _address.value,
+                              number: _number.value,
+                              ismailmagazine: _isMailMagazine.value,
                             )) {
                               Fluttertoast.showToast(
                                 msg: 'プロフィールを更新しました。',
