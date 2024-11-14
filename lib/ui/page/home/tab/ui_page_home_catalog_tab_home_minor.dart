@@ -49,7 +49,6 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
     final _panelKey = useState('');
     final _isOpen = useState(false);
     final _controller = useState(QuillController.basic());
-    final _focusNode = useState(FocusNode());
     // 再描画用の状態変数
     final _shouldRebuild = useState(false);
 
