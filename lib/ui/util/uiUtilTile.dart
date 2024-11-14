@@ -245,95 +245,95 @@ class UiUtilWidgetTile3 extends HookConsumerWidget with RepositoryFireStorage {
   Widget build(BuildContext context, WidgetRef ref) {
     final _settions = useState(<Widget>[]);
     var _pdfPath = '';
-    useEffect(() {
-      deteil.contents.entries.map((a) => a).toList().forEach((element) {
-        element.value.settions.entries
-            .map((b) => b)
-            .toList()
-            .forEach((element) {
-          _settions.value = List.from(_settions.value)
-            ..insert(
-              0,
-              UiUtilWidgetExpansionTile(
-                titile: element.value.settionTitle,
-                children: [
-                  Column(
-                    children: [
-                      const Divider(),
-                      ConstrainedBox(
-                        constraints: BoxConstraints(
-                            minHeight: 120.h, maxHeight: 360.h), // 最大の高さを200に設定
-                        child:
-                            //MarkdownWidget(data: element.value.markdown)
-                            element.value.pdfId.isEmpty
-                                ? FutureBuilder(
-                                    future: downLoadData(
-                                        path: element.value.markdown),
-                                    builder: (context, snapshot) {
-                                      if (snapshot.connectionState ==
-                                          ConnectionState.done) {
-                                        return MarkdownWidget(
-                                            data: File(snapshot.data!.path)
-                                                .readAsStringSync());
-                                      }
 
-                                      return const CircularProgressIndicator();
-                                    },
-                                  )
-                                : GestureDetector(
-                                    onTap: () {
-                                      onPdfTap(_pdfPath);
-                                    },
-                                    child: Stack(
-                                      children: [
-                                        FutureBuilder(
-                                          future: downLoadData(
-                                              path: element.value.pdfId),
-                                          builder: (context, snapshot) {
-                                            if (snapshot.connectionState ==
-                                                ConnectionState.done) {
-                                              _pdfPath = snapshot.data!.path;
-                                              return PDFView(
-                                                filePath: _pdfPath,
-                                                enableSwipe: true,
-                                                swipeHorizontal: true,
-                                                autoSpacing: false,
-                                                pageFling: false,
-                                                backgroundColor: Colors.grey,
-                                                onRender: (_pages) {},
-                                                onError: (error) {
-                                                  print(error.toString());
-                                                },
-                                                onPageError: (page, error) {
-                                                  print(
-                                                      '$page: ${error.toString()}');
-                                                },
-                                                onViewCreated:
-                                                    (PDFViewController
-                                                        pdfViewController) {},
-                                              );
-                                            }
+    _settions.value.clear();
+    //useEffect(() {
+    deteil.contents.entries.map((a) => a).toList().forEach((element) {
+      element.value.settions.entries.map((b) => b).toList().forEach((element) {
+        _settions.value = List.from(_settions.value)
+          ..insert(
+            0,
+            UiUtilWidgetExpansionTile(
+              titile: element.value.settionTitle,
+              children: [
+                Column(
+                  children: [
+                    const Divider(),
+                    ConstrainedBox(
+                      constraints: BoxConstraints(
+                          minHeight: 120.h, maxHeight: 360.h), // 最大の高さを200に設定
+                      child:
+                          //MarkdownWidget(data: element.value.markdown)
+                          element.value.pdfId.isEmpty
+                              ? FutureBuilder(
+                                  future: downLoadData(
+                                      path: element.value.markdown),
+                                  builder: (context, snapshot) {
+                                    if (snapshot.connectionState ==
+                                        ConnectionState.done) {
+                                      return MarkdownWidget(
+                                          data: File(snapshot.data!.path)
+                                              .readAsStringSync());
+                                    }
 
-                                            return const CircularProgressIndicator();
-                                          },
-                                        ),
-                                        Container(
-                                          color: Colors.transparent,
-                                        ),
-                                      ],
-                                    ),
+                                    return const CircularProgressIndicator();
+                                  },
+                                )
+                              : GestureDetector(
+                                  onTap: () {
+                                    onPdfTap(_pdfPath);
+                                  },
+                                  child: Stack(
+                                    children: [
+                                      FutureBuilder(
+                                        future: downLoadData(
+                                            path: element.value.pdfId),
+                                        builder: (context, snapshot) {
+                                          if (snapshot.connectionState ==
+                                              ConnectionState.done) {
+                                            _pdfPath = snapshot.data!.path;
+                                            return PDFView(
+                                              filePath: _pdfPath,
+                                              enableSwipe: true,
+                                              swipeHorizontal: true,
+                                              autoSpacing: false,
+                                              pageFling: false,
+                                              backgroundColor: Colors.grey,
+                                              onRender: (_pages) {},
+                                              onError: (error) {
+                                                print(error.toString());
+                                              },
+                                              onPageError: (page, error) {
+                                                print(
+                                                    '$page: ${error.toString()}');
+                                              },
+                                              onViewCreated: (PDFViewController
+                                                  pdfViewController) {},
+                                            );
+                                          }
+
+                                          return const Center(
+                                            child: CircularProgressIndicator(),
+                                          );
+                                        },
+                                      ),
+                                      Container(
+                                        color: Colors.transparent,
+                                      ),
+                                    ],
                                   ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            );
-        });
+                                ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          );
       });
+    });
 
-      return () => customDebugPrint('dispose!');
-    }, []);
+    //  return () => customDebugPrint('dispose!');
+    //}, []);
 
     return Column(
       mainAxisSize: MainAxisSize.min,
