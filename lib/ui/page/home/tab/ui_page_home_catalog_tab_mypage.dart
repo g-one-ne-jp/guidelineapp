@@ -1,5 +1,6 @@
 // Flutter imports:
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -35,10 +36,11 @@ class UiPageHomeCatalogTabMypage extends HookConsumerWidget {
     final _age = useState('年代');
     final _occupation = useState('職種');
     final _specialty = useState('専門科(医師の場合)');
-    final _number = useState('日循会員番号（会員の場合のみ）');
+    final _number = useState('');
     final _isMailMagazine = useState(false);
 
     final _isChecked = useState(false);
+    final _isEdited = useState(false);
 
     useEffect(() {
       Future<void>(() async {
@@ -93,6 +95,7 @@ class UiPageHomeCatalogTabMypage extends HookConsumerWidget {
                   hintText: '選択してください',
                   value: _gender.value,
                   items: Gender.values.map((e) => e.label).toList(),
+                  isEditable: _isEdited.value,
                   onChanged: (String value) {
                     _gender.value = value;
                     _isChecked.value = true;
@@ -103,6 +106,7 @@ class UiPageHomeCatalogTabMypage extends HookConsumerWidget {
                   hintText: '選択してください',
                   value: _age.value,
                   items: AgeGroup.values.map((e) => e.label).toList(),
+                  isEditable: _isEdited.value,
                   onChanged: (String value) {
                     _age.value = value;
                     _isChecked.value = true;
@@ -113,8 +117,10 @@ class UiPageHomeCatalogTabMypage extends HookConsumerWidget {
                   hintText: '選択してください',
                   value: _occupation.value,
                   items: Occupation.values.map((e) => e.label).toList(),
+                  isEditable: _isEdited.value,
                   onChanged: (String value) {
                     _occupation.value = value;
+                    _isChecked.value = true;
                   },
                 ),
                 uiUtilTitleDropdown(
@@ -122,24 +128,29 @@ class UiPageHomeCatalogTabMypage extends HookConsumerWidget {
                   hintText: '選択してください',
                   value: _specialty.value,
                   items: Specialty.values.map((e) => e.label).toList(),
+                  isEditable: _isEdited.value,
                   onChanged: (String value) {
                     _specialty.value = value;
                     _isChecked.value = true;
                   },
                 ),
-                uiUtilTitleTextFeild(
+                uiUtilTitleTextField(
                     title: '日循会員番号（会員の場合のみ）',
                     hintText: 'xxxxxxx',
                     value: _number.value,
-                    onChenged: (String value) {
+                    keyboardType: TextInputType.emailAddress,
+                    isEditable: _isEdited.value,
+                    onChanged: (String value) {
                       _number.value = value;
                       _isChecked.value = true;
                     }),
 
                 uiUtilCheckBox(
                     text: 'メルマガなどの配信',
+                    isEditable: _isEdited.value,
                     onChanged: (value) {
                       _isMailMagazine.value = value!;
+                      _isChecked.value = true;
                     },
                     isChecked: _isMailMagazine.value),
                 //
@@ -152,24 +163,27 @@ class UiPageHomeCatalogTabMypage extends HookConsumerWidget {
                   // 横幅いっぱいにする
                   width: double.infinity,
                   child: ElevatedButton(
-                    onPressed: _isChecked.value
-                        ? () async {
-                            if (await _userNotifer.updateUserProfile(
-                              gender: _gender.value,
-                              age: _age.value,
-                              occupation: _occupation.value,
-                              specialty: _specialty.value,
-                              number: _number.value,
-                              ismailmagazine: _isMailMagazine.value,
-                            )) {
-                              Fluttertoast.showToast(
-                                msg: 'プロフィールを更新しました。',
-                              );
-                              _isChecked.value = false;
-                            }
-                          }
-                        : null,
-                    child: const Text('更新'),
+                    onPressed: () async {
+                      if (!_isEdited.value) {
+                        _isEdited.value = true;
+                      } else {
+                        if (await _userNotifer.updateUserProfile(
+                          gender: _gender.value,
+                          age: _age.value,
+                          occupation: _occupation.value,
+                          specialty: _specialty.value,
+                          number: _number.value,
+                          ismailmagazine: _isMailMagazine.value,
+                        )) {
+                          Fluttertoast.showToast(
+                            msg: 'プロフィールを更新しました。',
+                          );
+                          _isEdited.value = false;
+                          _isChecked.value = false;
+                        }
+                      }
+                    },
+                    child: Text(_isEdited.value ? '更新' : 'プロフィールを変更'),
                   ),
                 ),
                 SizedBox(
@@ -206,13 +220,36 @@ class UiPageHomeCatalogTabMypage extends HookConsumerWidget {
                     backgroundColor: Colors.transparent,
                   ),
                   onPressed: () async {
-                    if (await utilAuthLogout()) {
-                      context.router.popUntilRoot();
-                      context.router.replaceNamed('/login');
-                      await Fluttertoast.showToast(
-                        msg: 'ログアウトしました。',
-                      );
-                    }
+                    await showDialog<bool>(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return CupertinoAlertDialog(
+                          title: const Text('確認'),
+                          content: const Text('本当にログアウトしますか？'),
+                          actions: <Widget>[
+                            TextButton(
+                              onPressed: () {
+                                Navigator.of(context).pop(false);
+                              },
+                              child: const Text('キャンセル'),
+                            ),
+                            TextButton(
+                              onPressed: () async {
+                                Navigator.of(context).pop(true);
+                                if (await utilAuthLogout()) {
+                                  context.router.popUntilRoot();
+                                  context.router.replaceNamed('/login');
+                                  await Fluttertoast.showToast(
+                                    msg: 'ログアウトしました。',
+                                  );
+                                }
+                              },
+                              child: const Text('ログアウト'),
+                            ),
+                          ],
+                        );
+                      },
+                    );
                   },
                   child: const Text('ログアウト'),
                 ),

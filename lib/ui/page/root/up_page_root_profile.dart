@@ -28,7 +28,7 @@ class UiPageProfileCreate extends HookConsumerWidget {
     final _userProvider = ref.watch(userProvider);
     final _userNotifer = ref.watch(userProvider.notifier);
 
-    final _isChecked = useState(false);
+    final _isChecked = useState(true);
 
     final _gender = useState('性別');
     final _age = useState('年代');
@@ -92,15 +92,23 @@ class UiPageProfileCreate extends HookConsumerWidget {
                       _isChecked.value = true;
                     },
                   ),
-                  uiUtilTitleTextFeild(
+                  uiUtilTitleTextField(
                       title: '日循会員番号（会員の場合のみ）',
                       hintText: 'xxxxxxx',
                       value: _number.value,
-                      onChenged: (String value) {
+                      keyboardType: TextInputType.emailAddress,
+                      onChanged: (String value) {
                         _number.value = value;
                         _isChecked.value = true;
                       }),
                   uiUtilTitleScrollableText(title: '利用規約', content: 'aaaaas'),
+                  uiUtilCheckBox(
+                    text: '利用規約に同意する',
+                    onChanged: (bool? value) {
+                      _isChecked.value = value!;
+                    },
+                    isChecked: _isChecked.value,
+                  ),
                   uiUtilCheckBox(
                       text: 'メルマガなどの配信',
                       onChanged: (value) {
@@ -109,13 +117,6 @@ class UiPageProfileCreate extends HookConsumerWidget {
                       isChecked: _isMailMagazine.value),
 
                   //
-                  uiUtilCheckBox(
-                    text: '同意する',
-                    onChanged: (bool? value) {
-                      _isChecked.value = value!;
-                    },
-                    isChecked: _isChecked.value,
-                  ),
 
                   //
                   SizedBox(
