@@ -150,6 +150,7 @@ class UiPageSingup extends HookConsumerWidget {
                           context.router.popUntilRoot();
                           context.router.replaceNamed('/emailVerification');
                         }
+                        FocusScope.of(context).unfocus();
                       });
                     },
                     child: Text('アカウント作成'),

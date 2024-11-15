@@ -46,6 +46,20 @@ Future<String> utilAuthSignup(
   //タップされたらプログレスを表示
   uiUtilshowProgress(context);
   try {
+    if (email.isEmpty) {
+      uiUtilhideProgress(context);
+      return 'メールアドレスを入力してください。';
+    }
+    if (password.isEmpty) {
+      uiUtilhideProgress(context);
+      return 'パスワードを入力してください。';
+    }
+    if (!RegExp(
+            r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$')
+        .hasMatch(password)) {
+      uiUtilhideProgress(context);
+      return 'パスワードは大文字小文字英字、数字、記号の組み合わせで8文字以上にしてください。';
+    }
     final result = await FirebaseAuth.instance
         .createUserWithEmailAndPassword(email: email, password: password);
     uiUtilhideProgress(context);
@@ -69,7 +83,20 @@ Future<String> utilAuthLogin(
     required BuildContext context}) async {
   //タップされたらプログレスを表示
   uiUtilshowProgress(context);
-
+  if (email.isEmpty) {
+    uiUtilhideProgress(context);
+    return 'メールアドレスを入力してください。';
+  }
+  if (password.isEmpty) {
+    uiUtilhideProgress(context);
+    return 'パスワードを入力してください。';
+  }
+  if (!RegExp(
+          r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$')
+      .hasMatch(password)) {
+    uiUtilhideProgress(context);
+    return 'パスワードは大文字小文字英字、数字、記号の組み合わせで8文字以上にしてください。';
+  }
   try {
     // メール/パスワードでログイン
     final User? user = (await FirebaseAuth.instance
@@ -102,7 +129,7 @@ String _errorCoce({FirebaseAuthException? e}) {
       case 'user-disabled':
         return 'このユーザーは無効になっています。';
       case 'user-not-found':
-        return 'ユーザーが見つかりません。';
+        return 'アカウントが見つかりませんでした。アカウントをお持ちでない場合は、アカウントの登録をお願いします。';
       case 'wrong-password':
         return 'パスワードが間違っています。';
       case 'email-already-in-use':
