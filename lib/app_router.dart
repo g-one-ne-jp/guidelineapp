@@ -19,6 +19,7 @@ import 'package:flutter_template/ui/page/root/ui_page_root_emailverifacation.dar
 import 'package:flutter_template/ui/page/root/up_page_root_login.dart';
 import 'package:flutter_template/ui/page/root/up_page_root_profile.dart';
 import 'package:flutter_template/ui/page/root/up_page_root_signup.dart';
+import 'package:flutter_template/ui/util/uiUtilEdit.dart';
 import 'package:flutter_template/util/util_googlesingin.dart';
 
 part 'app_router.gr.dart';
@@ -42,6 +43,9 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: UiRouteProfileCreate.page, path: '/profileCreate'),
         AutoRoute(
             page: UiRouteEmailVerification.page, path: '/emailVerification'),
+        AutoRoute(
+            page: UiRouteUtilEdit.page, path: '/edit/:mainorKey/:viewTypeMemo'),
+
         AutoRoute(
           page: UiRouteHomeCatalog.page,
           path: '/catalog',

@@ -49,7 +49,7 @@ class UiPageEmailVerification extends HookConsumerWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('メールアドレス確認')),
       body: Container(
-        color: Colors.grey[400],
+        color: Colors.grey[200],
         padding: const EdgeInsets.all(24),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
