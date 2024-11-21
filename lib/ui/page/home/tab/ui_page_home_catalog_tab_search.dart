@@ -82,7 +82,7 @@ class UiPageHomeCatalogTabSearch extends HookConsumerWidget {
         automaticallyImplyLeading: false, // 戻るボタンを表示しない
       ),
       body: Container(
-        color: Colors.grey[400],
+        color: Colors.grey[200],
         child: Column(
           children: [
             Expanded(
