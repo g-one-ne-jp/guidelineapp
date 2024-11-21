@@ -78,7 +78,7 @@ class UiPageEmailVerification extends HookConsumerWidget {
             TextButton(
               onPressed: () async {
                 try {
-                  await Fluttertoast.showToast(msg: '認証メールを再送信します。');
+                  await Fluttertoast.showToast(msg: '認証メールを再送信しました。');
                   final user = FirebaseAuth.instance.currentUser!;
                   await user.sendEmailVerification();
                   Fluttertoast.showToast(msg: '認証メールを再送信しました。');

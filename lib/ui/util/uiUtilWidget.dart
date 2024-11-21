@@ -52,11 +52,13 @@ enum Specialty {
   const Specialty(this.label);
 }
 
-Widget uiUtilTitleTextFeild({
+Widget uiUtilTitleTextField({
   required String title,
   required String hintText,
-  required Function onChenged,
+  required Function(String) onChanged,
   String value = '',
+  TextInputType keyboardType = TextInputType.text,
+  bool isEditable = true,
 }) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start, // 題名を左寄せ
@@ -76,9 +78,11 @@ Widget uiUtilTitleTextFeild({
           hintText: hintText,
           border: const OutlineInputBorder(),
         ),
+        keyboardType: keyboardType,
         onSubmitted: (text) {
-          onChenged(text);
+          onChanged(text);
         },
+        enabled: isEditable, // 編集可否を設定
       ),
       SizedBox(height: 16.h), // 入力欄と次の題名の間に少しスペースを入れる
     ],
@@ -88,6 +92,8 @@ Widget uiUtilTitleTextFeild({
 Widget uiUtilTitleScrollableText({
   required String title,
   required String content,
+  bool isEditable = true,
+  Function(String)? onChanged,
 }) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
@@ -108,11 +114,22 @@ Widget uiUtilTitleScrollableText({
           border: Border.all(color: Colors.grey), // 枠線の色と太さを指定
           borderRadius: BorderRadius.circular(8.0), // 角丸を追加する場合
         ),
-        child: SingleChildScrollView(
-          child: Text(
-            content,
-          ),
-        ),
+        child: isEditable
+            ? TextField(
+                controller: TextEditingController(text: content),
+                maxLines: null,
+                decoration: const InputDecoration(
+                  border: InputBorder.none,
+                  contentPadding: EdgeInsets.all(8.0),
+                ),
+                onChanged: onChanged,
+              )
+            : SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(content),
+                ),
+              ),
       ),
     ],
   );
@@ -122,16 +139,17 @@ Widget uiUtilCheckBox({
   required String text,
   required Function(bool?) onChanged,
   required bool isChecked,
+  bool isEditable = true,
 }) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.center, // 中央寄せに設定
     children: [
       Checkbox(
         value: isChecked,
-        onChanged: onChanged,
+        onChanged: isEditable ? onChanged : null, // 編集可否を設定
       ),
       GestureDetector(
-        onTap: () => onChanged(!isChecked),
+        onTap: isEditable ? () => onChanged(!isChecked) : null, // 編集可否を設定
         child: Text(text),
       ),
     ],
@@ -144,6 +162,7 @@ Widget uiUtilTitleDropdown({
   required List<String> items,
   required Function(String) onChanged,
   String? value,
+  bool isEditable = true,
 }) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start, // 題名を左寄せ
@@ -173,11 +192,14 @@ Widget uiUtilTitleDropdown({
               child: Text(item),
             );
           }).toList(),
-          onChanged: (String? newValue) {
-            if (newValue != null) {
-              onChanged(newValue);
-            }
-          },
+          onChanged: isEditable
+              ? (String? newValue) {
+                  if (newValue != null) {
+                    onChanged(newValue);
+                  }
+                }
+              : null,
+          disabledHint: Text(value ?? hintText), // 編集不可の場合の表示
         ),
       ),
       SizedBox(height: 16.h), // 入力欄と次の題名の間に少しスペースを入れる

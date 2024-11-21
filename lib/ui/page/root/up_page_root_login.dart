@@ -101,6 +101,7 @@ class UiPageLogin extends HookConsumerWidget {
                           // ignore: use_build_context_synchronously
                           context.router.pushNamed('/profileCreate');
                         }
+                        FocusScope.of(context).unfocus();
                       });
                     },
                     child: Text('ログイン'),
