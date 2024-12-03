@@ -14,6 +14,55 @@ mixin RepositoryFireStorage {
   // ファイルをダウンロードする
   Future<File> downLoadData({
     required String path,
+    bool isNewUpdate = false,
+  }) async {
+    final user = FirebaseAuth.instance.currentUser!; // 認証済みユーザーを取得
+    var islandRef = FirebaseStorage.instance.ref().child(path);
+    final appDocDir = await getApplicationCacheDirectory();
+    final fileDire = "${appDocDir.path}/${user.uid}/";
+    final fileName = path.split('/').last;
+    final filePath = "$fileDire$fileName";
+    final file = File(filePath);
+
+    //user/uid/ファイル名にファイルが存在する場合はそちらを使う
+    if (await _fileExists(filePath) || isNewUpdate) {
+      debugPrint('編集済みファイルは既に存在します: ${_getLastTwoPartsOfPath(filePath)}');
+      if (!isNewUpdate) {
+        islandRef = FirebaseStorage.instance
+            .ref()
+            .child(_getLastTwoPartsOfPath(filePath));
+      }
+      final fileLastModified = await file.lastModified();
+      final storageMetadata = await islandRef.getMetadata();
+      final storageLastModified = storageMetadata.updated;
+
+      // Storage 上のファイルが更新されている場合のみダウンロード
+      if (storageLastModified!.isAfter(fileLastModified)) {
+        debugPrint('ファイルが更新されています: $filePath');
+        await islandRef.writeToFile(file);
+      }
+
+      return file;
+    }
+    // ローカルにファイルが存在する場合は、ダウンロードせずに true を返す
+    if (await file.exists()) {
+      debugPrint('新規ファイルは既に存在します: $filePath');
+      return file;
+    }
+    try {
+      // ディレクトリが存在しない場合は作成
+      await Directory(fileDire).create(recursive: true);
+      await islandRef.writeToFile(file);
+      debugPrint('ファイルのダウンロードが完了しました: $filePath');
+      return file;
+    } on FirebaseException catch (e) {
+      debugPrint('ファイルのダウンロード中にエラーが発生しました: ${e.message}');
+      rethrow;
+    }
+  }
+/*
+  Future<File> downLoadData({
+    required String path,
   }) async {
     final user = FirebaseAuth.instance.currentUser!; // 認証済みユーザーを取得
     var islandRef = FirebaseStorage.instance.ref().child(path);
@@ -29,6 +78,15 @@ mixin RepositoryFireStorage {
       islandRef = FirebaseStorage.instance
           .ref()
           .child(_getLastTwoPartsOfPath(filePath));
+      final fileLastModified = await file.lastModified();
+      final storageMetadata = await islandRef.getMetadata();
+      final storageLastModified = storageMetadata.updated;
+
+      // Storage 上のファイルが更新されている場合のみダウンロード
+      if (storageLastModified!.isAfter(fileLastModified)) {
+        debugPrint('ファイルが更新されています: $filePath');
+        await islandRef.writeToFile(file);
+      }
     }
     // ローカルにファイルが存在する場合は、ダウンロードせずに true を返す
     if (await file.exists()) {
@@ -47,6 +105,7 @@ mixin RepositoryFireStorage {
       rethrow;
     }
   }
+*/
 
   // ファイルをアップロードする
   Future<void> uploadData({
@@ -93,7 +152,7 @@ mixin RepositoryFireStorage {
     }
   }
 
-  // ファイルを削除する
+  //
   Future<bool> _fileExists(String path) async {
     try {
       final storageRef =

@@ -14,6 +14,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_template/module/firebase/model_firebase_pdf_config.dart';
 import 'package:flutter_template/module/firebase/model_firebase_user.dart';
 import 'package:flutter_template/repotitory/mixin_repository_file.dart';
+import 'package:flutter_template/repotitory/mixin_repository_firestorage.dart';
 import 'package:flutter_template/repotitory/mixin_repository_http.dart';
 
 // StateNotifierクラスを外部ファイルで呼び出すプロバイダー.
@@ -21,7 +22,7 @@ final userProvider = StateNotifierProvider<ProviderUser, ModelFirebaseUser>(
     (ref) => ProviderUser());
 
 class ProviderUser extends StateNotifier<ModelFirebaseUser>
-    with RepositoryHttp, RepositoryFile {
+    with RepositoryHttp, RepositoryFile, RepositoryFireStorage {
   // コンストラクタ内での初期状態を設定し、非同期にデータをロードします。
   ProviderUser() : super(ModelFirebaseUser()) {
     _initializeUserData();
@@ -78,6 +79,20 @@ class ProviderUser extends StateNotifier<ModelFirebaseUser>
         (map, doc) => map..[doc.id] = doc.data(),
       );
       return ModelFirebasePdfConfig.fromJson({'categories': documentsMap});
+    } catch (e) {
+      print('Firestoreからの読み込みエラー: $e');
+      return ModelFirebasePdfConfig.fromJson({});
+    }
+  }
+
+  Future<ModelFirebasePdfConfig> readTocsJson() async {
+    try {
+      final file = await downLoadData(
+          path: 'gidline/json/gidline.json', isNewUpdate: true);
+      // fileをMapに変換
+      final json = jsonDecode(file.readAsStringSync());
+      final result = ModelFirebasePdfConfig.fromJson(json);
+      return result;
     } catch (e) {
       print('Firestoreからの読み込みエラー: $e');
       return ModelFirebasePdfConfig.fromJson({});
