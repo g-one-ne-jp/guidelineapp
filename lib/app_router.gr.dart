@@ -109,6 +109,22 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const UiPageSingup(),
       );
     },
+    UiRouteUtilEdit.name: (routeData) {
+      final pathParams = routeData.inheritedPathParams;
+      final args = routeData.argsAs<UiRouteUtilEditArgs>(
+          orElse: () => UiRouteUtilEditArgs(
+                mainorKey: pathParams.getString('mainorKey'),
+                viewTypeMemo: pathParams.getBool('viewTypeMemo'),
+              ));
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: UiPageUtilEdit(
+          key: args.key,
+          mainorKey: args.mainorKey,
+          viewTypeMemo: args.viewTypeMemo,
+        ),
+      );
+    },
   };
 }
 
@@ -404,4 +420,51 @@ class UiRouteSingup extends PageRouteInfo<void> {
   static const String name = 'UiRouteSingup';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [UiPageUtilEdit]
+class UiRouteUtilEdit extends PageRouteInfo<UiRouteUtilEditArgs> {
+  UiRouteUtilEdit({
+    Key? key,
+    required String mainorKey,
+    required bool viewTypeMemo,
+    List<PageRouteInfo>? children,
+  }) : super(
+          UiRouteUtilEdit.name,
+          args: UiRouteUtilEditArgs(
+            key: key,
+            mainorKey: mainorKey,
+            viewTypeMemo: viewTypeMemo,
+          ),
+          rawPathParams: {
+            'mainorKey': mainorKey,
+            'viewTypeMemo': viewTypeMemo,
+          },
+          initialChildren: children,
+        );
+
+  static const String name = 'UiRouteUtilEdit';
+
+  static const PageInfo<UiRouteUtilEditArgs> page =
+      PageInfo<UiRouteUtilEditArgs>(name);
+}
+
+class UiRouteUtilEditArgs {
+  const UiRouteUtilEditArgs({
+    this.key,
+    required this.mainorKey,
+    required this.viewTypeMemo,
+  });
+
+  final Key? key;
+
+  final String mainorKey;
+
+  final bool viewTypeMemo;
+
+  @override
+  String toString() {
+    return 'UiRouteUtilEditArgs{key: $key, mainorKey: $mainorKey, viewTypeMemo: $viewTypeMemo}';
+  }
 }
