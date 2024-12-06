@@ -52,26 +52,23 @@ class UiUtilWidgetTile extends HookConsumerWidget {
       required Function onTap,
       required Map<String, MinorCategory> children,
     }) {
-      return Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              title,
-              style: TextStyle(
-                fontSize: 20.0.sp,
-                color: const Color(0xFF50555C),
+      return Padding(
+        padding: EdgeInsets.symmetric(vertical: 5.h, horizontal: 10.w),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 5.h, horizontal: 10),
+              child: Text(
+                title,
+                style: TextStyle(
+                  fontSize: 20.0.sp,
+                  color: const Color(0xFF50555C),
+                ),
               ),
             ),
-          ),
-          Card(
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.zero,
-            ),
-            color: Colors.white,
-            child: Card(
+            Card(
               color: Colors.white,
               child: children.isEmpty
                   ? ListTile(
@@ -82,6 +79,12 @@ class UiUtilWidgetTile extends HookConsumerWidget {
                       },
                     )
                   : ExpansionTile(
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.zero,
+                        side: BorderSide(
+                          color: Colors.transparent,
+                        ),
+                      ),
                       trailing: Icon(
                         _isExpanded.value
                             ? Icons.remove // 展開されている場合のアイコン
@@ -93,18 +96,23 @@ class UiUtilWidgetTile extends HookConsumerWidget {
                       title: Text(sub.subTitle),
                       subtitle: Text(sub.subSummary),
                       children: sub.minors.entries.map((item) {
-                        return ListTile(
-                          trailing: const Icon(Icons.arrow_forward_ios),
-                          title: Text(item.value.minorTitle),
-                          onTap: () {
-                            onTap();
-                          },
+                        return Column(
+                          children: [
+                            const Divider(),
+                            ListTile(
+                              trailing: const Icon(Icons.arrow_forward_ios),
+                              title: Text(item.value.minorTitle),
+                              onTap: () {
+                                onTap();
+                              },
+                            ),
+                          ],
                         );
                       }).toList(),
                     ),
             ),
-          ),
-        ],
+          ],
+        ),
       );
     }
 
@@ -296,8 +304,10 @@ class UiUtilWidgetTile3 extends HookConsumerWidget with RepositoryFireStorage {
                                               filePath: _pdfPath,
                                               enableSwipe: true,
                                               swipeHorizontal: true,
-                                              autoSpacing: false,
+                                              autoSpacing: true,
                                               pageFling: false,
+                                              fitEachPage: true,
+                                              fitPolicy: FitPolicy.WIDTH,
                                               backgroundColor: Colors.grey,
                                               onRender: (_pages) {},
                                               onError: (error) {
@@ -335,37 +345,67 @@ class UiUtilWidgetTile3 extends HookConsumerWidget with RepositoryFireStorage {
     //  return () => customDebugPrint('dispose!');
     //}, []);
 
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container(
-          color: Colors.transparent,
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(deteil.detailTitle),
-              IconButton(
-                onPressed: () {
-                  onDeteilEdit(deteil);
-                },
-                icon: const Icon(Icons.edit),
-              ),
-            ],
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.symmetric(vertical: 5.h),
-          child: Card(
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.zero,
-            ),
+    return Container(
+      color: const Color(0xFFEFEFEF),
+      child: Stack(
+        children: [
+          Container(
             color: Colors.white,
-            child: Column(children: _settions.value),
+            height: 80.h,
           ),
-        ),
-      ],
+          Card(
+            color: const Color(0xFFEFEFEF),
+            margin: EdgeInsets.all(10.w),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(5.0.r),
+            ),
+            child: Container(
+              padding: EdgeInsets.all(5.w),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    height: 5.h,
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(8.0),
+                    color: const Color(0xFFEFEFEF),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          deteil.detailTitle,
+                          style: const TextStyle(
+                            color: Colors.black,
+                          ),
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            onDeteilEdit(deteil);
+                          },
+                          icon: const Icon(Icons.edit),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(vertical: 5.h),
+                    child: Container(
+                      color: const Color(0xFFB0C2D5),
+                      child: Column(children: _settions.value),
+                    ),
+                  ),
+                  Container(
+                    color: const Color(0xFFEFEFEF),
+                    height: 5.h,
+                  )
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -395,12 +435,14 @@ class UiUtilWidgetExpansionTile extends HookConsumerWidget {
             ? null
             : const Border(
                 bottom: BorderSide(
+                  color: Colors.white,
                   width: 1.0, // 下線の太さ
                 ),
               ),
       ),
       child: ExpansionTile(
         trailing: Icon(
+          color: Colors.white,
           _isExpanded.value
               ? Icons.remove // 展開されている場合のアイコン
               : Icons.add, // 折りたたまれている場合のアイコン
@@ -408,7 +450,12 @@ class UiUtilWidgetExpansionTile extends HookConsumerWidget {
         onExpansionChanged: (bool expanded) {
           _isExpanded.value = expanded;
         },
-        title: Text(titile),
+        title: Text(
+          titile,
+          style: const TextStyle(
+            color: Colors.white,
+          ),
+        ),
         children: children,
       ),
     );

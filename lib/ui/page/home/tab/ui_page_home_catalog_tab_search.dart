@@ -42,6 +42,27 @@ class UiPageHomeCatalogTabSearch extends HookConsumerWidget {
       _searchResults.value = results;
     }
 
+    // 再帰関数でJSONデータを走査し、特定のキーの値を検索
+    bool searchJsonValue(dynamic jsonData, String text) {
+      if (jsonData is Map) {
+        for (var key in jsonData.keys) {
+          if (key == 'searchWord' && jsonData[key].toString().contains(text)) {
+            return true;
+          }
+          if (searchJsonValue(jsonData[key], text)) {
+            return true;
+          }
+        }
+      } else if (jsonData is List) {
+        for (var item in jsonData) {
+          if (searchJsonValue(item, text)) {
+            return true;
+          }
+        }
+      }
+      return false;
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: Container(
