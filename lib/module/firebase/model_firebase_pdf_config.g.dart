@@ -123,6 +123,7 @@ _$SettionImpl _$$SettionImplFromJson(Map<String, dynamic> json) =>
     _$SettionImpl(
       settionTitle: json['settionTitle'] as String? ?? '',
       pdfId: json['pdfId'] as String? ?? '',
+      searchWord: json['searchWord'] as String? ?? '',
       markdown: json['markdown'] as String? ?? '',
     );
 
@@ -130,5 +131,6 @@ Map<String, dynamic> _$$SettionImplToJson(_$SettionImpl instance) =>
     <String, dynamic>{
       'settionTitle': instance.settionTitle,
       'pdfId': instance.pdfId,
+      'searchWord': instance.searchWord,
       'markdown': instance.markdown,
     };

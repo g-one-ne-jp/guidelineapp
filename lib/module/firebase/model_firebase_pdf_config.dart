@@ -86,6 +86,7 @@ abstract class Settion with _$Settion {
   factory Settion({
     @Default('') String settionTitle,
     @Default('') String pdfId,
+    @Default('') String searchWord,
     @Default('') String markdown,
   }) = _Settion;
 

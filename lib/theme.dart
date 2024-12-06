@@ -99,6 +99,7 @@ class AppTheme {
         color: Colors.black,
       ),
     ),
+    //
   );
 
   static ThemeData darkTheme = ThemeData(
