@@ -16,6 +16,7 @@ Future<String> utilGoogleSignin({required BuildContext context}) async {
 
   try {
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+    var a = 0;
     final googleAuth = await googleUser?.authentication;
     final credential = GoogleAuthProvider.credential(
       accessToken: googleAuth?.accessToken,

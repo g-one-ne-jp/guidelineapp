@@ -80,7 +80,6 @@ class UiPageLogin extends HookConsumerWidget {
                   height: 180.0.h,
                 ),
                 //ログインボタン
-
                 Container(
                   padding: EdgeInsets.all(10.0.w),
                   // 横幅いっぱいにする

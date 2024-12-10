@@ -1,9 +1,14 @@
+// Dart imports:
+import 'dart:io';
+
 // Flutter imports:
 import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:auto_route/auto_route.dart';
+import 'package:easy_pdf_viewer/easy_pdf_viewer.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_pdfview/flutter_pdfview.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -11,11 +16,13 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter_template/debug/debug_print.dart';
 import 'package:flutter_template/providers/toc_provider.dart';
 import 'package:flutter_template/providers/user_provider.dart';
+import 'package:flutter_template/repotitory/mixin_repository_firestorage.dart';
 import 'package:flutter_template/ui/util/uiUtilTile.dart';
 
 @RoutePage()
 // ignore: must_be_immutable
-class UiPageHomeCatalogTabHome extends HookConsumerWidget {
+class UiPageHomeCatalogTabHome extends HookConsumerWidget
+    with RepositoryFireStorage {
   UiPageHomeCatalogTabHome({
     super.key,
   });
@@ -37,40 +44,62 @@ class UiPageHomeCatalogTabHome extends HookConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(_tocProvider.majorTitle),
+        title: Text('表紙'),
         automaticallyImplyLeading: false, // 戻るボタンを表示しない
       ),
       body: Container(
-        color: Colors.grey[400],
+        color: Colors.grey[200],
         child: Column(
           children: [
-            Container(
-              width: double.infinity,
-              height: 60.h,
-              color: const Color(0xFFE4007F),
-              child: Center(
-                child: FittedBox(
-                  fit: BoxFit.contain,
-                  child: Text(
-                    _tocProvider.majorSummary,
-                    style: TextStyle(color: Colors.white, fontSize: 20.sp),
-                  ),
-                ),
+            Expanded(
+              child: FutureBuilder(
+                future: downLoadData(path: 'gidline/cover/ガイドライン_表紙.pdf'),
+                builder: (context, snapshot) {
+                  return snapshot.data == null
+                      ? const Center(
+                          child: CircularProgressIndicator(),
+                        )
+                      : FutureBuilder(
+                          future:
+                              PDFDocument.fromFile(File(snapshot.data!.path)),
+                          builder: (context, snapshot) {
+                            if (snapshot.connectionState ==
+                                ConnectionState.done) {
+                              return Stack(
+                                children: [
+                                  PDFViewer(
+                                    showIndicator: false,
+                                    showNavigation: false,
+                                    showPicker: false,
+                                    enableSwipeNavigation: false,
+                                    document: snapshot.data!,
+                                  ),
+                                  Container(
+                                    color: Colors.transparent,
+                                  )
+                                ],
+                              );
+                            }
+                            return const Center(
+                              child: CircularProgressIndicator(),
+                            );
+                          },
+                        );
+                },
               ),
             ),
-            Expanded(
-              child: ListView.builder(
-                itemCount: _tocProvider.subs.keys.toList().length,
-                itemBuilder: (BuildContext context, int index) {
-                  var value = _tocProvider.subs.values.toList()[index];
-                  return UiUtilWidgetTile(
-                      sub: value,
-                      onMinorTap: (minor) {
-                        context.router.pushNamed(
-                          '/tabHomeMinor/${minor.mainorKey}/false',
-                        );
-                      });
+            //
+            Container(
+              padding: EdgeInsets.all(10.0.w),
+              // 横幅いっぱいにする
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () async {
+                  context.router.pushNamed(
+                    '/tabHomeTOC',
+                  );
                 },
+                child: const Text('ガイドラインを開く'),
               ),
             ),
           ],
