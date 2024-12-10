@@ -69,6 +69,14 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    UiRouteHomeCatalogTabHomeTOC.name: (routeData) {
+      final args = routeData.argsAs<UiRouteHomeCatalogTabHomeTOCArgs>(
+          orElse: () => const UiRouteHomeCatalogTabHomeTOCArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: UiPageHomeCatalogTabHomeTOC(key: args.key),
+      );
+    },
     UiRouteHomeCatalogTabMemo.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -304,6 +312,36 @@ class UiRouteHomeCatalogTabHomeMinorArgs {
   @override
   String toString() {
     return 'UiRouteHomeCatalogTabHomeMinorArgs{key: $key, mainorKey: $mainorKey, viewTypeMemo: $viewTypeMemo}';
+  }
+}
+
+/// generated route for
+/// [UiPageHomeCatalogTabHomeTOC]
+class UiRouteHomeCatalogTabHomeTOC
+    extends PageRouteInfo<UiRouteHomeCatalogTabHomeTOCArgs> {
+  UiRouteHomeCatalogTabHomeTOC({
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          UiRouteHomeCatalogTabHomeTOC.name,
+          args: UiRouteHomeCatalogTabHomeTOCArgs(key: key),
+          initialChildren: children,
+        );
+
+  static const String name = 'UiRouteHomeCatalogTabHomeTOC';
+
+  static const PageInfo<UiRouteHomeCatalogTabHomeTOCArgs> page =
+      PageInfo<UiRouteHomeCatalogTabHomeTOCArgs>(name);
+}
+
+class UiRouteHomeCatalogTabHomeTOCArgs {
+  const UiRouteHomeCatalogTabHomeTOCArgs({this.key});
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'UiRouteHomeCatalogTabHomeTOCArgs{key: $key}';
   }
 }
 

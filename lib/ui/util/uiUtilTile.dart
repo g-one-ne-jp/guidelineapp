@@ -2,6 +2,7 @@
 import 'dart:io';
 
 // Flutter imports:
+import 'package:easy_pdf_viewer/easy_pdf_viewer.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -15,7 +16,6 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:markdown_widget/markdown_widget.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
 // Project imports:
 import 'package:flutter_template/debug/debug_print.dart';
@@ -291,46 +291,50 @@ class UiUtilWidgetTile3 extends HookConsumerWidget with RepositoryFireStorage {
                                   onTap: () {
                                     onPdfTap(_pdfPath);
                                   },
-                                  child: Stack(
-                                    children: [
-                                      FutureBuilder(
-                                        future: downLoadData(
-                                            path: element.value.pdfId),
-                                        builder: (context, snapshot) {
-                                          if (snapshot.connectionState ==
-                                              ConnectionState.done) {
-                                            _pdfPath = snapshot.data!.path;
-                                            return PDFView(
-                                              filePath: _pdfPath,
-                                              enableSwipe: true,
-                                              swipeHorizontal: true,
-                                              autoSpacing: true,
-                                              pageFling: false,
-                                              fitEachPage: true,
-                                              fitPolicy: FitPolicy.WIDTH,
-                                              backgroundColor: Colors.grey,
-                                              onRender: (_pages) {},
-                                              onError: (error) {
-                                                print(error.toString());
+                                  child: FutureBuilder(
+                                    future:
+                                        downLoadData(path: element.value.pdfId),
+                                    builder: (context, snapshot) {
+                                      if (snapshot.connectionState ==
+                                          ConnectionState.done) {
+                                        _pdfPath = snapshot.data!.path;
+                                      }
+                                      return snapshot.data == null
+                                          ? const Center(
+                                              child:
+                                                  CircularProgressIndicator(),
+                                            )
+                                          : FutureBuilder(
+                                              future: PDFDocument.fromFile(
+                                                  File(snapshot.data!.path)),
+                                              builder: (context, snapshot) {
+                                                if (snapshot.connectionState ==
+                                                    ConnectionState.done) {
+                                                  return Stack(
+                                                    children: [
+                                                      PDFViewer(
+                                                        showIndicator: false,
+                                                        showNavigation: false,
+                                                        showPicker: false,
+                                                        enableSwipeNavigation:
+                                                            false,
+                                                        document:
+                                                            snapshot.data!,
+                                                      ),
+                                                      Container(
+                                                        color:
+                                                            Colors.transparent,
+                                                      )
+                                                    ],
+                                                  );
+                                                }
+                                                return const Center(
+                                                  child:
+                                                      CircularProgressIndicator(),
+                                                );
                                               },
-                                              onPageError: (page, error) {
-                                                print(
-                                                    '$page: ${error.toString()}');
-                                              },
-                                              onViewCreated: (PDFViewController
-                                                  pdfViewController) {},
                                             );
-                                          }
-
-                                          return const Center(
-                                            child: CircularProgressIndicator(),
-                                          );
-                                        },
-                                      ),
-                                      Container(
-                                        color: Colors.transparent,
-                                      ),
-                                    ],
+                                    },
                                   ),
                                 ),
                     ),

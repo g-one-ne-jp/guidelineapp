@@ -10,6 +10,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter_template/ui/page/home/tab/ui_page_home_catalog_tab_bookmark.dart';
 import 'package:flutter_template/ui/page/home/tab/ui_page_home_catalog_tab_home.dart';
 import 'package:flutter_template/ui/page/home/tab/ui_page_home_catalog_tab_home_minor.dart';
+import 'package:flutter_template/ui/page/home/tab/ui_page_home_catalog_tab_home_toc.dart';
 import 'package:flutter_template/ui/page/home/tab/ui_page_home_catalog_tab_memo.dart';
 import 'package:flutter_template/ui/page/home/tab/ui_page_home_catalog_tab_mypage.dart';
 import 'package:flutter_template/ui/page/home/tab/ui_page_home_catalog_tab_search.dart';
@@ -65,6 +66,10 @@ class AppRouter extends _$AppRouter {
             AutoRoute(
                 page: UiRouteHomeCatalogTabMypage.page, path: 'catalogTab5'),
           ],
+        ),
+        AutoRoute(
+          page: UiRouteHomeCatalogTabHomeTOC.page,
+          path: '/tabHomeTOC',
         ),
         AutoRoute(
             page: UiRouteHomeCatalogTabHomeMinor.page,
