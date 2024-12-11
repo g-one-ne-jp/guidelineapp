@@ -53,7 +53,7 @@ class AppTheme {
         fontWeight: FontWeight.bold,
         color: Colors.black,
       ),
-      color: Colors.white,
+      color: const Color(0xFFF6F6F6),
       iconTheme: const IconThemeData(
         color: Colors.black, // Change the color of the back button icon
       ),

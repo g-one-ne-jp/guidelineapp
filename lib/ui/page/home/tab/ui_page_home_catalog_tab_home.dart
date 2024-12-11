@@ -96,7 +96,7 @@ class UiPageHomeCatalogTabHome extends HookConsumerWidget
               child: ElevatedButton(
                 onPressed: () async {
                   context.router.pushNamed(
-                    '/tabHomeTOC',
+                    '/toc',
                   );
                 },
                 child: const Text('ガイドラインを開く'),
