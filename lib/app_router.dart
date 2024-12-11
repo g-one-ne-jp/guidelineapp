@@ -69,7 +69,7 @@ class AppRouter extends _$AppRouter {
         ),
         AutoRoute(
           page: UiRouteHomeCatalogTabHomeTOC.page,
-          path: '/tabHomeTOC',
+          path: '/toc',
         ),
         AutoRoute(
             page: UiRouteHomeCatalogTabHomeMinor.page,
