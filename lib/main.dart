@@ -11,13 +11,11 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:JCSGuidelines/app_router.dart';
+import 'package:JCSGuidelines/debug/debug_print.dart';
+import 'package:JCSGuidelines/firebase_options.dart';
+import 'package:JCSGuidelines/theme.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
-// Project imports:
-import 'package:flutter_template/app_router.dart';
-import 'package:flutter_template/debug/debug_print.dart';
-import 'package:flutter_template/firebase_options.dart';
-import 'package:flutter_template/theme.dart';
 
 void main() async {
   // runZonedGuardedで全体を新しいエラーゾーンを定義

@@ -3,11 +3,9 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:JCSGuidelines/ui/util/uiUtilDialog.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-
-// Project imports:
-import 'package:flutter_template/ui/util/uiUtilDialog.dart';
 
 //Googleサインイン
 Future<String> utilGoogleSignin({required BuildContext context}) async {
@@ -16,7 +14,6 @@ Future<String> utilGoogleSignin({required BuildContext context}) async {
 
   try {
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-    var a = 0;
     final googleAuth = await googleUser?.authentication;
     final credential = GoogleAuthProvider.credential(
       accessToken: googleAuth?.accessToken,

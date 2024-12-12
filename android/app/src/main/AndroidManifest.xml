@@ -9,7 +9,7 @@
 
 
     <application
-        android:label="flutter_template"
+        android:label="JCSGuidelines"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         android:largeHeap="true"

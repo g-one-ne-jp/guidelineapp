@@ -1,9 +1,7 @@
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-// Project imports:
-import 'package:flutter_template/providers/moduiles/template_data.dart';
-import 'package:flutter_template/providers/template_provider.dart';
+import 'package:JCSGuidelines/providers/moduiles/template_data.dart';
+import 'package:JCSGuidelines/providers/template_provider.dart';
 
 /// ミックスインプロバイダーテンプレート
 mixin MixinProviderTemplate {

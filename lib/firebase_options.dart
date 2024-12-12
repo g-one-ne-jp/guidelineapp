@@ -44,18 +44,17 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyB4jori_zQrA0CYCrOYdTIygbRpvCYMcMM',
-    appId: '1:541108438363:web:4cc393dedfc4904864c67e',
-    messagingSenderId: '541108438363',
-    projectId: 'g-one-pdf',
-    authDomain: 'g-one-pdf.firebaseapp.com',
-    storageBucket: 'g-one-pdf.appspot.com',
-    measurementId: 'G-ZK7TDVW1J4',
+    apiKey: 'AIzaSyDHprWUdaQtqQlYKFaJvjqkqNV9UJYlLVc',
+    appId: '1:256963860509:web:c9fc88b777d85969028ef4',
+    messagingSenderId: '256963860509',
+    projectId: 'jcsguideline',
+    authDomain: 'jcsguideline.firebaseapp.com',
+    storageBucket: 'jcsguideline.firebasestorage.app',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyCCcGjEWSwLxrQunJWJnc_j6YoQZ8p-nAc',
-    appId: '1:256963860509:android:4424c55aeffd5e1a028ef4',
+    appId: '1:256963860509:android:ea9712ba69553c01028ef4',
     messagingSenderId: '256963860509',
     projectId: 'jcsguideline',
     storageBucket: 'jcsguideline.firebasestorage.app',
@@ -67,26 +66,28 @@ class DefaultFirebaseOptions {
     messagingSenderId: '256963860509',
     projectId: 'jcsguideline',
     storageBucket: 'jcsguideline.firebasestorage.app',
+    androidClientId: '256963860509-35tjd567eg3h2n6e7fmg3nvcj2c5fka9.apps.googleusercontent.com',
     iosClientId: '256963860509-h49klkinp44lvtv1e2uc5jtme3hqh3rd.apps.googleusercontent.com',
     iosBundleId: 'com.guideline.dev',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyBZHtzdxPPGqFdZWrmDMj8PwhKhqmpCXuU',
-    appId: '1:541108438363:ios:eb43fb8b1f13271864c67e',
-    messagingSenderId: '541108438363',
-    projectId: 'g-one-pdf',
-    storageBucket: 'g-one-pdf.appspot.com',
+    apiKey: 'AIzaSyAC3spWmWQqBTn1c9fkstdzPEccb7aFn0Q',
+    appId: '1:256963860509:ios:aaa6bddc72a362d5028ef4',
+    messagingSenderId: '256963860509',
+    projectId: 'jcsguideline',
+    storageBucket: 'jcsguideline.firebasestorage.app',
+    iosClientId: '256963860509-ojsg6l9hkala7vrufulc505c88shlmjr.apps.googleusercontent.com',
     iosBundleId: 'com.example.flutterTemplate',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyB4jori_zQrA0CYCrOYdTIygbRpvCYMcMM',
-    appId: '1:541108438363:web:5c1727739376c85164c67e',
-    messagingSenderId: '541108438363',
-    projectId: 'g-one-pdf',
-    authDomain: 'g-one-pdf.firebaseapp.com',
-    storageBucket: 'g-one-pdf.appspot.com',
-    measurementId: 'G-9R4MY9BRHT',
+    apiKey: 'AIzaSyDHprWUdaQtqQlYKFaJvjqkqNV9UJYlLVc',
+    appId: '1:256963860509:web:517b71ba0df53009028ef4',
+    messagingSenderId: '256963860509',
+    projectId: 'jcsguideline',
+    authDomain: 'jcsguideline.firebaseapp.com',
+    storageBucket: 'jcsguideline.firebasestorage.app',
   );
+
 }

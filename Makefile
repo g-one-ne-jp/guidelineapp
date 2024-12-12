@@ -18,7 +18,7 @@ flutter_generate:
 	flutter pub get
 	# import_sorterの実行コマンド
 	flutter pub run import_sorter:main
-    #　アイコンの生成コマンド
+    #アイコンの生成コマンド
 	flutter pub run flutter_launcher_icons
 	# スプラッシュ画面の生成コマンド
 	dart run flutter_native_splash:create

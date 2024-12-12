@@ -25,7 +25,7 @@ mixin RepositoryFireStorage {
     final file = File(filePath);
 
     //user/uid/ファイル名にファイルが存在する場合はそちらを使う
-    if (await _fileExists(filePath) || isNewUpdate) {
+    if (await _fileExists(filePath) && await file.exists()) {
       debugPrint('編集済みファイルは既に存在します: ${_getLastTwoPartsOfPath(filePath)}');
       if (!isNewUpdate) {
         islandRef = FirebaseStorage.instance
@@ -41,8 +41,10 @@ mixin RepositoryFireStorage {
         debugPrint('ファイルが更新されています: $filePath');
         await islandRef.writeToFile(file);
       }
-
-      return file;
+    }
+    if (isNewUpdate && await file.exists()) {
+      debugPrint('ファイルが更新されています: $filePath');
+      await islandRef.writeToFile(file);
     }
     // ローカルにファイルが存在する場合は、ダウンロードせずに true を返す
     if (await file.exists()) {
