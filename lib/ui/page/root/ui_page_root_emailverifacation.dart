@@ -83,8 +83,7 @@ class UiPageEmailVerification extends HookConsumerWidget {
                   await user.sendEmailVerification();
                   Fluttertoast.showToast(msg: '認証メールを再送信しました。');
                 } catch (e) {
-                  Fluttertoast.showToast(
-                      msg: '認証メールの再送信に失敗しました。一定時間置いてから再度試してください');
+                  Fluttertoast.showToast(msg: '認証メールの再送信に失敗しました。一定時間置いてから再度試してください');
                   return;
                 }
               },

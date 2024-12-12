@@ -13,11 +13,9 @@ import 'package:flutter_template/repotitory/mixin_repository_file.dart';
 import 'package:flutter_template/repotitory/mixin_repository_http.dart';
 
 // StateNotifierクラスを外部ファイルで呼び出すプロバイダー.
-final tocProvider =
-    StateNotifierProvider<ProviderToc, MajorCategory>((ref) => ProviderToc());
+final tocProvider = StateNotifierProvider<ProviderToc, MajorCategory>((ref) => ProviderToc());
 
-class ProviderToc extends StateNotifier<MajorCategory>
-    with RepositoryHttp, RepositoryFile {
+class ProviderToc extends StateNotifier<MajorCategory> with RepositoryHttp, RepositoryFile {
   // コンストラクタ内での初期状態を設定し、非同期にデータをロードします。
   ProviderToc() : super(MajorCategory()) {}
 
@@ -29,8 +27,7 @@ class ProviderToc extends StateNotifier<MajorCategory>
   }
 
   // MajorCategoryからデータを読み込むメソッド(mainorKeyを指定してMinorCategoryを取得)
-  MinorCategory searchMinorCategoryByKeyFromMajor(
-      MajorCategory majorCategory, String mainorKey) {
+  MinorCategory searchMinorCategoryByKeyFromMajor(MajorCategory majorCategory, String mainorKey) {
     for (var sub in majorCategory.subs.values) {
       for (var minor in sub.minors.values) {
         if (minor.mainorKey == mainorKey) {
@@ -44,8 +41,7 @@ class ProviderToc extends StateNotifier<MajorCategory>
   }
 
   // MajorCategoryからデータを読み込むメソッド(detailKeyを指定してDetailCategoryを取得)
-  DetailCategory searchDetailCategoryByKeyFromMajor(
-      MajorCategory majorCategory, String detailKey) {
+  DetailCategory searchDetailCategoryByKeyFromMajor(MajorCategory majorCategory, String detailKey) {
     for (var sub in majorCategory.subs.values) {
       for (var minor in sub.minors.values) {
         for (var detail in minor.details.values) {
@@ -61,8 +57,7 @@ class ProviderToc extends StateNotifier<MajorCategory>
   }
 
   // MajorCategoryからデータを読み込むメソッド(detailKeyを指定してmainorKeyを取得)
-  String searchMainorKeyFromDetailKeyFromMajor(
-      MajorCategory majorCategory, String detailKey) {
+  String searchMainorKeyFromDetailKeyFromMajor(MajorCategory majorCategory, String detailKey) {
     for (var sub in majorCategory.subs.values) {
       for (var minor in sub.minors.values) {
         for (var detail in minor.details.values) {

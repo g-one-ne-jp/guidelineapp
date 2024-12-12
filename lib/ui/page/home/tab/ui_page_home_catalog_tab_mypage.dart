@@ -46,8 +46,7 @@ class UiPageHomeCatalogTabMypage extends HookConsumerWidget {
     useEffect(() {
       Future<void>(() async {
         //ユーザーデータを読み込み
-        _user.value = await _userNotifer.readUser<ModelFirebaseUser>(
-            fromJson: ModelFirebaseUser.fromJson);
+        _user.value = await _userNotifer.readUser<ModelFirebaseUser>(fromJson: ModelFirebaseUser.fromJson);
         _gender.value = _user.value.gender;
         _age.value = _user.value.age;
         _occupation.value = _user.value.occupation;

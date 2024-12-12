@@ -47,8 +47,7 @@ class UiPageUtilEdit extends HookConsumerWidget with RepositoryFireStorage {
 
     useEffect(() {
       Future<void>(() async {
-        _mainor.value = _tocNotifer.searchMinorCategoryByKeyFromMajor(
-            _tocProvider, mainorKey);
+        _mainor.value = _tocNotifer.searchMinorCategoryByKeyFromMajor(_tocProvider, mainorKey);
 
         final json = _userNotifer.getMemo(key: mainorKey);
         if (json.isNotEmpty) {
@@ -76,9 +75,7 @@ class UiPageUtilEdit extends HookConsumerWidget with RepositoryFireStorage {
             icon: const Icon(Icons.save),
             onPressed: () async {
               await _userNotifer.updateMemo(
-                  key: mainorKey,
-                  memo: jsonEncode(
-                      _controller.value.document.toDelta().toJson()));
+                  key: mainorKey, memo: jsonEncode(_controller.value.document.toDelta().toJson()));
               FocusScope.of(context).unfocus();
               FocusScope.of(context).nextFocus();
               await Fluttertoast.showToast(

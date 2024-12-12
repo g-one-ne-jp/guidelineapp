@@ -193,8 +193,7 @@ class UiUtilWidgetTile2 extends HookConsumerWidget {
             child: children.isEmpty
                 ? ListTile(
                     trailing: const Icon(Icons.arrow_forward_ios),
-                    title:
-                        Text(minor.details.entries.first.value.detailSummary),
+                    title: Text(minor.details.entries.first.value.detailSummary),
                     onTap: () {
                       onTap();
                     },
@@ -268,20 +267,15 @@ class UiUtilWidgetTile3 extends HookConsumerWidget with RepositoryFireStorage {
                   children: [
                     const Divider(),
                     ConstrainedBox(
-                      constraints: BoxConstraints(
-                          minHeight: 120.h, maxHeight: 360.h), // 最大の高さを200に設定
+                      constraints: BoxConstraints(minHeight: 120.h, maxHeight: 360.h), // 最大の高さを200に設定
                       child:
                           //MarkdownWidget(data: element.value.markdown)
                           element.value.pdfId.isEmpty
                               ? FutureBuilder(
-                                  future: downLoadData(
-                                      path: element.value.markdown),
+                                  future: downLoadData(path: element.value.markdown),
                                   builder: (context, snapshot) {
-                                    if (snapshot.connectionState ==
-                                        ConnectionState.done) {
-                                      return MarkdownWidget(
-                                          data: File(snapshot.data!.path)
-                                              .readAsStringSync());
+                                    if (snapshot.connectionState == ConnectionState.done) {
+                                      return MarkdownWidget(data: File(snapshot.data!.path).readAsStringSync());
                                     }
 
                                     return const CircularProgressIndicator();
@@ -292,45 +286,36 @@ class UiUtilWidgetTile3 extends HookConsumerWidget with RepositoryFireStorage {
                                     onPdfTap(_pdfPath);
                                   },
                                   child: FutureBuilder(
-                                    future:
-                                        downLoadData(path: element.value.pdfId),
+                                    future: downLoadData(path: element.value.pdfId),
                                     builder: (context, snapshot) {
-                                      if (snapshot.connectionState ==
-                                          ConnectionState.done) {
+                                      if (snapshot.connectionState == ConnectionState.done) {
                                         _pdfPath = snapshot.data!.path;
                                       }
                                       return snapshot.data == null
                                           ? const Center(
-                                              child:
-                                                  CircularProgressIndicator(),
+                                              child: CircularProgressIndicator(),
                                             )
                                           : FutureBuilder(
-                                              future: PDFDocument.fromFile(
-                                                  File(snapshot.data!.path)),
+                                              future: PDFDocument.fromFile(File(snapshot.data!.path)),
                                               builder: (context, snapshot) {
-                                                if (snapshot.connectionState ==
-                                                    ConnectionState.done) {
+                                                if (snapshot.connectionState == ConnectionState.done) {
                                                   return Stack(
                                                     children: [
                                                       PDFViewer(
                                                         showIndicator: false,
                                                         showNavigation: false,
                                                         showPicker: false,
-                                                        enableSwipeNavigation:
-                                                            false,
-                                                        document:
-                                                            snapshot.data!,
+                                                        enableSwipeNavigation: false,
+                                                        document: snapshot.data!,
                                                       ),
                                                       Container(
-                                                        color:
-                                                            Colors.transparent,
+                                                        color: Colors.transparent,
                                                       )
                                                     ],
                                                   );
                                                 }
                                                 return const Center(
-                                                  child:
-                                                      CircularProgressIndicator(),
+                                                  child: CircularProgressIndicator(),
                                                 );
                                               },
                                             );

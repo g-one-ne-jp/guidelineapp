@@ -21,8 +21,7 @@ import 'package:flutter_template/ui/util/uiUtilTile.dart';
 
 @RoutePage()
 // ignore: must_be_immutable
-class UiPageHomeCatalogTabHome extends HookConsumerWidget
-    with RepositoryFireStorage {
+class UiPageHomeCatalogTabHome extends HookConsumerWidget with RepositoryFireStorage {
   UiPageHomeCatalogTabHome({
     super.key,
   });
@@ -60,11 +59,9 @@ class UiPageHomeCatalogTabHome extends HookConsumerWidget
                           child: CircularProgressIndicator(),
                         )
                       : FutureBuilder(
-                          future:
-                              PDFDocument.fromFile(File(snapshot.data!.path)),
+                          future: PDFDocument.fromFile(File(snapshot.data!.path)),
                           builder: (context, snapshot) {
-                            if (snapshot.connectionState ==
-                                ConnectionState.done) {
+                            if (snapshot.connectionState == ConnectionState.done) {
                               return Stack(
                                 children: [
                                   PDFViewer(

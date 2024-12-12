@@ -33,22 +33,16 @@ class UiPageHomeCatalogTabMemo extends HookConsumerWidget {
     // データ取得ロジックを関数に分離
     Future<void> fetchMemoItems() async {
       // ユーザーデータを読み込み
-      final user = await _userNotifer.readUser<ModelFirebaseUser>(
-          fromJson: ModelFirebaseUser.fromJson);
+      final user = await _userNotifer.readUser<ModelFirebaseUser>(fromJson: ModelFirebaseUser.fromJson);
 
       // メモが存在するものを取得
       final memos = user.memos;
-      final memoKeys = memos.entries
-          .where((entry) => entry.value.isNotEmpty)
-          .map((entry) => entry.key)
-          .toList();
+      final memoKeys = memos.entries.where((entry) => entry.value.isNotEmpty).map((entry) => entry.key).toList();
 
       // Firestore からメモされたアイテムを取得
       final memoItemsList = await Future.wait(memoKeys.map((key) async {
-        final doc =
-            _tocNotifer.searchDetailCategoryByKeyFromMajor(_tocProvider, key);
-        final mainorKey = _tocNotifer.searchMainorKeyFromDetailKeyFromMajor(
-            _tocProvider, key);
+        final doc = _tocNotifer.searchDetailCategoryByKeyFromMajor(_tocProvider, key);
+        final mainorKey = _tocNotifer.searchMainorKeyFromDetailKeyFromMajor(_tocProvider, key);
         return MapEntry(mainorKey, doc);
       }));
 
@@ -112,8 +106,7 @@ class UiPageHomeCatalogTabMemo extends HookConsumerWidget {
                               configurations: QuillEditorConfigurations(
                                 controller: QuillController.basic()
                                   ..readOnly = true
-                                  ..document = Document.fromJson(_userNotifer
-                                      .getMemo(key: item!.detailKey)),
+                                  ..document = Document.fromJson(_userNotifer.getMemo(key: item!.detailKey)),
                                 scrollable: false,
                                 autoFocus: false,
                                 expands: true,

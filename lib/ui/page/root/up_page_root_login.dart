@@ -62,9 +62,7 @@ class UiPageLogin extends HookConsumerWidget {
                       hintText: 'パスワード',
                       suffixIcon: IconButton(
                         icon: Icon(
-                          _isPasswordVisible.value
-                              ? Icons.visibility
-                              : Icons.visibility_off,
+                          _isPasswordVisible.value ? Icons.visibility : Icons.visibility_off,
                         ),
                         onPressed: () {
                           _isPasswordVisible.value = !_isPasswordVisible.value;
@@ -188,8 +186,7 @@ class UiPageLogin extends HookConsumerWidget {
                       ),
                       elevation: 0, // 影をなくす
                       onPressed: () async {
-                        utilGoogleSignin(context: context)
-                            .then((onValue) async {
+                        utilGoogleSignin(context: context).then((onValue) async {
                           if (onValue.isNotEmpty) {
                             await Fluttertoast.showToast(
                               msg: onValue,

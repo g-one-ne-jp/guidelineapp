@@ -127,9 +127,7 @@ class MyApp extends HookConsumerWidget with WidgetsBindingObserver {
 
       child: Scaffold(
         body: Center(
-          child: isInitError.value
-              ? const Text('初期化エラー')
-              : const CircularProgressIndicator(),
+          child: isInitError.value ? const Text('初期化エラー') : const CircularProgressIndicator(),
         ),
       ),
     );

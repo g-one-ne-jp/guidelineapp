@@ -25,22 +25,19 @@ mixin _$TemplateData {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $TemplateDataCopyWith<TemplateData> get copyWith =>
-      throw _privateConstructorUsedError;
+  $TemplateDataCopyWith<TemplateData> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $TemplateDataCopyWith<$Res> {
-  factory $TemplateDataCopyWith(
-          TemplateData value, $Res Function(TemplateData) then) =
+  factory $TemplateDataCopyWith(TemplateData value, $Res Function(TemplateData) then) =
       _$TemplateDataCopyWithImpl<$Res, TemplateData>;
   @useResult
   $Res call({bool isTemplate});
 }
 
 /// @nodoc
-class _$TemplateDataCopyWithImpl<$Res, $Val extends TemplateData>
-    implements $TemplateDataCopyWith<$Res> {
+class _$TemplateDataCopyWithImpl<$Res, $Val extends TemplateData> implements $TemplateDataCopyWith<$Res> {
   _$TemplateDataCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -63,10 +60,8 @@ class _$TemplateDataCopyWithImpl<$Res, $Val extends TemplateData>
 }
 
 /// @nodoc
-abstract class _$$TemplateDataImplCopyWith<$Res>
-    implements $TemplateDataCopyWith<$Res> {
-  factory _$$TemplateDataImplCopyWith(
-          _$TemplateDataImpl value, $Res Function(_$TemplateDataImpl) then) =
+abstract class _$$TemplateDataImplCopyWith<$Res> implements $TemplateDataCopyWith<$Res> {
+  factory _$$TemplateDataImplCopyWith(_$TemplateDataImpl value, $Res Function(_$TemplateDataImpl) then) =
       __$$TemplateDataImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -74,11 +69,9 @@ abstract class _$$TemplateDataImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$TemplateDataImplCopyWithImpl<$Res>
-    extends _$TemplateDataCopyWithImpl<$Res, _$TemplateDataImpl>
+class __$$TemplateDataImplCopyWithImpl<$Res> extends _$TemplateDataCopyWithImpl<$Res, _$TemplateDataImpl>
     implements _$$TemplateDataImplCopyWith<$Res> {
-  __$$TemplateDataImplCopyWithImpl(
-      _$TemplateDataImpl _value, $Res Function(_$TemplateDataImpl) _then)
+  __$$TemplateDataImplCopyWithImpl(_$TemplateDataImpl _value, $Res Function(_$TemplateDataImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -100,8 +93,7 @@ class __$$TemplateDataImplCopyWithImpl<$Res>
 class _$TemplateDataImpl implements _TemplateData {
   _$TemplateDataImpl([this.isTemplate = false]);
 
-  factory _$TemplateDataImpl.fromJson(Map<String, dynamic> json) =>
-      _$$TemplateDataImplFromJson(json);
+  factory _$TemplateDataImpl.fromJson(Map<String, dynamic> json) => _$$TemplateDataImplFromJson(json);
 
   @override
   @JsonKey()
@@ -129,14 +121,12 @@ class _$TemplateDataImpl implements _TemplateData {
 abstract class _TemplateData implements TemplateData {
   factory _TemplateData([bool isTemplate]) = _$TemplateDataImpl;
 
-  factory _TemplateData.fromJson(Map<String, dynamic> json) =
-      _$TemplateDataImpl.fromJson;
+  factory _TemplateData.fromJson(Map<String, dynamic> json) = _$TemplateDataImpl.fromJson;
 
   @override
   bool get isTemplate;
   set isTemplate(bool value);
   @override
   @JsonKey(ignore: true)
-  _$$TemplateDataImplCopyWith<_$TemplateDataImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$TemplateDataImplCopyWith<_$TemplateDataImpl> get copyWith => throw _privateConstructorUsedError;
 }
