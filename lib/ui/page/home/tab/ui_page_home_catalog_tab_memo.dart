@@ -6,13 +6,11 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_quill/flutter_quill.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:JCSGuidelines/module/firebase/model_firebase_pdf_config.dart';
+import 'package:JCSGuidelines/module/firebase/model_firebase_user.dart';
+import 'package:JCSGuidelines/providers/toc_provider.dart';
+import 'package:JCSGuidelines/providers/user_provider.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
-// Project imports:
-import 'package:flutter_template/module/firebase/model_firebase_pdf_config.dart';
-import 'package:flutter_template/module/firebase/model_firebase_user.dart';
-import 'package:flutter_template/providers/toc_provider.dart';
-import 'package:flutter_template/providers/user_provider.dart';
 
 @RoutePage()
 class UiPageHomeCatalogTabMemo extends HookConsumerWidget {

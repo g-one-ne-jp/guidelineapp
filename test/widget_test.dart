@@ -9,10 +9,8 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
+import 'package:JCSGuidelines/main.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-// Project imports:
-import 'package:flutter_template/main.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {

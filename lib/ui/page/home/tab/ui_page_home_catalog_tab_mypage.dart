@@ -8,18 +8,16 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:JCSGuidelines/debug/debug_print.dart';
+import 'package:JCSGuidelines/module/firebase/model_firebase_pdf_config.dart';
+import 'package:JCSGuidelines/module/firebase/model_firebase_user.dart';
+import 'package:JCSGuidelines/providers/user_provider.dart';
+import 'package:JCSGuidelines/repotitory/mixin_repository_firestore.dart';
+import 'package:JCSGuidelines/ui/util/uiUtilWidget.dart';
+import 'package:JCSGuidelines/util/util_googlesingin.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
-
-// Project imports:
-import 'package:flutter_template/debug/debug_print.dart';
-import 'package:flutter_template/module/firebase/model_firebase_pdf_config.dart';
-import 'package:flutter_template/module/firebase/model_firebase_user.dart';
-import 'package:flutter_template/providers/user_provider.dart';
-import 'package:flutter_template/repotitory/mixin_repository_firestore.dart';
-import 'package:flutter_template/ui/util/uiUtilWidget.dart';
-import 'package:flutter_template/util/util_googlesingin.dart';
 
 @RoutePage()
 class UiPageHomeCatalogTabMypage extends HookConsumerWidget {

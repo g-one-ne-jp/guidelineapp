@@ -5,23 +5,21 @@ import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-
-// Project imports:
-import 'package:flutter_template/ui/page/home/tab/ui_page_home_catalog_tab_bookmark.dart';
-import 'package:flutter_template/ui/page/home/tab/ui_page_home_catalog_tab_home.dart';
-import 'package:flutter_template/ui/page/home/tab/ui_page_home_catalog_tab_home_minor.dart';
-import 'package:flutter_template/ui/page/home/tab/ui_page_home_catalog_tab_home_toc.dart';
-import 'package:flutter_template/ui/page/home/tab/ui_page_home_catalog_tab_memo.dart';
-import 'package:flutter_template/ui/page/home/tab/ui_page_home_catalog_tab_mypage.dart';
-import 'package:flutter_template/ui/page/home/tab/ui_page_home_catalog_tab_search.dart';
-import 'package:flutter_template/ui/page/home/ui_page_home.dart';
-import 'package:flutter_template/ui/page/home/ui_page_home_catalog.dart';
-import 'package:flutter_template/ui/page/root/ui_page_root_emailverifacation.dart';
-import 'package:flutter_template/ui/page/root/up_page_root_login.dart';
-import 'package:flutter_template/ui/page/root/up_page_root_profile.dart';
-import 'package:flutter_template/ui/page/root/up_page_root_signup.dart';
-import 'package:flutter_template/ui/util/uiUtilEdit.dart';
-import 'package:flutter_template/util/util_googlesingin.dart';
+import 'package:JCSGuidelines/ui/page/home/tab/ui_page_home_catalog_tab_bookmark.dart';
+import 'package:JCSGuidelines/ui/page/home/tab/ui_page_home_catalog_tab_home.dart';
+import 'package:JCSGuidelines/ui/page/home/tab/ui_page_home_catalog_tab_home_minor.dart';
+import 'package:JCSGuidelines/ui/page/home/tab/ui_page_home_catalog_tab_home_toc.dart';
+import 'package:JCSGuidelines/ui/page/home/tab/ui_page_home_catalog_tab_memo.dart';
+import 'package:JCSGuidelines/ui/page/home/tab/ui_page_home_catalog_tab_mypage.dart';
+import 'package:JCSGuidelines/ui/page/home/tab/ui_page_home_catalog_tab_search.dart';
+import 'package:JCSGuidelines/ui/page/home/ui_page_home.dart';
+import 'package:JCSGuidelines/ui/page/home/ui_page_home_catalog.dart';
+import 'package:JCSGuidelines/ui/page/root/ui_page_root_emailverifacation.dart';
+import 'package:JCSGuidelines/ui/page/root/up_page_root_login.dart';
+import 'package:JCSGuidelines/ui/page/root/up_page_root_profile.dart';
+import 'package:JCSGuidelines/ui/page/root/up_page_root_signup.dart';
+import 'package:JCSGuidelines/ui/util/uiUtilEdit.dart';
+import 'package:JCSGuidelines/util/util_googlesingin.dart';
 
 part 'app_router.gr.dart';
 

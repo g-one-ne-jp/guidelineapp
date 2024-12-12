@@ -10,14 +10,12 @@ import 'package:easy_pdf_viewer/easy_pdf_viewer.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:JCSGuidelines/debug/debug_print.dart';
+import 'package:JCSGuidelines/providers/toc_provider.dart';
+import 'package:JCSGuidelines/providers/user_provider.dart';
+import 'package:JCSGuidelines/repotitory/mixin_repository_firestorage.dart';
+import 'package:JCSGuidelines/ui/util/uiUtilTile.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
-// Project imports:
-import 'package:flutter_template/debug/debug_print.dart';
-import 'package:flutter_template/providers/toc_provider.dart';
-import 'package:flutter_template/providers/user_provider.dart';
-import 'package:flutter_template/repotitory/mixin_repository_firestorage.dart';
-import 'package:flutter_template/ui/util/uiUtilTile.dart';
 
 @RoutePage()
 // ignore: must_be_immutable
