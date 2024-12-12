@@ -39,7 +39,7 @@ Future<String> utilGoogleSignin({required BuildContext context}) async {
   }
 }
 
-//メール/パスワードでアカウント作成
+//メール/パスワードでアカウント作成aa
 Future<String> utilAuthSignup(
     {required String email,
     required String password,
