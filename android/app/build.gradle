@@ -27,8 +27,8 @@ if (flutterVersionName == null) {
 }
 
 android {
-    namespace "com.guideline.dev"
-    compileSdk flutter.compileSdkVersion
+    namespace "com.guideline.dev" // アプリケーションIDを設定
+    compileSdkVersion flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
 
     compileOptions {
@@ -45,23 +45,29 @@ android {
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.guideline.dev"
-        // You can update the following values to match your application needs.
-        // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdkVersion 23
+        applicationId "com.guideline.dev" // アプリケーションIDを設定
+        minSdkVersion 23 
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         multiDexEnabled true
-        manifestPlaceholders += [pdftronLicenseKey:PDFTRON_LICENSE_KEY]
+        manifestPlaceholders += [pdftronLicenseKey:PDFTRON_LICENSE_KEY] // PDFtronライセンスキーを設定
+    }
+
+    signingConfigs {
+        release {
+            // リリース用の署名設定を追加
+            storeFile file("your_release_keystore.jks") // キーストアファイルへのパス
+            storePassword "your_keystore_password" // キーストアのパスワード
+            keyAlias "your_key_alias" // キーエイリアス
+            keyPassword "your_key_password" // キーのパスワード
+        }
     }
 
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig signingConfigs.debug
+            // リリースビルド用の署名設定を使用
+            signingConfig signingConfigs.release 
         }
     }
 }
@@ -70,4 +76,6 @@ flutter {
     source '../..'
 }
 
-dependencies {}
+dependencies {
+    // 必要な外部ライブラリを追加
+}
