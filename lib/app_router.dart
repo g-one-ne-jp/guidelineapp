@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+
+// Project imports:
 import 'package:JCSGuidelines/ui/page/home/tab/ui_page_home_catalog_tab_bookmark.dart';
 import 'package:JCSGuidelines/ui/page/home/tab/ui_page_home_catalog_tab_home.dart';
 import 'package:JCSGuidelines/ui/page/home/tab/ui_page_home_catalog_tab_home_minor.dart';

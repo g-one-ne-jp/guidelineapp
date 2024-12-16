@@ -88,6 +88,7 @@ abstract class Settion with _$Settion {
     @Default('') String pdfId,
     @Default('') String searchWord,
     @Default('') String markdown,
+    @Default([]) List<String> searchKeywords,
   }) = _Settion;
 
   factory Settion.fromJson(Map<String, dynamic> json) =>
