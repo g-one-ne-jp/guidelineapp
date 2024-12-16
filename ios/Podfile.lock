@@ -1430,7 +1430,7 @@ PODS:
     - PDFTronTools
   - PDFTronTools (1.0.1-36):
     - PDFTron
-  - "permission_handler (5.1.0+2)":
+  - permission_handler_apple (9.3.0):
     - Flutter
   - PromisesObjC (2.4.0)
   - PromisesSwift (2.4.0):
@@ -1466,7 +1466,7 @@ DEPENDENCIES:
   - PDFTron (from `https://pdftron.com/downloads/ios/flutter/pdftron/latest.podspec`)
   - pdftron_flutter (from `.symlinks/plugins/pdftron_flutter/ios`)
   - PDFTronTools (from `https://pdftron.com/downloads/ios/flutter/pdftron-tools/latest.podspec`)
-  - permission_handler (from `.symlinks/plugins/permission_handler/ios`)
+  - permission_handler_apple (from `.symlinks/plugins/permission_handler_apple/ios`)
   - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
   - sqflite_darwin (from `.symlinks/plugins/sqflite_darwin/darwin`)
   - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
@@ -1544,8 +1544,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/pdftron_flutter/ios"
   PDFTronTools:
     :podspec: https://pdftron.com/downloads/ios/flutter/pdftron-tools/latest.podspec
-  permission_handler:
-    :path: ".symlinks/plugins/permission_handler/ios"
+  permission_handler_apple:
+    :path: ".symlinks/plugins/permission_handler_apple/ios"
   shared_preferences_foundation:
     :path: ".symlinks/plugins/shared_preferences_foundation/darwin"
   sqflite_darwin:
@@ -1600,7 +1600,7 @@ SPEC CHECKSUMS:
   PDFTron: a7763b07471646afe5cfcf33f1222ecc9e5b33d0
   pdftron_flutter: 26edc34717afac412bcccb6062a36c6329564b07
   PDFTronTools: 5b3c7d97c69bef464dea05ba2dd0f11ce5a3cae8
-  permission_handler: ccb20a9fad0ee9b1314a52b70b76b473c5f8dab0
+  permission_handler_apple: 9878588469a2b0d0fc1e048d9f43605f92e6cec2
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   PromisesSwift: 9d77319bbe72ebf6d872900551f7eeba9bce2851
   RecaptchaInterop: 7d1a4a01a6b2cb1610a47ef3f85f0c411434cb21

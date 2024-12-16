@@ -125,6 +125,10 @@ _$SettionImpl _$$SettionImplFromJson(Map<String, dynamic> json) =>
       pdfId: json['pdfId'] as String? ?? '',
       searchWord: json['searchWord'] as String? ?? '',
       markdown: json['markdown'] as String? ?? '',
+      searchKeywords: (json['searchKeywords'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          const [],
     );
 
 Map<String, dynamic> _$$SettionImplToJson(_$SettionImpl instance) =>
@@ -133,4 +137,5 @@ Map<String, dynamic> _$$SettionImplToJson(_$SettionImpl instance) =>
       'pdfId': instance.pdfId,
       'searchWord': instance.searchWord,
       'markdown': instance.markdown,
+      'searchKeywords': instance.searchKeywords,
     };

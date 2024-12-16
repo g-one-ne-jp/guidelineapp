@@ -1,4 +1,7 @@
 // Flutter imports:
+import 'package:JCSGuidelines/debug/debug_print.dart';
+import 'package:JCSGuidelines/module/firebase/model_firebase_pdf_config.dart';
+import 'package:JCSGuidelines/providers/user_provider.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -15,52 +18,63 @@ class UiPageHomeCatalogTabSearch extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final _userProvider = ref.watch(userProvider);
+    final _userNotifer = ref.watch(userProvider.notifier);
+
     final _searchController = useTextEditingController();
     final _searchResults = useState<List<Map<String, dynamic>>>([]);
 
-    Future<void> searchFirestore(String query) async {
-      final firestore = FirebaseFirestore.instance;
-      final storage = FirebaseStorage.instance;
+    final _tos = useState(ModelFirebasePdfConfig());
 
-      // Firestore クエリを作成してテキストファイルのパスを取得
-      final snapshot = await firestore.collection('your_collection_name').get();
-      final filePaths = snapshot.docs.map((doc) => doc['file_path']).toList();
+    final _focusNode = useState(FocusNode());
 
-      final results = <Map<String, dynamic>>[];
-
-      // 各テキストファイルの内容を取得して検索ワードが含まれているかをチェック
-      for (final path in filePaths) {
-        final ref = storage.ref().child(path);
-        final data = await ref.getData();
-        final content = String.fromCharCodes(data!);
-
-        if (content.contains(query)) {
-          results.add({'path': path, 'content': content});
-        }
-      }
-
-      _searchResults.value = results;
-    }
+    final _mainorKey = useState('');
+    final _mainorKeys = useState(<String>[]);
+    useEffect(() {
+      Future<void>(() async {
+        _tos.value = await _userNotifer.readTocsJson();
+      });
+      return () => customDebugPrint('dispose!');
+    }, []);
 
     // 再帰関数でJSONデータを走査し、特定のキーの値を検索
-    bool searchJsonValue(dynamic jsonData, String text) {
+    void searchJsonValue(dynamic jsonData, String text) {
+      //
+      try {
+        jsonData = jsonData.toJson();
+      } catch (e) {
+        //debugPrint('error: $e');
+      }
+
       if (jsonData is Map) {
         for (var key in jsonData.keys) {
-          if (key == 'searchWord' && jsonData[key].toString().contains(text)) {
-            return true;
+          debugPrint('key: $key,');
+          if (jsonData.containsKey('mainorKey')) {
+            _mainorKey.value = jsonData['mainorKey'];
           }
-          if (searchJsonValue(jsonData[key], text)) {
-            return true;
+          if (jsonData.containsKey('searchKeywords')) {
+            List<dynamic> keywords = jsonData['searchKeywords'];
+            if (keywords.any((keyword) => keyword.contains(text))) {
+              if (!_searchResults.value.any(
+                  (result) => result['title'] == jsonData['settionTitle'])) {
+                _searchResults.value = [
+                  ..._searchResults.value,
+                  {
+                    'key': _mainorKey.value,
+                    'title': jsonData['settionTitle'],
+                  }
+                ];
+              }
+            }
           }
+
+          searchJsonValue(jsonData[key], text);
         }
       } else if (jsonData is List) {
         for (var item in jsonData) {
-          if (searchJsonValue(item, text)) {
-            return true;
-          }
+          searchJsonValue(item, text);
         }
       }
-      return false;
     }
 
     return Scaffold(
@@ -69,32 +83,48 @@ class UiPageHomeCatalogTabSearch extends HookConsumerWidget {
           padding: const EdgeInsets.all(5.0),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12.0),
-            color: Colors.white,
+            color: Colors.transparent,
           ),
-          child: TextField(
-            controller: _searchController,
-            decoration: InputDecoration(
-              labelText: '検索ワードを入力',
-              suffixIcon: IconButton(
-                icon: const Icon(Icons.search),
-                onPressed: () {
-                  searchFirestore(_searchController.text);
-                },
-              ),
-              contentPadding: EdgeInsets.symmetric(
-                horizontal: 20.w,
-                vertical: 12.h,
-              ),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(40.r),
-                borderSide: const BorderSide(
-                  color: Color(0xFFE8E8E8),
+          child: Focus(
+            focusNode: _focusNode.value,
+            child: TextField(
+              controller: _searchController,
+              onSubmitted: (value) {
+                _searchResults.value.clear();
+                searchJsonValue(
+                    _tos.value.categories.values.toList()[0].toJson(),
+                    _searchController.text);
+                FocusScope.of(context).unfocus();
+                _focusNode.value.unfocus();
+              },
+              decoration: InputDecoration(
+                hintText: '検索ワードを入力',
+                suffixIcon: IconButton(
+                  icon: const Icon(Icons.search),
+                  onPressed: () {
+                    _searchResults.value.clear();
+                    searchJsonValue(
+                        _tos.value.categories.values.toList()[0].toJson(),
+                        _searchController.text);
+                    FocusScope.of(context).unfocus();
+                    _focusNode.value.unfocus();
+                  },
                 ),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(40.r),
-                borderSide: const BorderSide(
-                  color: Color(0xFFE8E8E8),
+                contentPadding: EdgeInsets.symmetric(
+                  horizontal: 20.w,
+                  vertical: 12.h,
+                ),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(40.r),
+                  borderSide: const BorderSide(
+                    color: Color(0xFFE8E8E8),
+                  ),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(40.r),
+                  borderSide: const BorderSide(
+                    color: Colors.black,
+                  ),
                 ),
               ),
             ),
@@ -111,9 +141,23 @@ class UiPageHomeCatalogTabSearch extends HookConsumerWidget {
                 itemCount: _searchResults.value.length,
                 itemBuilder: (context, index) {
                   final result = _searchResults.value[index];
-                  return ListTile(
-                    title: Text(result['path'] ?? 'No Path'),
-                    subtitle: Text(result['content'] ?? 'No Content'),
+                  return Padding(
+                    padding: EdgeInsets.symmetric(vertical: 5.h),
+                    child: Card(
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.zero,
+                      ),
+                      color: Colors.white,
+                      child: ListTile(
+                        trailing: const Icon(Icons.arrow_forward_ios),
+                        title: Text(result['title'] ?? 'No Path'),
+                        onTap: () async {
+                          await context.router.pushNamed(
+                            '/tabHomeMinor/${result['key']}/false',
+                          );
+                        },
+                      ),
+                    ),
                   );
                 },
               ),

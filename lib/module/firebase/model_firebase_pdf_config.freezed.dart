@@ -1219,6 +1219,7 @@ mixin _$Settion {
   String get pdfId => throw _privateConstructorUsedError;
   String get searchWord => throw _privateConstructorUsedError;
   String get markdown => throw _privateConstructorUsedError;
+  List<String> get searchKeywords => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1231,7 +1232,11 @@ abstract class $SettionCopyWith<$Res> {
       _$SettionCopyWithImpl<$Res, Settion>;
   @useResult
   $Res call(
-      {String settionTitle, String pdfId, String searchWord, String markdown});
+      {String settionTitle,
+      String pdfId,
+      String searchWord,
+      String markdown,
+      List<String> searchKeywords});
 }
 
 /// @nodoc
@@ -1251,6 +1256,7 @@ class _$SettionCopyWithImpl<$Res, $Val extends Settion>
     Object? pdfId = null,
     Object? searchWord = null,
     Object? markdown = null,
+    Object? searchKeywords = null,
   }) {
     return _then(_value.copyWith(
       settionTitle: null == settionTitle
@@ -1269,6 +1275,10 @@ class _$SettionCopyWithImpl<$Res, $Val extends Settion>
           ? _value.markdown
           : markdown // ignore: cast_nullable_to_non_nullable
               as String,
+      searchKeywords: null == searchKeywords
+          ? _value.searchKeywords
+          : searchKeywords // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ) as $Val);
   }
 }
@@ -1281,7 +1291,11 @@ abstract class _$$SettionImplCopyWith<$Res> implements $SettionCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String settionTitle, String pdfId, String searchWord, String markdown});
+      {String settionTitle,
+      String pdfId,
+      String searchWord,
+      String markdown,
+      List<String> searchKeywords});
 }
 
 /// @nodoc
@@ -1299,6 +1313,7 @@ class __$$SettionImplCopyWithImpl<$Res>
     Object? pdfId = null,
     Object? searchWord = null,
     Object? markdown = null,
+    Object? searchKeywords = null,
   }) {
     return _then(_$SettionImpl(
       settionTitle: null == settionTitle
@@ -1317,6 +1332,10 @@ class __$$SettionImplCopyWithImpl<$Res>
           ? _value.markdown
           : markdown // ignore: cast_nullable_to_non_nullable
               as String,
+      searchKeywords: null == searchKeywords
+          ? _value._searchKeywords
+          : searchKeywords // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
@@ -1328,7 +1347,9 @@ class _$SettionImpl implements _Settion {
       {this.settionTitle = '',
       this.pdfId = '',
       this.searchWord = '',
-      this.markdown = ''});
+      this.markdown = '',
+      final List<String> searchKeywords = const []})
+      : _searchKeywords = searchKeywords;
 
   factory _$SettionImpl.fromJson(Map<String, dynamic> json) =>
       _$$SettionImplFromJson(json);
@@ -1345,10 +1366,18 @@ class _$SettionImpl implements _Settion {
   @override
   @JsonKey()
   final String markdown;
+  final List<String> _searchKeywords;
+  @override
+  @JsonKey()
+  List<String> get searchKeywords {
+    if (_searchKeywords is EqualUnmodifiableListView) return _searchKeywords;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_searchKeywords);
+  }
 
   @override
   String toString() {
-    return 'Settion(settionTitle: $settionTitle, pdfId: $pdfId, searchWord: $searchWord, markdown: $markdown)';
+    return 'Settion(settionTitle: $settionTitle, pdfId: $pdfId, searchWord: $searchWord, markdown: $markdown, searchKeywords: $searchKeywords)';
   }
 
   @override
@@ -1362,13 +1391,15 @@ class _$SettionImpl implements _Settion {
             (identical(other.searchWord, searchWord) ||
                 other.searchWord == searchWord) &&
             (identical(other.markdown, markdown) ||
-                other.markdown == markdown));
+                other.markdown == markdown) &&
+            const DeepCollectionEquality()
+                .equals(other._searchKeywords, _searchKeywords));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, settionTitle, pdfId, searchWord, markdown);
+  int get hashCode => Object.hash(runtimeType, settionTitle, pdfId, searchWord,
+      markdown, const DeepCollectionEquality().hash(_searchKeywords));
 
   @JsonKey(ignore: true)
   @override
@@ -1389,7 +1420,8 @@ abstract class _Settion implements Settion {
       {final String settionTitle,
       final String pdfId,
       final String searchWord,
-      final String markdown}) = _$SettionImpl;
+      final String markdown,
+      final List<String> searchKeywords}) = _$SettionImpl;
 
   factory _Settion.fromJson(Map<String, dynamic> json) = _$SettionImpl.fromJson;
 
@@ -1401,6 +1433,8 @@ abstract class _Settion implements Settion {
   String get searchWord;
   @override
   String get markdown;
+  @override
+  List<String> get searchKeywords;
   @override
   @JsonKey(ignore: true)
   _$$SettionImplCopyWith<_$SettionImpl> get copyWith =>

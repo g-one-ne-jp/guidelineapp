@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:JCSGuidelines/ui/util/uiUtilDialog.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+
+// Project imports:
+import 'package:JCSGuidelines/ui/util/uiUtilDialog.dart';
 
 //Googleサインイン
 Future<String> utilGoogleSignin({required BuildContext context}) async {
