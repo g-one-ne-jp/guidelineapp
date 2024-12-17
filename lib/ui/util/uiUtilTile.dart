@@ -279,12 +279,17 @@ class UiUtilWidgetTile3 extends HookConsumerWidget with RepositoryFireStorage {
                                   builder: (context, snapshot) {
                                     if (snapshot.connectionState ==
                                         ConnectionState.done) {
-                                      return MarkdownWidget(
-                                          data: File(snapshot.data!.path)
-                                              .readAsStringSync());
+                                      return Container(
+                                          padding: EdgeInsets.all(10.w),
+                                          color: Colors.white,
+                                          child: MarkdownWidget(
+                                              data: File(snapshot.data!.path)
+                                                  .readAsStringSync()));
                                     }
 
-                                    return const CircularProgressIndicator();
+                                    return const Center(
+                                      child: CircularProgressIndicator(),
+                                    );
                                   },
                                 )
                               : GestureDetector(
