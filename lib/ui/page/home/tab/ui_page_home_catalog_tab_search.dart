@@ -2,6 +2,7 @@
 import 'package:JCSGuidelines/debug/debug_print.dart';
 import 'package:JCSGuidelines/module/firebase/model_firebase_pdf_config.dart';
 import 'package:JCSGuidelines/providers/user_provider.dart';
+import 'package:JCSGuidelines/repotitory/mixin_repository_firestorage.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -13,7 +14,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 @RoutePage()
-class UiPageHomeCatalogTabSearch extends HookConsumerWidget {
+class UiPageHomeCatalogTabSearch extends HookConsumerWidget
+    with RepositoryFireStorage {
   const UiPageHomeCatalogTabSearch({super.key});
 
   @override
@@ -38,7 +40,7 @@ class UiPageHomeCatalogTabSearch extends HookConsumerWidget {
     }, []);
 
     // 再帰関数でJSONデータを走査し、特定のキーの値を検索
-    void searchJsonValue(dynamic jsonData, String text) {
+    Future<void> searchJsonValue(dynamic jsonData, String text) async {
       //
       try {
         jsonData = jsonData.toJson();
@@ -66,13 +68,32 @@ class UiPageHomeCatalogTabSearch extends HookConsumerWidget {
                 ];
               }
             }
+            if (jsonData.containsKey('markdown')) {
+              if (jsonData['markdown'] != '') {
+                final file = await downLoadData(path: jsonData['markdown']);
+                final txt = file.readAsStringSync();
+
+                if (txt.contains(text)) {
+                  if (!_searchResults.value.any((result) =>
+                      result['title'] == jsonData['settionTitle'])) {
+                    _searchResults.value = [
+                      ..._searchResults.value,
+                      {
+                        'key': _mainorKey.value,
+                        'title': jsonData['settionTitle'],
+                      }
+                    ];
+                  }
+                }
+              }
+            }
           }
 
-          searchJsonValue(jsonData[key], text);
+          await searchJsonValue(jsonData[key], text);
         }
       } else if (jsonData is List) {
         for (var item in jsonData) {
-          searchJsonValue(item, text);
+          await searchJsonValue(item, text);
         }
       }
     }
@@ -103,9 +124,11 @@ class UiPageHomeCatalogTabSearch extends HookConsumerWidget {
                   icon: const Icon(Icons.search),
                   onPressed: () {
                     _searchResults.value.clear();
-                    searchJsonValue(
-                        _tos.value.categories.values.toList()[0].toJson(),
-                        _searchController.text);
+                    if (_searchController.text.isNotEmpty) {
+                      searchJsonValue(
+                          _tos.value.categories.values.toList()[0].toJson(),
+                          _searchController.text);
+                    }
                     FocusScope.of(context).unfocus();
                     _focusNode.value.unfocus();
                   },
