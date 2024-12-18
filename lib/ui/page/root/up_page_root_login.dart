@@ -156,7 +156,22 @@ class UiPageLogin extends HookConsumerWidget {
                         );
                       },
                     );
+                    if (emailController.text.isEmpty) {
+                      await Fluttertoast.showToast(
+                        msg: 'メールアドレスを入力してください',
+                      );
+                      return;
+                    }
 
+                    final emailPattern = r'^[^@]+@[^@]+\.[^@]+';
+                    final regExp = RegExp(emailPattern);
+
+                    if (!regExp.hasMatch(emailController.text)) {
+                      await Fluttertoast.showToast(
+                        msg: '有効なメールアドレスを入力してください',
+                      );
+                      return;
+                    }
                     if (email != null && email.isNotEmpty) {
                       uitlAuthEmeailPasswordReset(
                         email: email,
