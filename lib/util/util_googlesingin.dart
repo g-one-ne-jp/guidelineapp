@@ -55,11 +55,12 @@ Future<String> utilAuthSignup(
       return 'パスワードを入力してください。';
     }
     if (!RegExp(
-            r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$')
+            r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#+^()-])[A-Za-z\d@$!%*?&#+^()-]{8,}$')
         .hasMatch(password)) {
       uiUtilhideProgress(context);
       return 'パスワードは大文字小文字英字、数字、記号の組み合わせで8文字以上にしてください。';
     }
+
     final result = await FirebaseAuth.instance
         .createUserWithEmailAndPassword(email: email, password: password);
     uiUtilhideProgress(context);
@@ -92,7 +93,7 @@ Future<String> utilAuthLogin(
     return 'パスワードを入力してください。';
   }
   if (!RegExp(
-          r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$')
+          r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#+^()-])[A-Za-z\d@$!%*?&#+^()-]{8,}$')
       .hasMatch(password)) {
     uiUtilhideProgress(context);
     return 'パスワードは大文字小文字英字、数字、記号の組み合わせで8文字以上にしてください。';
