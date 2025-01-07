@@ -1,4 +1,5 @@
 // Dart imports:
+import 'dart:convert';
 import 'dart:io';
 
 // Flutter imports:
@@ -25,6 +26,7 @@ import 'package:JCSGuidelines/repotitory/mixin_repository_firestorage.dart';
 import 'package:JCSGuidelines/ui/page/home/tab/ui_page_home_catalog_tab_home.dart';
 import 'package:JCSGuidelines/ui/page/home/ui_page_home.dart';
 import 'package:JCSGuidelines/ui/util/uiUtilWidget.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 // ignore: must_be_immutable
 class UiUtilWidgetTile extends HookConsumerWidget {
@@ -253,8 +255,23 @@ class UiUtilWidgetTile3 extends HookConsumerWidget with RepositoryFireStorage {
   Widget build(BuildContext context, WidgetRef ref) {
     final _settions = useState(<Widget>[]);
     var _pdfPath = '';
-
     _settions.value.clear();
+
+    Future<WebViewController> initController(String path) async {
+      final html = File(path).readAsStringSync();
+      return WebViewController()
+        ..setJavaScriptMode(JavaScriptMode.unrestricted)
+        ..setNavigationDelegate(
+            NavigationDelegate(onPageStarted: (String url) {}))
+        ..loadRequest(
+          Uri.dataFromString(
+            html,
+            mimeType: "text/html",
+            encoding: Encoding.getByName("utf-8"),
+          ),
+        );
+    }
+
     //useEffect(() {
     deteil.contents.entries.map((a) => a).toList().forEach((element) {
       element.value.settions.entries.map((b) => b).toList().forEach((element) {
@@ -279,12 +296,25 @@ class UiUtilWidgetTile3 extends HookConsumerWidget with RepositoryFireStorage {
                                   builder: (context, snapshot) {
                                     if (snapshot.connectionState ==
                                         ConnectionState.done) {
-                                      return Container(
-                                          padding: EdgeInsets.all(10.w),
-                                          color: Colors.white,
-                                          child: MarkdownWidget(
-                                              data: File(snapshot.data!.path)
-                                                  .readAsStringSync()));
+                                      return FutureBuilder(
+                                        future:
+                                            initController(snapshot.data!.path),
+                                        builder: (context, snapshot) {
+                                          if (snapshot.connectionState ==
+                                              ConnectionState.done) {
+                                            return Container(
+                                                padding: EdgeInsets.all(10.w),
+                                                color: Colors.white,
+                                                child: WebViewWidget(
+                                                    controller:
+                                                        snapshot.data!));
+                                          }
+
+                                          return const Center(
+                                            child: CircularProgressIndicator(),
+                                          );
+                                        },
+                                      );
                                     }
 
                                     return const Center(
