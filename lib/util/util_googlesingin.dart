@@ -118,6 +118,7 @@ Future<String> utilAuthLogin(
   }
 }
 
+//
 String _errorCoce({FirebaseAuthException? e}) {
   if (e != null) {
     switch (e.code) {
@@ -139,6 +140,13 @@ String _errorCoce({FirebaseAuthException? e}) {
         return '無効なメールアドレスです。';
       case 'weak-password':
         return 'パスワードは大文字小文字英字、数字、記号の組み合わせで8文字以上にしてください。';
+      case 'unknown':
+        if (e.message! ==
+            '[Password must contain a non-alphanumeric character]') {
+          return 'パスワードで使用できない特殊文字が含まれております。 使用できる特殊文字はこちらになります。" ^ \$ * . [ ] { } ( ) ? " ! @ # % & / \\ , > < \' : ; | _ ~ ` " ';
+        }
+
+        return '不明なエラーが発生しました。';
       default:
         return '不明なエラーが発生しました。';
     }
