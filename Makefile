@@ -57,3 +57,16 @@ clean_ios:
 	
 	cd ios/ && pod install
 	cd ../
+
+#remove ios
+releasebuild:
+	rm -rf ios/Podfile.lock
+	rm -rf ios/Pods
+	rm -rf ~/Library/Developer/Xcode/DerivedData/
+	rm -rf ios/Podfile
+	rm -rf ios/Podfile.lock
+	flutter clean
+	flutter pub cache repair
+	flutter pub get
+	cd ios/ && pod install
+	cd ../
