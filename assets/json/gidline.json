@@ -1,0 +1,272 @@
+{
+  "categories": {
+    "test": {
+      "majorKey": "majorKey1",
+      "majorTitle": "メジャーカテゴリ1のタイトル",
+      "majorSummary": "メジャーカテゴリ1の概要",
+      "subs": {
+        "sub0": {
+          "subKey": "subKey1",
+          "subTitle": "略語一覧",
+          "subSummary": "略語一覧の概要",
+          "minors": {
+            "minorKey1": {
+              "mainorKey": "minorKey1",
+              "minorTitle": "略語一覧マイナー",
+              "minorSummary": "略語一覧マイナーの概要",
+              "details": {
+                "detailKey1": {
+                  "detailKey": "detailKey1",
+                  "detailTitle": "略語一覧マイナー",
+                  "detailSummary": "略語一覧詳細",
+                  "contents": {
+                    "contentKey1": {
+                      "contentKey": "contentKey1",
+                      "contentTitle": "略語一覧",
+                      "settions": {
+                        "settion111": {
+                          "settionTitle": "マークダウン",
+                          "pdfId": "",
+                          "markdown": "gidline/doc/index.html",
+                          "searchKeywords": [
+                            "keyword4",
+                            "keyword5",
+                            "keyword6"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "sub1": {
+          "subKey": "subKey2",
+          "subTitle": "改訂にあたって",
+          "subSummary": "改訂にあたって",
+          "minors": {
+            "minorKey2": {
+              "mainorKey": "minorKey2",
+              "minorTitle": "改訂にあたって",
+              "minorSummary": "改訂にあたっての概要",
+              "details": {
+                "detailKey2": {
+                  "detailKey": "detailKey2",
+                  "detailTitle": "改訂にあたって",
+                  "detailSummary": "改訂にあたって",
+                  "contents": {
+                    "contentKey2": {
+                      "contentKey": "contentKey2",
+                      "contentTitle": "改訂にあたって",
+                      "settions": {
+                        "settion112": {
+                          "settionTitle": "マークダウン",
+                          "pdfId": "",
+                          "markdown": "gidline/doc/index.html",
+                          "searchKeywords": [
+                            "keyword4",
+                            "keyword5",
+                            "keyword6"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "sub2": {
+          "subKey": "subKey3",
+          "subTitle": "はじめに",
+          "subSummary": "はじめにの概要",
+          "minors": {
+            "minorKey3": {
+              "mainorKey": "minorKey3",
+              "minorTitle": "推奨・エビデンスレベル",
+              "minorSummary": "推奨・エビデンスレベルの概要",
+              "details": {
+                "detailKey3": {
+                  "detailKey": "detailKey3",
+                  "detailTitle": "詳細カテゴリ1のタイトル",
+                  "detailSummary": "詳細カテゴリ1の概要",
+                  "contents": {
+                    "contentKey3": {
+                      "contentKey": "contentKey3",
+                      "contentTitle": "コンテンツ1のタイトル",
+                      "settions": {
+                        "settion12": {
+                          "settionTitle": "2.II-1 図1",
+                          "pdfId": "gidline/pdf/2024/2.II-1 図1.pdf",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "minorKey4": {
+              "mainorKey": "minorKey4",
+              "minorTitle": "主要な改訂点",
+              "minorSummary": "主要な改訂点の概要",
+              "details": {
+                "detailKey4": {
+                  "detailKey": "detailKey4",
+                  "detailTitle": "詳細カテゴリ1のタイトル",
+                  "detailSummary": "詳細カテゴリ1の概要",
+                  "contents": {
+                    "contentKey4": {
+                      "contentKey": "contentKey4",
+                      "contentTitle": "コンテンツ1のタイトル",
+                      "settions": {
+                        "settion13": {
+                          "settionTitle": "2.II-1 図1",
+                          "pdfId": "gidline/pdf/2024/2.II-1 図1.pdf",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "sub3": {
+          "subKey": "subKey4",
+          "subTitle": "診断と経時的評価",
+          "subSummary": "診断と経時的評価の概要",
+          "minors": {
+            "minorKey5": {
+              "mainorKey": "minorKey5",
+              "minorTitle": "診断 (アルゴリズム)",
+              "minorSummary": "診断 (アルゴリズム)の概要",
+              "details": {
+                "detailKey5": {
+                  "detailKey": "detailKey5",
+                  "detailTitle": "詳細カテゴリ1のタイトル",
+                  "detailSummary": "詳細カテゴリ1の概要",
+                  "contents": {
+                    "contentKey5": {
+                      "contentKey": "contentKey5",
+                      "contentTitle": "コンテンツ1のタイトル",
+                      "settions": {
+                        "settion14": {
+                          "settionTitle": "2.II-1 図1",
+                          "pdfId": "gidline/pdf/2024/2.II-1 図1.pdf",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "minorKey6": {
+              "mainorKey": "minorKey6",
+              "minorTitle": "2.症状・身体所見・心電図・胸部単純X線写真",
+              "minorSummary": "2.症状・身体所見・心電図・胸部単純X線写真の概要",
+              "details": {
+                "detailKey6": {
+                  "detailKey": "detailKey6",
+                  "detailTitle": "詳細カテゴリ1のタイトル",
+                  "detailSummary": "詳細カテゴリ1の概要",
+                  "contents": {
+                    "contentKey6": {
+                      "contentKey": "contentKey6",
+                      "contentTitle": "コンテンツ1のタイトル",
+                      "settions": {
+                        "settion15": {
+                          "settionTitle": "2.II-1 図1",
+                          "pdfId": "gidline/pdf/2024/2.II-1 図1.pdf",
+                          "markdown": ""
+                        },
+                        "settion16": {
+                          "settionTitle": "2.II-1 図2",
+                          "pdfId": "gidline/pdf/2024/2.II-1 図2.pdf",
+                          "markdown": ""
+                        },
+                        "settion17": {
+                          "settionTitle": "2.II-1 図4",
+                          "pdfId": "gidline/pdf/2024/2.II-1 図4.pdf",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "minorKey7": {
+              "mainorKey": "minorKey7",
+              "minorTitle": "バイオマーカー",
+              "minorSummary": "バイオマーカーの概要",
+              "details": {
+                "detailKey7": {
+                  "detailKey": "detailKey7",
+                  "detailTitle": "詳細バイオマーカー",
+                  "detailSummary": "詳細バイオマーカー概要",
+                  "contents": {
+                    "contentKey7": {
+                      "contentKey": "contentKey7",
+                      "contentTitle": "コンテンツバイオマーカー",
+                      "settions": {
+                        "settion18": {
+                          "settionTitle": "2.II-1 図1",
+                          "pdfId": "gidline/pdf/2024/2.II-1 図1.pdf",
+                          "markdown": ""
+                        },
+                        "settion19": {
+                          "settionTitle": "2.II-1 図2",
+                          "pdfId": "gidline/pdf/2024/2.II-1 図2.pdf",
+                          "markdown": ""
+                        },
+                        "settion20": {
+                          "settionTitle": "2.II-1 図4",
+                          "pdfId": "gidline/pdf/2024/2.II-1 図4.pdf",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                },
+                "detailKey8": {
+                  "detailKey": "detailKey8",
+                  "detailTitle": "詳細バイオマーカー",
+                  "detailSummary": "詳細バイオマーカー概要",
+                  "contents": {
+                    "contentKey7": {
+                      "contentKey": "contentKey7",
+                      "contentTitle": "コンテンツバイオマーカー",
+                      "settions": {
+                        "settion18": {
+                          "settionTitle": "2.II-1 図1",
+                          "pdfId": "gidline/pdf/2024/2.II-1 図1.pdf",
+                          "markdown": ""
+                        },
+                        "settion19": {
+                          "settionTitle": "2.II-1 図2",
+                          "pdfId": "gidline/pdf/2024/2.II-1 図2.pdf",
+                          "markdown": ""
+                        },
+                        "settion20": {
+                          "settionTitle": "2.II-1 図4",
+                          "pdfId": "gidline/pdf/2024/2.II-1 図4.pdf",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        } 
+      }
+    }
+  }
+}

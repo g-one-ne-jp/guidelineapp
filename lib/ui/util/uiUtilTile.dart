@@ -77,7 +77,7 @@ class UiUtilWidgetTile extends HookConsumerWidget {
                       trailing: const Icon(Icons.arrow_forward_ios),
                       title: Text(sub.minors.entries.first.value.minorTitle),
                       onTap: () {
-                        onTap();
+                        onTap(sub.minors.entries.first.value.mainorKey);
                       },
                     )
                   : ExpansionTile(
@@ -105,7 +105,7 @@ class UiUtilWidgetTile extends HookConsumerWidget {
                               trailing: const Icon(Icons.arrow_forward_ios),
                               title: Text(item.value.minorTitle),
                               onTap: () {
-                                onTap();
+                                onTap(item.key);
                               },
                             ),
                           ],
@@ -136,8 +136,8 @@ class UiUtilWidgetTile extends HookConsumerWidget {
       return createCard(
         title: sub.subTitle,
         summary: sub.subSummary,
-        onTap: () {
-          onMinorTap(sub.minors.entries.first.value);
+        onTap: (value) {
+          onMinorTap(sub.minors[value]!);
         },
         children: sub.minors,
       );
@@ -147,8 +147,8 @@ class UiUtilWidgetTile extends HookConsumerWidget {
       return createCard(
         title: sub.minors.entries.first.value.minorTitle,
         summary: sub.minors.entries.first.value.minorSummary,
-        onTap: () {
-          onMinorTap(sub.minors.entries.first.value);
+        onTap: (value) {
+          onMinorTap(sub.minors[value]!);
         },
         children: {},
       );
