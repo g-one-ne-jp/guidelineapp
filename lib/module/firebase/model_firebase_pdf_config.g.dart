@@ -64,7 +64,7 @@ Map<String, dynamic> _$$SubCategoryImplToJson(_$SubCategoryImpl instance) =>
 
 _$MinorCategoryImpl _$$MinorCategoryImplFromJson(Map<String, dynamic> json) =>
     _$MinorCategoryImpl(
-      mainorKey: json['mainorKey'] as String? ?? '',
+      minorKey: json['minorKey'] as String? ?? '',
       minorTitle: json['minorTitle'] as String? ?? '',
       minorSummary: json['minorSummary'] as String? ?? '',
       details: (json['details'] as Map<String, dynamic>?)?.map(
@@ -76,7 +76,7 @@ _$MinorCategoryImpl _$$MinorCategoryImplFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$MinorCategoryImplToJson(_$MinorCategoryImpl instance) =>
     <String, dynamic>{
-      'mainorKey': instance.mainorKey,
+      'minorKey': instance.minorKey,
       'minorTitle': instance.minorTitle,
       'minorSummary': instance.minorSummary,
       'details': instance.details,

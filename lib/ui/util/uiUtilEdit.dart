@@ -27,10 +27,10 @@ import 'package:JCSGuidelines/ui/util/uiUtilTile.dart';
 class UiPageUtilEdit extends HookConsumerWidget with RepositoryFireStorage {
   UiPageUtilEdit({
     super.key,
-    @PathParam('mainorKey') required this.mainorKey,
+    @PathParam('minorKey') required this.minorKey,
     @PathParam('viewTypeMemo') required this.viewTypeMemo,
   });
-  final String mainorKey;
+  final String minorKey;
   final bool viewTypeMemo;
 
   @override
@@ -41,16 +41,16 @@ class UiPageUtilEdit extends HookConsumerWidget with RepositoryFireStorage {
     final _tocProvider = ref.watch(tocProvider);
     final _tocNotifer = ref.watch(tocProvider.notifier);
 
-    final _mainor = useState(MinorCategory());
+    final _minor = useState(MinorCategory());
 
     final _controller = useState(QuillController.basic());
 
     useEffect(() {
       Future<void>(() async {
-        _mainor.value = _tocNotifer.searchMinorCategoryByKeyFromMajor(
-            _tocProvider, mainorKey);
+        _minor.value = _tocNotifer.searchMinorCategoryByKeyFromMajor(
+            _tocProvider, minorKey);
 
-        final json = _userNotifer.getMemo(key: mainorKey);
+        final json = _userNotifer.getMemo(key: minorKey);
         if (json.isNotEmpty) {
           _controller.value.document = Document.fromJson(json);
         }
@@ -58,11 +58,11 @@ class UiPageUtilEdit extends HookConsumerWidget with RepositoryFireStorage {
       return () => customDebugPrint('dispose!');
     }, []);
 
-    debugPrint('mainorKey: $mainorKey');
+    debugPrint('minorKey: $minorKey');
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(_mainor.value.minorTitle),
+        title: Text(_minor.value.minorTitle),
         leading: IconButton(
           icon: const Icon(Icons.close), // バツアイコン
           onPressed: () async {
@@ -76,7 +76,7 @@ class UiPageUtilEdit extends HookConsumerWidget with RepositoryFireStorage {
             icon: const Icon(Icons.save),
             onPressed: () async {
               await _userNotifer.updateMemo(
-                  key: mainorKey,
+                  key: minorKey,
                   memo: jsonEncode(
                       _controller.value.document.toDelta().toJson()));
               FocusScope.of(context).unfocus();

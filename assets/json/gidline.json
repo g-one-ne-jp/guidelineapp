@@ -2,36 +2,34 @@
   "categories": {
     "test": {
       "majorKey": "majorKey1",
-      "majorTitle": "メジャーカテゴリ1のタイトル",
-      "majorSummary": "メジャーカテゴリ1の概要",
+      "majorTitle":"",
+      "majorSummary": "心不全診療ガイドライン (2025年改訂版)",
       "subs": {
         "sub0": {
-          "subKey": "subKey1",
+          "subKey": "subKey0",
           "subTitle": "略語一覧",
-          "subSummary": "略語一覧の概要",
+          "subSummary": "",
           "minors": {
             "minorKey1": {
-              "mainorKey": "minorKey1",
-              "minorTitle": "略語一覧マイナー",
-              "minorSummary": "略語一覧マイナーの概要",
+              "minorKey": "minorKey1",
+              "minorTitle": "略語一覧",
+              "minorSummary": "",
               "details": {
                 "detailKey1": {
                   "detailKey": "detailKey1",
-                  "detailTitle": "略語一覧マイナー",
-                  "detailSummary": "略語一覧詳細",
+                  "detailTitle": "",
+                  "detailSummary": "",
                   "contents": {
                     "contentKey1": {
                       "contentKey": "contentKey1",
-                      "contentTitle": "略語一覧",
+                      "contentTitle": "",
                       "settions": {
-                        "settion111": {
-                          "settionTitle": "マークダウン",
+                        "settion1111": {
+                          "settionTitle": "略語一覧",
                           "pdfId": "",
-                          "markdown": "gidline/doc/index.html",
+                          "markdown": "",
                           "searchKeywords": [
-                            "keyword4",
-                            "keyword5",
-                            "keyword6"
+                            "略語一覧"
                           ]
                         }
                       }
@@ -43,32 +41,30 @@
           }
         },
         "sub1": {
-          "subKey": "subKey2",
-          "subTitle": "改訂にあたって",
+          "subKey": "subKey1",
+          "subTitle": "",
           "subSummary": "改訂にあたって",
           "minors": {
             "minorKey2": {
-              "mainorKey": "minorKey2",
+              "minorKey": "minorKey2",
               "minorTitle": "改訂にあたって",
-              "minorSummary": "改訂にあたっての概要",
+              "minorSummary": "",
               "details": {
                 "detailKey2": {
                   "detailKey": "detailKey2",
-                  "detailTitle": "改訂にあたって",
-                  "detailSummary": "改訂にあたって",
+                  "detailTitle": "",
+                  "detailSummary": "",
                   "contents": {
                     "contentKey2": {
                       "contentKey": "contentKey2",
-                      "contentTitle": "改訂にあたって",
+                      "contentTitle": "",
                       "settions": {
-                        "settion112": {
-                          "settionTitle": "マークダウン",
+                        "settion1112": {
+                          "settionTitle": "改訂にあたって",
                           "pdfId": "",
-                          "markdown": "gidline/doc/index.html",
+                          "markdown": "",
                           "searchKeywords": [
-                            "keyword4",
-                            "keyword5",
-                            "keyword6"
+                            "改訂にあたって"
                           ]
                         }
                       }
@@ -80,28 +76,33 @@
           }
         },
         "sub2": {
-          "subKey": "subKey3",
+          "subKey": "subKey2",
           "subTitle": "はじめに",
-          "subSummary": "はじめにの概要",
+          "subSummary": "",
           "minors": {
             "minorKey3": {
-              "mainorKey": "minorKey3",
+              "minorKey": "minorKey3",
               "minorTitle": "推奨・エビデンスレベル",
-              "minorSummary": "推奨・エビデンスレベルの概要",
+              "minorSummary": "",
               "details": {
                 "detailKey3": {
                   "detailKey": "detailKey3",
-                  "detailTitle": "詳細カテゴリ1のタイトル",
-                  "detailSummary": "詳細カテゴリ1の概要",
+                  "detailTitle": "",
+                  "detailSummary": "",
                   "contents": {
                     "contentKey3": {
                       "contentKey": "contentKey3",
-                      "contentTitle": "コンテンツ1のタイトル",
+                      "contentTitle": "",
                       "settions": {
-                        "settion12": {
-                          "settionTitle": "2.II-1 図1",
-                          "pdfId": "gidline/pdf/2024/2.II-1 図1.pdf",
-                          "markdown": ""
+                        "settion1113": {
+                          "settionTitle": "推奨・エビデンスレベル",
+                          "pdfId": "",
+                          "markdown": "",
+                          "searchKeywords": [
+                            "はじめに",
+                            "推奨",
+                            "エビデンス"
+                          ]
                         }
                       }
                     }
@@ -110,23 +111,26 @@
               }
             },
             "minorKey4": {
-              "mainorKey": "minorKey4",
+              "minorKey": "minorKey4",
               "minorTitle": "主要な改訂点",
-              "minorSummary": "主要な改訂点の概要",
+              "minorSummary": "",
               "details": {
                 "detailKey4": {
                   "detailKey": "detailKey4",
-                  "detailTitle": "詳細カテゴリ1のタイトル",
-                  "detailSummary": "詳細カテゴリ1の概要",
+                  "detailTitle": "",
+                  "detailSummary": "",
                   "contents": {
                     "contentKey4": {
                       "contentKey": "contentKey4",
-                      "contentTitle": "コンテンツ1のタイトル",
+                      "contentTitle": "",
                       "settions": {
-                        "settion13": {
-                          "settionTitle": "2.II-1 図1",
-                          "pdfId": "gidline/pdf/2024/2.II-1 図1.pdf",
-                          "markdown": ""
+                        "settion4": {
+                          "settionTitle": "主要な改訂点",
+                          "pdfId": "",
+                          "markdown": "",
+                          "searchKeywords": [
+                            "改訂点"
+                          ]
                         }
                       }
                     }
@@ -137,27 +141,135 @@
           }
         },
         "sub3": {
-          "subKey": "subKey4",
-          "subTitle": "診断と経時的評価",
-          "subSummary": "診断と経時的評価の概要",
+          "subKey": "subKey3",
+          "subTitle": "II 定義",
+          "subSummary": "",
           "minors": {
             "minorKey5": {
-              "mainorKey": "minorKey5",
-              "minorTitle": "診断 (アルゴリズム)",
-              "minorSummary": "診断 (アルゴリズム)の概要",
+              "minorKey": "minorKey5",
+              "minorTitle": "1. 心不全の定義・ステージ分類",
+              "minorSummary": "",
               "details": {
                 "detailKey5": {
                   "detailKey": "detailKey5",
-                  "detailTitle": "詳細カテゴリ1のタイトル",
-                  "detailSummary": "詳細カテゴリ1の概要",
+                  "detailTitle": "",
+                  "detailSummary": "",
                   "contents": {
                     "contentKey5": {
                       "contentKey": "contentKey5",
-                      "contentTitle": "コンテンツ1のタイトル",
+                      "contentTitle": "1. 心不全の定義・ステージ分類",
                       "settions": {
-                        "settion14": {
-                          "settionTitle": "2.II-1 図1",
-                          "pdfId": "gidline/pdf/2024/2.II-1 図1.pdf",
+                        "settion1": {
+                          "settionTitle": "心不全の定義 表1",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion2": {
+                          "settionTitle": "心不全の定義の概念図",
+                          "pdfId": "gidline/pdf/2025/2.II-1 図1.pdf",
+                          "markdown": ""
+                        },
+                        "settion3": {
+                          "settionTitle": "心不全ステージの治療目標と病の軌跡",
+                          "pdfId": "gidline/pdf/2025/2.II-1 図2.pdf",
+                          "markdown": "",
+                          "searchKeywords": [
+                            "心不全の進展イベント",
+                            "運動耐容能/QOL",
+                            "心不全発症前 (無症状期)",
+                            "心不全発症後",
+                            "構造的/機能的心疾患の発症",
+                            "心不全症状の出現",
+                            "心不全の難治化",
+                            "ステージA心不全リスク",
+                            "ステージB前心不全",
+                            "ステージC症候性心不全",
+                            "ステージD治療抵抗性心不全",
+                            "高血圧",
+                            "動脈硬化性疾患",
+                            "糖尿病",
+                            "慢性腎臓病",
+                            "肥満",
+                            "心筋症の遺伝子変異/家族歴",
+                            "心毒性物質への暴露",
+                            "構造的/機能的心疾患",
+                            "心内圧上昇の所見",
+                            "ナトリウム利尿ペプチド/トロポニンの上昇",
+                            "心不全発症・突然死を予防する",
+                            "心不全増悪・突然死を予防する",
+                            "ステージDへの移行を遅らせる",
+                            "危険因子のコントロール・心リハを含む包括的疾病管理",
+                            "構造的/機能的心疾患の進展予防",
+                            "死亡回避・入院/再入院予防・QOL改善、ACP・緩和ケア",
+                            "突然死",
+                            "治療目標"
+                          ]
+                        },
+                        "settion4": {
+                          "settionTitle": "心不全のステージ分類",
+                          "pdfId": "gidline/pdf/2025/2.II-1 図3.pdf",
+                          "markdown": "",
+                          "searchKeywords": [
+                            "ステージA心不全リスク",
+                            "心不全の危険因子があるが、現在にも過去にも心不全の症状や徴候がなく、構造的/機能的な心疾患およびバイオマーカーの異常がない",
+                            "高血圧",
+                            "動脈硬化性疾患",
+                            "糖尿病",
+                            "慢性腎臓病",
+                            "肥満",
+                            "心筋症の遺伝子変異",
+                            "心筋症の家族歴",
+                            "心毒性物質への暴露",
+                            "ステージB前心不全",
+                            "現在も過去にも心不全の症状や徴候がないが、下記の一つを有する",
+                            "構造的/機能的心疾患",
+                            "安静時及び負荷時の心内圧上昇の所見",
+                            "危険因子があり、他の原因のない",
+                            "ナトリウム利尿ペプチドの上昇",
+                            "心筋トロポニンの持続的上昇",
+                            "ステージC症候性心不全",
+                            "現在または過去に構造的/機能的心疾患による心不全の症状や徴候がある",
+                            "新規発症心不全",
+                            "心不全の既往がなく、新規に診断された心不全",
+                            "心不全症状の改善",
+                            "症状/徴候の改善した心不全",
+                            "左室機能障害が持続し、過去に症状のあったステージC心不全",
+                            "過去の構造的/機能的心疾患が改善し寛解した 心不全",
+                            "心不全症状の持続",
+                            "症状/徴候/運動耐容能の制限が持続する心不全",
+                            "心不全増悪(WHF)",
+                            "症状/徴候/運動耐容能の悪化を認める心不全",
+                            "ステージD治療抵抗性心不全",
+                            "有効性が確立しているすべての治療がなされた、ないしは考慮されたにも関わらず重度の心不全症状を有する"
+                          ]
+                        },
+                        "settion5": {
+                          "settionTitle": "心不全増悪 WHF と非代償性心不全・急性非代償性心不全の概念図",
+                          "pdfId": "gidline/pdf/2025/2.II-1 図4.pdf",
+                          "markdown": "",
+                          "searchKeywords": [
+                            "新規発症心不全(de novo HF)",
+                            "新規に診断された心不全",
+                            "症状/徴候の出現",
+                            "心不全増悪(WHF)",
+                            "既知の心不全の悪化",
+                            "症状/徴候/運動耐容能の悪化",
+                            "臨床的に意義のある検査所見の悪化",
+                            "LVEFの低下",
+                            "心拡大",
+                            "BNP/NT-proBNPの上昇",
+                            "非代償性心不全 (DHF)",
+                            "緊急で治療強化対応が必要 = 急性非代償性心不全 (ADHF)"
+                          ]
+                        },
+                        "settion6": {
+                          "settionTitle": "Appendix 表2 ステージ分類",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion7": {
+                          "settionTitle": "Appendix 表3　ステージBにおける構造的心疾患および左室内圧上昇の目安",
+                          "pdfId": "",
                           "markdown": ""
                         }
                       }
@@ -167,33 +279,40 @@
               }
             },
             "minorKey6": {
-              "mainorKey": "minorKey6",
-              "minorTitle": "2.症状・身体所見・心電図・胸部単純X線写真",
-              "minorSummary": "2.症状・身体所見・心電図・胸部単純X線写真の概要",
+              "minorKey": "minorKey6",
+              "minorTitle": "2. 左室駆出率(LVEF)による分類 ",
+              "minorSummary": "",
               "details": {
                 "detailKey6": {
                   "detailKey": "detailKey6",
-                  "detailTitle": "詳細カテゴリ1のタイトル",
-                  "detailSummary": "詳細カテゴリ1の概要",
+                  "detailTitle": "",
+                  "detailSummary": "",
                   "contents": {
                     "contentKey6": {
                       "contentKey": "contentKey6",
-                      "contentTitle": "コンテンツ1のタイトル",
+                      "contentTitle": "",
                       "settions": {
-                        "settion15": {
-                          "settionTitle": "2.II-1 図1",
-                          "pdfId": "gidline/pdf/2024/2.II-1 図1.pdf",
+                        "settion8": {
+                          "settionTitle": "LVEFによる心不全の分類  表１",
+                          "pdfId": "",
                           "markdown": ""
                         },
-                        "settion16": {
-                          "settionTitle": "2.II-1 図2",
-                          "pdfId": "gidline/pdf/2024/2.II-1 図2.pdf",
-                          "markdown": ""
-                        },
-                        "settion17": {
-                          "settionTitle": "2.II-1 図4",
-                          "pdfId": "gidline/pdf/2024/2.II-1 図4.pdf",
-                          "markdown": ""
+                        "settion9": {
+                          "settionTitle": "初回評価時のLVEFとLVEFの経時的変化による心不全の分類",
+                          "pdfId": "gidline/pdf/2025/2.II-2 図2 (AP).pdf",
+                          "markdown": "",
+                          "searchKeywords": [
+                            "初回評価",
+                            "HFrEF",
+                            "LVEF ≦40%",
+                            "HFmrEF",
+                            "LVEF 41~49%",
+                            "HFpEF",
+                            "LVEF ≧50%",
+                            "経時的評価",
+                            "HFimpEF",
+                            "初回40%以下かつ経過で10%以上改善し40%を超える"
+                          ]
                         }
                       }
                     }
@@ -202,60 +321,37 @@
               }
             },
             "minorKey7": {
-              "mainorKey": "minorKey7",
-              "minorTitle": "バイオマーカー",
-              "minorSummary": "バイオマーカーの概要",
+              "minorKey": "minorKey7",
+              "minorTitle": "3. 原因疾患による分類・右心不全",
+              "minorSummary": "",
               "details": {
                 "detailKey7": {
                   "detailKey": "detailKey7",
-                  "detailTitle": "詳細バイオマーカー",
-                  "detailSummary": "詳細バイオマーカー概要",
+                  "detailTitle": "",
+                  "detailSummary": "",
                   "contents": {
                     "contentKey7": {
                       "contentKey": "contentKey7",
-                      "contentTitle": "コンテンツバイオマーカー",
+                      "contentTitle": "3. 原因疾患による分類・右心不全",
                       "settions": {
-                        "settion18": {
-                          "settionTitle": "2.II-1 図1",
-                          "pdfId": "gidline/pdf/2024/2.II-1 図1.pdf",
+                        "settion10": {
+                          "settionTitle": "Appendix 表1 心不全の原因疾患による分類",
+                          "pdfId": "",
                           "markdown": ""
                         },
-                        "settion19": {
-                          "settionTitle": "2.II-1 図2",
-                          "pdfId": "gidline/pdf/2024/2.II-1 図2.pdf",
+                        "settion11": {
+                          "settionTitle": "Appendix 表 左室と比較した右室の特徴",
+                          "pdfId": "",
                           "markdown": ""
                         },
-                        "settion20": {
-                          "settionTitle": "2.II-1 図4",
-                          "pdfId": "gidline/pdf/2024/2.II-1 図4.pdf",
-                          "markdown": ""
-                        }
-                      }
-                    }
-                  }
-                },
-                "detailKey8": {
-                  "detailKey": "detailKey8",
-                  "detailTitle": "詳細バイオマーカー",
-                  "detailSummary": "詳細バイオマーカー概要",
-                  "contents": {
-                    "contentKey7": {
-                      "contentKey": "contentKey7",
-                      "contentTitle": "コンテンツバイオマーカー",
-                      "settions": {
-                        "settion18": {
-                          "settionTitle": "2.II-1 図1",
-                          "pdfId": "gidline/pdf/2024/2.II-1 図1.pdf",
+                        "settion12": {
+                          "settionTitle": "Appendix 表2 右心不全の原因",
+                          "pdfId": "",
                           "markdown": ""
                         },
-                        "settion19": {
-                          "settionTitle": "2.II-1 図2",
-                          "pdfId": "gidline/pdf/2024/2.II-1 図2.pdf",
-                          "markdown": ""
-                        },
-                        "settion20": {
-                          "settionTitle": "2.II-1 図4",
-                          "pdfId": "gidline/pdf/2024/2.II-1 図4.pdf",
+                        "settion13": {
+                          "settionTitle": "Appendix 表3 右心不全の症状と徴候",
+                          "pdfId": "",
                           "markdown": ""
                         }
                       }
@@ -265,8 +361,3027 @@
               }
             }
           }
-        } 
+        },
+        "sub4": {
+          "subKey": "subKey4",
+          "subTitle": "III　疫学・予後",
+          "subSummary": "",
+          "minors": {
+            "minorKey5": {
+              "minorKey": "minorKey5",
+              "minorTitle": "III　疫学・予後",
+              "minorSummary": "",
+              "details": {
+                "detailKey8": {
+                  "detailKey": "detailKey8",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey8": {
+                      "contentKey": "contentKey8",
+                      "contentTitle": "III　疫学・予後",
+                      "settions": {
+                        "settion14": {
+                          "settionTitle": "表１　心不全の定義",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion15": {
+                          "settionTitle": "年齢・性調整発症者数の推定",
+                          "pdfId": "gidline/pdf/2025/3.III 図1.pdf",
+                          "markdown": "",
+                          "searchKeywords": [
+                            "心不全患者数",
+                            "HFpEF",
+                            "HFrEF",
+                            "総人口",
+                            "65歳以上の高齢人口"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "sub5": {
+          "subKey": "subKey5",
+          "subTitle": "IV 診断と経時的評価",
+          "subSummary": "",
+          "minors": {
+            "minorKey9": {
+              "minorKey": "minorKey9",
+              "minorTitle": "1. 診断 (アルゴリズム) ",
+              "minorSummary": "",
+              "details": {
+                "detailKey9": {
+                  "detailKey": "detailKey9",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey9": {
+                      "contentKey": "contentKey9",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion16": {
+                          "settionTitle": "心不全の診断プロセス",
+                          "pdfId": "gidline/pdf/2025/4.IV-1 図1 .pdf",
+                          "markdown": "",
+                          "searchKeywords": [
+                            "心不全を疑う患者",
+                            "一般評価",
+                            "病歴",
+                            "症状",
+                            "身体所見",
+                            "心電図",
+                            "胸部X線",
+                            "血液検査",
+                            "ナトリウム利尿ペプチド",
+                            "BNP ≧35 pg/mL",
+                            "NT-proBNP ≧125 pg/mL",
+                            "経胸壁心エコー",
+                            "必要に応じて負荷試験などを考慮",
+                            "心不全の診断",
+                            "LVEFの評価",
+                            "HFrEF",
+                            "LVEF ≦40%",
+                            "HFmrEF",
+                            "LVEF 41~49%",
+                            "HFpEF",
+                            "LVEF ≧50%",
+                            "原因精査",
+                            "増悪因子の探索",
+                            "治療方針の決定"
+                          ]
+                        },
+                        "settion17": {
+                          "settionTitle": "検査の目的とその位置づけ",
+                          "pdfId": "gidline/pdf/2025/4.IV-1 図2 (AP).pdf",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "minorKey10": {
+              "minorKey": "minorKey10",
+              "minorTitle": "2.症状・身体所見・心電図・胸部単純X線写真",
+              "minorSummary": "",
+              "details": {
+                "detailKey10": {
+                  "detailKey": "detailKey10",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey10": {
+                      "contentKey": "contentKey10",
+                      "contentTitle": "1) ナトリウム利尿ペプチド",
+                      "settions": {
+                        "settion18": {
+                          "settionTitle": "BNP/NT-proBNPを用いた心不全診断や循環器専門医への紹介基準のカットオフ値9）",
+                          "pdfId": "gidline/pdf/2025/4.IV-3-1 図1.pdf",
+                          "markdown": "",
+                          "searchKeywords": [
+                            "BNP",
+                            "NT-proBNP",
+                            "心不全の可能性は極めて低い",
+                            "心不全の可能性は低いが可能ならば経過観察",
+                            "前心不全(心臓機能障害があるが心不全症状/徴候がない)、または心不全の可能性がある",
+                            "心不全の可能性が高い",
+                            "近い将来に心不全悪化による入院などの必要性が生じる高リスク心不全である可能性が高い",
+                            "精査または循環器専門医に紹介",
+                            "前心不全〜心不全",
+                            "心不全",
+                            "高リスク心不全"
+                          ]
+                        },
+                        "settion19": {
+                          "settionTitle": "心不全の胸部単純X線写真 (シェーマ) ",
+                          "pdfId": "gidline/pdf/2025/4.IV-2 図2 (AP).pdf",
+                          "markdown": ""
+                        },
+                        "settion20": {
+                          "settionTitle": "心不全患者におけるBNP/NT-proBNP測定に関する推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion21": {
+                          "settionTitle": "心不全患者の心電図と胸部X線写真に関する推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "minorKey11": {
+              "minorKey": "minorKey11",
+              "minorTitle": "3.バイオマーカー",
+              "minorSummary": "",
+              "details": {
+                "detailKey11": {
+                  "detailKey": "detailKey11",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey11": {
+                      "contentKey": "contentKey11",
+                      "contentTitle": "1) ナトリウム利尿ペプチド",
+                      "settions": {
+                        "settion22": {
+                          "settionTitle": "BNP/NT-proBNPを用いた心不全診断や循環器専門医への紹介基準のカットオフ値9）",
+                          "pdfId": "gidline/pdf/2025/4.IV-3-1 図1.pdf",
+                          "markdown": ""
+                        },
+                        "settion23": {
+                          "settionTitle": "心不全患者におけるBNP/NT-proBNP測定に関する推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    },
+                    "contentKey12": {
+                      "contentKey": "contentKey12",
+                      "contentTitle": "2) その他のバイオマーカー",
+                      "settions": {
+                        "settion24": {
+                          "settionTitle": "肺エコーの取り方",
+                          "pdfId": "gidline/pdf/2025/4.IV-4-3 図1 (AP).pdf",
+                          "markdown": ""
+                        },
+                        "settion25": {
+                          "settionTitle": "腎内静脈エコー",
+                          "pdfId": "gidline/pdf/2025/4.IV-4-3 図2 (AP).pdf",
+                          "markdown": "",
+                          "searchKeywords": [
+                            "正面",
+                            "背面",
+                            "セクタプローブ",
+                            "正常",
+                            "うっ血症例",
+                            "Aライン",
+                            "Bライン",
+                            "リニアプローブ",
+                            "胸壁",
+                            "胸膜",
+                            "肺実質",
+                            "(アーチファクト)"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "minorKey12": {
+              "minorKey": "minorKey12",
+              "minorTitle": "4.心エコー",
+              "minorSummary": "",
+              "details": {
+                "detailKey12": {
+                  "detailKey": "detailKey12",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey12": {
+                      "contentKey": "contentKey12",
+                      "contentTitle": "1) 心機能・形態・血行動態評価",
+                      "settions": {
+                        "settion26": {
+                          "settionTitle": "心不全患者における心エコー検査の推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    },
+                    "contentKey13": {
+                      "contentKey": "contentKey13",
+                      "contentTitle": "2) 負荷心エコー検査",
+                      "settions": {
+                        "settion27": {
+                          "settionTitle": "心不全患者における負荷心エコー検査の推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    },
+                    "contentKey14": {
+                      "contentKey": "contentKey14",
+                      "contentTitle": "3) その他のエコー指標",
+                      "settions": {
+                        "settion28": {
+                          "settionTitle": "心不全患者における臓器うっ血評価に関する推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion29": {
+                          "settionTitle": "Appendix 表1 心不全の症状と身体所見",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "minorKey13": {
+              "minorKey": "minorKey13",
+              "minorTitle": "5.その他の画像診断",
+              "minorSummary": "",
+              "details": {
+                "detailKey15": {
+                  "detailKey": "detailKey15",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey15": {
+                      "contentKey": "contentKey15",
+                      "contentTitle": "1) CT",
+                      "settions": {
+                        "settion30": {
+                          "settionTitle": "IV-5-1　診断と経時的評価：その他の画像診断：CT 表１",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion31": {
+                          "settionTitle": "心臓CTによる心機能・形態評価",
+                          "pdfId": "gidline/pdf/2025/4.IV-5-1 図1 (AP).pdf",
+                          "markdown": "",
+                          "searchKeywords": [
+                            "A:心筋梗塞症例における梗塞部の遅延造影像(白矢印)",
+                            "B:大動脈弁石灰化",
+                            "C:収縮性心膜炎における心膜肥厚(白矢印)、両側性の胸水貯留"
+                          ]
+                        },
+                        "settion32": {
+                          "settionTitle": "心不全を示唆する胸部CT所見",
+                          "pdfId": "gidline/pdf/2025/4.IV-5-1 図2 (AP).pdf",
+                          "markdown": "",
+                          "searchKeywords": [
+                            "胸部単純CT肺野条件。",
+                            "A.中枢側優位のすりガラス影(赤四角)、葉間胸膜の肥厚、両側性胸水(*)を認める。すりガラス影だけでなく浸潤影を呈する場合もある。",
+                            "B.下肺野では、背側の両側性すりガラス影に加えて、気管支周囲間質肥厚と血管径拡大(⻩矢頭)、小葉間隔壁肥厚(赤矢印)も認める。"
+                          ]
+                        },
+                        "settion33": {
+                          "settionTitle": "推奨表7 心不全におけるCT検査の推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    },
+                    "contentKey16": {
+                      "contentKey": "contentKey17",
+                      "contentTitle": "2) MRI",
+                      "settions": {
+                        "settion34": {
+                          "settionTitle": "IV-5-2　診断と経時的評価：その他の画像診断：MRI 表１",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion35": {
+                          "settionTitle": "肥大型心筋症におけるシネ画像と遅延造影",
+                          "pdfId": "gidline/pdf/2025/4.IV-5-2 図1 (AP).pdf",
+                          "markdown": "",
+                          "searchKeywords": [
+                            "A: 左室短軸断面シネ画像。心中部、心基部の顕著な壁肥厚を認める。心基部は一部、左室流出路に張り出している。",
+                            "B: 左室三腔断面シネ画像。前壁から心室中隔、下壁の著明な壁肥厚を認める。特に前壁中隔が顕著である。",
+                            "C: 左室短軸断面遅延造影画像。肥厚した前壁中隔の壁中部に斑状の遅延造影(⻩矢印)を認める。",
+                            "D: 左室三腔断面遅延造影画像。心基部の肥厚した部位に一致して遅延造影(⻩矢印)を認める。"
+                          ]
+                        },
+                        "settion36": {
+                          "settionTitle": "拡張型心筋症における遅延造影",
+                          "pdfId": "gidline/pdf/2025/4.IV-5-2 図2 (AP).pdf",
+                          "markdown": "",
+                          "searchKeywords": [
+                            "A: 左室四腔断面像。心室中隔の壁中部に線状の遅延造影(⻩矢印)を認める。",
+                            "B, C: 左室短軸断面像。四腔断面像と同様に、心室中隔の壁中部に線状の遅延造影(⻩矢印)を認める。"
+                          ]
+                        },
+                        "settion37": {
+                          "settionTitle": "推奨表8 心不全の診断における心臓MRIの推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    },
+                    "contentKey17": {
+                      "contentKey": "contentKey17",
+                      "contentTitle": "3) 核医学検査 ・ PET",
+                      "settions": {
+                        "settion38": {
+                          "settionTitle": "推奨表9 心不全における核医学・PET検査の推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "minorKey14": {
+              "minorKey": "minorKey14",
+              "minorTitle": "6.侵襲的検査",
+              "minorSummary": "",
+              "details": {
+                "detailKey16": {
+                  "detailKey": "detailKey16",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey18": {
+                      "contentKey": "contentKey18",
+                      "contentTitle": "1) 右心カテーテル検査",
+                      "settions": {
+                        "settion39": {
+                          "settionTitle": "推奨表10 心不全における右心カテーテル検査に関する推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    },
+                    "contentKey19": {
+                      "contentKey": "contentKey19",
+                      "contentTitle": "2) 冠動脈造影・左室造影",
+                      "settions": {
+                        "settion40": {
+                          "settionTitle": "推奨表11 心不全患者における冠動脈造影の推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    },
+                    "contentKey20": {
+                      "contentKey": "contentKey20",
+                      "contentTitle": "3) 心内膜心筋生検",
+                      "settions": {
+                        "settion41": {
+                          "settionTitle": "推奨表12 心内膜心筋生検の推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "minorKey15": {
+              "minorKey": "minorKey15",
+              "minorTitle": "7.運動耐容能・身体機能の評価",
+              "minorSummary": "",
+              "details": {
+                "detailKey17": {
+                  "detailKey": "detailKey17",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey21": {
+                      "contentKey": "contentKey21",
+                      "contentTitle": "1) 右心カテーテル検査",
+                      "settions": {
+                        "settion41": {
+                          "settionTitle": "心不全患者のNYHA心機能分類・運動耐容能・身体機能評価のフローチャート",
+                          "pdfId": "gidline/pdf/2025/4.IV-7 図1.pdf",
+                          "markdown": "",
+                          "searchKeywords": [
+                            "問診・NYHA心機能分類・運動耐容能・身体機能の評価",
+                            "日常生活における自覚症状についての問診",
+                            "NYHA心機能分類",
+                            "運動耐容能の評価",
+                            "6分間歩行試験",
+                            "負荷試験による運動耐容能評価が可能?",
+                            "Y",
+                            "CPX",
+                            "身体機能の評価",
+                            "体組成測定が可能?",
+                            "筋力評価:握力",
+                            "体組成評価",
+                            "下肢機能評価:SPPB",
+                            "フレイルとサルコペニアの評価",
+                            "最適な運動処方と目標設定",
+                            "運動療法の実施",
+                            "経時的な評価によるモニタリング",
+                            "問診・NYHA心機能分類・運動耐容能・身体機能の再評価",
+                            "3〜6か月後に経時的評価を実施した場合:peak VO2 改善度(Δpeak VO2)>6%で改善と判定"
+                          ]
+                        },
+                        "settion42": {
+                          "settionTitle": "推奨表13 問診・NYHA心機能分類・運動耐容能・身体機能の評価の推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "minorKey16": {
+              "minorKey": "minorKey16",
+              "minorTitle": "8. 遺伝学的検査",
+              "minorSummary": "",
+              "details": {
+                "detailKey18": {
+                  "detailKey": "detailKey18",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey22": {
+                      "contentKey": "contentKey22",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion43": {
+                          "settionTitle": "心不全の基礎疾患・発症機序に関連する遺伝学的検査",
+                          "pdfId": "gidline/pdf/2025/4.IV-8 図1.pdf",
+                          "markdown": "",
+                          "searchKeywords": [
+                            "心不全の診断",
+                            "“心不全の基礎疾患・発症機序の鑑別”",
+                            "心不全基礎心疾患",
+                            "虚血性心疾患",
+                            "遺伝学的検査を考慮する特徴的所見",
+                            "遺伝性心疾患と遺伝学的検査の内容",
+                            "心筋症・不整脈",
+                            "若年発症/家族歴(男性<50歳、女性,60歳)",
+                            "高LDL-C血症",
+                            "アキレス腱肥厚",
+                            "家族性高コレステロール血症LDLR, PCKS9, APOB",
+                            "若年発症/家族歴",
+                            "非対称性中隔肥厚",
+                            "左室肥大/菲薄化",
+                            "左室壁運動低下",
+                            "LGE陽性",
+                            "心肺停止蘇生後",
+                            "拡張型心筋症LMNA, TTN, MYH7, TNNT2,BAG3, RBM20, TNNC1,TNNI3, TPM1, SCN5A, PLN,FLNC",
+                            "肥大型心筋症MYBPC3, MYH7, TNNI3,TNNT2, TPM1, ACTC1, MYL2,MYL3",
+                            "拘束型心筋症MYH7, TNNI3",
+                            "不整脈原性右室心筋症PKP2, DSC2, DSG2, DSP,JUP, DES, TMEM43, FLNC,LMN",
+                            "ホルター心電図(致死性不整脈、伝導障害)",
+                            "左室LGE陽性",
+                            "心アミロイドーシスTTR",
+                            "神経筋疾患 (Duchenne,Becker等)DMD",
+                            "肥大型心筋症類似疾患GLA (Fabry病), GAA (Pompe病), LAMP2 (Danon病),PRKAG2 (PRKAG2症候群),PTPN11他 (Noonan症候群)",
+                            "ミトコンドリア心筋症 ミトコンドリア遺伝子",
+                            "右室機能異常",
+                            "負荷で誘発される不整脈",
+                            "QT延⻑症候群KCNQ1, KCNH2, SCN5A,CALM1, CALM2, CALM3,TRDN, KCNE1, KCNE2,KCNJ2, CACNA1C",
+                            "Brugada症候群SCN5A",
+                            "カテコラミン誘発性多形性心室頻拍RYR2, CASQ2, TRDN,TECRL, CALM1,",
+                            "心筋特異的",
+                            "全身性疾患",
+                            "不整脈"
+                          ]
+                        },
+                        "settion44": {
+                          "settionTitle": "推奨表14 心不全患者に対する遺伝学的検査の推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion45": {
+                          "settionTitle": "Appendix 表 遺伝子変異と臨床的特徴から考慮される診断と治療法",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "minorKey17": {
+              "minorKey": "minorKey17",
+              "minorTitle": "9. ADL・QOL評価",
+              "minorSummary": "",
+              "details": {
+                "detailKey19": {
+                  "detailKey": "detailKey19",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey23": {
+                      "contentKey": "contentKey23",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion46": {
+                          "settionTitle": "推奨表15 症状/ADL/QOL評価としての患者報告アウトカムに関する",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "minorKey18": {
+              "minorKey": "minorKey18",
+              "minorTitle": "10. リスクスコア",
+              "minorSummary": "",
+              "details": {
+                "detailKey20": {
+                  "detailKey": "detailKey20",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey24": {
+                      "contentKey": "contentKey24",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion47": {
+                          "settionTitle": "推奨表16 心不全のリスクスコアの推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "sub6": {
+          "subKey": "subKey6",
+          "subTitle": "V 心不全予防",
+          "subSummary": "",
+          "minors": {
+            "minorKey19": {
+              "minorKey": "minorKey19",
+              "minorTitle": "1.発症予防 (ステージ A: 心不全リスク)",
+              "minorSummary": "",
+              "details": {
+                "detailKey21": {
+                  "detailKey": "detailKey21",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey25": {
+                      "contentKey": "contentKey25",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion48": {
+                          "settionTitle": "心不全予防アルゴリズム",
+                          "pdfId": "gidline/pdf/2025/5.V-1 図1.pdf",
+                          "markdown": "",
+                          "searchKeywords": [
+                            "ステージ分類",
+                            "ステージ A 心不全リスク",
+                            "心不全の危険因子あり",
+                            "構造的/機能的心疾患なし",
+                            "ステージ B 前心不全",
+                            "心不全の危険因子あり",
+                            "構造的/機能的心疾患あり",
+                            "ステージ C 症候性心不全",
+                            "心不全症状あり(既往も含む)",
+                            "ステージ D 治療抵抗性心不全",
+                            "適切な治療下でも症状が残り、心不全入院を繰り返す",
+                            "生活習慣の管理 ( 定期的な運動・体重管理・健康的な食生活・禁煙・節酒 )",
+                            "心不全の危険因子・構造的/機能的心疾患の治療",
+                            "適正な血圧管理",
+                            "高血圧",
+                            "糖尿病+心血管疾患/リスク",
+                            "SGLT2 阻害薬",
+                            "糖尿病+CKD",
+                            "MRA*",
+                            "BNP/NT-proBNPに基づくスクリーニングガイドライン推奨治療の最適化を含めたチーム介入",
+                            "フィネレノンに限る",
+                            "ACE 阻害薬",
+                            "LVEF≦40%",
+                            "ARB",
+                            "心筋梗塞既往/LVEF≦40%",
+                            "ACE阻害薬不耐性",
+                            "β遮断薬",
+                            "スタチン",
+                            "心筋梗塞・ ACS既往",
+                            "Class I",
+                            "Class IIa"
+                          ]
+                        },
+                        "settion49": {
+                          "settionTitle": "推奨表17 心不全発症予防のためのステージA(心不全リスク)に対する介入の推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "minorKey20": {
+              "minorKey": "minorKey20",
+              "minorTitle": "2. 進展予防 (ステージ B: 前心不全)",
+              "minorSummary": "",
+              "details": {
+                "detailKey22": {
+                  "detailKey": "detailKey22",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey26": {
+                      "contentKey": "contentKey26",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion50": {
+                          "settionTitle": "推奨表18 心不全進展予防のためのステージB(前心不全)に対する介入の推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "sub7": {
+          "subKey": "subKey7",
+          "subTitle": "VI 心不全に対する治療",
+          "subSummary": "",
+          "minors": {
+            "minorKey21": {
+              "minorKey": "minorKey21",
+              "minorTitle": "1. 心不全治療の基本方針 (ステージ C・D)",
+              "minorSummary": "",
+              "details": {
+                "detailKey23": {
+                  "detailKey": "detailKey23",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey27": {
+                      "contentKey": "contentKey27",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion51": {
+                          "settionTitle": "心不全治療のアルゴリズム",
+                          "pdfId": "gidline/pdf/2025/6.VI-1 図1_1112.pdf",
+                          "markdown": "",
+                          "searchKeywords": [
+                            "ステージ分類",
+                            "ステージ C 症候性心不全",
+                            "心不全症状あり(既往も含む)",
+                            "ステージ D 治療抵抗性心不全",
+                            "適切な治療下でも症状が残り、心不全入院を繰り返す",
+                            "器質的心疾患あり",
+                            "(疾病管理 / 運動療法 / 心不全教育)と緩和ケア",
+                            "急性増悪",
+                            "代償化",
+                            "急性非代償性心不全",
+                            "急性非代償性心不全に対する初期対応のフローチャート",
+                            "薬物治療",
+                            "ACE 阻害薬・ARB",
+                            "ARNI",
+                            "β遮断薬",
+                            "MRA",
+                            "SGLT2 阻害薬",
+                            "イバブラジン",
+                            "ベルイシグアト",
+                            "うっ血に対する利尿薬投与",
+                            "HFrEF*3",
+                            "HFmrEF",
+                            "HFpEF",
+                            "洞調律75拍/分以上",
+                            "(ARB)",
+                            "Class I",
+                            "Class IIa",
+                            "Class IIb",
+                            "全身状態の変化に応じた治療薬の見直し",
+                            "適切かつ十分な薬物治療",
+                            "非薬物治療",
+                            "ICD/CRT",
+                            "心房細動に対するカテーテルアブレーション経皮的僧帽弁接合不全修復術*4",
+                            "専門治療施設への紹介",
+                            "補助人工心臓",
+                            "心臓移植",
+                            "ACE阻害薬/ARB投与例でARNIへの切替えを考慮可",
+                            "ACE阻害薬/ARB未使用で入院例への導入も考慮(ただし、保険適用外)",
+                            "HFimpEFはHFrEF治療を継続する",
+                            "機能性、重症僧帽弁逆流、EF≧20%"
+                          ]
+                        },
+                        "settion52": {
+                          "settionTitle": "推奨表19 心不全患者における利尿薬の推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion53": {
+                          "settionTitle": "推奨表20 心不全患者に対するGDMTの推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion54": {
+                          "settionTitle": "推奨表21 心不全患者に対するBNP/NT-proBNPガイド治療の推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "minorKey22": {
+              "minorKey": "minorKey22",
+              "minorTitle": "2. 薬物治療",
+              "minorSummary": "",
+              "details": {
+                "detailKey24": {
+                  "detailKey": "detailKey24",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey28": {
+                      "contentKey": "contentKey28",
+                      "contentTitle": "1) LVEFが低下した心不全(HFrEF) ",
+                      "settions": {
+                        "settion55": {
+                          "settionTitle": "VI-2-1 心不全に対する治療：薬物治療: LVEFが低下した心不全（HFrEF） 表２",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion56": {
+                          "settionTitle": "推奨表22 HFrEFにおける薬物治療の推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion57": {
+                          "settionTitle": "Appendix 表1 HFrEF薬物治療に関する主要な臨床試験",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    },
+                    "contentKey29": {
+                      "contentKey": "contentKey29",
+                      "contentTitle": "2) LVEFの保たれた心不全(HFpEF) ",
+                      "settions": {
+                        "settion58": {
+                          "settionTitle": "推奨表23 HFpEFにおける薬物治療の推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    },
+                    "contentKey30": {
+                      "contentKey": "contentKey30",
+                      "contentTitle": "3) LVEFが軽度低下した心不全(HFmrEF) ",
+                      "settions": {
+                        "settion59": {
+                          "settionTitle": "推奨表24 HFmrEFにおける薬物治療の推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    },
+                    "contentKey31": {
+                      "contentKey": "contentKey31",
+                      "contentTitle": "4) LVEFが改善した心不全(HFimpEF) ",
+                      "settions": {
+                        "settion60": {
+                          "settionTitle": "推奨表25 HFimpEFにおける薬物治療の推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "minorKey23": {
+              "minorKey": "minorKey23",
+              "minorTitle": "3. 非薬物治療",
+              "minorSummary": "",
+              "details": {
+                "detailKey25": {
+                  "detailKey": "detailKey25",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey32": {
+                      "contentKey": "contentKey32",
+                      "contentTitle": "1) 運動療法"
+                    },
+                    "contentKey33": {
+                      "contentKey": "contentKey33",
+                      "contentTitle": "2) 植込み型心臓電気デバイス治療"
+                    },
+                    "contentKey34": {
+                      "contentKey": "contentKey34",
+                      "contentTitle": "2-1) 植込み型除細動器",
+                      "settions": {
+                        "settion61": {
+                          "settionTitle": "推奨表26 心不全患者におけるWCDの推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion62": {
+                          "settionTitle": "推奨表27 心不全患者におけるICDの突然死一次予防の推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion63": {
+                          "settionTitle": "推奨表28 心不全患者におけるICDの突然死二次予防の推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    },
+                    "contentKey35": {
+                      "contentKey": "contentKey35",
+                      "contentTitle": "2-2) 心臓再同期療法",
+                      "settions": {
+                        "settion64": {
+                          "settionTitle": "心臓再同期療法の適応に関するフローチャート",
+                          "pdfId": "gidline/pdf/2025/6.VI-3-2-2 図1.pdf",
+                          "markdown": "",
+                          "searchKeywords": [
+                            "QRS幅≧120msec かつ 慢性疾患による身体機能制限がない かつ 1年以上の余命が期待できる",
+                            "推奨クラス III",
+                            "Y",
+                            "N",
+                            "ガイドラインにもとづく標準的心不全治療が行われている",
+                            "NYHA心機能分類II度以上",
+                            "推奨クラス III",
+                            "NYHA II",
+                            "QRS120〜149msec",
+                            "Non-LBBB SR EF≦30%",
+                            "推奨クラスIIb",
+                            "LBBB SR EF≦35%",
+                            "女性",
+                            "QRS≧150msec",
+                            "Non-LBBB SR EF≦35%",
+                            "推奨クラスIIa",
+                            "推奨クラスI",
+                            "NYHA III-IV",
+                            "QRS120〜149msec",
+                            "Non-LBBB",
+                            "SR EF≦35%",
+                            "LBBB",
+                            "EF≦35%",
+                            "AF EF≦35%"
+                          ]
+                        },
+                        "settion65": {
+                          "settionTitle": "推奨表29 心臓再同期療法の推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion66": {
+                          "settionTitle": "推奨表30 ペースメーカ/ICD の適応があるもしくは植込み後の患者に対するCRT 適応の推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    },
+                    "contentKey36": {
+                      "contentKey": "contentKey36",
+                      "contentTitle": "3) 虚血性心疾患に対する介入",
+                      "settions": {
+                        "settion67": {
+                          "settionTitle": "推奨表31 虚血性心疾患を合併する心不全患者に対する推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    },
+                      "contentKey37": {
+                        "contentKey": "contentKey37",
+                        "contentTitle": "4) 弁膜症に対する介入",
+                        "settions": {
+                          "settion68": {
+                            "settionTitle": "⼼室性機能性僧帽弁閉鎖不全症に対する介⼊の適応",
+                            "pdfId": "gidline/pdf/2025/6.VI-3-4 図1.pdf",
+                            "markdown": "",
+                            "searchKeywords": [
+                            "心不全症状を呈する重症心室性機能性MR",
+                            "治療の適応と方法についてハートチームで検討",
+                            "血行再建すべき冠動脈病変がある",
+                            "冠動脈バイパス術が適している",
+                            "PCIを施行した上で、心不全を伴う重症MRが残存",
+                            "僧帽弁形態がTEERに適しており治療効果が期待できる",
+                            "外科手術のリスクが高い",
+                            "冠動脈バイパス術と同時に僧帽弁手術",
+                            "Class IIa",
+                            "内科治療による注意深いフォローアップ",
+                            "M-TEER",
+                            "僧帽弁手術",
+                            "Class IIb",
+                            "補助人工心臓心移植緩和ケア",
+                            "Y",
+                            "N",
+                            "EF 20-50%, 左室収縮末期径 ≤70 mm, 収縮期肺動脈圧≤70 mm Hg, MR 遺残・再発のリスクが低い"
+                          ]
+                          },
+                          "settion69": {
+                            "settionTitle": "推奨表32 心不全を呈する重症大動脈弁狭窄症に対する推奨とエビデンスレベル",
+                            "pdfId": "",
+                            "markdown": ""
+                          },
+                          "settion70": {
+                            "settionTitle": "推奨表33 心不全を呈するMRに対する手術適応の推奨とエビデンスレベル",
+                            "pdfId": "",
+                            "markdown": ""
+                          },
+                          "settion71": {
+                            "settionTitle": "推奨表34 三尖弁閉鎖不全に対する介入の適応の推奨とエビデンスレベル",
+                            "pdfId": "",
+                            "markdown": ""
+                          }
+                        }
+                      },
+                      "contentKey38": {
+                        "contentKey": "contentKey38",
+                        "contentTitle": "5) 心房細動に対する介入",
+                        "settions": {
+                          "settion72": {
+                            "settionTitle": "心機能低下した心不全に併存する心房細動症例に対する治療戦略",
+                            "pdfId": "gidline/pdf/2025/6.VI-3-5 図1 ver.2.png",
+                            "markdown": "",
+                            "searchKeywords": [
+                            "心機能の低下した心不全に併存する(頻脈性)心房細動",
+                            "心不全に対するGDMT・抗凝固療法・心房細動危険因子の包括的管理",
+                            "電気的除細動",
+                            "血行動的不安定",
+                            "除細動抵抗性の場合には機械的補助循環を検討",
+                            "β遮断薬(静注)",
+                            "レートコントロール(急性期)",
+                            "アミオダロン(静注)",
+                            "ジギタリス(静注)",
+                            "洞調律維持の可能性",
+                            "共同意思決定",
+                            "カテーテルアブレーション",
+                            "リズムコントロール",
+                            "待機的電気的除細動",
+                            "房室結節アブレーション＋CRT"
+                          ]
+                          },
+                          "settion73": {
+                            "settionTitle": "推奨表35 心不全の併存症としての心房細動治療の推奨とエビデンスレベル",
+                            "pdfId": "",
+                            "markdown": ""
+                          },
+                          "settion74": {
+                            "settionTitle": "推奨表36 心不全をともなう心房細動に対するカテーテルアブレーション",
+                            "pdfId": "",
+                            "markdown": ""
+                          },
+                          "settion75": {
+                            "settionTitle": "推奨表37 虚血性心筋症患者に対する左室形成術の推奨とエビデンスレベル",
+                            "pdfId": "",
+                            "markdown": ""
+                          }
+                        }
+                      },
+                      "contentKey39": {
+                      "contentKey": "contentKey39",
+                      "contentTitle": "6) その他の外科治療・再生医療"
+                      }
+                    }
+                  }
+                }
+            }
+          }
+        },
+        "sub8": {
+          "subKey": "subKey8",
+          "subTitle": "VII 急性非代償性心不全",
+          "subSummary": "",
+          "minors": {
+            "minorKey24": {
+              "minorKey": "minorKey24",
+              "minorTitle": "1. 定義",
+              "minorSummary": "",
+              "details": {
+                "detailKey26": {
+                  "detailKey": "detailKey26",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey40": {
+                      "contentKey": "contentKey40",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion76": {
+                          "settionTitle": "心不全増悪と DHF・ADHF の時間経過",
+                          "pdfId": "gidline/pdf/2025/7.VII-1 図1.pdf",
+                          "markdown": ""
+                        },
+                        "settion77": {
+                          "settionTitle": "Appendix 表１ ADHFにおけるうっ血と低心拍出の評価",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "minorKey25": {
+              "minorKey": "minorKey25",
+              "minorTitle": "2. 疫学・予後",
+              "minorSummary": ""
+            },
+            "minorKey26": {
+              "minorKey": "minorKey26",
+              "minorTitle": "3. 治療",
+              "minorSummary": "",
+              "details": {
+                "detailKey27": {
+                    "detailKey": "detailKey27",
+                    "detailTitle": "1) 初期対応の方針",
+                    "detailSummary": "",
+                    "contents": {
+                      "contentKey41": {
+                        "contentKey": "contentKey41",
+                        "contentTitle": "",
+                        "settions": {
+                          "settion78": {
+                            "settionTitle": "急性非代償性心不全の初期対応のフローチャート",
+                            "pdfId": "gidline/pdf/2025/7.VII-3-1 図1_1113.pdf",
+                            "markdown": "",
+                            "searchKeywords": [
+                            "10分以内",
+                            "次の60分以内",
+                            "トリアージ(緊急性・重症度の評価)",
+                            "意識レベル・四肢冷感",
+                            "血圧・心拍数",
+                            "呼吸数・SpO2・体温",
+                            "心電図モニター",
+                            "血液ガス",
+                            "病態評価",
+                            "病態・血行動態の評価",
+                            "うっ血・組織低灌流の評価",
+                            "血液検査",
+                            "BNP/NT-proBNP",
+                            "12誘導心電図",
+                            "心エコー図",
+                            "肺エコー図",
+                            "胸部X線写真",
+                            "(胸部CT検査)",
+                            "初期治療の効果判定と病態・血行動態の再評価",
+                            "増悪因子の評価",
+                            "必要に応じて心エコー・心電図などの再検",
+                            "急性非代償性心不全",
+                            "呼吸不全の評価",
+                            "呼吸不全への対応",
+                            "酸素投与",
+                            "HFNC",
+                            "NPPV",
+                            "気管挿管",
+                            "心原性ショック",
+                            "組織低灌流(乳酸値>2mmol/Lを参考)SBP<90mmHg あるいは MBP<60mmHg",
+                            "補液・強心薬・MCS 呼吸管理・ACSの除外 (心原性ショックのフローチャート参照)",
+                            "急性冠症候群(ACS)",
+                            "うっ血・血行動態の評価",
+                            "緊急CAG・PCI/CABGの適応検討",
+                            "うっ血の評価 (体うっ血・肺うっ血)",
+                            "呼吸・循環の維持",
+                            "補液(±強心薬)",
+                            "低心拍出 組織低潅流",
+                            "利尿薬(±血管拡張薬)",
+                            "利尿薬・強心薬(±MCS)",
+                            "並行して基礎心疾患診断・特殊病態把握",
+                            "基礎心疾患診断・特殊病態治療 (MR.CHAMPH)",
+                            "Myocarditis",
+                            "Right-sided heart failure",
+                            "acute Coronary syndrome",
+                            "Hypertensive emergency",
+                            "Arrhythmia",
+                            "acute Mechanical cause",
+                            "acute Pulmonary thromboembolism",
+                            "High output heart failure",
+                            "リスク層別化",
+                            "入院の必要性の判断",
+                            "(ICU/CCU・一般病棟・ERでの経過観察・帰宅)"
+                          ]
+                          },
+                          "settion79": {
+                            "settionTitle": "Appendix 急性非代償性心不全の契機となる主な病態",
+                            "pdfId": "",
+                            "markdown": ""
+                          }
+                        }
+                      }
+                    }
+                  },
+                "detailKey28": {
+                  "detailKey": "detailKey28",
+                  "detailTitle": "2) 急性心不全の病態と治療",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey42": {
+                      "contentKey": "contentKey42",
+                      "contentTitle": "2-1) うっ血の評価と管理",
+                      "settions": {
+                        "settion80": {
+                          "settionTitle": "急性非代償性心不全における腎機能悪化の機序",
+                          "pdfId": "gidline/pdf/2025/7.VII-3-2-1 図2.pdf",
+                          "markdown": "",
+                          "searchKeywords": [
+                            "急性非代償性心不全",
+                            "うっ血",
+                            "腎静脈圧",
+                            "低心拍出・組織低灌流",
+                            "腎動脈圧",
+                            "腎血流量",
+                            "腎動脈圧ー腎静脈圧",
+                            "腎血管抵抗",
+                            "心不全治療",
+                            "利尿薬 RAAS 阻害薬",
+                            "うっ血の改善やRAAS阻害薬の開始・増量に伴う腎機能悪化は、必ずしも予後の悪化とは関連しない.",
+                            "腎機能悪化",
+                            "糸球体ろ過量",
+                            "血清クレアチニン",
+                            "背景、併存疾患",
+                            "慢性腎臓病",
+                            "感染",
+                            "薬剤(NSAIDs,造影剤など)",
+                            "腎後性",
+                            "腹腔内圧上昇"
+                          ]
+                        },
+                        "settion81": {
+                          "settionTitle": "うっ血の評価と管理の フローチャート",
+                          "pdfId": "gidline/pdf/2025/7.VII-3-2-1 図3.pdf",
+                          "markdown": "",
+                          "searchKeywords": [
+                            "うっ血あり",
+                            "低心拍出・組織低灌流",
+                            "利尿薬",
+                            "Class I",
+                            "血管拡張薬",
+                            "Class IIb",
+                            "強心薬",
+                            "Class IIa",
+                            "うっ血の残存",
+                            "低心拍出・組織低灌流",
+                            "至適体液量",
+                            "利尿過剰・脱水",
+                            "利尿薬抵抗性",
+                            "治療抵抗性心不全",
+                            "維持",
+                            "利尿薬減量/補液",
+                            "利尿強化",
+                            "強心薬強化 MCS (ClassIIa)",
+                            "強心薬使用中の場合は減量・中止",
+                            "GDMTの最適化",
+                            "無効の場合は強心薬追加を検討",
+                            "GDMTを慎重に最適化",
+                            "利尿薬追加・増量",
+                            "血液浄化療法",
+                            "血液浄化療法やMCSの適応とならない場合",
+                            "緩和",
+                            "繰り返し継続",
+                            "評価",
+                            "治療"
+                          ]
+                        },
+                        "settion82": {
+                          "settionTitle": "推奨表38 急性非代償性心不全患者におけるうっ血の評価と管理に関する推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    },
+                    "contentKey43": {
+                    "contentKey": "contentKey43",
+                    "contentTitle": "2-2) 組織低灌流・心原性ショックの評価と管理",
+                      "settions": {
+                        "settion83": {
+                          "settionTitle": "組織低灌流・心原性ショックの評価と管理",
+                          "pdfId": "gidline/pdf/2025/7.VII-3-2-2 図1.pdf",
+                          "markdown": "",
+                          "searchKeywords": [
+                            "心原性ショック",
+                            "原因の同定と治療",
+                            "急性冠症候群",
+                            "機械的合併症",
+                            "その他の原因",
+                            "心筋炎",
+                            "心タンポナーデ",
+                            "不整脈",
+                            "肺塞栓症",
+                            "緊急CAG",
+                            "PCI/CABG",
+                            "外科手術",
+                            "原疾患の治療",
+                            "循環・全身管理",
+                            "意識状態 / 血行動態 / 呼吸不全　/ 乳酸値 / 腎機能 / 肝機能",
+                            "酸素投与",
+                            "人工呼吸器管理",
+                            "うっ血がなければ補液",
+                            "(ClassIIa)",
+                            "強心薬",
+                            "短期間の MCS",
+                            "(IABP / Impella)",
+                            "組織低灌流 / 臓器障害の改善の有無",
+                            "MCS のウィーニング",
+                            "うっ血があれば利尿薬",
+                            "GDMT の慎重な導入",
+                            "原疾患の治療継続",
+                            "強心薬強化⻑",
+                            "期間の MCS",
+                            "(ECMO / VAD)",
+                            "血液浄化療法",
+                            "血液浄化療法やMCSの適応とならない場合",
+                            "緩和",
+                            "繰り返し継続",
+                            "評価",
+                            "治療"
+                          ]
+                        },
+                        "settion84": {
+                          "settionTitle": "推奨表39 心原性ショック患者に対する推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion85": {
+                          "settionTitle": "Appendix 表 心原性ショックの診断基準",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                },
+                "detailKey29": {
+                  "detailKey": "detailKey29",
+                  "detailTitle": "3) 急性期の管理・モニタリング",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey44": {
+                      "contentKey": "contentKey44",
+                      "contentTitle": "3-1) 右心カテーテルの適応と使い方",
+                      "settions": {
+                        "settion86": {
+                          "settionTitle": "急性非代償性心不全(疑い)症例に対する右心カテーテル適応検討のフローチャート",
+                          "pdfId": "gidline/pdf/2025/7.VII-3-3-1 図1.pdf",
+                          "markdown": ""
+                        },
+                        "settion87": {
+                          "settionTitle": "推奨表40 心不全における右心カテーテルによる侵襲的評価法の推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion88": {
+                          "settionTitle": "VII-3-3-1　急性非代償性心不全：治療：急性期の管理・モニタリング：右心カテーテルの適応と使い方",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion89": {
+                          "settionTitle": "Appendix 表2 収縮性心膜炎の診断のための指標とその診断能",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    },
+                    "contentKey45": {
+                    "contentKey": "contentKey45",
+                    "contentTitle": "3-2) 心拍数・血圧の管理",
+                      "settions": {
+                        "settion90": {
+                          "settionTitle": "推奨表41 急性非代償性心不全における心拍数管理の推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    },
+                    "contentKey46": {
+                    "contentKey": "contentKey46",
+                    "contentTitle": "3-3) 血栓塞栓症の管理と予防",
+                      "settions": {
+                        "settion91": {
+                          "settionTitle": "推奨表42 急性非代償性心不全患者におけるVTE予防に関する推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                },
+                "detailKey30": {
+                  "detailKey": "detailKey30",
+                  "detailTitle": "4) 薬物治療",
+                  "detailSummary": "",
+                  "contentKey47": {
+                    "contentKey": "contentKey47",
+                    "contentTitle": "",
+                    "settions": {
+                      "settion92": {
+                        "settionTitle": "Appendix 表1 移行期ケアの構成要素",
+                        "pdfId": "",
+                        "markdown": ""
+                      }
+                    }
+                  },
+                  "contentKey48": {
+                    "contentKey": "contentKey48",
+                    "contentTitle": "4-1) 利尿薬",
+                    "settions": {
+                      "settion93": {
+                        "settionTitle": "急性非代償性心不全患者における利尿薬治療戦略のフローチャート",
+                        "pdfId": "gidline/pdf/2025/7.VII-3-4-1 図1.pdf",
+                        "markdown": "",
+                        "searchKeywords": [
+                            "体液貯留のある急性非代償性心不全患者",
+                            "ループ利尿薬の静注",
+                            "初回投与量 20〜40 mg以上",
+                            "フロセミド相当量",
+                            "経口ループ利尿薬内服中の場合",
+                            "投与量の1〜2倍量",
+                            "1〜2時間後に反応性評価",
+                            "尿量 1.5〜2 mL/kg/時間 超",
+                            "尿中ナトリウム 50〜70 mEq/L 超",
+                            "うっ血の徴候や症状の改善",
+                            "利尿薬の静注を12時間毎に繰り返し同量投与する または同量を持続投与する",
+                            "利尿薬の静注の容量増量（初回投与量の2〜4倍までを目安に倍加する）",
+                            "他の利尿薬の併用治療",
+                            "サイアザイド系",
+                            "トルバプタン",
+                            "アセタゾラミド",
+                            "国内適応外使用)",
+                            "6時間毎に反応性評価",
+                            "(ナトリウム利尿を強化した場合)",
+                            "利尿薬に反応不良",
+                            "腎代替療法",
+                            "超急性期",
+                            "急性期",
+                            "受診から1時間以内",
+                            "初回投与から24時間以内"
+                          ]
+                      },
+                      "settion94": {
+                        "settionTitle": "推奨表43 急性非代償性心不全患者における利尿薬の推奨とエビデンスレベル",
+                        "pdfId": "",
+                        "markdown": ""
+                      }
+                    }
+                  },
+                  "contentKey49": {
+                    "contentKey": "contentKey49",
+                    "contentTitle": "4-2) 血管拡張薬",
+                    "settions": {
+                      "settion95": {
+                        "settionTitle": "推奨表44 急性非代償性心不全患者に対する血管拡張薬の推奨とエビデンスレベル",
+                        "pdfId": "gidline/pdf/2025/7.VII-3-4-1 図1.pdf",
+                        "markdown": ""
+                      }
+                    }
+                  },
+                  "contentKey50": {
+                    "contentKey": "contentKey50",
+                    "contentTitle": "4-3) 強心薬",
+                    "settions": {
+                      "settion95": {
+                        "settionTitle": "推奨表45 急性非代償性心不全患者に対する強心薬・カテコラミン使用の推奨とエビデンスレベル",
+                        "pdfId": "",
+                        "markdown": ""
+                      }
+                    }
+                  },
+                  "contentKey51": {
+                    "contentKey": "contentKey51",
+                    "contentTitle": "4-4) その他",
+                    "settions": {
+                      "settion95": {
+                        "settionTitle": "",
+                        "pdfId": "",
+                        "markdown": ""
+                      }
+                    }
+                  }
+                },
+                "detailKey31": {
+                  "detailKey": "detailKey31",
+                  "detailTitle": "5) 非薬物治療",
+                  "detailSummary": "",
+                  "contentKey52": {
+                    "contentKey": "contentKey52",
+                    "contentTitle": "1) 酸素投与・呼吸管理",
+                    "settions": {
+                      "settion98": {
+                        "settionTitle": "推奨表46 急性心不全患者に対する酸素投与、呼吸管理の推奨とエビデンスレベル",
+                        "pdfId": "",
+                        "markdown": ""
+                      },
+                      "settion99": {
+                        "settionTitle": "Appendix 表1 急性心不全に対するNPPVの適応・禁忌・気管挿管への移行基準",
+                        "pdfId": "",
+                        "markdown": ""
+                      }
+                    }
+                  },
+                  "contentKey53": {
+                    "contentKey": "contentKey53",
+                    "contentTitle": "2) 補助循環",
+                    "settions": {
+                      "settion100": {
+                        "settionTitle": "推奨表47 心原性ショックにおける一時的機械的補助循環の推奨とエビデンスレベル",
+                        "pdfId": "",
+                        "markdown": ""
+                      }
+                    }
+                  },
+                  "contentKey54": {
+                    "contentKey": "contentKey54",
+                    "contentTitle": "3) 腎代替療法",
+                    "settions": {
+                      "settion101": {
+                        "settionTitle": "推奨表48 急性心不全における血液浄化療法の推奨とエビデンスレベル",
+                        "pdfId": "",
+                        "markdown": ""
+                      },
+                      "settion102": {
+                        "settionTitle": "Appendix 表1 急性心不全患者における急性血液浄化療法の適応",
+                        "pdfId": "",
+                        "markdown": ""
+                      },
+                      "settion103": {
+                        "settionTitle": "Appendix 表2 間欠腎代替療法と持続的腎代替療法の比較 ",
+                        "pdfId": "",
+                        "markdown": ""
+                      }
+                    }
+                  },
+                  "contentKey55": {
+                    "contentKey": "contentKey55",
+                    "contentTitle": "4) 急性期リハビリテーション"
+                    }
+                }
+              }
+            },
+            "minorKey27": {
+              "minorKey": "minorKey27",
+              "minorTitle": "4. 非代償期から代償期への移行期管理",
+              "minorSummary": "",
+              "details": {
+                "detailKey32": {
+                  "detailKey": "detailKey32",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey56": {
+                      "contentKey": "contentKey56",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion104": {
+                          "settionTitle": "心不全増悪で入院した患者に対する移行期管理の推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "sub9": {
+          "subKey": "subKey9",
+          "subTitle": "VIII 治療抵抗性心不全",
+          "subSummary": "",
+          "minors": {
+            "minorKey28": {
+              "minorKey": "minorKey28",
+              "minorTitle": "1. 定義: ステージ D",
+              "minorSummary": "",
+              "details": {
+                "detailKey33": {
+                  "detailKey": "detailKey33",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey57": {
+                      "contentKey": "contentKey57",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion105": {
+                          "settionTitle": "VIII-1  治療抵抗性心不全：定義: ステージ D",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "minorKey29": {
+              "minorKey": "minorKey29",
+              "minorTitle": "2. 治療目標の設定",
+              "minorSummary": "",
+              "details": {
+                "detailKey34": {
+                  "detailKey": "detailKey34",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey58": {
+                      "contentKey": "contentKey58",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion106": {
+                          "settionTitle": "VIII-2  治療抵抗性心不全：治療目標の設定",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion107": {
+                          "settionTitle": "推奨表50 ステージDの治療目標の設定に関連する推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "minorKey30": {
+              "minorKey": "minorKey30",
+              "minorTitle": "3. 強心薬・カテコラミン",
+              "minorSummary": "",
+              "details": {
+                "detailKey35": {
+                  "detailKey": "detailKey35",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey59": {
+                      "contentKey": "contentKey59",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion108": {
+                          "settionTitle": "推奨表51 治療適応性心不全患者における強心薬・カテコラミン使用に関する推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "minorKey31": {
+              "minorKey": "minorKey31",
+              "minorTitle": "4. 機械的補助循環・補助人工心臓・心臓移植",
+              "minorSummary": "",
+              "details": {
+                "detailKey36": {
+                  "detailKey": "detailKey36",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey60": {
+                      "contentKey": "contentKey60",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion109": {
+                          "settionTitle": "VIII-4　治療抵抗性心不全：機械的補助循環・補助人工心臓・心臓移植表３",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion110": {
+                          "settionTitle": "VIII-4　治療抵抗性心不全：機械的補助循環・補助人工心臓・心臓移植表４",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion111": {
+                          "settionTitle": "VIII-4　治療抵抗性心不全：機械的補助循環・補助人工心臓・心臓移植表５",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion112": {
+                          "settionTitle": "重症心不全における補助循環治療アルゴリズム",
+                          "pdfId": "gidline/pdf/2025/8.VIII-4 図1.pdf",
+                          "markdown": ""
+                        },
+                        "settion113": {
+                          "settionTitle": "推奨表52 植込型LVADおよび一時的機械的補助循環治療の推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion114": {
+                          "settionTitle": "推奨表53 心臓移植の推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion115": {
+                          "settionTitle": "Appendix 表1 INTERMACS/J-MACS 分類とデバイス選択",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion116": {
+                          "settionTitle": "Appendix 表2 補助人工心臓による治療戦略",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "minorKey32": {
+              "minorKey": "minorKey32",
+              "minorTitle": "5. 症状緩和",
+              "minorSummary": "",
+              "details": {
+                "detailKey37": {
+                  "detailKey": "detailKey37",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey61": {
+                      "contentKey": "contentKey61",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion117": {
+                          "settionTitle": "推奨表54 心不全患者における症状緩和の推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion118": {
+                          "settionTitle": "Appendix 表1 終末期心不全の身体・精神症状",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "sub10": {
+          "subKey": "subKey10",
+          "subTitle": "IX. 特別な病態・疾患",
+          "subSummary": "",
+          "minors": {
+            "minorKey33": {
+              "minorKey": "minorKey33",
+              "minorTitle": "1. 肥大型心筋症",
+              "minorSummary": "",
+              "details": {
+                "detailKey38": {
+                  "detailKey": "detailKey38",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey62": {
+                      "contentKey": "contentKey62",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion119": {
+                          "settionTitle": "肥大型心筋症の定義",
+                          "pdfId": "gidline/pdf/2025/9.IX-1 図1 (AP).pdf",
+                          "markdown": ""
+                        },
+                        "settion120": {
+                          "settionTitle": "肥大型心筋症患者の 植込み型除細動器 植込み適応フローチャート",
+                          "pdfId": "gidline/pdf/2025/9.IX-1 図2.pdf",
+                          "markdown": ""
+                        },
+                        "settion121": {
+                          "settionTitle": "肥大型心筋症の治療フローチャート",
+                          "pdfId": "gidline/pdf/2025/9.IX-1 図3 (AP).pdf",
+                          "markdown": ""
+                        },
+                        "settion122": {
+                          "settionTitle": "",
+                          "pdfId": "gidline/pdf/2025/9.IX-1 図4.pdf",
+                          "markdown": ""
+                        },
+                        "settion123": {
+                          "settionTitle": "推奨表55 肥大型心筋症における採血検査による臨床的評価の推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion124": {
+                          "settionTitle": "推奨表56 閉塞性肥大型心筋症の圧較差軽減のための治療薬の推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion125": {
+                          "settionTitle": "Appendix 表1 肥大型心筋症の表現型の分類",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "minorKey34": {
+              "minorKey": "minorKey34",
+              "minorTitle": "2. 心アミロイドーシス",
+              "minorSummary": "",
+              "details": {
+                "detailKey39": {
+                  "detailKey": "detailKey39",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey63": {
+                      "contentKey": "contentKey63",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion126": {
+                          "settionTitle": "IX-2　特別な治療を考慮すべき疾患・病態：心アミロイドーシス",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion127": {
+                          "settionTitle": "推奨表57 ATTR心アミロイドーシスに対する推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "minorKey35": {
+              "minorKey": "minorKey35",
+              "minorTitle": "3. 心臓サルコイドーシス",
+              "minorSummary": "",
+              "details": {
+                "detailKey40": {
+                  "detailKey": "detailKey40",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey64": {
+                      "contentKey": "contentKey64",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion128": {
+                          "settionTitle": "心臓サルコイドーシスにおける 18F-FDG-PET撮像プロトコル",
+                          "pdfId": "gidline/pdf/2025/9.IX-3 図1 (AP)_ver.2.pdf",
+                          "markdown": "",
+                          "searchKeywords": [
+                            "体液貯留のある急性非代償性心不全患者",
+                            "ループ利尿薬の静注",
+                            "初回投与量 20〜40 mg以上",
+                            "フロセミド相当量",
+                            "経口ループ利尿薬内服中の場合",
+                            "投与量の1〜2倍量",
+                            "1〜2時間後に反応性評価",
+                            "尿量 1.5〜2 mL/kg/時間 超",
+                            "尿中ナトリウム 50〜70 mEq/L 超",
+                            "うっ血の徴候や症状の改善",
+                            "利尿薬の静注を12時間毎に繰り返し同量投与する または同量を持続投与する",
+                            "利尿薬の静注の容量増量（初回投与量の2〜4倍までを目安に倍加する）",
+                            "他の利尿薬の併用治療",
+                            "サイアザイド系",
+                            "トルバプタン",
+                            "アセタゾラミド",
+                            "国内適応外使用)",
+                            "6時間毎に反応性評価",
+                            "(ナトリウム利尿を強化した場合)",
+                            "利尿薬に反応不良",
+                            "腎代替療法",
+                            "超急性期",
+                            "急性期",
+                            "受診から1時間以内",
+                            "初回投与から24時間以内"
+                          ]
+                        },
+                        "settion129": {
+                          "settionTitle": "心臓サルコイドーシスにおける突然死予防および心室性不整脈治療に関する診療アルゴリズム",
+                          "pdfId": "gidline/pdf/2025/9.IX-3 図2.pdf",
+                          "markdown": "",
+                          "searchKeywords": [
+                            "心臓サルコイドーシスの確定診断",
+                            "心停止もしくは持続性心室頻拍の既往",
+                            "左室駆出率35%以下",
+                            "左室駆出率が35%を超え、50%未満かつ恒久的ペースメーカー植込み適応",
+                            "左室駆出率が35%を超え、50%未満かつ心臓MRIにおける広範囲の遅延造影",
+                            "致死性心室性不整脈が原因と考えられる失神",
+                            "説明のつかない失神かつEPS陽性",
+                            "左室駆出率が35%を超え、50%未満かつEPS陽性",
+                            "左室駆出率が35%を超え、かつ十分な免疫抑制療法後も心筋の活動性炎症残存",
+                            "経過観察",
+                            "ICD植込みClass I",
+                            "ICD植込みClass IIa",
+                            "繰り返す症候性致死性心室性不整脈",
+                            "アミオダロンソタロール*Class IIa",
+                            "カテーテルアブレーションClass IIb",
+                            "ICD植込みClass IIb"
+                          ]
+                        },
+                        "settion130": {
+                          "settionTitle": "推奨表58 心臓サルコイドーシスの診断に関する推奨とエデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion131": {
+                          "settionTitle": "推奨表59 心臓サルコイドーシスにおける薬物治療・非薬物治療に関する推奨とエデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion132": {
+                          "settionTitle": "推奨表60 心臓サルコイドーシスにおける突然死予防および心室性不整脈治療に関する推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "minorKey36": {
+              "minorKey": "minorKey36",
+              "minorTitle": "4. 高齢者・フレイル・サルコペニア・カヘキシア",
+              "minorSummary": "",
+              "details": {
+                "detailKey41": {
+                  "detailKey": "detailKey41",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey65": {
+                      "contentKey": "contentKey65",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion133": {
+                          "settionTitle": "フレイルを合併した心不全",
+                          "pdfId": "gidline/pdf/2025/9.IX-4 図1 (AP).pdf",
+                          "markdown": "",
+                          "searchKeywords": [
+                            "健常(robustness)",
+                            "プレフレイル(前虚弱)(pre-frailty)",
+                            "フレイル(虚弱)(Frailty)",
+                            "要介護(身体機能障害)(disability)",
+                            "心不全患者の心身の能力",
+                            "心不全患者",
+                            "些細なストレスにより障害を受けやすい脆弱な状態",
+                            "認知・精神・心理的フレイル(認知機能障害、うつ等)",
+                            "社会的フレイル(独居、経済的困窮、孤食等)",
+                            "身体的フレイル(サルコペニア、ロコモティブシンドローム等)",
+                            "オーラルフレイル"
+                          ]
+                        },
+                        "settion134": {
+                          "settionTitle": "Appendix 表2 フレイルを有する心不全患者に対する管理・予防",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "minorKey37": {
+              "minorKey": "minorKey37",
+              "minorTitle": "5. 肺高血圧症",
+              "minorSummary": "",
+              "details": {
+                "detailKey42": {
+                  "detailKey": "detailKey42",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey66": {
+                      "contentKey": "contentKey66",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion135": {
+                          "settionTitle": "",
+                          "pdfId": "gidline/pdf/2025/9.IX-5 図1.pdf",
+                          "markdown": "",
+                          "searchKeywords": [
+                            "肺静脈圧上昇の原因となる左心疾患HFpEF, HFmrEF, HFrEF, 弁膜症など",
+                            "mPAP>20mmHgかつPAWP>15mmHg",
+                            "PH-LHD(post-capillary PH)",
+                            "PVR≤2WU",
+                            "IpcPH",
+                            "PVR>2WU",
+                            "CpcPH"
+                          ]
+                        },
+                        "settion136": {
+                          "settionTitle": "推奨表61 左心疾患に伴う肺高血圧症（PH-LHD)の推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "minorKey38": {
+              "minorKey": "minorKey38",
+              "minorTitle": "6. 心房心筋症",
+              "minorSummary": "",
+              "details": {
+                "detailKey43": {
+                  "detailKey": "detailKey43",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey67": {
+                      "contentKey": "contentKey67",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion137": {
+                          "settionTitle": "Appendix 表1 心房機能障害の原因",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "minorKey39": {
+              "minorKey": "minorKey39",
+              "minorTitle": "7. 妊娠・周産期・周産期心筋症",
+              "minorSummary": "",
+              "details": {
+                "detailKey44": {
+                  "detailKey": "detailKey44",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey68": {
+                      "contentKey": "contentKey68",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion138": {
+                          "settionTitle": "推奨表62 妊娠・周産期・周産期⼼筋症の推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "minorKey40": {
+              "minorKey": "minorKey40",
+              "minorTitle": "8. 中性脂肪蓄積心筋血管症",
+              "minorSummary": "",
+              "details": {
+                "detailKey45": {
+                  "detailKey": "detailKey45",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey69": {
+                      "contentKey": "contentKey69",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion139": {
+                          "settionTitle": "IX-8　特別な治療を考慮すべき疾患・病態：中性脂肪蓄積心筋血管症",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "minorKey41": {
+              "minorKey": "minorKey41",
+              "minorTitle": "9. 腫瘍循環器",
+              "minorSummary": "",
+              "details": {
+                "detailKey46": {
+                  "detailKey": "detailKey46",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey70": {
+                      "contentKey": "contentKey70",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion140": {
+                          "settionTitle": "IX-9　特別な治療を考慮すべき疾患・病態：腫瘍循環器",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion141": {
+                          "settionTitle": "がん診療における心血管評価",
+                          "pdfId": "gidline/pdf/2025/9.IX-9 図1 (AP).pdf",
+                          "markdown": ""
+                        },
+                        "settion142": {
+                          "settionTitle": "推奨表63 腫瘍循環器領域の心不全診療に関する推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "sub11": {
+          "subKey": "subKey11",
+          "subTitle": "X 併存症",
+          "subSummary": "",
+          "minors": {
+            "minorKey42": {
+              "minorKey": "minorKey42",
+              "minorTitle": "1. 心血管系併存症",
+              "minorSummary": "",
+              "details": {
+                "detailKey47": {
+                  "detailKey": "detailKey47",
+                  "detailTitle": "1) 冠動脈疾患",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey71": {
+                      "contentKey": "contentKey71",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion143": {
+                          "settionTitle": "推奨表64 冠動脈疾患合併心不全に対する推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                },
+                "detailKey48": {
+                  "detailKey": "detailKey48",
+                  "detailTitle": "2) 弁膜症",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey72": {
+                      "contentKey": "contentKey72",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion144": {
+                          "settionTitle": "推奨表65 弁膜症合併心不全患者における薬物治療の推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion145": {
+                          "settionTitle": "Appendix 表1 弁膜症治療の基本方針",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                },
+                "detailKey49": {
+                  "detailKey": "detailKey49",
+                  "detailTitle": "3) 不整脈・伝導障害",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey73": {
+                      "contentKey": "contentKey73",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion146": {
+                          "settionTitle": "推奨表66 心不全患者に併発する心室不整脈に対する治療の推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion147": {
+                          "settionTitle": "推奨表67 心不全患者に併発する徐脈性不整脈に対するペースメーカ治療の推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                },
+                "detailKey50": {
+                  "detailKey": "detailKey50",
+                  "detailTitle": "4) 高血圧",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey74": {
+                      "contentKey": "contentKey74",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion148": {
+                          "settionTitle": "推奨表68 高血圧を合併した心不全患者に対する降圧治療の推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "minorKey43": {
+              "minorKey": "minorKey43",
+              "minorTitle": "2. 非心血管系併存症",
+              "minorSummary": "",
+              "details": {
+                "detailKey51": {
+                  "detailKey": "detailKey51",
+                  "detailTitle": "1) 慢性腎臓病・心腎症候群",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey75": {
+                      "contentKey": "contentKey75",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion149": {
+                          "settionTitle": "X-2-1　併存症：非心血管系併存症: 慢性腎臓病・心腎症候",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion150": {
+                          "settionTitle": "推奨表69 CKDを合併した心不全患者に対する薬物治療の推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion151": {
+                          "settionTitle": "Appendix 表1 CRS分類",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                },
+                "detailKey52": {
+                  "detailKey": "detailKey52",
+                  "detailTitle": "2) 貧血・鉄代謝",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey76": {
+                      "contentKey": "contentKey76",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion152": {
+                          "settionTitle": "推奨表70 貧血・鉄欠乏を合併した心不全患者に対する推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion153": {
+                          "settionTitle": "Appendix 表1 腎機能を考慮した薬剤の選択",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                },
+                "detailKey53": {
+                  "detailKey": "detailKey53",
+                  "detailTitle": "3) 不整脈・伝導障害",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey77": {
+                      "contentKey": "contentKey77",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion154": {
+                          "settionTitle": "推奨表71 高カリウム血症を合併したRAAS阻害薬服用中の心不全患者に対する推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                },
+                "detailKey54": {
+                  "detailKey": "detailKey54",
+                  "detailTitle": "4) 糖尿病",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey78": {
+                      "contentKey": "contentKey78",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion155": {
+                          "settionTitle": "推奨表72 糖尿病を合併した心不全患者における薬剤治療の推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                },
+                "detailKey55": {
+                  "detailKey": "detailKey55",
+                  "detailTitle": "5) 肥満",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey79": {
+                      "contentKey": "contentKey79",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion156": {
+                          "settionTitle": "推奨表73 肥満合併心不全における推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion157": {
+                          "settionTitle": "Appendix 表1 肥満症の診断",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                },
+                "detailKey56": {
+                  "detailKey": "detailKey56",
+                  "detailTitle": "6) 脂質異常症",
+                  "detailSummary": ""
+                },
+                "detailKey57": {
+                  "detailKey": "detailKey57",
+                  "detailTitle": "7) 高尿酸血症・痛風",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey80": {
+                      "contentKey": "contentKey80",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion158": {
+                          "settionTitle": "推奨表74 心不全を伴う高尿酸血症の管理の推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                },
+                "detailKey58": {
+                  "detailKey": "detailKey58",
+                  "detailTitle": "8) 慢性閉塞性肺疾患・喘息",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey81": {
+                      "contentKey": "contentKey81",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion159": {
+                          "settionTitle": "推奨表75 心不全患者に合併するCOPD・喘息に対する推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                },
+                "detailKey59": {
+                  "detailKey": "detailKey59",
+                  "detailTitle": "9) 睡眠呼吸障害",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey82": {
+                      "contentKey": "contentKey82",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion160": {
+                          "settionTitle": "推奨表76 睡眠呼吸障害合併心不全患者に対する治療の推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                },
+                "detailKey60": {
+                  "detailKey": "detailKey60",
+                  "detailTitle": "10) 抑うつ・認知機能障害・精神心理的問題",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey83": {
+                      "contentKey": "contentKey83",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion161": {
+                          "settionTitle": "推奨表77 抑うつ・認知機能障害・精神心理的問題を合併した心不全患者への推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "sub12": {
+          "subKey": "subKey12",
+          "subTitle": "XI 疾病管理 ・ 心臓リハビリテーション",
+          "subSummary": "",
+          "minors": {
+            "minorKey44": {
+              "minorKey": "minorKey44",
+              "minorTitle": "1. 多職種介入・患者教育・セルフケア",
+              "minorSummary": "",
+              "details": {
+                "detailKey61": {
+                  "detailKey": "detailKey61",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey84": {
+                      "contentKey": "contentKey84",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion162": {
+                          "settionTitle": "XI-1　疾病管理：多職種介入・患者教育・セルフケア表２",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion163": {
+                          "settionTitle": "XI-1　疾病管理：多職種介入・患者教育・セルフケア表３",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion164": {
+                          "settionTitle": "推奨表78 心不全患者における疾病管理・セルフケアに関する推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion165": {
+                          "settionTitle": "Appendix 表1 心不全患者の疾病管理プログラムの特徴と構成要素",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "minorKey45": {
+              "minorKey": "minorKey45",
+              "minorTitle": "2. 栄養管理",
+              "minorSummary": "",
+              "details": {
+                "detailKey62": {
+                  "detailKey": "detailKey62",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey85": {
+                      "contentKey": "contentKey85",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion166": {
+                          "settionTitle": "XI-2　栄養管理表２",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion167": {
+                          "settionTitle": "推奨表79 心不全患者の栄養管理に関する推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion168": {
+                          "settionTitle": "Appendix 表",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "minorKey46": {
+              "minorKey": "minorKey46",
+              "minorTitle": "3. 遠隔モニタリング・デジタルヘルス",
+              "minorSummary": "",
+              "details": {
+                "detailKey63": {
+                  "detailKey": "detailKey63",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey86": {
+                      "contentKey": "contentKey86",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion169": {
+                          "settionTitle": "推奨表80 心不全患者における遠隔デバイスに関する推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion170": {
+                          "settionTitle": "Appendix 表1 栄養アセスメント項目",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion171": {
+                          "settionTitle": "Appendix 表1 心不全遠隔モニタリングシステムとエビデンス",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "minorKey47": {
+              "minorKey": "minorKey47",
+              "minorTitle": "4. 包括的心臓リハビリテーション",
+              "minorSummary": "",
+              "details": {
+                "detailKey64": {
+                  "detailKey": "detailKey64",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey87": {
+                      "contentKey": "contentKey87",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion172": {
+                          "settionTitle": "IX-4　特別な治療を考慮すべき疾患・病態：高齢者・フレイル・サルコペニア・カヘキシア表１",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion173": {
+                          "settionTitle": "各時相における包括的心臓リハビリテーション",
+                          "pdfId": "gidline/pdf/2025/XI-4 図1.pdf",
+                          "markdown": "",
+                          "searchKeywords": [
+                            "身体機能・運動耐容能",
+                            "急性期",
+                            "前期回復期",
+                            "後期回復期",
+                            "生活期・維持期",
+                            "入院",
+                            "外来",
+                            "通所・在宅・遠隔",
+                            "医療保険",
+                            "主に介護保険",
+                            "患者の状態",
+                            "治療目標",
+                            "多職種介入",
+                            "非代償期・入院",
+                            "自覚症状の改善",
+                            "早期離床",
+                            "ADL改善・維持",
+                            "入院前情報の総括",
+                            "増悪因子(患者要因)の評価",
+                            "代償期",
+                            "入院から外来への移行期",
+                            "代償期の維持",
+                            "運動耐容能改善",
+                            "セルフケアの確立",
+                            "退院支援・調整",
+                            "患者教育",
+                            "セルフケア獲得支援",
+                            "移行期から外来管理",
+                            "増悪・再入院予防",
+                            "ADL・QOL改善",
+                            "社会復帰・復職",
+                            "移行期管理",
+                            "セルフケア継続支援",
+                            "生活支援の導入",
+                            "地域での外来管理の継続",
+                            "健康寿命の延伸",
+                            "ADL・QOL維持",
+                            "運動耐容能改善・維持",
+                            "生活・就労の継続",
+                            "医療介護間の連携",
+                            "生活支援の継続"
+                          ]
+                        },
+                        "settion174": {
+                          "settionTitle": "推奨表81 包括的心臓リハビリテーション・運動療法の推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "minorKey48": {
+              "minorKey": "minorKey48",
+              "minorTitle": "5. 社会復帰と就労支援",
+              "minorSummary": "",
+              "details": {
+                "detailKey65": {
+                  "detailKey": "detailKey65",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey88": {
+                      "contentKey": "contentKey88",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion175": {
+                          "settionTitle": "XI-5　社会復帰と就労支援表２",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion176": {
+                          "settionTitle": "推奨表82 心不全患者の社会復帰・就労支援に関する推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion177": {
+                          "settionTitle": "Appendix 表1 心不全患者の就労における健康格差に対する介入例 ",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "minorKey49": {
+              "minorKey": "minorKey49",
+              "minorTitle": "6. 心不全療養指導士の役割",
+              "minorSummary": "",
+              "details": {
+                "detailKey66": {
+                  "detailKey": "detailKey66",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey89": {
+                      "contentKey": "contentKey89",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion178": {
+                          "settionTitle": "Appendix 表1 心不全療養指導士の役割",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "sub13": {
+          "subKey": "subKey13",
+          "subTitle": "XII 緩和ケア",
+          "subSummary": "",
+          "minors": {
+            "minorKey50": {
+              "minorKey": "minorKey50",
+              "minorTitle": "1. 緩和ケアの定義と対象",
+              "minorSummary": "",
+              "details": {
+                "detailKey67": {
+                  "detailKey": "detailKey67",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey90": {
+                      "contentKey": "contentKey90",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion179": {
+                          "settionTitle": "推奨表83 心不全患者における緩和ケアの推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion180": {
+                          "settionTitle": "Appendix 表1 緩和ケアの構成要素ともたらす効果",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "minorKey51": {
+              "minorKey": "minorKey51",
+              "minorTitle": "2. アドバンス・ケア・プランニングと意思決定支援",
+              "minorSummary": "",
+              "details": {
+                "detailKey68": {
+                  "detailKey": "detailKey68",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey91": {
+                      "contentKey": "contentKey91",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion181": {
+                          "settionTitle": "XII-2　緩和ケア：アドバンス・ケア・プランニングと意思決定支援表２",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion182": {
+                          "settionTitle": "ACPの概念図",
+                          "pdfId": "gidline/pdf/2025/XII-2 図1 (AP).pdf",
+                          "markdown": "",
+                          "searchKeywords": [
+                            "広義のACP(将来の医療・ケアに関する話し合い)",
+                            "狭義のACP(意思決定能力が低下したときに備えた,将来の医療・ケアに関する話し合い)",
+                            "生命維持治療に関する希望"
+                          ]
+                        },
+                        "settion183": {
+                          "settionTitle": "推奨表84 心不全患者におけるアドバンス・ケア・プランニング(ACP)と意思決定支援に関する推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "minorKey52": {
+              "minorKey": "minorKey52",
+              "minorTitle": "3. 心不全における症状と対処法",
+              "minorSummary": "",
+              "details": {
+                "detailKey69": {
+                  "detailKey": "detailKey69",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey92": {
+                      "contentKey": "contentKey92",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion184": {
+                          "settionTitle": "Ⅻ-3　緩和ケア：心不全における症状と対処法表１",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion185": {
+                          "settionTitle": "⼼不全とがんの病みの軌跡の違い",
+                          "pdfId": "gidline/pdf/2025/XII-3 図1 (AP).pdf",
+                          "markdown": "",
+                          "searchKeywords": [
+                            "がんの軌跡",
+                            "診断",
+                            "治療後退院",
+                            "病期の進行",
+                            "最終段階",
+                            "死亡",
+                            "Wellbeing",
+                            "Distress",
+                            "身体的",
+                            "社会的",
+                            "精神・心理的",
+                            "スピリチュアル",
+                            "心不全の軌跡",
+                            "急性増悪緩和期間"
+                          ]
+                        },
+                        "settion186": {
+                          "settionTitle": "推奨表85 心不全患者における症状緩和の推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion187": {
+                          "settionTitle": "推奨表86 心不全患者における症状緩和の推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "minorKey53": {
+              "minorKey": "minorKey53",
+              "minorTitle": "4. 臨床倫理: 治療の中止と差し控え",
+              "minorSummary": "",
+              "details": {
+                "detailKey70": {
+                  "detailKey": "detailKey70",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey93": {
+                      "contentKey": "contentKey93",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion188": {
+                          "settionTitle": "臨床倫理の4分割法",
+                          "pdfId": "gidline/pdf/2025/XII-4 図1 (AP).pdf",
+                          "markdown": "",
+                          "searchKeywords": [
+                            "臨床倫理の4分割法",
+                            "医学的適応(与益・無危害原則に関連)",
+                            "医学的状況",
+                            "治療目標",
+                            "治療適応がなくなる可能性",
+                            "治療の成功可能性",
+                            "QOL(与益・無危害原則および自律尊重原則に関連)",
+                            "患者にとってのQOL",
+                            "治療やケアが全体的な転帰に与える影響",
+                            "医療ケアチームの偏見はないか",
+                            "lQOLに影響を及ぼす因子",
+                            "本人の意向(選好)(自律尊重原則に関連)",
+                            "患者本人の思い",
+                            "治療やケアに対する考え",
+                            "意思決定能力の評価",
+                            "患者本人の意向を推定できる人",
+                            "周囲の状況(公正原則に関連)",
+                            "医療・ケア専門職・施設側の利益相反",
+                            "家族・利害関係者",
+                            "経済的問題",
+                            "治療やケアに影響を及ぼす宗教, 法律等"
+                          ]
+                        },
+                        "settion189": {
+                          "settionTitle": "推奨表87 治療の中止と差し控え推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "minorKey54": {
+              "minorKey": "minorKey54",
+              "minorTitle": "5. 多職種介入による全人的ケア",
+              "minorSummary": "",
+              "details": {
+                "detailKey71": {
+                  "detailKey": "detailKey71",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey94": {
+                      "contentKey": "contentKey94",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion190": {
+                          "settionTitle": "推奨表88 多職種介入による全人的ケアの推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "sub14": {
+          "subKey": "subKey14",
+          "subTitle": "XIII 地域連携・地域包括ケア",
+          "subSummary": "",
+          "minors": {
+            "minorKey55": {
+              "minorKey": "minorKey55",
+              "minorTitle": "",
+              "minorSummary": "",
+              "details": {
+                "detailKey72": {
+                  "detailKey": "detailKey72",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey95": {
+                      "contentKey": "contentKey95",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion191": {
+                          "settionTitle": "XIII　地域連携・地域包括ケア表１",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion192": {
+                          "settionTitle": "XIII　地域連携・地域包括ケア表２",
+                          "pdfId": "",
+                          "markdown": ""
+                        },
+                        "settion193": {
+                          "settionTitle": "推奨表89 心不全患者の地域連携・地域包括ケアに関する推奨とエビデンスレベル",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "sub15": {
+          "subKey": "subKey15",
+          "subTitle": "XIV 心不全診療における質の評価",
+          "subSummary": "",
+          "minors": {
+            "minorKey56": {
+              "minorKey": "minorKey56",
+              "minorTitle": "",
+              "minorSummary": "",
+              "details": {
+                "detailKey73": {
+                  "detailKey": "detailKey73",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey96": {
+                      "contentKey": "contentKey96",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion194": {
+                          "settionTitle": "XIV  心不全診療における質の評価表１",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "sub16": {
+          "subKey": "subKey16",
+          "subTitle": "XV エビデンスギャップと今後の方向性",
+          "subSummary": "",
+          "minors": {
+            "minorKey57": {
+              "minorKey": "minorKey57",
+              "minorTitle": "",
+              "minorSummary": "",
+              "details": {
+                "detailKey74": {
+                  "detailKey": "detailKey74",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey97": {
+                      "contentKey": "contentKey97",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion194": {
+                          "settionTitle": "Appendix 表1 日本の心不全におけるエビデンスギャップおよびアンメットニーズ、 今後の研究の方向性",
+                          "pdfId": "",
+                          "markdown": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "sub17": {
+          "subKey": "subKey17",
+          "subTitle": "XVI 市⺠・患者への情報提供",
+          "subSummary": "",
+          "minors": {
+            "minorKey58": {
+              "minorKey": "minorKey58",
+              "minorTitle": "",
+              "minorSummary": "",
+              "details": {
+                "detailKey75": {
+                  "detailKey": "detailKey75",
+                  "detailTitle": "",
+                  "detailSummary": "",
+                  "contents": {
+                    "contentKey98": {
+                      "contentKey": "contentKey98",
+                      "contentTitle": "",
+                      "settions": {
+                        "settion196": {
+                          "settionTitle": "心不全の軌跡",
+                          "pdfId": "gidline/pdf/2025/XVI 図1 (AP).pdf",
+                          "markdown": "",
+                          "searchKeywords": [
+                            "心不全とはどんな病気？",
+                            "心不全と上手につきあうコツ",
+                            "なるべく心不全を悪くしないようにすることが大切です",
+                            "心不全は良くなったり悪くなったりを繰り返します",
+                            "症状や身体機能",
+                            "病気の進行",
+                            "悪くなるたびにダメージが溜まっていきます"
+                          ]
+                        },
+                        "settion197": {
+                          "settionTitle": "心不全症状のサイン",
+                          "pdfId": "gidline/pdf/2025/XVI 図2.pdf",
+                          "markdown": "",
+                          "searchKeywords": [
+                            "心不全とはどんな病気？",
+                            "心不全と上手につきあうコツ",
+                            "心不全の悪化を認めたら医師・看護師に相談しましょう",
+                            "心不全はどのように悪化するのでしょうか？",
+                            "注意！体重増加（症状なし）",
+                            "要注意！体重増加＋息切れの悪化",
+                            "むくみの悪化",
+                            "危険！安静でも息が苦しい",
+                            "体に水が溜まり体重が増える",
+                            "この時点では症状なし",
+                            "軽い心不全症状が出現",
+                            "我慢していると…",
+                            "心不全症状が増強",
+                            "我慢できず…",
+                            "救急入院"
+                          ]
+                        },
+                        "settion198": {
+                          "settionTitle": "人生会議 (これからの医療やケアに関する話し合い)",
+                          "pdfId": "gidline/pdf/2025/XVI 図3.pdf",
+                          "markdown": "",
+                          "searchKeywords": [
+                            "話し合いの進めかた(例)",
+                            "あなたが大切にしていることは何ですか?",
+                            "あなたが信頼できる人は誰ですか ?",
+                            "心身の状態に応じて意思は変化することがあるため何度でも繰り返し考え、話し合いましょう",
+                            "信頼できる人や医療・ケアチームと話し合いましたか?",
+                            "話し合いの結果を大切な人たちに伝えて共有しましたか?"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
-  }
+  }  
 }

@@ -47,9 +47,9 @@ class UiPageHomeCatalogTabMemo extends HookConsumerWidget {
       final memoItemsList = await Future.wait(memoKeys.map((key) async {
         final doc =
             _tocNotifer.searchDetailCategoryByKeyFromMajor(_tocProvider, key);
-        final mainorKey = _tocNotifer.searchMainorKeyFromDetailKeyFromMajor(
-            _tocProvider, key);
-        return MapEntry(mainorKey, doc);
+        final minorKey =
+            _tocNotifer.searchminorKeyFromDetailKeyFromMajor(_tocProvider, key);
+        return MapEntry(minorKey, doc);
       }));
 
       // リストをマップに変換

@@ -77,7 +77,7 @@ class UiUtilWidgetTile extends HookConsumerWidget {
                       trailing: const Icon(Icons.arrow_forward_ios),
                       title: Text(sub.minors.entries.first.value.minorTitle),
                       onTap: () {
-                        onTap(sub.minors.entries.first.value.mainorKey);
+                        onTap(sub.minors.entries.first.value.minorKey);
                       },
                     )
                   : ExpansionTile(
