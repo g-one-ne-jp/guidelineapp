@@ -46,7 +46,7 @@ abstract class SubCategory with _$SubCategory {
 @freezed
 abstract class MinorCategory with _$MinorCategory {
   factory MinorCategory({
-    @Default('') String mainorKey,
+    @Default('') String minorKey,
     @Default('') String minorTitle,
     @Default('') String minorSummary,
     @Default({}) Map<String, DetailCategory> details,

@@ -13,6 +13,8 @@ import 'package:JCSGuidelines/providers/toc_provider.dart';
 import 'package:JCSGuidelines/providers/user_provider.dart';
 import 'package:JCSGuidelines/ui/util/uiUtilTile.dart';
 
+import 'package:fluttertoast/fluttertoast.dart';
+
 @RoutePage()
 // ignore: must_be_immutable
 class UiPageHomeCatalogTabHomeTOC extends HookConsumerWidget {
@@ -65,9 +67,20 @@ class UiPageHomeCatalogTabHomeTOC extends HookConsumerWidget {
                   return UiUtilWidgetTile(
                       sub: value,
                       onMinorTap: (minor) {
-                        context.router.pushNamed(
-                          '/tabHomeMinor/${minor.mainorKey}/false',
-                        );
+                        if (minor.minorKey.isEmpty) {
+                          Fluttertoast.showToast(
+                              msg: "minorKeyが空です",
+                              toastLength: Toast.LENGTH_SHORT,
+                              gravity: ToastGravity.CENTER,
+                              timeInSecForIosWeb: 1,
+                              backgroundColor: Colors.red,
+                              textColor: Colors.white,
+                              fontSize: 16.0);
+                        } else {
+                          context.router.pushNamed(
+                            '/tabHomeMinor/${minor.minorKey}/false',
+                          );
+                        }
                       });
                 },
               ),

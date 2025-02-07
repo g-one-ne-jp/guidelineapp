@@ -29,10 +29,10 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
     with RepositoryFireStorage {
   UiPageHomeCatalogTabHomeMinor({
     super.key,
-    @PathParam('mainorKey') required this.mainorKey,
+    @PathParam('minorKey') required this.minorKey,
     @PathParam('viewTypeMemo') required this.viewTypeMemo,
   });
-  final String mainorKey;
+  final String minorKey;
   final bool viewTypeMemo;
 
   @override
@@ -43,7 +43,7 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
     final _tocProvider = ref.watch(tocProvider);
     final _tocNotifer = ref.watch(tocProvider.notifier);
 
-    final _mainor = useState(MinorCategory());
+    final _minor = useState(MinorCategory());
 
     final _panelKey = useState('');
     // 再描画用の状態変数
@@ -51,8 +51,8 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
 
     useEffect(() {
       Future<void>(() async {
-        _mainor.value = _tocNotifer.searchMinorCategoryByKeyFromMajor(
-            _tocProvider, mainorKey);
+        _minor.value = _tocNotifer.searchMinorCategoryByKeyFromMajor(
+            _tocProvider, minorKey);
       });
       return () => customDebugPrint('dispose!');
     }, []);
@@ -69,19 +69,19 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
       });
     }
 
-    debugPrint('mainorKey: $mainorKey');
+    debugPrint('minorKey: $minorKey');
     return Scaffold(
       appBar: AppBar(
-        title: Text(_mainor.value.minorTitle),
+        title: Text(_minor.value.minorTitle),
         actions: <Widget>[
           IconButton(
-            icon: Icon(!_userNotifer.getBookmarkState(key: mainorKey)
+            icon: Icon(!_userNotifer.getBookmarkState(key: minorKey)
                 ? Icons.bookmark_outline
                 : Icons.bookmark),
             onPressed: () {
               _userNotifer.updateBookmark(
-                  key: mainorKey,
-                  isBookmark: !_userNotifer.getBookmarkState(key: mainorKey));
+                  key: minorKey,
+                  isBookmark: !_userNotifer.getBookmarkState(key: minorKey));
             },
           ),
         ],
@@ -89,9 +89,9 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
       body: Container(
         color: Colors.grey[200],
         child: ListView.builder(
-          itemCount: _mainor.value.details.length,
+          itemCount: _minor.value.details.length,
           itemBuilder: (BuildContext context, int index) {
-            var value = _mainor.value.details.values.toList()[index];
+            var value = _minor.value.details.values.toList()[index];
             //memoにkeyが存在しているか？
             final isMemo =
                 _userNotifer.getMemo(key: value.detailKey).isNotEmpty;

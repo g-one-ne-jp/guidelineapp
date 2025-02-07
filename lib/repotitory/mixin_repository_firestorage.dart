@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:path_provider/path_provider.dart';
 
 mixin RepositoryFireStorage {
@@ -59,6 +60,9 @@ mixin RepositoryFireStorage {
       return file;
     } on FirebaseException catch (e) {
       debugPrint('ファイルのダウンロード中にエラーが発生しました: ${e.message}');
+      Fluttertoast.showToast(
+        msg: 'ファイルのダウンロード中にエラーが発生しました  path:$path',
+      );
       rethrow;
     }
   }

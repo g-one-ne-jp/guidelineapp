@@ -30,8 +30,8 @@ class UiPageHomeCatalogTabSearch extends HookConsumerWidget
 
     final _focusNode = useState(FocusNode());
 
-    final _mainorKey = useState('');
-    final _mainorKeys = useState(<String>[]);
+    final _minorKey = useState('');
+    final _minorKeys = useState(<String>[]);
     useEffect(() {
       Future<void>(() async {
         _tos.value = await _userNotifer.readTocsJson();
@@ -51,8 +51,8 @@ class UiPageHomeCatalogTabSearch extends HookConsumerWidget
       if (jsonData is Map) {
         for (var key in jsonData.keys) {
           debugPrint('key: $key,');
-          if (jsonData.containsKey('mainorKey')) {
-            _mainorKey.value = jsonData['mainorKey'];
+          if (jsonData.containsKey('minorKey')) {
+            _minorKey.value = jsonData['minorKey'];
           }
           if (jsonData.containsKey('searchKeywords')) {
             List<dynamic> keywords = jsonData['searchKeywords'];
@@ -62,7 +62,7 @@ class UiPageHomeCatalogTabSearch extends HookConsumerWidget
                 _searchResults.value = [
                   ..._searchResults.value,
                   {
-                    'key': _mainorKey.value,
+                    'key': _minorKey.value,
                     'title': jsonData['settionTitle'],
                   }
                 ];
@@ -79,7 +79,7 @@ class UiPageHomeCatalogTabSearch extends HookConsumerWidget
                     _searchResults.value = [
                       ..._searchResults.value,
                       {
-                        'key': _mainorKey.value,
+                        'key': _minorKey.value,
                         'title': jsonData['settionTitle'],
                       }
                     ];

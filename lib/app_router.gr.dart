@@ -57,14 +57,14 @@ abstract class _$AppRouter extends RootStackRouter {
       final pathParams = routeData.inheritedPathParams;
       final args = routeData.argsAs<UiRouteHomeCatalogTabHomeMinorArgs>(
           orElse: () => UiRouteHomeCatalogTabHomeMinorArgs(
-                mainorKey: pathParams.getString('mainorKey'),
+                minorKey: pathParams.getString('minorKey'),
                 viewTypeMemo: pathParams.getBool('viewTypeMemo'),
               ));
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: UiPageHomeCatalogTabHomeMinor(
           key: args.key,
-          mainorKey: args.mainorKey,
+          minorKey: args.minorKey,
           viewTypeMemo: args.viewTypeMemo,
         ),
       );
@@ -121,14 +121,14 @@ abstract class _$AppRouter extends RootStackRouter {
       final pathParams = routeData.inheritedPathParams;
       final args = routeData.argsAs<UiRouteUtilEditArgs>(
           orElse: () => UiRouteUtilEditArgs(
-                mainorKey: pathParams.getString('mainorKey'),
+                minorKey: pathParams.getString('minorKey'),
                 viewTypeMemo: pathParams.getBool('viewTypeMemo'),
               ));
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: UiPageUtilEdit(
           key: args.key,
-          mainorKey: args.mainorKey,
+          minorKey: args.minorKey,
           viewTypeMemo: args.viewTypeMemo,
         ),
       );
@@ -273,18 +273,18 @@ class UiRouteHomeCatalogTabHomeMinor
     extends PageRouteInfo<UiRouteHomeCatalogTabHomeMinorArgs> {
   UiRouteHomeCatalogTabHomeMinor({
     Key? key,
-    required String mainorKey,
+    required String minorKey,
     required bool viewTypeMemo,
     List<PageRouteInfo>? children,
   }) : super(
           UiRouteHomeCatalogTabHomeMinor.name,
           args: UiRouteHomeCatalogTabHomeMinorArgs(
             key: key,
-            mainorKey: mainorKey,
+            minorKey: minorKey,
             viewTypeMemo: viewTypeMemo,
           ),
           rawPathParams: {
-            'mainorKey': mainorKey,
+            'minorKey': minorKey,
             'viewTypeMemo': viewTypeMemo,
           },
           initialChildren: children,
@@ -299,19 +299,19 @@ class UiRouteHomeCatalogTabHomeMinor
 class UiRouteHomeCatalogTabHomeMinorArgs {
   const UiRouteHomeCatalogTabHomeMinorArgs({
     this.key,
-    required this.mainorKey,
+    required this.minorKey,
     required this.viewTypeMemo,
   });
 
   final Key? key;
 
-  final String mainorKey;
+  final String minorKey;
 
   final bool viewTypeMemo;
 
   @override
   String toString() {
-    return 'UiRouteHomeCatalogTabHomeMinorArgs{key: $key, mainorKey: $mainorKey, viewTypeMemo: $viewTypeMemo}';
+    return 'UiRouteHomeCatalogTabHomeMinorArgs{key: $key, minorKey: $minorKey, viewTypeMemo: $viewTypeMemo}';
   }
 }
 
@@ -465,18 +465,18 @@ class UiRouteSingup extends PageRouteInfo<void> {
 class UiRouteUtilEdit extends PageRouteInfo<UiRouteUtilEditArgs> {
   UiRouteUtilEdit({
     Key? key,
-    required String mainorKey,
+    required String minorKey,
     required bool viewTypeMemo,
     List<PageRouteInfo>? children,
   }) : super(
           UiRouteUtilEdit.name,
           args: UiRouteUtilEditArgs(
             key: key,
-            mainorKey: mainorKey,
+            minorKey: minorKey,
             viewTypeMemo: viewTypeMemo,
           ),
           rawPathParams: {
-            'mainorKey': mainorKey,
+            'minorKey': minorKey,
             'viewTypeMemo': viewTypeMemo,
           },
           initialChildren: children,
@@ -491,18 +491,18 @@ class UiRouteUtilEdit extends PageRouteInfo<UiRouteUtilEditArgs> {
 class UiRouteUtilEditArgs {
   const UiRouteUtilEditArgs({
     this.key,
-    required this.mainorKey,
+    required this.minorKey,
     required this.viewTypeMemo,
   });
 
   final Key? key;
 
-  final String mainorKey;
+  final String minorKey;
 
   final bool viewTypeMemo;
 
   @override
   String toString() {
-    return 'UiRouteUtilEditArgs{key: $key, mainorKey: $mainorKey, viewTypeMemo: $viewTypeMemo}';
+    return 'UiRouteUtilEditArgs{key: $key, minorKey: $minorKey, viewTypeMemo: $viewTypeMemo}';
   }
 }

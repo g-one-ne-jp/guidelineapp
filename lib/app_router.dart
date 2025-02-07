@@ -45,7 +45,7 @@ class AppRouter extends _$AppRouter {
         AutoRoute(
             page: UiRouteEmailVerification.page, path: '/emailVerification'),
         AutoRoute(
-            page: UiRouteUtilEdit.page, path: '/edit/:mainorKey/:viewTypeMemo'),
+            page: UiRouteUtilEdit.page, path: '/edit/:minorKey/:viewTypeMemo'),
 
         AutoRoute(
           page: UiRouteHomeCatalog.page,
@@ -73,7 +73,7 @@ class AppRouter extends _$AppRouter {
         ),
         AutoRoute(
             page: UiRouteHomeCatalogTabHomeMinor.page,
-            path: '/tabHomeMinor/:mainorKey/:viewTypeMemo'),
+            path: '/tabHomeMinor/:minorKey/:viewTypeMemo'),
       ];
 }
 

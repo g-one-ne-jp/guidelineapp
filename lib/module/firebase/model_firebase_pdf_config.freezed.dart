@@ -602,7 +602,7 @@ MinorCategory _$MinorCategoryFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$MinorCategory {
-  String get mainorKey => throw _privateConstructorUsedError;
+  String get minorKey => throw _privateConstructorUsedError;
   String get minorTitle => throw _privateConstructorUsedError;
   String get minorSummary => throw _privateConstructorUsedError;
   Map<String, DetailCategory> get details => throw _privateConstructorUsedError;
@@ -620,7 +620,7 @@ abstract class $MinorCategoryCopyWith<$Res> {
       _$MinorCategoryCopyWithImpl<$Res, MinorCategory>;
   @useResult
   $Res call(
-      {String mainorKey,
+      {String minorKey,
       String minorTitle,
       String minorSummary,
       Map<String, DetailCategory> details});
@@ -639,15 +639,15 @@ class _$MinorCategoryCopyWithImpl<$Res, $Val extends MinorCategory>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? mainorKey = null,
+    Object? minorKey = null,
     Object? minorTitle = null,
     Object? minorSummary = null,
     Object? details = null,
   }) {
     return _then(_value.copyWith(
-      mainorKey: null == mainorKey
-          ? _value.mainorKey
-          : mainorKey // ignore: cast_nullable_to_non_nullable
+      minorKey: null == minorKey
+          ? _value.minorKey
+          : minorKey // ignore: cast_nullable_to_non_nullable
               as String,
       minorTitle: null == minorTitle
           ? _value.minorTitle
@@ -674,7 +674,7 @@ abstract class _$$MinorCategoryImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String mainorKey,
+      {String minorKey,
       String minorTitle,
       String minorSummary,
       Map<String, DetailCategory> details});
@@ -691,15 +691,15 @@ class __$$MinorCategoryImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? mainorKey = null,
+    Object? minorKey = null,
     Object? minorTitle = null,
     Object? minorSummary = null,
     Object? details = null,
   }) {
     return _then(_$MinorCategoryImpl(
-      mainorKey: null == mainorKey
-          ? _value.mainorKey
-          : mainorKey // ignore: cast_nullable_to_non_nullable
+      minorKey: null == minorKey
+          ? _value.minorKey
+          : minorKey // ignore: cast_nullable_to_non_nullable
               as String,
       minorTitle: null == minorTitle
           ? _value.minorTitle
@@ -721,7 +721,7 @@ class __$$MinorCategoryImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$MinorCategoryImpl implements _MinorCategory {
   _$MinorCategoryImpl(
-      {this.mainorKey = '',
+      {this.minorKey = '',
       this.minorTitle = '',
       this.minorSummary = '',
       final Map<String, DetailCategory> details = const {}})
@@ -732,7 +732,7 @@ class _$MinorCategoryImpl implements _MinorCategory {
 
   @override
   @JsonKey()
-  final String mainorKey;
+  final String minorKey;
   @override
   @JsonKey()
   final String minorTitle;
@@ -750,7 +750,7 @@ class _$MinorCategoryImpl implements _MinorCategory {
 
   @override
   String toString() {
-    return 'MinorCategory(mainorKey: $mainorKey, minorTitle: $minorTitle, minorSummary: $minorSummary, details: $details)';
+    return 'MinorCategory(minorKey: $minorKey, minorTitle: $minorTitle, minorSummary: $minorSummary, details: $details)';
   }
 
   @override
@@ -758,8 +758,8 @@ class _$MinorCategoryImpl implements _MinorCategory {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MinorCategoryImpl &&
-            (identical(other.mainorKey, mainorKey) ||
-                other.mainorKey == mainorKey) &&
+            (identical(other.minorKey, minorKey) ||
+                other.minorKey == minorKey) &&
             (identical(other.minorTitle, minorTitle) ||
                 other.minorTitle == minorTitle) &&
             (identical(other.minorSummary, minorSummary) ||
@@ -769,7 +769,7 @@ class _$MinorCategoryImpl implements _MinorCategory {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, mainorKey, minorTitle,
+  int get hashCode => Object.hash(runtimeType, minorKey, minorTitle,
       minorSummary, const DeepCollectionEquality().hash(_details));
 
   @JsonKey(ignore: true)
@@ -788,7 +788,7 @@ class _$MinorCategoryImpl implements _MinorCategory {
 
 abstract class _MinorCategory implements MinorCategory {
   factory _MinorCategory(
-      {final String mainorKey,
+      {final String minorKey,
       final String minorTitle,
       final String minorSummary,
       final Map<String, DetailCategory> details}) = _$MinorCategoryImpl;
@@ -797,7 +797,7 @@ abstract class _MinorCategory implements MinorCategory {
       _$MinorCategoryImpl.fromJson;
 
   @override
-  String get mainorKey;
+  String get minorKey;
   @override
   String get minorTitle;
   @override
