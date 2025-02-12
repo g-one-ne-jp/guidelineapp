@@ -14,34 +14,29 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-ModelFirebasePdfConfig _$ModelFirebasePdfConfigFromJson(
-    Map<String, dynamic> json) {
+ModelFirebasePdfConfig _$ModelFirebasePdfConfigFromJson(Map<String, dynamic> json) {
   return _ModelFirebasePdfConfig.fromJson(json);
 }
 
 /// @nodoc
 mixin _$ModelFirebasePdfConfig {
-  Map<String, MajorCategory> get categories =>
-      throw _privateConstructorUsedError;
+  Map<String, MajorCategory> get categories => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ModelFirebasePdfConfigCopyWith<ModelFirebasePdfConfig> get copyWith =>
-      throw _privateConstructorUsedError;
+  $ModelFirebasePdfConfigCopyWith<ModelFirebasePdfConfig> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $ModelFirebasePdfConfigCopyWith<$Res> {
-  factory $ModelFirebasePdfConfigCopyWith(ModelFirebasePdfConfig value,
-          $Res Function(ModelFirebasePdfConfig) then) =
+  factory $ModelFirebasePdfConfigCopyWith(ModelFirebasePdfConfig value, $Res Function(ModelFirebasePdfConfig) then) =
       _$ModelFirebasePdfConfigCopyWithImpl<$Res, ModelFirebasePdfConfig>;
   @useResult
   $Res call({Map<String, MajorCategory> categories});
 }
 
 /// @nodoc
-class _$ModelFirebasePdfConfigCopyWithImpl<$Res,
-        $Val extends ModelFirebasePdfConfig>
+class _$ModelFirebasePdfConfigCopyWithImpl<$Res, $Val extends ModelFirebasePdfConfig>
     implements $ModelFirebasePdfConfigCopyWith<$Res> {
   _$ModelFirebasePdfConfigCopyWithImpl(this._value, this._then);
 
@@ -65,11 +60,9 @@ class _$ModelFirebasePdfConfigCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$ModelFirebasePdfConfigImplCopyWith<$Res>
-    implements $ModelFirebasePdfConfigCopyWith<$Res> {
+abstract class _$$ModelFirebasePdfConfigImplCopyWith<$Res> implements $ModelFirebasePdfConfigCopyWith<$Res> {
   factory _$$ModelFirebasePdfConfigImplCopyWith(
-          _$ModelFirebasePdfConfigImpl value,
-          $Res Function(_$ModelFirebasePdfConfigImpl) then) =
+          _$ModelFirebasePdfConfigImpl value, $Res Function(_$ModelFirebasePdfConfigImpl) then) =
       __$$ModelFirebasePdfConfigImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -78,12 +71,10 @@ abstract class _$$ModelFirebasePdfConfigImplCopyWith<$Res>
 
 /// @nodoc
 class __$$ModelFirebasePdfConfigImplCopyWithImpl<$Res>
-    extends _$ModelFirebasePdfConfigCopyWithImpl<$Res,
-        _$ModelFirebasePdfConfigImpl>
+    extends _$ModelFirebasePdfConfigCopyWithImpl<$Res, _$ModelFirebasePdfConfigImpl>
     implements _$$ModelFirebasePdfConfigImplCopyWith<$Res> {
   __$$ModelFirebasePdfConfigImplCopyWithImpl(
-      _$ModelFirebasePdfConfigImpl _value,
-      $Res Function(_$ModelFirebasePdfConfigImpl) _then)
+      _$ModelFirebasePdfConfigImpl _value, $Res Function(_$ModelFirebasePdfConfigImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -103,9 +94,7 @@ class __$$ModelFirebasePdfConfigImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$ModelFirebasePdfConfigImpl implements _ModelFirebasePdfConfig {
-  _$ModelFirebasePdfConfigImpl(
-      {final Map<String, MajorCategory> categories = const {}})
-      : _categories = categories;
+  _$ModelFirebasePdfConfigImpl({final Map<String, MajorCategory> categories = const {}}) : _categories = categories;
 
   factory _$ModelFirebasePdfConfigImpl.fromJson(Map<String, dynamic> json) =>
       _$$ModelFirebasePdfConfigImplFromJson(json);
@@ -129,21 +118,18 @@ class _$ModelFirebasePdfConfigImpl implements _ModelFirebasePdfConfig {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ModelFirebasePdfConfigImpl &&
-            const DeepCollectionEquality()
-                .equals(other._categories, _categories));
+            const DeepCollectionEquality().equals(other._categories, _categories));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_categories));
+  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(_categories));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ModelFirebasePdfConfigImplCopyWith<_$ModelFirebasePdfConfigImpl>
-      get copyWith => __$$ModelFirebasePdfConfigImplCopyWithImpl<
-          _$ModelFirebasePdfConfigImpl>(this, _$identity);
+  _$$ModelFirebasePdfConfigImplCopyWith<_$ModelFirebasePdfConfigImpl> get copyWith =>
+      __$$ModelFirebasePdfConfigImplCopyWithImpl<_$ModelFirebasePdfConfigImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -154,19 +140,16 @@ class _$ModelFirebasePdfConfigImpl implements _ModelFirebasePdfConfig {
 }
 
 abstract class _ModelFirebasePdfConfig implements ModelFirebasePdfConfig {
-  factory _ModelFirebasePdfConfig(
-          {final Map<String, MajorCategory> categories}) =
-      _$ModelFirebasePdfConfigImpl;
+  factory _ModelFirebasePdfConfig({final Map<String, MajorCategory> categories}) = _$ModelFirebasePdfConfigImpl;
 
-  factory _ModelFirebasePdfConfig.fromJson(Map<String, dynamic> json) =
-      _$ModelFirebasePdfConfigImpl.fromJson;
+  factory _ModelFirebasePdfConfig.fromJson(Map<String, dynamic> json) = _$ModelFirebasePdfConfigImpl.fromJson;
 
   @override
   Map<String, MajorCategory> get categories;
   @override
   @JsonKey(ignore: true)
-  _$$ModelFirebasePdfConfigImplCopyWith<_$ModelFirebasePdfConfigImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$ModelFirebasePdfConfigImplCopyWith<_$ModelFirebasePdfConfigImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 MajorCategory _$MajorCategoryFromJson(Map<String, dynamic> json) {
@@ -182,26 +165,19 @@ mixin _$MajorCategory {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $MajorCategoryCopyWith<MajorCategory> get copyWith =>
-      throw _privateConstructorUsedError;
+  $MajorCategoryCopyWith<MajorCategory> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $MajorCategoryCopyWith<$Res> {
-  factory $MajorCategoryCopyWith(
-          MajorCategory value, $Res Function(MajorCategory) then) =
+  factory $MajorCategoryCopyWith(MajorCategory value, $Res Function(MajorCategory) then) =
       _$MajorCategoryCopyWithImpl<$Res, MajorCategory>;
   @useResult
-  $Res call(
-      {String majorKey,
-      String majorTitle,
-      String majorSummary,
-      Map<String, SubCategory> subs});
+  $Res call({String majorKey, String majorTitle, String majorSummary, Map<String, SubCategory> subs});
 }
 
 /// @nodoc
-class _$MajorCategoryCopyWithImpl<$Res, $Val extends MajorCategory>
-    implements $MajorCategoryCopyWith<$Res> {
+class _$MajorCategoryCopyWithImpl<$Res, $Val extends MajorCategory> implements $MajorCategoryCopyWith<$Res> {
   _$MajorCategoryCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -239,26 +215,18 @@ class _$MajorCategoryCopyWithImpl<$Res, $Val extends MajorCategory>
 }
 
 /// @nodoc
-abstract class _$$MajorCategoryImplCopyWith<$Res>
-    implements $MajorCategoryCopyWith<$Res> {
-  factory _$$MajorCategoryImplCopyWith(
-          _$MajorCategoryImpl value, $Res Function(_$MajorCategoryImpl) then) =
+abstract class _$$MajorCategoryImplCopyWith<$Res> implements $MajorCategoryCopyWith<$Res> {
+  factory _$$MajorCategoryImplCopyWith(_$MajorCategoryImpl value, $Res Function(_$MajorCategoryImpl) then) =
       __$$MajorCategoryImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String majorKey,
-      String majorTitle,
-      String majorSummary,
-      Map<String, SubCategory> subs});
+  $Res call({String majorKey, String majorTitle, String majorSummary, Map<String, SubCategory> subs});
 }
 
 /// @nodoc
-class __$$MajorCategoryImplCopyWithImpl<$Res>
-    extends _$MajorCategoryCopyWithImpl<$Res, _$MajorCategoryImpl>
+class __$$MajorCategoryImplCopyWithImpl<$Res> extends _$MajorCategoryCopyWithImpl<$Res, _$MajorCategoryImpl>
     implements _$$MajorCategoryImplCopyWith<$Res> {
-  __$$MajorCategoryImplCopyWithImpl(
-      _$MajorCategoryImpl _value, $Res Function(_$MajorCategoryImpl) _then)
+  __$$MajorCategoryImplCopyWithImpl(_$MajorCategoryImpl _value, $Res Function(_$MajorCategoryImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -300,8 +268,7 @@ class _$MajorCategoryImpl implements _MajorCategory {
       final Map<String, SubCategory> subs = const {}})
       : _subs = subs;
 
-  factory _$MajorCategoryImpl.fromJson(Map<String, dynamic> json) =>
-      _$$MajorCategoryImplFromJson(json);
+  factory _$MajorCategoryImpl.fromJson(Map<String, dynamic> json) => _$$MajorCategoryImplFromJson(json);
 
   @override
   @JsonKey()
@@ -331,19 +298,16 @@ class _$MajorCategoryImpl implements _MajorCategory {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MajorCategoryImpl &&
-            (identical(other.majorKey, majorKey) ||
-                other.majorKey == majorKey) &&
-            (identical(other.majorTitle, majorTitle) ||
-                other.majorTitle == majorTitle) &&
-            (identical(other.majorSummary, majorSummary) ||
-                other.majorSummary == majorSummary) &&
+            (identical(other.majorKey, majorKey) || other.majorKey == majorKey) &&
+            (identical(other.majorTitle, majorTitle) || other.majorTitle == majorTitle) &&
+            (identical(other.majorSummary, majorSummary) || other.majorSummary == majorSummary) &&
             const DeepCollectionEquality().equals(other._subs, _subs));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, majorKey, majorTitle,
-      majorSummary, const DeepCollectionEquality().hash(_subs));
+  int get hashCode =>
+      Object.hash(runtimeType, majorKey, majorTitle, majorSummary, const DeepCollectionEquality().hash(_subs));
 
   @JsonKey(ignore: true)
   @override
@@ -366,8 +330,7 @@ abstract class _MajorCategory implements MajorCategory {
       final String majorSummary,
       final Map<String, SubCategory> subs}) = _$MajorCategoryImpl;
 
-  factory _MajorCategory.fromJson(Map<String, dynamic> json) =
-      _$MajorCategoryImpl.fromJson;
+  factory _MajorCategory.fromJson(Map<String, dynamic> json) = _$MajorCategoryImpl.fromJson;
 
   @override
   String get majorKey;
@@ -379,8 +342,7 @@ abstract class _MajorCategory implements MajorCategory {
   Map<String, SubCategory> get subs;
   @override
   @JsonKey(ignore: true)
-  _$$MajorCategoryImplCopyWith<_$MajorCategoryImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$MajorCategoryImplCopyWith<_$MajorCategoryImpl> get copyWith => throw _privateConstructorUsedError;
 }
 
 SubCategory _$SubCategoryFromJson(Map<String, dynamic> json) {
@@ -396,26 +358,19 @@ mixin _$SubCategory {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $SubCategoryCopyWith<SubCategory> get copyWith =>
-      throw _privateConstructorUsedError;
+  $SubCategoryCopyWith<SubCategory> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $SubCategoryCopyWith<$Res> {
-  factory $SubCategoryCopyWith(
-          SubCategory value, $Res Function(SubCategory) then) =
+  factory $SubCategoryCopyWith(SubCategory value, $Res Function(SubCategory) then) =
       _$SubCategoryCopyWithImpl<$Res, SubCategory>;
   @useResult
-  $Res call(
-      {String subKey,
-      String subTitle,
-      String subSummary,
-      Map<String, MinorCategory> minors});
+  $Res call({String subKey, String subTitle, String subSummary, Map<String, MinorCategory> minors});
 }
 
 /// @nodoc
-class _$SubCategoryCopyWithImpl<$Res, $Val extends SubCategory>
-    implements $SubCategoryCopyWith<$Res> {
+class _$SubCategoryCopyWithImpl<$Res, $Val extends SubCategory> implements $SubCategoryCopyWith<$Res> {
   _$SubCategoryCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -453,26 +408,18 @@ class _$SubCategoryCopyWithImpl<$Res, $Val extends SubCategory>
 }
 
 /// @nodoc
-abstract class _$$SubCategoryImplCopyWith<$Res>
-    implements $SubCategoryCopyWith<$Res> {
-  factory _$$SubCategoryImplCopyWith(
-          _$SubCategoryImpl value, $Res Function(_$SubCategoryImpl) then) =
+abstract class _$$SubCategoryImplCopyWith<$Res> implements $SubCategoryCopyWith<$Res> {
+  factory _$$SubCategoryImplCopyWith(_$SubCategoryImpl value, $Res Function(_$SubCategoryImpl) then) =
       __$$SubCategoryImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String subKey,
-      String subTitle,
-      String subSummary,
-      Map<String, MinorCategory> minors});
+  $Res call({String subKey, String subTitle, String subSummary, Map<String, MinorCategory> minors});
 }
 
 /// @nodoc
-class __$$SubCategoryImplCopyWithImpl<$Res>
-    extends _$SubCategoryCopyWithImpl<$Res, _$SubCategoryImpl>
+class __$$SubCategoryImplCopyWithImpl<$Res> extends _$SubCategoryCopyWithImpl<$Res, _$SubCategoryImpl>
     implements _$$SubCategoryImplCopyWith<$Res> {
-  __$$SubCategoryImplCopyWithImpl(
-      _$SubCategoryImpl _value, $Res Function(_$SubCategoryImpl) _then)
+  __$$SubCategoryImplCopyWithImpl(_$SubCategoryImpl _value, $Res Function(_$SubCategoryImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -508,14 +455,10 @@ class __$$SubCategoryImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$SubCategoryImpl implements _SubCategory {
   _$SubCategoryImpl(
-      {this.subKey = '',
-      this.subTitle = '',
-      this.subSummary = '',
-      final Map<String, MinorCategory> minors = const {}})
+      {this.subKey = '', this.subTitle = '', this.subSummary = '', final Map<String, MinorCategory> minors = const {}})
       : _minors = minors;
 
-  factory _$SubCategoryImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SubCategoryImplFromJson(json);
+  factory _$SubCategoryImpl.fromJson(Map<String, dynamic> json) => _$$SubCategoryImplFromJson(json);
 
   @override
   @JsonKey()
@@ -546,17 +489,15 @@ class _$SubCategoryImpl implements _SubCategory {
         (other.runtimeType == runtimeType &&
             other is _$SubCategoryImpl &&
             (identical(other.subKey, subKey) || other.subKey == subKey) &&
-            (identical(other.subTitle, subTitle) ||
-                other.subTitle == subTitle) &&
-            (identical(other.subSummary, subSummary) ||
-                other.subSummary == subSummary) &&
+            (identical(other.subTitle, subTitle) || other.subTitle == subTitle) &&
+            (identical(other.subSummary, subSummary) || other.subSummary == subSummary) &&
             const DeepCollectionEquality().equals(other._minors, _minors));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, subKey, subTitle, subSummary,
-      const DeepCollectionEquality().hash(_minors));
+  int get hashCode =>
+      Object.hash(runtimeType, subKey, subTitle, subSummary, const DeepCollectionEquality().hash(_minors));
 
   @JsonKey(ignore: true)
   @override
@@ -579,8 +520,7 @@ abstract class _SubCategory implements SubCategory {
       final String subSummary,
       final Map<String, MinorCategory> minors}) = _$SubCategoryImpl;
 
-  factory _SubCategory.fromJson(Map<String, dynamic> json) =
-      _$SubCategoryImpl.fromJson;
+  factory _SubCategory.fromJson(Map<String, dynamic> json) = _$SubCategoryImpl.fromJson;
 
   @override
   String get subKey;
@@ -592,8 +532,7 @@ abstract class _SubCategory implements SubCategory {
   Map<String, MinorCategory> get minors;
   @override
   @JsonKey(ignore: true)
-  _$$SubCategoryImplCopyWith<_$SubCategoryImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$SubCategoryImplCopyWith<_$SubCategoryImpl> get copyWith => throw _privateConstructorUsedError;
 }
 
 MinorCategory _$MinorCategoryFromJson(Map<String, dynamic> json) {
@@ -609,26 +548,19 @@ mixin _$MinorCategory {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $MinorCategoryCopyWith<MinorCategory> get copyWith =>
-      throw _privateConstructorUsedError;
+  $MinorCategoryCopyWith<MinorCategory> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $MinorCategoryCopyWith<$Res> {
-  factory $MinorCategoryCopyWith(
-          MinorCategory value, $Res Function(MinorCategory) then) =
+  factory $MinorCategoryCopyWith(MinorCategory value, $Res Function(MinorCategory) then) =
       _$MinorCategoryCopyWithImpl<$Res, MinorCategory>;
   @useResult
-  $Res call(
-      {String minorKey,
-      String minorTitle,
-      String minorSummary,
-      Map<String, DetailCategory> details});
+  $Res call({String minorKey, String minorTitle, String minorSummary, Map<String, DetailCategory> details});
 }
 
 /// @nodoc
-class _$MinorCategoryCopyWithImpl<$Res, $Val extends MinorCategory>
-    implements $MinorCategoryCopyWith<$Res> {
+class _$MinorCategoryCopyWithImpl<$Res, $Val extends MinorCategory> implements $MinorCategoryCopyWith<$Res> {
   _$MinorCategoryCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -666,26 +598,18 @@ class _$MinorCategoryCopyWithImpl<$Res, $Val extends MinorCategory>
 }
 
 /// @nodoc
-abstract class _$$MinorCategoryImplCopyWith<$Res>
-    implements $MinorCategoryCopyWith<$Res> {
-  factory _$$MinorCategoryImplCopyWith(
-          _$MinorCategoryImpl value, $Res Function(_$MinorCategoryImpl) then) =
+abstract class _$$MinorCategoryImplCopyWith<$Res> implements $MinorCategoryCopyWith<$Res> {
+  factory _$$MinorCategoryImplCopyWith(_$MinorCategoryImpl value, $Res Function(_$MinorCategoryImpl) then) =
       __$$MinorCategoryImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String minorKey,
-      String minorTitle,
-      String minorSummary,
-      Map<String, DetailCategory> details});
+  $Res call({String minorKey, String minorTitle, String minorSummary, Map<String, DetailCategory> details});
 }
 
 /// @nodoc
-class __$$MinorCategoryImplCopyWithImpl<$Res>
-    extends _$MinorCategoryCopyWithImpl<$Res, _$MinorCategoryImpl>
+class __$$MinorCategoryImplCopyWithImpl<$Res> extends _$MinorCategoryCopyWithImpl<$Res, _$MinorCategoryImpl>
     implements _$$MinorCategoryImplCopyWith<$Res> {
-  __$$MinorCategoryImplCopyWithImpl(
-      _$MinorCategoryImpl _value, $Res Function(_$MinorCategoryImpl) _then)
+  __$$MinorCategoryImplCopyWithImpl(_$MinorCategoryImpl _value, $Res Function(_$MinorCategoryImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -727,8 +651,7 @@ class _$MinorCategoryImpl implements _MinorCategory {
       final Map<String, DetailCategory> details = const {}})
       : _details = details;
 
-  factory _$MinorCategoryImpl.fromJson(Map<String, dynamic> json) =>
-      _$$MinorCategoryImplFromJson(json);
+  factory _$MinorCategoryImpl.fromJson(Map<String, dynamic> json) => _$$MinorCategoryImplFromJson(json);
 
   @override
   @JsonKey()
@@ -758,19 +681,16 @@ class _$MinorCategoryImpl implements _MinorCategory {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MinorCategoryImpl &&
-            (identical(other.minorKey, minorKey) ||
-                other.minorKey == minorKey) &&
-            (identical(other.minorTitle, minorTitle) ||
-                other.minorTitle == minorTitle) &&
-            (identical(other.minorSummary, minorSummary) ||
-                other.minorSummary == minorSummary) &&
+            (identical(other.minorKey, minorKey) || other.minorKey == minorKey) &&
+            (identical(other.minorTitle, minorTitle) || other.minorTitle == minorTitle) &&
+            (identical(other.minorSummary, minorSummary) || other.minorSummary == minorSummary) &&
             const DeepCollectionEquality().equals(other._details, _details));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, minorKey, minorTitle,
-      minorSummary, const DeepCollectionEquality().hash(_details));
+  int get hashCode =>
+      Object.hash(runtimeType, minorKey, minorTitle, minorSummary, const DeepCollectionEquality().hash(_details));
 
   @JsonKey(ignore: true)
   @override
@@ -793,8 +713,7 @@ abstract class _MinorCategory implements MinorCategory {
       final String minorSummary,
       final Map<String, DetailCategory> details}) = _$MinorCategoryImpl;
 
-  factory _MinorCategory.fromJson(Map<String, dynamic> json) =
-      _$MinorCategoryImpl.fromJson;
+  factory _MinorCategory.fromJson(Map<String, dynamic> json) = _$MinorCategoryImpl.fromJson;
 
   @override
   String get minorKey;
@@ -806,8 +725,7 @@ abstract class _MinorCategory implements MinorCategory {
   Map<String, DetailCategory> get details;
   @override
   @JsonKey(ignore: true)
-  _$$MinorCategoryImplCopyWith<_$MinorCategoryImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$MinorCategoryImplCopyWith<_$MinorCategoryImpl> get copyWith => throw _privateConstructorUsedError;
 }
 
 DetailCategory _$DetailCategoryFromJson(Map<String, dynamic> json) {
@@ -823,26 +741,19 @@ mixin _$DetailCategory {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $DetailCategoryCopyWith<DetailCategory> get copyWith =>
-      throw _privateConstructorUsedError;
+  $DetailCategoryCopyWith<DetailCategory> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $DetailCategoryCopyWith<$Res> {
-  factory $DetailCategoryCopyWith(
-          DetailCategory value, $Res Function(DetailCategory) then) =
+  factory $DetailCategoryCopyWith(DetailCategory value, $Res Function(DetailCategory) then) =
       _$DetailCategoryCopyWithImpl<$Res, DetailCategory>;
   @useResult
-  $Res call(
-      {String detailKey,
-      String detailTitle,
-      String detailSummary,
-      Map<String, Content> contents});
+  $Res call({String detailKey, String detailTitle, String detailSummary, Map<String, Content> contents});
 }
 
 /// @nodoc
-class _$DetailCategoryCopyWithImpl<$Res, $Val extends DetailCategory>
-    implements $DetailCategoryCopyWith<$Res> {
+class _$DetailCategoryCopyWithImpl<$Res, $Val extends DetailCategory> implements $DetailCategoryCopyWith<$Res> {
   _$DetailCategoryCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -880,26 +791,18 @@ class _$DetailCategoryCopyWithImpl<$Res, $Val extends DetailCategory>
 }
 
 /// @nodoc
-abstract class _$$DeteilCategoryImplCopyWith<$Res>
-    implements $DetailCategoryCopyWith<$Res> {
-  factory _$$DeteilCategoryImplCopyWith(_$DeteilCategoryImpl value,
-          $Res Function(_$DeteilCategoryImpl) then) =
+abstract class _$$DeteilCategoryImplCopyWith<$Res> implements $DetailCategoryCopyWith<$Res> {
+  factory _$$DeteilCategoryImplCopyWith(_$DeteilCategoryImpl value, $Res Function(_$DeteilCategoryImpl) then) =
       __$$DeteilCategoryImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String detailKey,
-      String detailTitle,
-      String detailSummary,
-      Map<String, Content> contents});
+  $Res call({String detailKey, String detailTitle, String detailSummary, Map<String, Content> contents});
 }
 
 /// @nodoc
-class __$$DeteilCategoryImplCopyWithImpl<$Res>
-    extends _$DetailCategoryCopyWithImpl<$Res, _$DeteilCategoryImpl>
+class __$$DeteilCategoryImplCopyWithImpl<$Res> extends _$DetailCategoryCopyWithImpl<$Res, _$DeteilCategoryImpl>
     implements _$$DeteilCategoryImplCopyWith<$Res> {
-  __$$DeteilCategoryImplCopyWithImpl(
-      _$DeteilCategoryImpl _value, $Res Function(_$DeteilCategoryImpl) _then)
+  __$$DeteilCategoryImplCopyWithImpl(_$DeteilCategoryImpl _value, $Res Function(_$DeteilCategoryImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -941,8 +844,7 @@ class _$DeteilCategoryImpl implements _DeteilCategory {
       final Map<String, Content> contents = const {}})
       : _contents = contents;
 
-  factory _$DeteilCategoryImpl.fromJson(Map<String, dynamic> json) =>
-      _$$DeteilCategoryImplFromJson(json);
+  factory _$DeteilCategoryImpl.fromJson(Map<String, dynamic> json) => _$$DeteilCategoryImplFromJson(json);
 
   @override
   @JsonKey()
@@ -972,26 +874,22 @@ class _$DeteilCategoryImpl implements _DeteilCategory {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DeteilCategoryImpl &&
-            (identical(other.detailKey, detailKey) ||
-                other.detailKey == detailKey) &&
-            (identical(other.detailTitle, detailTitle) ||
-                other.detailTitle == detailTitle) &&
-            (identical(other.detailSummary, detailSummary) ||
-                other.detailSummary == detailSummary) &&
+            (identical(other.detailKey, detailKey) || other.detailKey == detailKey) &&
+            (identical(other.detailTitle, detailTitle) || other.detailTitle == detailTitle) &&
+            (identical(other.detailSummary, detailSummary) || other.detailSummary == detailSummary) &&
             const DeepCollectionEquality().equals(other._contents, _contents));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, detailKey, detailTitle,
-      detailSummary, const DeepCollectionEquality().hash(_contents));
+  int get hashCode =>
+      Object.hash(runtimeType, detailKey, detailTitle, detailSummary, const DeepCollectionEquality().hash(_contents));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$DeteilCategoryImplCopyWith<_$DeteilCategoryImpl> get copyWith =>
-      __$$DeteilCategoryImplCopyWithImpl<_$DeteilCategoryImpl>(
-          this, _$identity);
+      __$$DeteilCategoryImplCopyWithImpl<_$DeteilCategoryImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -1008,8 +906,7 @@ abstract class _DeteilCategory implements DetailCategory {
       final String detailSummary,
       final Map<String, Content> contents}) = _$DeteilCategoryImpl;
 
-  factory _DeteilCategory.fromJson(Map<String, dynamic> json) =
-      _$DeteilCategoryImpl.fromJson;
+  factory _DeteilCategory.fromJson(Map<String, dynamic> json) = _$DeteilCategoryImpl.fromJson;
 
   @override
   String get detailKey;
@@ -1021,8 +918,7 @@ abstract class _DeteilCategory implements DetailCategory {
   Map<String, Content> get contents;
   @override
   @JsonKey(ignore: true)
-  _$$DeteilCategoryImplCopyWith<_$DeteilCategoryImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$DeteilCategoryImplCopyWith<_$DeteilCategoryImpl> get copyWith => throw _privateConstructorUsedError;
 }
 
 Content _$ContentFromJson(Map<String, dynamic> json) {
@@ -1042,16 +938,13 @@ mixin _$Content {
 
 /// @nodoc
 abstract class $ContentCopyWith<$Res> {
-  factory $ContentCopyWith(Content value, $Res Function(Content) then) =
-      _$ContentCopyWithImpl<$Res, Content>;
+  factory $ContentCopyWith(Content value, $Res Function(Content) then) = _$ContentCopyWithImpl<$Res, Content>;
   @useResult
-  $Res call(
-      {String contentKey, String contentTitle, Map<String, Settion> settions});
+  $Res call({String contentKey, String contentTitle, Map<String, Settion> settions});
 }
 
 /// @nodoc
-class _$ContentCopyWithImpl<$Res, $Val extends Content>
-    implements $ContentCopyWith<$Res> {
+class _$ContentCopyWithImpl<$Res, $Val extends Content> implements $ContentCopyWith<$Res> {
   _$ContentCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -1085,22 +978,17 @@ class _$ContentCopyWithImpl<$Res, $Val extends Content>
 
 /// @nodoc
 abstract class _$$ContentImplCopyWith<$Res> implements $ContentCopyWith<$Res> {
-  factory _$$ContentImplCopyWith(
-          _$ContentImpl value, $Res Function(_$ContentImpl) then) =
+  factory _$$ContentImplCopyWith(_$ContentImpl value, $Res Function(_$ContentImpl) then) =
       __$$ContentImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String contentKey, String contentTitle, Map<String, Settion> settions});
+  $Res call({String contentKey, String contentTitle, Map<String, Settion> settions});
 }
 
 /// @nodoc
-class __$$ContentImplCopyWithImpl<$Res>
-    extends _$ContentCopyWithImpl<$Res, _$ContentImpl>
+class __$$ContentImplCopyWithImpl<$Res> extends _$ContentCopyWithImpl<$Res, _$ContentImpl>
     implements _$$ContentImplCopyWith<$Res> {
-  __$$ContentImplCopyWithImpl(
-      _$ContentImpl _value, $Res Function(_$ContentImpl) _then)
-      : super(_value, _then);
+  __$$ContentImplCopyWithImpl(_$ContentImpl _value, $Res Function(_$ContentImpl) _then) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -1129,14 +1017,10 @@ class __$$ContentImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$ContentImpl implements _Content {
-  _$ContentImpl(
-      {this.contentKey = '',
-      this.contentTitle = '',
-      final Map<String, Settion> settions = const {}})
+  _$ContentImpl({this.contentKey = '', this.contentTitle = '', final Map<String, Settion> settions = const {}})
       : _settions = settions;
 
-  factory _$ContentImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ContentImplFromJson(json);
+  factory _$ContentImpl.fromJson(Map<String, dynamic> json) => _$$ContentImplFromJson(json);
 
   @override
   @JsonKey()
@@ -1163,23 +1047,20 @@ class _$ContentImpl implements _Content {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ContentImpl &&
-            (identical(other.contentKey, contentKey) ||
-                other.contentKey == contentKey) &&
-            (identical(other.contentTitle, contentTitle) ||
-                other.contentTitle == contentTitle) &&
+            (identical(other.contentKey, contentKey) || other.contentKey == contentKey) &&
+            (identical(other.contentTitle, contentTitle) || other.contentTitle == contentTitle) &&
             const DeepCollectionEquality().equals(other._settions, _settions));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, contentKey, contentTitle,
-      const DeepCollectionEquality().hash(_settions));
+  int get hashCode =>
+      Object.hash(runtimeType, contentKey, contentTitle, const DeepCollectionEquality().hash(_settions));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ContentImplCopyWith<_$ContentImpl> get copyWith =>
-      __$$ContentImplCopyWithImpl<_$ContentImpl>(this, _$identity);
+  _$$ContentImplCopyWith<_$ContentImpl> get copyWith => __$$ContentImplCopyWithImpl<_$ContentImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -1190,10 +1071,8 @@ class _$ContentImpl implements _Content {
 }
 
 abstract class _Content implements Content {
-  factory _Content(
-      {final String contentKey,
-      final String contentTitle,
-      final Map<String, Settion> settions}) = _$ContentImpl;
+  factory _Content({final String contentKey, final String contentTitle, final Map<String, Settion> settions}) =
+      _$ContentImpl;
 
   factory _Content.fromJson(Map<String, dynamic> json) = _$ContentImpl.fromJson;
 
@@ -1205,8 +1084,7 @@ abstract class _Content implements Content {
   Map<String, Settion> get settions;
   @override
   @JsonKey(ignore: true)
-  _$$ContentImplCopyWith<_$ContentImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ContentImplCopyWith<_$ContentImpl> get copyWith => throw _privateConstructorUsedError;
 }
 
 Settion _$SettionFromJson(Map<String, dynamic> json) {
@@ -1228,20 +1106,13 @@ mixin _$Settion {
 
 /// @nodoc
 abstract class $SettionCopyWith<$Res> {
-  factory $SettionCopyWith(Settion value, $Res Function(Settion) then) =
-      _$SettionCopyWithImpl<$Res, Settion>;
+  factory $SettionCopyWith(Settion value, $Res Function(Settion) then) = _$SettionCopyWithImpl<$Res, Settion>;
   @useResult
-  $Res call(
-      {String settionTitle,
-      String pdfId,
-      String searchWord,
-      String markdown,
-      List<String> searchKeywords});
+  $Res call({String settionTitle, String pdfId, String searchWord, String markdown, List<String> searchKeywords});
 }
 
 /// @nodoc
-class _$SettionCopyWithImpl<$Res, $Val extends Settion>
-    implements $SettionCopyWith<$Res> {
+class _$SettionCopyWithImpl<$Res, $Val extends Settion> implements $SettionCopyWith<$Res> {
   _$SettionCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -1285,26 +1156,17 @@ class _$SettionCopyWithImpl<$Res, $Val extends Settion>
 
 /// @nodoc
 abstract class _$$SettionImplCopyWith<$Res> implements $SettionCopyWith<$Res> {
-  factory _$$SettionImplCopyWith(
-          _$SettionImpl value, $Res Function(_$SettionImpl) then) =
+  factory _$$SettionImplCopyWith(_$SettionImpl value, $Res Function(_$SettionImpl) then) =
       __$$SettionImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String settionTitle,
-      String pdfId,
-      String searchWord,
-      String markdown,
-      List<String> searchKeywords});
+  $Res call({String settionTitle, String pdfId, String searchWord, String markdown, List<String> searchKeywords});
 }
 
 /// @nodoc
-class __$$SettionImplCopyWithImpl<$Res>
-    extends _$SettionCopyWithImpl<$Res, _$SettionImpl>
+class __$$SettionImplCopyWithImpl<$Res> extends _$SettionCopyWithImpl<$Res, _$SettionImpl>
     implements _$$SettionImplCopyWith<$Res> {
-  __$$SettionImplCopyWithImpl(
-      _$SettionImpl _value, $Res Function(_$SettionImpl) _then)
-      : super(_value, _then);
+  __$$SettionImplCopyWithImpl(_$SettionImpl _value, $Res Function(_$SettionImpl) _then) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -1351,8 +1213,7 @@ class _$SettionImpl implements _Settion {
       final List<String> searchKeywords = const []})
       : _searchKeywords = searchKeywords;
 
-  factory _$SettionImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SettionImplFromJson(json);
+  factory _$SettionImpl.fromJson(Map<String, dynamic> json) => _$$SettionImplFromJson(json);
 
   @override
   @JsonKey()
@@ -1385,27 +1246,22 @@ class _$SettionImpl implements _Settion {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SettionImpl &&
-            (identical(other.settionTitle, settionTitle) ||
-                other.settionTitle == settionTitle) &&
+            (identical(other.settionTitle, settionTitle) || other.settionTitle == settionTitle) &&
             (identical(other.pdfId, pdfId) || other.pdfId == pdfId) &&
-            (identical(other.searchWord, searchWord) ||
-                other.searchWord == searchWord) &&
-            (identical(other.markdown, markdown) ||
-                other.markdown == markdown) &&
-            const DeepCollectionEquality()
-                .equals(other._searchKeywords, _searchKeywords));
+            (identical(other.searchWord, searchWord) || other.searchWord == searchWord) &&
+            (identical(other.markdown, markdown) || other.markdown == markdown) &&
+            const DeepCollectionEquality().equals(other._searchKeywords, _searchKeywords));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, settionTitle, pdfId, searchWord,
-      markdown, const DeepCollectionEquality().hash(_searchKeywords));
+  int get hashCode => Object.hash(
+      runtimeType, settionTitle, pdfId, searchWord, markdown, const DeepCollectionEquality().hash(_searchKeywords));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SettionImplCopyWith<_$SettionImpl> get copyWith =>
-      __$$SettionImplCopyWithImpl<_$SettionImpl>(this, _$identity);
+  _$$SettionImplCopyWith<_$SettionImpl> get copyWith => __$$SettionImplCopyWithImpl<_$SettionImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -1437,6 +1293,5 @@ abstract class _Settion implements Settion {
   List<String> get searchKeywords;
   @override
   @JsonKey(ignore: true)
-  _$$SettionImplCopyWith<_$SettionImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$SettionImplCopyWith<_$SettionImpl> get copyWith => throw _privateConstructorUsedError;
 }

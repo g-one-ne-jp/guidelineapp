@@ -72,8 +72,7 @@ mixin RepositoryFireStore2 {
     required bool ismailmagazine,
   }) async {
     //ユーザーデータ更新
-    userData =
-        await readUser<ModelFirebaseUser>(fromJson: ModelFirebaseUser.fromJson);
+    userData = await readUser<ModelFirebaseUser>(fromJson: ModelFirebaseUser.fromJson);
     //ユーザーデータの更新
     final updateData = userData.copyWith(
       gender: gender,
@@ -98,8 +97,7 @@ mixin RepositoryFireStore2 {
     required bool isBookmark,
   }) async {
     //ユーザーデータ更新
-    userData =
-        await readUser<ModelFirebaseUser>(fromJson: ModelFirebaseUser.fromJson);
+    userData = await readUser<ModelFirebaseUser>(fromJson: ModelFirebaseUser.fromJson);
     //ユーザーデータの更新
     final updateData = userData.copyWith(
       bookmarks: {

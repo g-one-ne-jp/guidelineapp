@@ -2,6 +2,13 @@
 install:
 	dart pub global activate flutter_gen
 
+fmt:
+	fvm dart format --line-length 120 .
+	dart fix --apply
+	flutter pub run import_sorter:main
+	flutter pub run pubspec_dependency_sorter:main
+	flutter pub get
+
 watch:
 	dart run build_runner watch -d
 

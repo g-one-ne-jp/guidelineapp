@@ -12,12 +12,11 @@ import 'package:JCSGuidelines/debug/debug_print.dart';
 import 'package:JCSGuidelines/module/firebase/model_firebase_pdf_config.dart';
 import 'package:JCSGuidelines/providers/toc_provider.dart';
 import 'package:JCSGuidelines/providers/user_provider.dart';
-import 'package:JCSGuidelines/repotitory/mixin_repository_firestore.dart';
 
 @RoutePage()
 // ignore: must_be_immutable
 class UiPageHome extends HookConsumerWidget {
-  UiPageHome({
+  const UiPageHome({
     super.key,
   });
 

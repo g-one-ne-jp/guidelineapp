@@ -9,7 +9,7 @@ void uiUtilshowProgress(BuildContext context) {
     barrierDismissible: false,
     barrierColor: Colors.black.withOpacity(0.5),
     pageBuilder: (context, animation, secondaryAnimation) {
-      return Center(
+      return const Center(
         child: CircularProgressIndicator(),
       );
     },

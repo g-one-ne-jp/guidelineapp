@@ -1,7 +1,6 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 
 // Dart imports:
-import 'dart:async';
 
 // Flutter imports:
 import 'package:flutter/material.dart';
@@ -14,12 +13,11 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
 import 'package:JCSGuidelines/providers/user_provider.dart';
-import 'package:JCSGuidelines/repotitory/mixin_repository_firestore.dart';
 import 'package:JCSGuidelines/ui/util/uiUtilWidget.dart';
 
 @RoutePage()
 class UiPageProfileCreate extends HookConsumerWidget {
-  UiPageProfileCreate({
+  const UiPageProfileCreate({
     super.key,
   });
 
@@ -37,7 +35,9 @@ class UiPageProfileCreate extends HookConsumerWidget {
     final _number = useState('日循会員番号（会員の場合のみ）');
     final _isMailMagazine = useState(false);
 
-    useEffect(() {}, []);
+    useEffect(() {
+      return null;
+    }, []);
 
     return PopScope(
       canPop: false,
@@ -143,7 +143,7 @@ class UiPageProfileCreate extends HookConsumerWidget {
                               }
                             }
                           : null,
-                      child: Text('登録'),
+                      child: const Text('登録'),
                     ),
                   ),
                 ],

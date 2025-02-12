@@ -6,27 +6,17 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:auto_route/auto_route.dart';
 import 'package:easy_pdf_viewer/easy_pdf_viewer.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:flutter_pdfview/flutter_pdfview.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:markdown_widget/markdown_widget.dart';
-import 'package:path_provider/path_provider.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 // Project imports:
 import 'package:JCSGuidelines/debug/debug_print.dart';
-import 'package:JCSGuidelines/main.dart';
 import 'package:JCSGuidelines/module/firebase/model_firebase_pdf_config.dart';
 import 'package:JCSGuidelines/repotitory/mixin_repository_firestorage.dart';
-import 'package:JCSGuidelines/ui/page/home/tab/ui_page_home_catalog_tab_home.dart';
-import 'package:JCSGuidelines/ui/page/home/ui_page_home.dart';
-import 'package:JCSGuidelines/ui/util/uiUtilWidget.dart';
-import 'package:webview_flutter/webview_flutter.dart';
 
 // ignore: must_be_immutable
 class UiUtilWidgetTile extends HookConsumerWidget {
@@ -195,8 +185,7 @@ class UiUtilWidgetTile2 extends HookConsumerWidget {
             child: children.isEmpty
                 ? ListTile(
                     trailing: const Icon(Icons.arrow_forward_ios),
-                    title:
-                        Text(minor.details.entries.first.value.detailSummary),
+                    title: Text(minor.details.entries.first.value.detailSummary),
                     onTap: () {
                       onTap();
                     },
@@ -261,8 +250,7 @@ class UiUtilWidgetTile3 extends HookConsumerWidget with RepositoryFireStorage {
       final html = File(path).readAsStringSync();
       return WebViewController()
         ..setJavaScriptMode(JavaScriptMode.unrestricted)
-        ..setNavigationDelegate(
-            NavigationDelegate(onPageStarted: (String url) {}))
+        ..setNavigationDelegate(NavigationDelegate(onPageStarted: (String url) {}))
         ..loadRequest(
           Uri.dataFromString(
             html,
@@ -285,29 +273,22 @@ class UiUtilWidgetTile3 extends HookConsumerWidget with RepositoryFireStorage {
                   children: [
                     const Divider(),
                     ConstrainedBox(
-                      constraints: BoxConstraints(
-                          minHeight: 120.h, maxHeight: 360.h), // 最大の高さを200に設定
+                      constraints: BoxConstraints(minHeight: 120.h, maxHeight: 360.h), // 最大の高さを200に設定
                       child:
                           //MarkdownWidget(data: element.value.markdown)
                           element.value.pdfId.isEmpty
                               ? FutureBuilder(
-                                  future: downLoadData(
-                                      path: element.value.markdown),
+                                  future: downLoadData(path: element.value.markdown),
                                   builder: (context, snapshot) {
-                                    if (snapshot.connectionState ==
-                                        ConnectionState.done) {
+                                    if (snapshot.connectionState == ConnectionState.done) {
                                       return FutureBuilder(
-                                        future:
-                                            initController(snapshot.data!.path),
+                                        future: initController(snapshot.data!.path),
                                         builder: (context, snapshot) {
-                                          if (snapshot.connectionState ==
-                                              ConnectionState.done) {
+                                          if (snapshot.connectionState == ConnectionState.done) {
                                             return Container(
                                                 padding: EdgeInsets.all(10.w),
                                                 color: Colors.white,
-                                                child: WebViewWidget(
-                                                    controller:
-                                                        snapshot.data!));
+                                                child: WebViewWidget(controller: snapshot.data!));
                                           }
 
                                           return const Center(
@@ -327,45 +308,36 @@ class UiUtilWidgetTile3 extends HookConsumerWidget with RepositoryFireStorage {
                                     onPdfTap(_pdfPath);
                                   },
                                   child: FutureBuilder(
-                                    future:
-                                        downLoadData(path: element.value.pdfId),
+                                    future: downLoadData(path: element.value.pdfId),
                                     builder: (context, snapshot) {
-                                      if (snapshot.connectionState ==
-                                          ConnectionState.done) {
+                                      if (snapshot.connectionState == ConnectionState.done) {
                                         _pdfPath = snapshot.data!.path;
                                       }
                                       return snapshot.data == null
                                           ? const Center(
-                                              child:
-                                                  CircularProgressIndicator(),
+                                              child: CircularProgressIndicator(),
                                             )
                                           : FutureBuilder(
-                                              future: PDFDocument.fromFile(
-                                                  File(snapshot.data!.path)),
+                                              future: PDFDocument.fromFile(File(snapshot.data!.path)),
                                               builder: (context, snapshot) {
-                                                if (snapshot.connectionState ==
-                                                    ConnectionState.done) {
+                                                if (snapshot.connectionState == ConnectionState.done) {
                                                   return Stack(
                                                     children: [
                                                       PDFViewer(
                                                         showIndicator: false,
                                                         showNavigation: false,
                                                         showPicker: false,
-                                                        enableSwipeNavigation:
-                                                            false,
-                                                        document:
-                                                            snapshot.data!,
+                                                        enableSwipeNavigation: false,
+                                                        document: snapshot.data!,
                                                       ),
                                                       Container(
-                                                        color:
-                                                            Colors.transparent,
+                                                        color: Colors.transparent,
                                                       )
                                                     ],
                                                   );
                                                 }
                                                 return const Center(
-                                                  child:
-                                                      CircularProgressIndicator(),
+                                                  child: CircularProgressIndicator(),
                                                 );
                                               },
                                             );

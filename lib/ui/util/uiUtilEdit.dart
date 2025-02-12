@@ -1,6 +1,5 @@
 // Dart imports:
 import 'dart:convert';
-import 'dart:io';
 
 // Flutter imports:
 import 'package:flutter/material.dart';
@@ -11,8 +10,6 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_quill/flutter_quill.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:pdftron_flutter/pdftron_flutter.dart';
-import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 // Project imports:
 import 'package:JCSGuidelines/debug/debug_print.dart';
@@ -20,7 +17,6 @@ import 'package:JCSGuidelines/module/firebase/model_firebase_pdf_config.dart';
 import 'package:JCSGuidelines/providers/toc_provider.dart';
 import 'package:JCSGuidelines/providers/user_provider.dart';
 import 'package:JCSGuidelines/repotitory/mixin_repository_firestorage.dart';
-import 'package:JCSGuidelines/ui/util/uiUtilTile.dart';
 
 @RoutePage()
 // ignore: must_be_immutable
@@ -47,8 +43,7 @@ class UiPageUtilEdit extends HookConsumerWidget with RepositoryFireStorage {
 
     useEffect(() {
       Future<void>(() async {
-        _minor.value = _tocNotifer.searchMinorCategoryByKeyFromMajor(
-            _tocProvider, minorKey);
+        _minor.value = _tocNotifer.searchMinorCategoryByKeyFromMajor(_tocProvider, minorKey);
 
         final json = _userNotifer.getMemo(key: minorKey);
         if (json.isNotEmpty) {
@@ -76,9 +71,7 @@ class UiPageUtilEdit extends HookConsumerWidget with RepositoryFireStorage {
             icon: const Icon(Icons.save),
             onPressed: () async {
               await _userNotifer.updateMemo(
-                  key: minorKey,
-                  memo: jsonEncode(
-                      _controller.value.document.toDelta().toJson()));
+                  key: minorKey, memo: jsonEncode(_controller.value.document.toDelta().toJson()));
               FocusScope.of(context).unfocus();
               FocusScope.of(context).nextFocus();
               await Fluttertoast.showToast(

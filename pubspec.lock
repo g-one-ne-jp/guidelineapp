@@ -1061,6 +1061,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.0"
+  logger:
+    dependency: transitive
+    description:
+      name: logger
+      sha256: be4b23575aac7ebf01f225a241eb7f6b5641eeaf43c6a8613510fc2f8cf187d1
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.5.0"
   logging:
     dependency: transitive
     description:
@@ -1309,6 +1317,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.0"
+  pubspec_dependency_sorter:
+    dependency: "direct main"
+    description:
+      name: pubspec_dependency_sorter
+      sha256: d2114e92f003195de74a9ed3aeb9c59425ae9b7d637b802bb225b3fe3a4ba605
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.5"
   pubspec_parse:
     dependency: transitive
     description:
@@ -1882,6 +1898,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.1.2"
+  yaml_writer:
+    dependency: transitive
+    description:
+      name: yaml_writer
+      sha256: "2ae2cd5f5a612a930ef2b1b40df540c819ab85e301f26dfaf0b6201b857db825"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.1"
 sdks:
   dart: ">=3.5.0 <4.0.0"
   flutter: ">=3.24.0"

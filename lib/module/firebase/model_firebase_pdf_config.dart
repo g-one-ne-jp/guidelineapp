@@ -13,8 +13,7 @@ abstract class ModelFirebasePdfConfig with _$ModelFirebasePdfConfig {
     @Default({}) Map<String, MajorCategory> categories,
   }) = _ModelFirebasePdfConfig;
 
-  factory ModelFirebasePdfConfig.fromJson(Map<String, dynamic> json) =>
-      _$ModelFirebasePdfConfigFromJson(json);
+  factory ModelFirebasePdfConfig.fromJson(Map<String, dynamic> json) => _$ModelFirebasePdfConfigFromJson(json);
 }
 
 @freezed
@@ -26,8 +25,7 @@ abstract class MajorCategory with _$MajorCategory {
     @Default({}) Map<String, SubCategory> subs,
   }) = _MajorCategory;
 
-  factory MajorCategory.fromJson(Map<String, dynamic> json) =>
-      _$MajorCategoryFromJson(json);
+  factory MajorCategory.fromJson(Map<String, dynamic> json) => _$MajorCategoryFromJson(json);
 }
 
 @freezed
@@ -39,8 +37,7 @@ abstract class SubCategory with _$SubCategory {
     @Default({}) Map<String, MinorCategory> minors,
   }) = _SubCategory;
 
-  factory SubCategory.fromJson(Map<String, dynamic> json) =>
-      _$SubCategoryFromJson(json);
+  factory SubCategory.fromJson(Map<String, dynamic> json) => _$SubCategoryFromJson(json);
 }
 
 @freezed
@@ -52,8 +49,7 @@ abstract class MinorCategory with _$MinorCategory {
     @Default({}) Map<String, DetailCategory> details,
   }) = _MinorCategory;
 
-  factory MinorCategory.fromJson(Map<String, dynamic> json) =>
-      _$MinorCategoryFromJson(json);
+  factory MinorCategory.fromJson(Map<String, dynamic> json) => _$MinorCategoryFromJson(json);
 }
 
 @freezed
@@ -65,8 +61,7 @@ abstract class DetailCategory with _$DetailCategory {
     @Default({}) Map<String, Content> contents,
   }) = _DeteilCategory;
 
-  factory DetailCategory.fromJson(Map<String, dynamic> json) =>
-      _$DetailCategoryFromJson(json);
+  factory DetailCategory.fromJson(Map<String, dynamic> json) => _$DetailCategoryFromJson(json);
 }
 
 @freezed
@@ -77,8 +72,7 @@ abstract class Content with _$Content {
     @Default({}) Map<String, Settion> settions,
   }) = _Content;
 
-  factory Content.fromJson(Map<String, dynamic> json) =>
-      _$ContentFromJson(json);
+  factory Content.fromJson(Map<String, dynamic> json) => _$ContentFromJson(json);
 }
 
 @freezed
@@ -91,6 +85,5 @@ abstract class Settion with _$Settion {
     @Default([]) List<String> searchKeywords,
   }) = _Settion;
 
-  factory Settion.fromJson(Map<String, dynamic> json) =>
-      _$SettionFromJson(json);
+  factory Settion.fromJson(Map<String, dynamic> json) => _$SettionFromJson(json);
 }

@@ -64,14 +64,12 @@ mixin _$ApiResult<T> {
 
 /// @nodoc
 abstract class $ApiResultCopyWith<T, $Res> {
-  factory $ApiResultCopyWith(
-          ApiResult<T> value, $Res Function(ApiResult<T>) then) =
+  factory $ApiResultCopyWith(ApiResult<T> value, $Res Function(ApiResult<T>) then) =
       _$ApiResultCopyWithImpl<T, $Res, ApiResult<T>>;
 }
 
 /// @nodoc
-class _$ApiResultCopyWithImpl<T, $Res, $Val extends ApiResult<T>>
-    implements $ApiResultCopyWith<T, $Res> {
+class _$ApiResultCopyWithImpl<T, $Res, $Val extends ApiResult<T>> implements $ApiResultCopyWith<T, $Res> {
   _$ApiResultCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -82,17 +80,14 @@ class _$ApiResultCopyWithImpl<T, $Res, $Val extends ApiResult<T>>
 
 /// @nodoc
 abstract class _$$ApiResultImplCopyWith<T, $Res> {
-  factory _$$ApiResultImplCopyWith(
-          _$ApiResultImpl<T> value, $Res Function(_$ApiResultImpl<T>) then) =
+  factory _$$ApiResultImplCopyWith(_$ApiResultImpl<T> value, $Res Function(_$ApiResultImpl<T>) then) =
       __$$ApiResultImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$ApiResultImplCopyWithImpl<T, $Res>
-    extends _$ApiResultCopyWithImpl<T, $Res, _$ApiResultImpl<T>>
+class __$$ApiResultImplCopyWithImpl<T, $Res> extends _$ApiResultCopyWithImpl<T, $Res, _$ApiResultImpl<T>>
     implements _$$ApiResultImplCopyWith<T, $Res> {
-  __$$ApiResultImplCopyWithImpl(
-      _$ApiResultImpl<T> _value, $Res Function(_$ApiResultImpl<T>) _then)
+  __$$ApiResultImplCopyWithImpl(_$ApiResultImpl<T> _value, $Res Function(_$ApiResultImpl<T>) _then)
       : super(_value, _then);
 }
 
@@ -108,8 +103,7 @@ class _$ApiResultImpl<T> implements _ApiResult<T> {
 
   @override
   bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ApiResultImpl<T>);
+    return identical(this, other) || (other.runtimeType == runtimeType && other is _$ApiResultImpl<T>);
   }
 
   @override
@@ -190,20 +184,16 @@ abstract class _ApiResult<T> implements ApiResult<T> {
 
 /// @nodoc
 abstract class _$$SuccessImplCopyWith<T, $Res> {
-  factory _$$SuccessImplCopyWith(
-          _$SuccessImpl<T> value, $Res Function(_$SuccessImpl<T>) then) =
+  factory _$$SuccessImplCopyWith(_$SuccessImpl<T> value, $Res Function(_$SuccessImpl<T>) then) =
       __$$SuccessImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({T value});
 }
 
 /// @nodoc
-class __$$SuccessImplCopyWithImpl<T, $Res>
-    extends _$ApiResultCopyWithImpl<T, $Res, _$SuccessImpl<T>>
+class __$$SuccessImplCopyWithImpl<T, $Res> extends _$ApiResultCopyWithImpl<T, $Res, _$SuccessImpl<T>>
     implements _$$SuccessImplCopyWith<T, $Res> {
-  __$$SuccessImplCopyWithImpl(
-      _$SuccessImpl<T> _value, $Res Function(_$SuccessImpl<T>) _then)
-      : super(_value, _then);
+  __$$SuccessImplCopyWithImpl(_$SuccessImpl<T> _value, $Res Function(_$SuccessImpl<T>) _then) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -241,8 +231,7 @@ class _$SuccessImpl<T> implements Success<T> {
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
+  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
 
   @JsonKey(ignore: true)
   @override
@@ -324,26 +313,21 @@ abstract class Success<T> implements ApiResult<T> {
 
   T get value;
   @JsonKey(ignore: true)
-  _$$SuccessImplCopyWith<T, _$SuccessImpl<T>> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$SuccessImplCopyWith<T, _$SuccessImpl<T>> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$FailureImplCopyWith<T, $Res> {
-  factory _$$FailureImplCopyWith(
-          _$FailureImpl<T> value, $Res Function(_$FailureImpl<T>) then) =
+  factory _$$FailureImplCopyWith(_$FailureImpl<T> value, $Res Function(_$FailureImpl<T>) then) =
       __$$FailureImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({Object error});
 }
 
 /// @nodoc
-class __$$FailureImplCopyWithImpl<T, $Res>
-    extends _$ApiResultCopyWithImpl<T, $Res, _$FailureImpl<T>>
+class __$$FailureImplCopyWithImpl<T, $Res> extends _$ApiResultCopyWithImpl<T, $Res, _$FailureImpl<T>>
     implements _$$FailureImplCopyWith<T, $Res> {
-  __$$FailureImplCopyWithImpl(
-      _$FailureImpl<T> _value, $Res Function(_$FailureImpl<T>) _then)
-      : super(_value, _then);
+  __$$FailureImplCopyWithImpl(_$FailureImpl<T> _value, $Res Function(_$FailureImpl<T>) _then) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -378,8 +362,7 @@ class _$FailureImpl<T> implements Failure<T> {
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
 
   @JsonKey(ignore: true)
   @override
@@ -461,6 +444,5 @@ abstract class Failure<T> implements ApiResult<T> {
 
   Object get error;
   @JsonKey(ignore: true)
-  _$$FailureImplCopyWith<T, _$FailureImpl<T>> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$FailureImplCopyWith<T, _$FailureImpl<T>> get copyWith => throw _privateConstructorUsedError;
 }

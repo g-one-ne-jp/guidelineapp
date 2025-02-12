@@ -67,8 +67,7 @@ class TestFamily extends Family<AsyncValue<List<int>>> {
   static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
 
   @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies => _allTransitiveDependencies;
 
   @override
   String? get name => r'testProvider';
@@ -88,8 +87,7 @@ class TestProvider extends AutoDisposeFutureProvider<List<int>> {
           ),
           from: testProvider,
           name: r'testProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product') ? null : _$testHash,
+          debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product') ? null : _$testHash,
           dependencies: TestFamily._dependencies,
           allTransitiveDependencies: TestFamily._allTransitiveDependencies,
           category: category,
@@ -136,9 +134,7 @@ class TestProvider extends AutoDisposeFutureProvider<List<int>> {
 
   @override
   bool operator ==(Object other) {
-    return other is TestProvider &&
-        other.category == category &&
-        other.limit == limit;
+    return other is TestProvider && other.category == category && other.limit == limit;
   }
 
   @override
@@ -159,8 +155,7 @@ mixin TestRef on AutoDisposeFutureProviderRef<List<int>> {
   int get limit;
 }
 
-class _TestProviderElement extends AutoDisposeFutureProviderElement<List<int>>
-    with TestRef {
+class _TestProviderElement extends AutoDisposeFutureProviderElement<List<int>> with TestRef {
   _TestProviderElement(super.provider);
 
   @override

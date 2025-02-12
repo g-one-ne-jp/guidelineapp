@@ -29,9 +29,7 @@ mixin RepositoryFireStorage {
     if (await _fileExists(filePath) && await file.exists()) {
       debugPrint('編集済みファイルは既に存在します: ${_getLastTwoPartsOfPath(filePath)}');
       if (!isNewUpdate) {
-        islandRef = FirebaseStorage.instance
-            .ref()
-            .child(_getLastTwoPartsOfPath(filePath));
+        islandRef = FirebaseStorage.instance.ref().child(_getLastTwoPartsOfPath(filePath));
       }
       final fileLastModified = await file.lastModified();
       final storageMetadata = await islandRef.getMetadata();
@@ -120,8 +118,7 @@ mixin RepositoryFireStorage {
   }) async {
     try {
       // 取り出した要素を/で結合して新しいパスを作成
-      final storageRef =
-          FirebaseStorage.instance.ref().child(_getLastTwoPartsOfPath(path));
+      final storageRef = FirebaseStorage.instance.ref().child(_getLastTwoPartsOfPath(path));
 
       // ファイルをアップロード
       final uploadTask = storageRef.putFile(file);
@@ -131,8 +128,7 @@ mixin RepositoryFireStorage {
         switch (taskSnapshot.state) {
           case TaskState.running:
             debugPrint('アップロード中...');
-            final progress = 100.0 *
-                (taskSnapshot.bytesTransferred / taskSnapshot.totalBytes);
+            final progress = 100.0 * (taskSnapshot.bytesTransferred / taskSnapshot.totalBytes);
             debugPrint('進捗: $progress%');
             break;
           case TaskState.paused:
@@ -161,8 +157,7 @@ mixin RepositoryFireStorage {
   //
   Future<bool> _fileExists(String path) async {
     try {
-      final storageRef =
-          FirebaseStorage.instance.ref().child(_getLastTwoPartsOfPath(path));
+      final storageRef = FirebaseStorage.instance.ref().child(_getLastTwoPartsOfPath(path));
       await storageRef.getMetadata();
       return true; // ファイルが存在する
     } on FirebaseException catch (e) {

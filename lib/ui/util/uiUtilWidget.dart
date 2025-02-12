@@ -180,12 +180,12 @@ Widget uiUtilTitleDropdown({
           border: Border.all(color: Colors.grey), // 枠線の色と太さを指定
           borderRadius: BorderRadius.circular(8.0), // 角丸を追加する場合
         ),
-        padding: EdgeInsets.symmetric(horizontal: 12.0), // 内側の余白を追加
+        padding: const EdgeInsets.symmetric(horizontal: 12.0), // 内側の余白を追加
         child: DropdownButton<String>(
           value: items.contains(value) ? value : items.first, // 初期値を追加
           hint: Text(hintText),
           isExpanded: true,
-          underline: SizedBox(), // デフォルトの下線を削除
+          underline: const SizedBox(), // デフォルトの下線を削除
           items: items.map<DropdownMenuItem<String>>((String item) {
             return DropdownMenuItem<String>(
               value: item,

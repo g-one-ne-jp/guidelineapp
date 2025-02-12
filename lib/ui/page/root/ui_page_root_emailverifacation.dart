@@ -11,20 +11,17 @@ import 'package:auto_route/auto_route.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
 import 'package:JCSGuidelines/debug/debug_print.dart';
-import 'package:JCSGuidelines/ui/util/uiUtilDialog.dart';
-import 'package:JCSGuidelines/util/util_googlesingin.dart';
 
 @RoutePage()
 class UiPageEmailVerification extends HookConsumerWidget {
   const UiPageEmailVerification({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -72,7 +69,7 @@ class UiPageEmailVerification extends HookConsumerWidget {
                   Fluttertoast.showToast(msg: 'まだメール認証が完了していません。メールを確認してください。');
                 }
               },
-              child: Text('メール認証を確認したらこちら'),
+              child: const Text('メール認証を確認したらこちら'),
             ),
             SizedBox(height: 30.h),
             TextButton(
@@ -83,12 +80,11 @@ class UiPageEmailVerification extends HookConsumerWidget {
                   await user.sendEmailVerification();
                   Fluttertoast.showToast(msg: '認証メールを再送信しました。');
                 } catch (e) {
-                  Fluttertoast.showToast(
-                      msg: '認証メールの再送信に失敗しました。一定時間置いてから再度試してください');
+                  Fluttertoast.showToast(msg: '認証メールの再送信に失敗しました。一定時間置いてから再度試してください');
                   return;
                 }
               },
-              child: Text('認証メールを再送信'),
+              child: const Text('認証メールを再送信'),
             ),
           ],
         ),

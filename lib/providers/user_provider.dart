@@ -18,11 +18,9 @@ import 'package:JCSGuidelines/repotitory/mixin_repository_firestorage.dart';
 import 'package:JCSGuidelines/repotitory/mixin_repository_http.dart';
 
 // StateNotifierクラスを外部ファイルで呼び出すプロバイダー.
-final userProvider = StateNotifierProvider<ProviderUser, ModelFirebaseUser>(
-    (ref) => ProviderUser());
+final userProvider = StateNotifierProvider<ProviderUser, ModelFirebaseUser>((ref) => ProviderUser());
 
-class ProviderUser extends StateNotifier<ModelFirebaseUser>
-    with RepositoryHttp, RepositoryFile, RepositoryFireStorage {
+class ProviderUser extends StateNotifier<ModelFirebaseUser> with RepositoryHttp, RepositoryFile, RepositoryFireStorage {
   // コンストラクタ内での初期状態を設定し、非同期にデータをロードします。
   ProviderUser() : super(ModelFirebaseUser()) {
     _initializeUserData();
@@ -34,8 +32,7 @@ class ProviderUser extends StateNotifier<ModelFirebaseUser>
   var selectedData = ModelFirebaseUser();
 
   Future<void> _initializeUserData() async {
-    userData =
-        await readUser<ModelFirebaseUser>(fromJson: ModelFirebaseUser.fromJson);
+    userData = await readUser<ModelFirebaseUser>(fromJson: ModelFirebaseUser.fromJson);
 
     state = userData;
   }
@@ -87,8 +84,7 @@ class ProviderUser extends StateNotifier<ModelFirebaseUser>
 
   Future<ModelFirebasePdfConfig> readTocsJson() async {
     try {
-      final file = await downLoadData(
-          path: 'gidline/json/gidline.json', isNewUpdate: true);
+      final file = await downLoadData(path: 'gidline/json/gidline.json', isNewUpdate: true);
       // fileをMapに変換
       final json = jsonDecode(file.readAsStringSync());
       final result = ModelFirebasePdfConfig.fromJson(json);
@@ -108,8 +104,7 @@ class ProviderUser extends StateNotifier<ModelFirebaseUser>
     required bool ismailmagazine,
   }) async {
     //ユーザーデータ更新
-    userData =
-        await readUser<ModelFirebaseUser>(fromJson: ModelFirebaseUser.fromJson);
+    userData = await readUser<ModelFirebaseUser>(fromJson: ModelFirebaseUser.fromJson);
     //ユーザーデータの更新
     final updateData = userData.copyWith(
       gender: gender,
@@ -136,8 +131,7 @@ class ProviderUser extends StateNotifier<ModelFirebaseUser>
     required bool isBookmark,
   }) async {
     //ユーザーデータ更新
-    userData =
-        await readUser<ModelFirebaseUser>(fromJson: ModelFirebaseUser.fromJson);
+    userData = await readUser<ModelFirebaseUser>(fromJson: ModelFirebaseUser.fromJson);
     //ユーザーデータの更新
     final updateData = userData.copyWith(
       bookmarks: {
@@ -167,8 +161,7 @@ class ProviderUser extends StateNotifier<ModelFirebaseUser>
     required String memo,
   }) async {
     //ユーザーデータ更新
-    userData =
-        await readUser<ModelFirebaseUser>(fromJson: ModelFirebaseUser.fromJson);
+    userData = await readUser<ModelFirebaseUser>(fromJson: ModelFirebaseUser.fromJson);
     //ユーザーデータの更新
     final updateData = userData.copyWith(
       memos: {

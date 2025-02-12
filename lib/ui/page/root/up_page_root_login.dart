@@ -1,14 +1,12 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 
 // Dart imports:
-import 'dart:async';
 
 // Flutter imports:
 import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:auto_route/auto_route.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
@@ -16,15 +14,13 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
-import 'package:JCSGuidelines/debug/debug_print.dart';
-import 'package:JCSGuidelines/ui/util/uiUtilDialog.dart';
 import 'package:JCSGuidelines/util/util_googlesingin.dart';
 
 @RoutePage()
 class UiPageLogin extends HookConsumerWidget {
   const UiPageLogin({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -32,7 +28,9 @@ class UiPageLogin extends HookConsumerWidget {
     final _passwordController = useState(useTextEditingController());
     final _isPasswordVisible = useState(false);
 
-    useEffect(() {}, []);
+    useEffect(() {
+      return null;
+    }, []);
 
     return Scaffold(
       appBar: AppBar(title: const Text('ログイン')),
@@ -62,9 +60,7 @@ class UiPageLogin extends HookConsumerWidget {
                       hintText: 'パスワード',
                       suffixIcon: IconButton(
                         icon: Icon(
-                          _isPasswordVisible.value
-                              ? Icons.visibility
-                              : Icons.visibility_off,
+                          _isPasswordVisible.value ? Icons.visibility : Icons.visibility_off,
                         ),
                         onPressed: () {
                           _isPasswordVisible.value = !_isPasswordVisible.value;
@@ -103,7 +99,7 @@ class UiPageLogin extends HookConsumerWidget {
                         FocusScope.of(context).unfocus();
                       });
                     },
-                    child: Text('ログイン'),
+                    child: const Text('ログイン'),
                   ),
                 ),
                 //
@@ -119,7 +115,7 @@ class UiPageLogin extends HookConsumerWidget {
                   onPressed: () async {
                     context.router.pushNamed('/singup');
                   },
-                  child: Text('アカウント登録はこちら'),
+                  child: const Text('アカウント登録はこちら'),
                 ),
                 //パスワードをわすれた場合
                 TextButton(
@@ -133,21 +129,21 @@ class UiPageLogin extends HookConsumerWidget {
                       context: context,
                       builder: (BuildContext context) {
                         return AlertDialog(
-                          title: Text('メールアドレスを入力してください'),
+                          title: const Text('メールアドレスを入力してください'),
                           content: TextField(
                             controller: emailController,
-                            decoration: InputDecoration(hintText: 'メールアドレス'),
+                            decoration: const InputDecoration(hintText: 'メールアドレス'),
                             autofocus: true, // AlertDialogが表示されたらすぐにfocusを当てる
                           ),
                           actions: <Widget>[
                             TextButton(
-                              child: Text('キャンセル'),
+                              child: const Text('キャンセル'),
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
                             ),
                             TextButton(
-                              child: Text('送信'),
+                              child: const Text('送信'),
                               onPressed: () {
                                 Navigator.of(context).pop(emailController.text);
                               },
@@ -163,7 +159,7 @@ class UiPageLogin extends HookConsumerWidget {
                       return;
                     }
 
-                    final emailPattern = r'^[^@]+@[^@]+\.[^@]+';
+                    const emailPattern = r'^[^@]+@[^@]+\.[^@]+';
                     final regExp = RegExp(emailPattern);
 
                     if (!regExp.hasMatch(emailController.text)) {
@@ -185,7 +181,7 @@ class UiPageLogin extends HookConsumerWidget {
                       });
                     }
                   },
-                  child: Text('パスワードを忘れた方'),
+                  child: const Text('パスワードを忘れた方'),
                 ),
 
                 // Goolgwサインインボタン
@@ -203,8 +199,7 @@ class UiPageLogin extends HookConsumerWidget {
                       ),
                       elevation: 0, // 影をなくす
                       onPressed: () async {
-                        utilGoogleSignin(context: context)
-                            .then((onValue) async {
+                        utilGoogleSignin(context: context).then((onValue) async {
                           if (onValue.isNotEmpty) {
                             await Fluttertoast.showToast(
                               msg: onValue,
