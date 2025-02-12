@@ -1,7 +1,6 @@
 // @riverpod アノテーションは `riverpod_annotation` をインポートして使います
 
 // Package imports:
-import 'package:dio/dio.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'stateNotiferSample.g.dart';

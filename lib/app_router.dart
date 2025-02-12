@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:auto_route/auto_route.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 
 // Project imports:
 import 'package:JCSGuidelines/ui/page/home/tab/ui_page_home_catalog_tab_bookmark.dart';
@@ -42,10 +41,8 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: UiRouteHome.page, path: '/home'),
         AutoRoute(page: UiRouteSingup.page, path: '/singup'),
         AutoRoute(page: UiRouteProfileCreate.page, path: '/profileCreate'),
-        AutoRoute(
-            page: UiRouteEmailVerification.page, path: '/emailVerification'),
-        AutoRoute(
-            page: UiRouteUtilEdit.page, path: '/edit/:minorKey/:viewTypeMemo'),
+        AutoRoute(page: UiRouteEmailVerification.page, path: '/emailVerification'),
+        AutoRoute(page: UiRouteUtilEdit.page, path: '/edit/:minorKey/:viewTypeMemo'),
 
         AutoRoute(
           page: UiRouteHomeCatalog.page,
@@ -59,21 +56,16 @@ class AppRouter extends _$AppRouter {
               page: UiRouteHomeCatalogTabSearch.page,
               path: 'catalogTab2',
             ),
-            AutoRoute(
-                page: UiRouteHomeCatalogTabMemo.page, path: 'catalogTab3'),
-            AutoRoute(
-                page: UiRouteHomeCatalogTabBookmark.page, path: 'catalogTab4'),
-            AutoRoute(
-                page: UiRouteHomeCatalogTabMypage.page, path: 'catalogTab5'),
+            AutoRoute(page: UiRouteHomeCatalogTabMemo.page, path: 'catalogTab3'),
+            AutoRoute(page: UiRouteHomeCatalogTabBookmark.page, path: 'catalogTab4'),
+            AutoRoute(page: UiRouteHomeCatalogTabMypage.page, path: 'catalogTab5'),
           ],
         ),
         AutoRoute(
           page: UiRouteHomeCatalogTabHomeTOC.page,
           path: '/toc',
         ),
-        AutoRoute(
-            page: UiRouteHomeCatalogTabHomeMinor.page,
-            path: '/tabHomeMinor/:minorKey/:viewTypeMemo'),
+        AutoRoute(page: UiRouteHomeCatalogTabHomeMinor.page, path: '/tabHomeMinor/:minorKey/:viewTypeMemo'),
       ];
 }
 

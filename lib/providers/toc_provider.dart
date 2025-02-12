@@ -1,9 +1,6 @@
 // Dart imports:
 import 'dart:async';
 
-// Flutter imports:
-import 'package:flutter/material.dart';
-
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -12,14 +9,16 @@ import 'package:JCSGuidelines/module/firebase/model_firebase_pdf_config.dart';
 import 'package:JCSGuidelines/repotitory/mixin_repository_file.dart';
 import 'package:JCSGuidelines/repotitory/mixin_repository_http.dart';
 
-// StateNotifierクラスを外部ファイルで呼び出すプロバイダー.
-final tocProvider =
-    StateNotifierProvider<ProviderToc, MajorCategory>((ref) => ProviderToc());
+// Flutter imports:
 
-class ProviderToc extends StateNotifier<MajorCategory>
-    with RepositoryHttp, RepositoryFile {
+
+
+// StateNotifierクラスを外部ファイルで呼び出すプロバイダー.
+final tocProvider = StateNotifierProvider<ProviderToc, MajorCategory>((ref) => ProviderToc());
+
+class ProviderToc extends StateNotifier<MajorCategory> with RepositoryHttp, RepositoryFile {
   // コンストラクタ内での初期状態を設定し、非同期にデータをロードします。
-  ProviderToc() : super(MajorCategory()) {}
+  ProviderToc() : super(MajorCategory());
 
   Future<void> writeToc({
     required MajorCategory data,
@@ -29,8 +28,7 @@ class ProviderToc extends StateNotifier<MajorCategory>
   }
 
   // MajorCategoryからデータを読み込むメソッド(minorKeyを指定してMinorCategoryを取得)
-  MinorCategory searchMinorCategoryByKeyFromMajor(
-      MajorCategory majorCategory, String minorKey) {
+  MinorCategory searchMinorCategoryByKeyFromMajor(MajorCategory majorCategory, String minorKey) {
     for (var sub in majorCategory.subs.values) {
       for (var minor in sub.minors.values) {
         if (minor.minorKey == minorKey) {
@@ -44,8 +42,7 @@ class ProviderToc extends StateNotifier<MajorCategory>
   }
 
   // MajorCategoryからデータを読み込むメソッド(detailKeyを指定してDetailCategoryを取得)
-  DetailCategory searchDetailCategoryByKeyFromMajor(
-      MajorCategory majorCategory, String detailKey) {
+  DetailCategory searchDetailCategoryByKeyFromMajor(MajorCategory majorCategory, String detailKey) {
     for (var sub in majorCategory.subs.values) {
       for (var minor in sub.minors.values) {
         for (var detail in minor.details.values) {
@@ -61,8 +58,7 @@ class ProviderToc extends StateNotifier<MajorCategory>
   }
 
   // MajorCategoryからデータを読み込むメソッド(detailKeyを指定してminorKeyを取得)
-  String searchminorKeyFromDetailKeyFromMajor(
-      MajorCategory majorCategory, String detailKey) {
+  String searchminorKeyFromDetailKeyFromMajor(MajorCategory majorCategory, String detailKey) {
     for (var sub in majorCategory.subs.values) {
       for (var minor in sub.minors.values) {
         for (var detail in minor.details.values) {

@@ -22,32 +22,29 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     UiRouteHome.name: (routeData) {
-      final args = routeData.argsAs<UiRouteHomeArgs>(
-          orElse: () => const UiRouteHomeArgs());
+      final args = routeData.argsAs<UiRouteHomeArgs>(orElse: () => const UiRouteHomeArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: UiPageHome(key: args.key),
       );
     },
     UiRouteHomeCatalog.name: (routeData) {
-      final args = routeData.argsAs<UiRouteHomeCatalogArgs>(
-          orElse: () => const UiRouteHomeCatalogArgs());
+      final args = routeData.argsAs<UiRouteHomeCatalogArgs>(orElse: () => const UiRouteHomeCatalogArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: UiPageHomeCatalog(key: args.key),
       );
     },
     UiRouteHomeCatalogTabBookmark.name: (routeData) {
-      final args = routeData.argsAs<UiRouteHomeCatalogTabBookmarkArgs>(
-          orElse: () => const UiRouteHomeCatalogTabBookmarkArgs());
+      final args =
+          routeData.argsAs<UiRouteHomeCatalogTabBookmarkArgs>(orElse: () => const UiRouteHomeCatalogTabBookmarkArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: UiPageHomeCatalogTabBookmark(key: args.key),
       );
     },
     UiRouteHomeCatalogTabHome.name: (routeData) {
-      final args = routeData.argsAs<UiRouteHomeCatalogTabHomeArgs>(
-          orElse: () => const UiRouteHomeCatalogTabHomeArgs());
+      final args = routeData.argsAs<UiRouteHomeCatalogTabHomeArgs>(orElse: () => const UiRouteHomeCatalogTabHomeArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: UiPageHomeCatalogTabHome(key: args.key),
@@ -70,8 +67,8 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     UiRouteHomeCatalogTabHomeTOC.name: (routeData) {
-      final args = routeData.argsAs<UiRouteHomeCatalogTabHomeTOCArgs>(
-          orElse: () => const UiRouteHomeCatalogTabHomeTOCArgs());
+      final args =
+          routeData.argsAs<UiRouteHomeCatalogTabHomeTOCArgs>(orElse: () => const UiRouteHomeCatalogTabHomeTOCArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: UiPageHomeCatalogTabHomeTOC(key: args.key),
@@ -84,8 +81,8 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     UiRouteHomeCatalogTabMypage.name: (routeData) {
-      final args = routeData.argsAs<UiRouteHomeCatalogTabMypageArgs>(
-          orElse: () => const UiRouteHomeCatalogTabMypageArgs());
+      final args =
+          routeData.argsAs<UiRouteHomeCatalogTabMypageArgs>(orElse: () => const UiRouteHomeCatalogTabMypageArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: UiPageHomeCatalogTabMypage(key: args.key),
@@ -104,8 +101,7 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     UiRouteProfileCreate.name: (routeData) {
-      final args = routeData.argsAs<UiRouteProfileCreateArgs>(
-          orElse: () => const UiRouteProfileCreateArgs());
+      final args = routeData.argsAs<UiRouteProfileCreateArgs>(orElse: () => const UiRouteProfileCreateArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: UiPageProfileCreate(key: args.key),
@@ -192,8 +188,7 @@ class UiRouteHomeCatalog extends PageRouteInfo<UiRouteHomeCatalogArgs> {
 
   static const String name = 'UiRouteHomeCatalog';
 
-  static const PageInfo<UiRouteHomeCatalogArgs> page =
-      PageInfo<UiRouteHomeCatalogArgs>(name);
+  static const PageInfo<UiRouteHomeCatalogArgs> page = PageInfo<UiRouteHomeCatalogArgs>(name);
 }
 
 class UiRouteHomeCatalogArgs {
@@ -209,8 +204,7 @@ class UiRouteHomeCatalogArgs {
 
 /// generated route for
 /// [UiPageHomeCatalogTabBookmark]
-class UiRouteHomeCatalogTabBookmark
-    extends PageRouteInfo<UiRouteHomeCatalogTabBookmarkArgs> {
+class UiRouteHomeCatalogTabBookmark extends PageRouteInfo<UiRouteHomeCatalogTabBookmarkArgs> {
   UiRouteHomeCatalogTabBookmark({
     Key? key,
     List<PageRouteInfo>? children,
@@ -222,8 +216,7 @@ class UiRouteHomeCatalogTabBookmark
 
   static const String name = 'UiRouteHomeCatalogTabBookmark';
 
-  static const PageInfo<UiRouteHomeCatalogTabBookmarkArgs> page =
-      PageInfo<UiRouteHomeCatalogTabBookmarkArgs>(name);
+  static const PageInfo<UiRouteHomeCatalogTabBookmarkArgs> page = PageInfo<UiRouteHomeCatalogTabBookmarkArgs>(name);
 }
 
 class UiRouteHomeCatalogTabBookmarkArgs {
@@ -239,8 +232,7 @@ class UiRouteHomeCatalogTabBookmarkArgs {
 
 /// generated route for
 /// [UiPageHomeCatalogTabHome]
-class UiRouteHomeCatalogTabHome
-    extends PageRouteInfo<UiRouteHomeCatalogTabHomeArgs> {
+class UiRouteHomeCatalogTabHome extends PageRouteInfo<UiRouteHomeCatalogTabHomeArgs> {
   UiRouteHomeCatalogTabHome({
     Key? key,
     List<PageRouteInfo>? children,
@@ -252,8 +244,7 @@ class UiRouteHomeCatalogTabHome
 
   static const String name = 'UiRouteHomeCatalogTabHome';
 
-  static const PageInfo<UiRouteHomeCatalogTabHomeArgs> page =
-      PageInfo<UiRouteHomeCatalogTabHomeArgs>(name);
+  static const PageInfo<UiRouteHomeCatalogTabHomeArgs> page = PageInfo<UiRouteHomeCatalogTabHomeArgs>(name);
 }
 
 class UiRouteHomeCatalogTabHomeArgs {
@@ -269,8 +260,7 @@ class UiRouteHomeCatalogTabHomeArgs {
 
 /// generated route for
 /// [UiPageHomeCatalogTabHomeMinor]
-class UiRouteHomeCatalogTabHomeMinor
-    extends PageRouteInfo<UiRouteHomeCatalogTabHomeMinorArgs> {
+class UiRouteHomeCatalogTabHomeMinor extends PageRouteInfo<UiRouteHomeCatalogTabHomeMinorArgs> {
   UiRouteHomeCatalogTabHomeMinor({
     Key? key,
     required String minorKey,
@@ -292,8 +282,7 @@ class UiRouteHomeCatalogTabHomeMinor
 
   static const String name = 'UiRouteHomeCatalogTabHomeMinor';
 
-  static const PageInfo<UiRouteHomeCatalogTabHomeMinorArgs> page =
-      PageInfo<UiRouteHomeCatalogTabHomeMinorArgs>(name);
+  static const PageInfo<UiRouteHomeCatalogTabHomeMinorArgs> page = PageInfo<UiRouteHomeCatalogTabHomeMinorArgs>(name);
 }
 
 class UiRouteHomeCatalogTabHomeMinorArgs {
@@ -317,8 +306,7 @@ class UiRouteHomeCatalogTabHomeMinorArgs {
 
 /// generated route for
 /// [UiPageHomeCatalogTabHomeTOC]
-class UiRouteHomeCatalogTabHomeTOC
-    extends PageRouteInfo<UiRouteHomeCatalogTabHomeTOCArgs> {
+class UiRouteHomeCatalogTabHomeTOC extends PageRouteInfo<UiRouteHomeCatalogTabHomeTOCArgs> {
   UiRouteHomeCatalogTabHomeTOC({
     Key? key,
     List<PageRouteInfo>? children,
@@ -330,8 +318,7 @@ class UiRouteHomeCatalogTabHomeTOC
 
   static const String name = 'UiRouteHomeCatalogTabHomeTOC';
 
-  static const PageInfo<UiRouteHomeCatalogTabHomeTOCArgs> page =
-      PageInfo<UiRouteHomeCatalogTabHomeTOCArgs>(name);
+  static const PageInfo<UiRouteHomeCatalogTabHomeTOCArgs> page = PageInfo<UiRouteHomeCatalogTabHomeTOCArgs>(name);
 }
 
 class UiRouteHomeCatalogTabHomeTOCArgs {
@@ -361,8 +348,7 @@ class UiRouteHomeCatalogTabMemo extends PageRouteInfo<void> {
 
 /// generated route for
 /// [UiPageHomeCatalogTabMypage]
-class UiRouteHomeCatalogTabMypage
-    extends PageRouteInfo<UiRouteHomeCatalogTabMypageArgs> {
+class UiRouteHomeCatalogTabMypage extends PageRouteInfo<UiRouteHomeCatalogTabMypageArgs> {
   UiRouteHomeCatalogTabMypage({
     Key? key,
     List<PageRouteInfo>? children,
@@ -374,8 +360,7 @@ class UiRouteHomeCatalogTabMypage
 
   static const String name = 'UiRouteHomeCatalogTabMypage';
 
-  static const PageInfo<UiRouteHomeCatalogTabMypageArgs> page =
-      PageInfo<UiRouteHomeCatalogTabMypageArgs>(name);
+  static const PageInfo<UiRouteHomeCatalogTabMypageArgs> page = PageInfo<UiRouteHomeCatalogTabMypageArgs>(name);
 }
 
 class UiRouteHomeCatalogTabMypageArgs {
@@ -431,8 +416,7 @@ class UiRouteProfileCreate extends PageRouteInfo<UiRouteProfileCreateArgs> {
 
   static const String name = 'UiRouteProfileCreate';
 
-  static const PageInfo<UiRouteProfileCreateArgs> page =
-      PageInfo<UiRouteProfileCreateArgs>(name);
+  static const PageInfo<UiRouteProfileCreateArgs> page = PageInfo<UiRouteProfileCreateArgs>(name);
 }
 
 class UiRouteProfileCreateArgs {
@@ -484,8 +468,7 @@ class UiRouteUtilEdit extends PageRouteInfo<UiRouteUtilEditArgs> {
 
   static const String name = 'UiRouteUtilEdit';
 
-  static const PageInfo<UiRouteUtilEditArgs> page =
-      PageInfo<UiRouteUtilEditArgs>(name);
+  static const PageInfo<UiRouteUtilEditArgs> page = PageInfo<UiRouteUtilEditArgs>(name);
 }
 
 class UiRouteUtilEditArgs {

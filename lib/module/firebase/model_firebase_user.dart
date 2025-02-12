@@ -21,8 +21,7 @@ abstract class ModelFirebaseUser with _$ModelFirebaseUser {
     @Default({}) Map<String, bool> bookmarks,
   }) = _ModelFirebaseUser;
 
-  factory ModelFirebaseUser.fromJson(Map<String, dynamic> json) =>
-      _$ModelFirebaseUserFromJson(json);
+  factory ModelFirebaseUser.fromJson(Map<String, dynamic> json) => _$ModelFirebaseUserFromJson(json);
 }
 
 @unfreezed
@@ -32,6 +31,5 @@ abstract class EditItem with _$EditItem {
     @Default('') String markdown,
   }) = _EditItem;
 
-  factory EditItem.fromJson(Map<String, dynamic> json) =>
-      _$EditItemFromJson(json);
+  factory EditItem.fromJson(Map<String, dynamic> json) => _$EditItemFromJson(json);
 }

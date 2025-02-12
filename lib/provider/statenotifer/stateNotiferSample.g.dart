@@ -13,8 +13,7 @@ String _$countHash() => r'b2702e1b03c555c55f544084ce908bd0342c31c9';
 final countProvider = AutoDisposeNotifierProvider<Count, int>.internal(
   Count.new,
   name: r'countProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$countHash,
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product') ? null : _$countHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );

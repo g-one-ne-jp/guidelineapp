@@ -15,9 +15,9 @@ import 'package:JCSGuidelines/providers/user_provider.dart';
 
 @RoutePage()
 class UiPageHomeCatalogTabBookmark extends HookConsumerWidget {
-  UiPageHomeCatalogTabBookmark({
-    Key? key,
-  }) : super(key: key);
+  const UiPageHomeCatalogTabBookmark({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -32,27 +32,20 @@ class UiPageHomeCatalogTabBookmark extends HookConsumerWidget {
     // データ取得ロジックを関数に分離
     Future<void> fetchBookmarkedItems() async {
       // ユーザーデータを読み込み
-      final user = await _userNotifer.readUser<ModelFirebaseUser>(
-          fromJson: ModelFirebaseUser.fromJson);
+      final user = await _userNotifer.readUser<ModelFirebaseUser>(fromJson: ModelFirebaseUser.fromJson);
 
       // ブックマークが true のものを取得
       final bookmarks = user.bookmarks;
-      final bookmarkedKeys = bookmarks.entries
-          .where((entry) => entry.value == true)
-          .map((entry) => entry.key)
-          .toList();
+      final bookmarkedKeys = bookmarks.entries.where((entry) => entry.value == true).map((entry) => entry.key).toList();
 
       // Firestore からブックマークされたアイテムを取得
-      final bookmarkedItemsList =
-          await Future.wait(bookmarkedKeys.map((key) async {
-        final doc =
-            _tocNotifer.searchMinorCategoryByKeyFromMajor(_tocProvider, key);
+      final bookmarkedItemsList = await Future.wait(bookmarkedKeys.map((key) async {
+        final doc = _tocNotifer.searchMinorCategoryByKeyFromMajor(_tocProvider, key);
         return MapEntry(key, doc);
       }));
 
       // リストをマップに変換
-      final bookmarkedItems =
-          Map<String, MinorCategory>.fromEntries(bookmarkedItemsList);
+      final bookmarkedItems = Map<String, MinorCategory>.fromEntries(bookmarkedItemsList);
 
       _bookmarkedItems.value = bookmarkedItems;
     }
@@ -106,7 +99,7 @@ class UiPageHomeCatalogTabBookmark extends HookConsumerWidget {
                         subtitle: Text(item?.minorSummary ?? 'No Summary'),
                         onTap: () async {
                           await context.router.pushNamed(
-                            '/tabHomeMinor/${key}/false',
+                            '/tabHomeMinor/$key/false',
                           );
                           await fetchBookmarkedItems();
                         },

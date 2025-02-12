@@ -64,8 +64,7 @@ mixin RepositoryHttp {
       dio!.httpClientAdapter = IOHttpClientAdapter(
         createHttpClient: () {
           // Don't trust any certificate just because their root cert is trusted.
-          final HttpClient client =
-              HttpClient(context: SecurityContext(withTrustedRoots: false));
+          final HttpClient client = HttpClient(context: SecurityContext(withTrustedRoots: false));
           // You can test the intermediate / root cert here. We just ignore it.
           client.badCertificateCallback = (cert, host, port) => true;
           return client;
@@ -146,8 +145,7 @@ mixin RepositoryHttp {
       final data = fromJson(response.data);
       var endTime = DateTime.now(); // 終了時のタイムスタンプを取得
       var elapsedTime = endTime.difference(startTime); // 通信時間を計算
-      customDebugPrint(
-          'Elapsed time: ${elapsedTime.inMilliseconds} ms   Get:$uri');
+      customDebugPrint('Elapsed time: ${elapsedTime.inMilliseconds} ms   Get:$uri');
 
       return ApiResult.success(data);
     } on Exception catch (error) {
@@ -195,8 +193,7 @@ mixin RepositoryHttp {
 
       var endTime = DateTime.now(); // 終了時のタイムスタンプを取得
       var elapsedTime = endTime.difference(startTime); // 通信時間を計算
-      customDebugPrint(
-          'Elapsed time: ${elapsedTime.inMilliseconds} ms   post:$uri');
+      customDebugPrint('Elapsed time: ${elapsedTime.inMilliseconds} ms   post:$uri');
 
       return ApiResult.success(fromJson(response.data));
     } on Exception catch (error) {
@@ -246,8 +243,7 @@ mixin RepositoryHttp {
 
       var endTime = DateTime.now(); // 終了時のタイムスタンプを取得
       var elapsedTime = endTime.difference(startTime); // 通信時間を計算
-      customDebugPrint(
-          'Elapsed time: ${elapsedTime.inMilliseconds} ms   delete:$uri');
+      customDebugPrint('Elapsed time: ${elapsedTime.inMilliseconds} ms   delete:$uri');
 
       return ApiResult.success(data as T);
     } on Exception catch (error) {
@@ -297,8 +293,7 @@ mixin RepositoryHttp {
 
       var endTime = DateTime.now(); // 終了時のタイムスタンプを取得
       var elapsedTime = endTime.difference(startTime); // 通信時間を計算
-      customDebugPrint(
-          'Elapsed time: ${elapsedTime.inMilliseconds} ms   put:$uri');
+      customDebugPrint('Elapsed time: ${elapsedTime.inMilliseconds} ms   put:$uri');
       return ApiResult.success(data);
     } on Exception catch (error) {
       return _checkError(

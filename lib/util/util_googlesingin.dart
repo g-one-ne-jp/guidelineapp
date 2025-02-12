@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 // Project imports:
@@ -22,8 +21,7 @@ Future<String> utilGoogleSignin({required BuildContext context}) async {
       idToken: googleAuth?.idToken,
     );
     //サインイン実行
-    UserCredential userCredential =
-        await FirebaseAuth.instance.signInWithCredential(credential);
+    UserCredential userCredential = await FirebaseAuth.instance.signInWithCredential(credential);
     uiUtilhideProgress(context);
     if (userCredential.additionalUserInfo!.isNewUser) {
       //新規ユーザーの場合の処理
@@ -39,10 +37,7 @@ Future<String> utilGoogleSignin({required BuildContext context}) async {
 }
 
 //メール/パスワードでアカウント作成aa
-Future<String> utilAuthSignup(
-    {required String email,
-    required String password,
-    required BuildContext context}) async {
+Future<String> utilAuthSignup({required String email, required String password, required BuildContext context}) async {
   //タップされたらプログレスを表示
   uiUtilshowProgress(context);
   try {
@@ -54,15 +49,13 @@ Future<String> utilAuthSignup(
       uiUtilhideProgress(context);
       return 'パスワードを入力してください。';
     }
-    if (!RegExp(
-            r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#+^()-])[A-Za-z\d@$!%*?&#+^()-]{8,}$')
+    if (!RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#+^()-])[A-Za-z\d@$!%*?&#+^()-]{8,}$')
         .hasMatch(password)) {
       uiUtilhideProgress(context);
       return 'パスワードは大文字小文字英字、数字、記号の組み合わせで8文字以上にしてください。';
     }
 
-    final result = await FirebaseAuth.instance
-        .createUserWithEmailAndPassword(email: email, password: password);
+    final result = await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email, password: password);
     uiUtilhideProgress(context);
     if (result.user != null) {
       debugPrint("ログインしました　${result.user!.email} , ${result.user!.uid}");
@@ -78,10 +71,7 @@ Future<String> utilAuthSignup(
 }
 
 //メール/パスワードでログイン
-Future<String> utilAuthLogin(
-    {required String email,
-    required String password,
-    required BuildContext context}) async {
+Future<String> utilAuthLogin({required String email, required String password, required BuildContext context}) async {
   //タップされたらプログレスを表示
   uiUtilshowProgress(context);
   if (email.isEmpty) {
@@ -92,17 +82,13 @@ Future<String> utilAuthLogin(
     uiUtilhideProgress(context);
     return 'パスワードを入力してください。';
   }
-  if (!RegExp(
-          r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#+^()-])[A-Za-z\d@$!%*?&#+^()-]{8,}$')
-      .hasMatch(password)) {
+  if (!RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#+^()-])[A-Za-z\d@$!%*?&#+^()-]{8,}$').hasMatch(password)) {
     uiUtilhideProgress(context);
     return 'パスワードは大文字小文字英字、数字、記号の組み合わせで8文字以上にしてください。';
   }
   try {
     // メール/パスワードでログイン
-    final User? user = (await FirebaseAuth.instance
-            .signInWithEmailAndPassword(email: email, password: password))
-        .user;
+    final User? user = (await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password)).user;
     uiUtilhideProgress(context);
     //ログイン成功
     if (user != null) {
@@ -141,8 +127,7 @@ String _errorCoce({FirebaseAuthException? e}) {
       case 'weak-password':
         return 'パスワードは大文字小文字英字、数字、記号の組み合わせで8文字以上にしてください。';
       case 'unknown':
-        if (e.message! ==
-            '[Password must contain a non-alphanumeric character]') {
+        if (e.message! == '[Password must contain a non-alphanumeric character]') {
           return 'パスワードで使用できない特殊文字が含まれております。 使用できる特殊文字はこちらになります。" ^ \$ * . [ ] { } ( ) ? " ! @ # % & / \\ , > < \' : ; | _ ~ ` " ';
         }
 
@@ -167,8 +152,7 @@ Future<bool> utilAuthLogout() async {
 }
 
 //パスワードリセット
-Future<String> uitlAuthEmeailPasswordReset(
-    {required String email, required BuildContext context}) async {
+Future<String> uitlAuthEmeailPasswordReset({required String email, required BuildContext context}) async {
   try {
     await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
     return 'パスワードリセット確認メールを送信しました。';
@@ -189,8 +173,7 @@ Future<String> uitlAuthEmeailPasswordReset(
 }
 
 //パスワードリセット
-Future<String> uitlAuthLoggedInPasswordReset(
-    {required BuildContext context}) async {
+Future<String> uitlAuthLoggedInPasswordReset({required BuildContext context}) async {
   //タップされたらプログレスを表示
   uiUtilshowProgress(context);
 
@@ -210,8 +193,7 @@ Future<String> uitlAuthLoggedInPasswordReset(
 Future<bool> utilAuthIsAccountNotRegistered(String email) async {
   var a = 0;
   try {
-    final methods =
-        await FirebaseAuth.instance.fetchSignInMethodsForEmail(email);
+    final methods = await FirebaseAuth.instance.fetchSignInMethodsForEmail(email);
     return methods.isEmpty;
   } catch (e) {
     return false;

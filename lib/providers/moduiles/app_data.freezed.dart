@@ -30,15 +30,13 @@ mixin _$AppData {
 
 /// @nodoc
 abstract class $AppDataCopyWith<$Res> {
-  factory $AppDataCopyWith(AppData value, $Res Function(AppData) then) =
-      _$AppDataCopyWithImpl<$Res, AppData>;
+  factory $AppDataCopyWith(AppData value, $Res Function(AppData) then) = _$AppDataCopyWithImpl<$Res, AppData>;
   @useResult
   $Res call({bool isTemplate});
 }
 
 /// @nodoc
-class _$AppDataCopyWithImpl<$Res, $Val extends AppData>
-    implements $AppDataCopyWith<$Res> {
+class _$AppDataCopyWithImpl<$Res, $Val extends AppData> implements $AppDataCopyWith<$Res> {
   _$AppDataCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -62,8 +60,7 @@ class _$AppDataCopyWithImpl<$Res, $Val extends AppData>
 
 /// @nodoc
 abstract class _$$AppDataImplCopyWith<$Res> implements $AppDataCopyWith<$Res> {
-  factory _$$AppDataImplCopyWith(
-          _$AppDataImpl value, $Res Function(_$AppDataImpl) then) =
+  factory _$$AppDataImplCopyWith(_$AppDataImpl value, $Res Function(_$AppDataImpl) then) =
       __$$AppDataImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -71,12 +68,9 @@ abstract class _$$AppDataImplCopyWith<$Res> implements $AppDataCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$AppDataImplCopyWithImpl<$Res>
-    extends _$AppDataCopyWithImpl<$Res, _$AppDataImpl>
+class __$$AppDataImplCopyWithImpl<$Res> extends _$AppDataCopyWithImpl<$Res, _$AppDataImpl>
     implements _$$AppDataImplCopyWith<$Res> {
-  __$$AppDataImplCopyWithImpl(
-      _$AppDataImpl _value, $Res Function(_$AppDataImpl) _then)
-      : super(_value, _then);
+  __$$AppDataImplCopyWithImpl(_$AppDataImpl _value, $Res Function(_$AppDataImpl) _then) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -97,8 +91,7 @@ class __$$AppDataImplCopyWithImpl<$Res>
 class _$AppDataImpl implements _AppData {
   _$AppDataImpl([this.isTemplate = false]);
 
-  factory _$AppDataImpl.fromJson(Map<String, dynamic> json) =>
-      _$$AppDataImplFromJson(json);
+  factory _$AppDataImpl.fromJson(Map<String, dynamic> json) => _$$AppDataImplFromJson(json);
 
   @override
   @JsonKey()
@@ -112,8 +105,7 @@ class _$AppDataImpl implements _AppData {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AppDataImplCopyWith<_$AppDataImpl> get copyWith =>
-      __$$AppDataImplCopyWithImpl<_$AppDataImpl>(this, _$identity);
+  _$$AppDataImplCopyWith<_$AppDataImpl> get copyWith => __$$AppDataImplCopyWithImpl<_$AppDataImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -133,6 +125,5 @@ abstract class _AppData implements AppData {
   set isTemplate(bool value);
   @override
   @JsonKey(ignore: true)
-  _$$AppDataImplCopyWith<_$AppDataImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$AppDataImplCopyWith<_$AppDataImpl> get copyWith => throw _privateConstructorUsedError;
 }

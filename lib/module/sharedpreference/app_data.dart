@@ -14,6 +14,5 @@ abstract class AppData with _$AppData {
     @Default('') String selectDeviceId,
   }) = _AppData;
 
-  factory AppData.fromJson(Map<String, dynamic> json) =>
-      _$AppDataFromJson(json);
+  factory AppData.fromJson(Map<String, dynamic> json) => _$AppDataFromJson(json);
 }

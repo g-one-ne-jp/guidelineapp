@@ -1,14 +1,12 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 
 // Dart imports:
-import 'dart:async';
 
 // Flutter imports:
 import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:auto_route/auto_route.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
@@ -16,15 +14,13 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
-import 'package:JCSGuidelines/debug/debug_print.dart';
-import 'package:JCSGuidelines/ui/util/uiUtilDialog.dart';
 import 'package:JCSGuidelines/util/util_googlesingin.dart';
 
 @RoutePage()
 class UiPageSingup extends HookConsumerWidget {
   const UiPageSingup({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -32,7 +28,9 @@ class UiPageSingup extends HookConsumerWidget {
     final _passwordController = useState(useTextEditingController());
     final _isPasswordVisible = useState(false);
 
-    useEffect(() {}, []);
+    useEffect(() {
+      return null;
+    }, []);
 
     return Scaffold(
       appBar: AppBar(title: const Text('JCSガイドラインアプリ')),
@@ -54,7 +52,7 @@ class UiPageSingup extends HookConsumerWidget {
                 SizedBox(
                   height: 8.0.h,
                 ),
-                Container(
+                SizedBox(
                   height: 150.0.h, // Set a fixed height for the container
                   child: SingleChildScrollView(
                     child: Text(
@@ -83,8 +81,7 @@ class UiPageSingup extends HookConsumerWidget {
                   controller: _emailController.value,
                   decoration: InputDecoration(
                     hintText: 'Email',
-                    hintStyle:
-                        const TextStyle(color: Colors.grey), // hintの文字色をグレーに設定
+                    hintStyle: const TextStyle(color: Colors.grey), // hintの文字色をグレーに設定
                     border: OutlineInputBorder(
                       borderSide: const BorderSide(color: Colors.grey),
                       borderRadius: BorderRadius.circular(10.0.r), // 角丸の半径を指定
@@ -102,8 +99,7 @@ class UiPageSingup extends HookConsumerWidget {
                   controller: _passwordController.value,
                   decoration: InputDecoration(
                     hintText: 'パスワード',
-                    hintStyle:
-                        const TextStyle(color: Colors.grey), // hintの文字色をグレーに設定
+                    hintStyle: const TextStyle(color: Colors.grey), // hintの文字色をグレーに設定
                     border: OutlineInputBorder(
                       borderSide: const BorderSide(color: Colors.grey),
                       borderRadius: BorderRadius.circular(10.0.r), // 角丸の半径を指定
@@ -112,9 +108,7 @@ class UiPageSingup extends HookConsumerWidget {
                     fillColor: Colors.grey[100], // 背景色を指定
                     suffixIcon: IconButton(
                       icon: Icon(
-                        _isPasswordVisible.value
-                            ? Icons.visibility
-                            : Icons.visibility_off,
+                        _isPasswordVisible.value ? Icons.visibility : Icons.visibility_off,
                       ),
                       onPressed: () {
                         _isPasswordVisible.value = !_isPasswordVisible.value;
@@ -153,7 +147,7 @@ class UiPageSingup extends HookConsumerWidget {
                         FocusScope.of(context).unfocus();
                       });
                     },
-                    child: Text('アカウント作成'),
+                    child: const Text('アカウント作成'),
                   ),
                 ),
                 //
@@ -183,8 +177,7 @@ class UiPageSingup extends HookConsumerWidget {
                       ),
                       elevation: 0, // 影をなくす
                       onPressed: () async {
-                        utilGoogleSignin(context: context)
-                            .then((onValue) async {
+                        utilGoogleSignin(context: context).then((onValue) async {
                           if (onValue.isNotEmpty) {
                             await Fluttertoast.showToast(
                               msg: onValue,

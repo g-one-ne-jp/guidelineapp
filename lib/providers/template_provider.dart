@@ -10,8 +10,7 @@ import 'package:JCSGuidelines/repotitory/mixin_repository_file.dart';
 import 'package:JCSGuidelines/repotitory/mixin_repository_http.dart';
 
 // RouteData の状態を管理する StateNotifier クラスです。
-class ProviderTamplate extends StateNotifier<TemplateData>
-    with RepositoryHttp, RepositoryFile {
+class ProviderTamplate extends StateNotifier<TemplateData> with RepositoryHttp, RepositoryFile {
   // コンストラクタ内での初期状態を設定し、非同期にデータをロードします。
   ProviderTamplate() : super(TemplateData()) {
     load();

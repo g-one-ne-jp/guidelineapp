@@ -11,6 +11,5 @@ abstract class TemplateData with _$TemplateData {
     @Default(false) bool isTemplate,
   ]) = _TemplateData;
 
-  factory TemplateData.fromJson(Map<String, dynamic> json) =>
-      _$TemplateDataFromJson(json);
+  factory TemplateData.fromJson(Map<String, dynamic> json) => _$TemplateDataFromJson(json);
 }
