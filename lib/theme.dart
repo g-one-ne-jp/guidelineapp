@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppTheme {
-  static ThemeData lightTheme = ThemeData(
+  ThemeData lightTheme = ThemeData(
     brightness: Brightness.light,
     primaryColor: Colors.blue,
     scaffoldBackgroundColor: Colors.white,
@@ -102,7 +102,7 @@ class AppTheme {
     //
   );
 
-  static ThemeData darkTheme = ThemeData(
+  ThemeData darkTheme = ThemeData(
     brightness: Brightness.dark,
     primaryColor: Colors.grey[800],
     scaffoldBackgroundColor: Colors.grey[900],

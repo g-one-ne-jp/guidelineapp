@@ -54,28 +54,34 @@ android {
         manifestPlaceholders += [pdftronLicenseKey:PDFTRON_LICENSE_KEY] // PDFtronライセンスキーを設定
     }
 
+  
+    // リリースビルド用の署名設定を追加
+    def keystoreProperties = new Properties()
+    def keystorePropertiesFile = rootProject.file('key.properties')
+    if (keystorePropertiesFile.exists()) {
+        keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+    }
     signingConfigs {
         release {
-            // リリース用の署名設定を追加
-            storeFile file("your_release_keystore.jks") // キーストアファイルへのパス
-            storePassword "your_keystore_password" // キーストアのパスワード
-            keyAlias "your_key_alias" // キーエイリアス
-            keyPassword "your_key_password" // キーのパスワード
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
+            storePassword keystoreProperties['storePassword']
         }
     }
+    
 
     buildTypes {
         release {
             // リリースビルド用の署名設定を使用
-            signingConfig signingConfigs.release 
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            shrinkResources false // 未使用リソースの削除を有効にする
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 }
 
 flutter {
     source '../..'
-}
-
-dependencies {
-    // 必要な外部ライブラリを追加
 }
