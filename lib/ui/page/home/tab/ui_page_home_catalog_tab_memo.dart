@@ -33,16 +33,22 @@ class UiPageHomeCatalogTabMemo extends HookConsumerWidget {
     // データ取得ロジックを関数に分離
     Future<void> fetchMemoItems() async {
       // ユーザーデータを読み込み
-      final user = await _userNotifer.readUser<ModelFirebaseUser>(fromJson: ModelFirebaseUser.fromJson);
+      final user = await _userNotifer.readUser<ModelFirebaseUser>(
+          fromJson: ModelFirebaseUser.fromJson);
 
       // メモが存在するものを取得
       final memos = user.memos;
-      final memoKeys = memos.entries.where((entry) => entry.value.isNotEmpty).map((entry) => entry.key).toList();
+      final memoKeys = memos.entries
+          .where((entry) => entry.value.isNotEmpty)
+          .map((entry) => entry.key)
+          .toList();
 
       // Firestore からメモされたアイテムを取得
       final memoItemsList = await Future.wait(memoKeys.map((key) async {
-        final doc = _tocNotifer.searchDetailCategoryByKeyFromMajor(_tocProvider, key);
-        final minorKey = _tocNotifer.searchminorKeyFromDetailKeyFromMajor(_tocProvider, key);
+        final doc =
+            _tocNotifer.searchDetailCategoryByKeyFromMajor(_tocProvider, key);
+        final minorKey =
+            _tocNotifer.searchminorKeyFromDetailKeyFromMajor(_tocProvider, key);
         return MapEntry(minorKey, doc);
       }));
 
@@ -84,55 +90,67 @@ class UiPageHomeCatalogTabMemo extends HookConsumerWidget {
         color: Colors.grey[200],
         child: Column(
           children: [
-            Expanded(
-              child: ListView.builder(
-                itemCount: _memoItems.value.length,
-                itemBuilder: (BuildContext context, int index) {
-                  var key = _memoItems.value.keys.elementAt(index);
-                  var item = _memoItems.value[key];
-                  return Padding(
-                    padding: EdgeInsets.symmetric(vertical: 5.h),
-                    child: Card(
-                      shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.zero,
+            _memoItems.value.keys.isEmpty
+                ? const Center(
+                    child: Text(
+                      '保存済みのメモはありません。',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
                       ),
-                      color: Colors.white,
-                      child: GestureDetector(
-                        child: ListTile(
-                          subtitle: SizedBox(
-                            width: double.infinity,
-                            height: 20.h,
-                            child: QuillEditor.basic(
-                              configurations: QuillEditorConfigurations(
-                                controller: QuillController.basic()
-                                  ..readOnly = true
-                                  ..document = Document.fromJson(_userNotifer.getMemo(key: item!.detailKey)),
-                                scrollable: false,
-                                autoFocus: false,
-                                expands: true,
-                                enableSelectionToolbar: false,
-                                isOnTapOutsideEnabled: false,
-                                paintCursorAboveText: false,
-                                checkBoxReadOnly: false,
-                                minHeight: 20.h,
-                                maxHeight: 150.h,
+                    ),
+                  )
+                : Expanded(
+                    child: ListView.builder(
+                      itemCount: _memoItems.value.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        var key = _memoItems.value.keys.elementAt(index);
+                        var item = _memoItems.value[key];
+                        return Padding(
+                          padding: EdgeInsets.symmetric(vertical: 5.h),
+                          child: Card(
+                            shape: const RoundedRectangleBorder(
+                              borderRadius: BorderRadius.zero,
+                            ),
+                            color: Colors.white,
+                            child: GestureDetector(
+                              child: ListTile(
+                                subtitle: SizedBox(
+                                  width: double.infinity,
+                                  height: 20.h,
+                                  child: QuillEditor.basic(
+                                    configurations: QuillEditorConfigurations(
+                                      controller: QuillController.basic()
+                                        ..readOnly = true
+                                        ..document = Document.fromJson(
+                                            _userNotifer.getMemo(
+                                                key: item!.detailKey)),
+                                      scrollable: false,
+                                      autoFocus: false,
+                                      expands: true,
+                                      enableSelectionToolbar: false,
+                                      isOnTapOutsideEnabled: false,
+                                      paintCursorAboveText: false,
+                                      checkBoxReadOnly: false,
+                                      minHeight: 20.h,
+                                      maxHeight: 150.h,
+                                    ),
+                                  ),
+                                ),
+                                title: Text(item.detailTitle ?? 'No Title'),
+                                onTap: () async {
+                                  await context.router.pushNamed(
+                                    '/tabHomeMinor/$key/true',
+                                  );
+                                  fetchMemoItems();
+                                },
                               ),
                             ),
                           ),
-                          title: Text(item.detailTitle ?? 'No Title'),
-                          onTap: () async {
-                            await context.router.pushNamed(
-                              '/tabHomeMinor/$key/true',
-                            );
-                            fetchMemoItems();
-                          },
-                        ),
-                      ),
+                        );
+                      },
                     ),
-                  );
-                },
-              ),
-            ),
+                  ),
           ],
         ),
       ),

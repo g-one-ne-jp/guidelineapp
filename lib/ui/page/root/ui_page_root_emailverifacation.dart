@@ -51,9 +51,11 @@ class UiPageEmailVerification extends HookConsumerWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'メールアドレスがまだ認証されておりません。　メールを確認してください。',
-              style: TextStyle(fontSize: 16.0.sp),
+            Center(
+              child: Text(
+                '認証用メールを送信しました。',
+                style: TextStyle(fontSize: 16.0.sp),
+              ),
             ),
             SizedBox(height: 70.h),
             ElevatedButton(
@@ -69,7 +71,7 @@ class UiPageEmailVerification extends HookConsumerWidget {
                   Fluttertoast.showToast(msg: 'まだメール認証が完了していません。メールを確認してください。');
                 }
               },
-              child: const Text('メール認証を確認したらこちら'),
+              child: const Text('メール認証完了した方はこちら'),
             ),
             SizedBox(height: 30.h),
             TextButton(
@@ -80,7 +82,8 @@ class UiPageEmailVerification extends HookConsumerWidget {
                   await user.sendEmailVerification();
                   Fluttertoast.showToast(msg: '認証メールを再送信しました。');
                 } catch (e) {
-                  Fluttertoast.showToast(msg: '認証メールの再送信に失敗しました。一定時間置いてから再度試してください');
+                  Fluttertoast.showToast(
+                      msg: '認証メールの再送信に失敗しました。一定時間置いてから再度試してください');
                   return;
                 }
               },

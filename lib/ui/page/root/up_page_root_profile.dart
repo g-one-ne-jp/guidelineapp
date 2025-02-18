@@ -32,7 +32,7 @@ class UiPageProfileCreate extends HookConsumerWidget {
     final _age = useState('年代');
     final _occupation = useState('職種');
     final _specialty = useState('専門科(医師の場合)');
-    final _number = useState('日循会員番号（会員の場合のみ）');
+    final _number = useState('');
     final _isMailMagazine = useState(false);
 
     useEffect(() {
@@ -97,6 +97,7 @@ class UiPageProfileCreate extends HookConsumerWidget {
                       hintText: 'xxxxxxx',
                       value: _number.value,
                       keyboardType: TextInputType.emailAddress,
+                      isValidateInput: true,
                       onChanged: (String value) {
                         _number.value = value;
                         _isChecked.value = true;
