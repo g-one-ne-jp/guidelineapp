@@ -60,7 +60,9 @@ class UiPageLogin extends HookConsumerWidget {
                       hintText: 'パスワード',
                       suffixIcon: IconButton(
                         icon: Icon(
-                          _isPasswordVisible.value ? Icons.visibility : Icons.visibility_off,
+                          _isPasswordVisible.value
+                              ? Icons.visibility
+                              : Icons.visibility_off,
                         ),
                         onPressed: () {
                           _isPasswordVisible.value = !_isPasswordVisible.value;
@@ -89,9 +91,9 @@ class UiPageLogin extends HookConsumerWidget {
                               context: context)
                           .then((onValue) async {
                         if (onValue.isNotEmpty) {
-                          await Fluttertoast.showToast(
-                            msg: onValue,
-                          );
+                          // ignore: use_build_context_synchronously
+                          context.router.popUntilRoot();
+                          context.router.replaceNamed('/home');
                         } else {
                           // ignore: use_build_context_synchronously
                           context.router.pushNamed('/profileCreate');
@@ -132,7 +134,8 @@ class UiPageLogin extends HookConsumerWidget {
                           title: const Text('メールアドレスを入力してください'),
                           content: TextField(
                             controller: emailController,
-                            decoration: const InputDecoration(hintText: 'メールアドレス'),
+                            decoration:
+                                const InputDecoration(hintText: 'メールアドレス'),
                             autofocus: true, // AlertDialogが表示されたらすぐにfocusを当てる
                           ),
                           actions: <Widget>[
@@ -199,7 +202,8 @@ class UiPageLogin extends HookConsumerWidget {
                       ),
                       elevation: 0, // 影をなくす
                       onPressed: () async {
-                        utilGoogleSignin(context: context).then((onValue) async {
+                        utilGoogleSignin(context: context)
+                            .then((onValue) async {
                           if (onValue.isNotEmpty) {
                             await Fluttertoast.showToast(
                               msg: onValue,

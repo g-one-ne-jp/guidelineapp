@@ -42,7 +42,8 @@ class UiPageHomeCatalogTabMypage extends HookConsumerWidget {
     useEffect(() {
       Future<void>(() async {
         //ユーザーデータを読み込み
-        _user.value = await _userNotifer.readUser<ModelFirebaseUser>(fromJson: ModelFirebaseUser.fromJson);
+        _user.value = await _userNotifer.readUser<ModelFirebaseUser>(
+            fromJson: ModelFirebaseUser.fromJson);
         _gender.value = _user.value.gender;
         _age.value = _user.value.age;
         _occupation.value = _user.value.occupation;
@@ -136,6 +137,7 @@ class UiPageHomeCatalogTabMypage extends HookConsumerWidget {
                     value: _number.value,
                     keyboardType: TextInputType.emailAddress,
                     isEditable: _isEdited.value,
+                    isValidateInput: true,
                     onChanged: (String value) {
                       _number.value = value;
                       _isChecked.value = true;
@@ -182,11 +184,24 @@ class UiPageHomeCatalogTabMypage extends HookConsumerWidget {
                     child: Text(_isEdited.value ? '更新' : 'プロフィールを変更'),
                   ),
                 ),
+                _isEdited.value
+                    ? //ログアウト
+                    TextButton(
+                        style: TextButton.styleFrom(
+                          foregroundColor: Colors.blue,
+                          backgroundColor: Colors.transparent,
+                        ),
+                        onPressed: () async {
+                          _isEdited.value = false;
+                        },
+                        child: const Text('キャンセル'),
+                      )
+                    : Container(),
                 SizedBox(
                   height: 16.0.h,
                 ),
                 //パスワードリセット
-                utilAuthIsLoginTypePassWord()
+                !utilAuthIsLoginTypeGoogle()
                     ? TextButton(
                         style: TextButton.styleFrom(
                           foregroundColor: Colors.blue,
@@ -207,7 +222,7 @@ class UiPageHomeCatalogTabMypage extends HookConsumerWidget {
                       )
                     : Container(),
                 SizedBox(
-                  height: 32.0.h,
+                  height: 16.0.h,
                 ),
                 //ログアウト
                 TextButton(

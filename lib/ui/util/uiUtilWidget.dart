@@ -59,6 +59,7 @@ Widget uiUtilTitleTextField({
   String value = '',
   TextInputType keyboardType = TextInputType.text,
   bool isEditable = true,
+  bool isValidateInput = false,
 }) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start, // 題名を左寄せ
@@ -77,16 +78,28 @@ Widget uiUtilTitleTextField({
         decoration: InputDecoration(
           hintText: hintText,
           border: const OutlineInputBorder(),
+          errorText: isValidateInput
+              ? _validateInput(value)
+                  ? null
+                  : '英数のみ入力可能です'
+              : null,
         ),
         keyboardType: keyboardType,
         onSubmitted: (text) {
-          onChanged(text);
+          if (_validateInput(text)) {
+            onChanged(text);
+          }
         },
         enabled: isEditable, // 編集可否を設定
       ),
       SizedBox(height: 16.h), // 入力欄と次の題名の間に少しスペースを入れる
     ],
   );
+}
+
+bool _validateInput(String input) {
+  final regex = RegExp(r'^[a-zA-Z0-9]+$');
+  return regex.hasMatch(input);
 }
 
 Widget uiUtilTitleScrollableText({

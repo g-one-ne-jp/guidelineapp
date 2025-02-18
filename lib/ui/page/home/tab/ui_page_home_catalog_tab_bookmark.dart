@@ -32,20 +32,27 @@ class UiPageHomeCatalogTabBookmark extends HookConsumerWidget {
     // データ取得ロジックを関数に分離
     Future<void> fetchBookmarkedItems() async {
       // ユーザーデータを読み込み
-      final user = await _userNotifer.readUser<ModelFirebaseUser>(fromJson: ModelFirebaseUser.fromJson);
+      final user = await _userNotifer.readUser<ModelFirebaseUser>(
+          fromJson: ModelFirebaseUser.fromJson);
 
       // ブックマークが true のものを取得
       final bookmarks = user.bookmarks;
-      final bookmarkedKeys = bookmarks.entries.where((entry) => entry.value == true).map((entry) => entry.key).toList();
+      final bookmarkedKeys = bookmarks.entries
+          .where((entry) => entry.value == true)
+          .map((entry) => entry.key)
+          .toList();
 
       // Firestore からブックマークされたアイテムを取得
-      final bookmarkedItemsList = await Future.wait(bookmarkedKeys.map((key) async {
-        final doc = _tocNotifer.searchMinorCategoryByKeyFromMajor(_tocProvider, key);
+      final bookmarkedItemsList =
+          await Future.wait(bookmarkedKeys.map((key) async {
+        final doc =
+            _tocNotifer.searchMinorCategoryByKeyFromMajor(_tocProvider, key);
         return MapEntry(key, doc);
       }));
 
       // リストをマップに変換
-      final bookmarkedItems = Map<String, MinorCategory>.fromEntries(bookmarkedItemsList);
+      final bookmarkedItems =
+          Map<String, MinorCategory>.fromEntries(bookmarkedItemsList);
 
       _bookmarkedItems.value = bookmarkedItems;
     }
@@ -80,35 +87,46 @@ class UiPageHomeCatalogTabBookmark extends HookConsumerWidget {
         color: Colors.grey[200],
         child: Column(
           children: [
-            Expanded(
-              child: ListView.builder(
-                itemCount: _bookmarkedItems.value.length,
-                itemBuilder: (BuildContext context, int index) {
-                  var key = _bookmarkedItems.value.keys.elementAt(index);
-                  var item = _bookmarkedItems.value[key];
-                  return Padding(
-                    padding: EdgeInsets.symmetric(vertical: 5.h),
-                    child: Card(
-                      shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.zero,
-                      ),
-                      color: Colors.white,
-                      child: ListTile(
-                        trailing: const Icon(Icons.arrow_forward_ios),
-                        title: Text(item?.minorTitle ?? 'No Title'),
-                        subtitle: Text(item?.minorSummary ?? 'No Summary'),
-                        onTap: () async {
-                          await context.router.pushNamed(
-                            '/tabHomeMinor/$key/false',
-                          );
-                          await fetchBookmarkedItems();
-                        },
+            _bookmarkedItems.value.isEmpty
+                ? const Center(
+                    child: Text(
+                      '保存済みのブックマークはありません。',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
-                  );
-                },
-              ),
-            ),
+                  )
+                : Expanded(
+                    child: ListView.builder(
+                      itemCount: _bookmarkedItems.value.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        var key = _bookmarkedItems.value.keys.elementAt(index);
+                        var item = _bookmarkedItems.value[key];
+                        return Padding(
+                          padding: EdgeInsets.symmetric(vertical: 5.h),
+                          child: Card(
+                            shape: const RoundedRectangleBorder(
+                              borderRadius: BorderRadius.zero,
+                            ),
+                            color: Colors.white,
+                            child: ListTile(
+                              trailing: const Icon(Icons.arrow_forward_ios),
+                              title: Text(item?.minorTitle ?? 'No Title'),
+                              subtitle:
+                                  Text(item?.minorSummary ?? 'No Summary'),
+                              onTap: () async {
+                                await context.router.pushNamed(
+                                  '/tabHomeMinor/$key/false',
+                                );
+                                await fetchBookmarkedItems();
+                              },
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
           ],
         ),
       ),
