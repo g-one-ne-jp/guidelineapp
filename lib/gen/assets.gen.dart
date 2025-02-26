@@ -18,7 +18,7 @@ class $AssetsJsonGen {
 }
 
 class Assets {
-  Assets._();
+  const Assets._();
 
   static const $AssetsJsonGen json = $AssetsJsonGen();
 }

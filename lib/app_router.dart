@@ -24,8 +24,8 @@ import 'package:JCSGuidelines/util/util_googlesingin.dart';
 
 part 'app_router.gr.dart';
 
-@AutoRouterConfig(replaceInRouteName: 'Page,Route')
-class AppRouter extends _$AppRouter {
+@AutoRouterConfig()
+class AppRouter extends RootStackRouter {
   //ルーティングの設定
   @override
   List<AutoRoute> get routes => [
@@ -41,8 +41,10 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: UiRouteHome.page, path: '/home'),
         AutoRoute(page: UiRouteSingup.page, path: '/singup'),
         AutoRoute(page: UiRouteProfileCreate.page, path: '/profileCreate'),
-        AutoRoute(page: UiRouteEmailVerification.page, path: '/emailVerification'),
-        AutoRoute(page: UiRouteUtilEdit.page, path: '/edit/:minorKey/:viewTypeMemo'),
+        AutoRoute(
+            page: UiRouteEmailVerification.page, path: '/emailVerification'),
+        AutoRoute(
+            page: UiRouteUtilEdit.page, path: '/edit/:minorKey/:viewTypeMemo'),
 
         AutoRoute(
           page: UiRouteHomeCatalog.page,
@@ -56,16 +58,21 @@ class AppRouter extends _$AppRouter {
               page: UiRouteHomeCatalogTabSearch.page,
               path: 'catalogTab2',
             ),
-            AutoRoute(page: UiRouteHomeCatalogTabMemo.page, path: 'catalogTab3'),
-            AutoRoute(page: UiRouteHomeCatalogTabBookmark.page, path: 'catalogTab4'),
-            AutoRoute(page: UiRouteHomeCatalogTabMypage.page, path: 'catalogTab5'),
+            AutoRoute(
+                page: UiRouteHomeCatalogTabMemo.page, path: 'catalogTab3'),
+            AutoRoute(
+                page: UiRouteHomeCatalogTabBookmark.page, path: 'catalogTab4'),
+            AutoRoute(
+                page: UiRouteHomeCatalogTabMypage.page, path: 'catalogTab5'),
           ],
         ),
         AutoRoute(
           page: UiRouteHomeCatalogTabHomeTOC.page,
           path: '/toc',
         ),
-        AutoRoute(page: UiRouteHomeCatalogTabHomeMinor.page, path: '/tabHomeMinor/:minorKey/:viewTypeMemo'),
+        AutoRoute(
+            page: UiRouteHomeCatalogTabHomeMinor.page,
+            path: '/tabHomeMinor/:minorKey/:viewTypeMemo'),
       ];
 }
 

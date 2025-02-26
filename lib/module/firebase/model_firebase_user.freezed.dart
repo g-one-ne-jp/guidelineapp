@@ -30,14 +30,20 @@ mixin _$ModelFirebaseUser {
   Map<String, String> get memos => throw _privateConstructorUsedError;
   Map<String, bool> get bookmarks => throw _privateConstructorUsedError;
 
+  /// Serializes this ModelFirebaseUser to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ModelFirebaseUserCopyWith<ModelFirebaseUser> get copyWith => throw _privateConstructorUsedError;
+
+  /// Create a copy of ModelFirebaseUser
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $ModelFirebaseUserCopyWith<ModelFirebaseUser> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $ModelFirebaseUserCopyWith<$Res> {
-  factory $ModelFirebaseUserCopyWith(ModelFirebaseUser value, $Res Function(ModelFirebaseUser) then) =
+  factory $ModelFirebaseUserCopyWith(
+          ModelFirebaseUser value, $Res Function(ModelFirebaseUser) then) =
       _$ModelFirebaseUserCopyWithImpl<$Res, ModelFirebaseUser>;
   @useResult
   $Res call(
@@ -62,6 +68,8 @@ class _$ModelFirebaseUserCopyWithImpl<$Res, $Val extends ModelFirebaseUser>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ModelFirebaseUser
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -117,8 +125,10 @@ class _$ModelFirebaseUserCopyWithImpl<$Res, $Val extends ModelFirebaseUser>
 }
 
 /// @nodoc
-abstract class _$$ModelFirebaseUserImplCopyWith<$Res> implements $ModelFirebaseUserCopyWith<$Res> {
-  factory _$$ModelFirebaseUserImplCopyWith(_$ModelFirebaseUserImpl value, $Res Function(_$ModelFirebaseUserImpl) then) =
+abstract class _$$ModelFirebaseUserImplCopyWith<$Res>
+    implements $ModelFirebaseUserCopyWith<$Res> {
+  factory _$$ModelFirebaseUserImplCopyWith(_$ModelFirebaseUserImpl value,
+          $Res Function(_$ModelFirebaseUserImpl) then) =
       __$$ModelFirebaseUserImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -135,11 +145,15 @@ abstract class _$$ModelFirebaseUserImplCopyWith<$Res> implements $ModelFirebaseU
 }
 
 /// @nodoc
-class __$$ModelFirebaseUserImplCopyWithImpl<$Res> extends _$ModelFirebaseUserCopyWithImpl<$Res, _$ModelFirebaseUserImpl>
+class __$$ModelFirebaseUserImplCopyWithImpl<$Res>
+    extends _$ModelFirebaseUserCopyWithImpl<$Res, _$ModelFirebaseUserImpl>
     implements _$$ModelFirebaseUserImplCopyWith<$Res> {
-  __$$ModelFirebaseUserImplCopyWithImpl(_$ModelFirebaseUserImpl _value, $Res Function(_$ModelFirebaseUserImpl) _then)
+  __$$ModelFirebaseUserImplCopyWithImpl(_$ModelFirebaseUserImpl _value,
+      $Res Function(_$ModelFirebaseUserImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ModelFirebaseUser
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -211,7 +225,8 @@ class _$ModelFirebaseUserImpl implements _ModelFirebaseUser {
         _memos = memos,
         _bookmarks = bookmarks;
 
-  factory _$ModelFirebaseUserImpl.fromJson(Map<String, dynamic> json) => _$$ModelFirebaseUserImplFromJson(json);
+  factory _$ModelFirebaseUserImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ModelFirebaseUserImplFromJson(json);
 
   @override
   @JsonKey()
@@ -270,16 +285,21 @@ class _$ModelFirebaseUserImpl implements _ModelFirebaseUser {
             other is _$ModelFirebaseUserImpl &&
             (identical(other.gender, gender) || other.gender == gender) &&
             (identical(other.age, age) || other.age == age) &&
-            (identical(other.occupation, occupation) || other.occupation == occupation) &&
-            (identical(other.specialty, specialty) || other.specialty == specialty) &&
+            (identical(other.occupation, occupation) ||
+                other.occupation == occupation) &&
+            (identical(other.specialty, specialty) ||
+                other.specialty == specialty) &&
             (identical(other.number, number) || other.number == number) &&
-            (identical(other.ismailmagazine, ismailmagazine) || other.ismailmagazine == ismailmagazine) &&
-            const DeepCollectionEquality().equals(other._editItems, _editItems) &&
+            (identical(other.ismailmagazine, ismailmagazine) ||
+                other.ismailmagazine == ismailmagazine) &&
+            const DeepCollectionEquality()
+                .equals(other._editItems, _editItems) &&
             const DeepCollectionEquality().equals(other._memos, _memos) &&
-            const DeepCollectionEquality().equals(other._bookmarks, _bookmarks));
+            const DeepCollectionEquality()
+                .equals(other._bookmarks, _bookmarks));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -293,11 +313,14 @@ class _$ModelFirebaseUserImpl implements _ModelFirebaseUser {
       const DeepCollectionEquality().hash(_memos),
       const DeepCollectionEquality().hash(_bookmarks));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ModelFirebaseUser
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ModelFirebaseUserImplCopyWith<_$ModelFirebaseUserImpl> get copyWith =>
-      __$$ModelFirebaseUserImplCopyWithImpl<_$ModelFirebaseUserImpl>(this, _$identity);
+      __$$ModelFirebaseUserImplCopyWithImpl<_$ModelFirebaseUserImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -319,7 +342,8 @@ abstract class _ModelFirebaseUser implements ModelFirebaseUser {
       final Map<String, String> memos,
       final Map<String, bool> bookmarks}) = _$ModelFirebaseUserImpl;
 
-  factory _ModelFirebaseUser.fromJson(Map<String, dynamic> json) = _$ModelFirebaseUserImpl.fromJson;
+  factory _ModelFirebaseUser.fromJson(Map<String, dynamic> json) =
+      _$ModelFirebaseUserImpl.fromJson;
 
   @override
   String get gender;
@@ -339,9 +363,13 @@ abstract class _ModelFirebaseUser implements ModelFirebaseUser {
   Map<String, String> get memos;
   @override
   Map<String, bool> get bookmarks;
+
+  /// Create a copy of ModelFirebaseUser
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$ModelFirebaseUserImplCopyWith<_$ModelFirebaseUserImpl> get copyWith => throw _privateConstructorUsedError;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ModelFirebaseUserImplCopyWith<_$ModelFirebaseUserImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 EditItem _$EditItemFromJson(Map<String, dynamic> json) {
@@ -355,20 +383,27 @@ mixin _$EditItem {
   String get markdown => throw _privateConstructorUsedError;
   set markdown(String value) => throw _privateConstructorUsedError;
 
+  /// Serializes this EditItem to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $EditItemCopyWith<EditItem> get copyWith => throw _privateConstructorUsedError;
+
+  /// Create a copy of EditItem
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $EditItemCopyWith<EditItem> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $EditItemCopyWith<$Res> {
-  factory $EditItemCopyWith(EditItem value, $Res Function(EditItem) then) = _$EditItemCopyWithImpl<$Res, EditItem>;
+  factory $EditItemCopyWith(EditItem value, $Res Function(EditItem) then) =
+      _$EditItemCopyWithImpl<$Res, EditItem>;
   @useResult
   $Res call({bool bookmark, String markdown});
 }
 
 /// @nodoc
-class _$EditItemCopyWithImpl<$Res, $Val extends EditItem> implements $EditItemCopyWith<$Res> {
+class _$EditItemCopyWithImpl<$Res, $Val extends EditItem>
+    implements $EditItemCopyWith<$Res> {
   _$EditItemCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -376,6 +411,8 @@ class _$EditItemCopyWithImpl<$Res, $Val extends EditItem> implements $EditItemCo
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of EditItem
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -396,8 +433,10 @@ class _$EditItemCopyWithImpl<$Res, $Val extends EditItem> implements $EditItemCo
 }
 
 /// @nodoc
-abstract class _$$EditItemImplCopyWith<$Res> implements $EditItemCopyWith<$Res> {
-  factory _$$EditItemImplCopyWith(_$EditItemImpl value, $Res Function(_$EditItemImpl) then) =
+abstract class _$$EditItemImplCopyWith<$Res>
+    implements $EditItemCopyWith<$Res> {
+  factory _$$EditItemImplCopyWith(
+          _$EditItemImpl value, $Res Function(_$EditItemImpl) then) =
       __$$EditItemImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -405,10 +444,15 @@ abstract class _$$EditItemImplCopyWith<$Res> implements $EditItemCopyWith<$Res> 
 }
 
 /// @nodoc
-class __$$EditItemImplCopyWithImpl<$Res> extends _$EditItemCopyWithImpl<$Res, _$EditItemImpl>
+class __$$EditItemImplCopyWithImpl<$Res>
+    extends _$EditItemCopyWithImpl<$Res, _$EditItemImpl>
     implements _$$EditItemImplCopyWith<$Res> {
-  __$$EditItemImplCopyWithImpl(_$EditItemImpl _value, $Res Function(_$EditItemImpl) _then) : super(_value, _then);
+  __$$EditItemImplCopyWithImpl(
+      _$EditItemImpl _value, $Res Function(_$EditItemImpl) _then)
+      : super(_value, _then);
 
+  /// Create a copy of EditItem
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -433,7 +477,8 @@ class __$$EditItemImplCopyWithImpl<$Res> extends _$EditItemCopyWithImpl<$Res, _$
 class _$EditItemImpl implements _EditItem {
   _$EditItemImpl({this.bookmark = false, this.markdown = ''});
 
-  factory _$EditItemImpl.fromJson(Map<String, dynamic> json) => _$$EditItemImplFromJson(json);
+  factory _$EditItemImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EditItemImplFromJson(json);
 
   @override
   @JsonKey()
@@ -447,7 +492,9 @@ class _$EditItemImpl implements _EditItem {
     return 'EditItem(bookmark: $bookmark, markdown: $markdown)';
   }
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EditItem
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$EditItemImplCopyWith<_$EditItemImpl> get copyWith =>
@@ -464,7 +511,8 @@ class _$EditItemImpl implements _EditItem {
 abstract class _EditItem implements EditItem {
   factory _EditItem({bool bookmark, String markdown}) = _$EditItemImpl;
 
-  factory _EditItem.fromJson(Map<String, dynamic> json) = _$EditItemImpl.fromJson;
+  factory _EditItem.fromJson(Map<String, dynamic> json) =
+      _$EditItemImpl.fromJson;
 
   @override
   bool get bookmark;
@@ -472,7 +520,11 @@ abstract class _EditItem implements EditItem {
   @override
   String get markdown;
   set markdown(String value);
+
+  /// Create a copy of EditItem
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$EditItemImplCopyWith<_$EditItemImpl> get copyWith => throw _privateConstructorUsedError;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$EditItemImplCopyWith<_$EditItemImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

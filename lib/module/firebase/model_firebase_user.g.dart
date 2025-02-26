@@ -6,7 +6,9 @@ part of 'model_firebase_user.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ModelFirebaseUserImpl _$$ModelFirebaseUserImplFromJson(Map<String, dynamic> json) => _$ModelFirebaseUserImpl(
+_$ModelFirebaseUserImpl _$$ModelFirebaseUserImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ModelFirebaseUserImpl(
       gender: json['gender'] as String? ?? '',
       age: json['age'] as String? ?? '',
       occupation: json['occupation'] as String? ?? '',
@@ -27,7 +29,9 @@ _$ModelFirebaseUserImpl _$$ModelFirebaseUserImplFromJson(Map<String, dynamic> js
           const {},
     );
 
-Map<String, dynamic> _$$ModelFirebaseUserImplToJson(_$ModelFirebaseUserImpl instance) => <String, dynamic>{
+Map<String, dynamic> _$$ModelFirebaseUserImplToJson(
+        _$ModelFirebaseUserImpl instance) =>
+    <String, dynamic>{
       'gender': instance.gender,
       'age': instance.age,
       'occupation': instance.occupation,
@@ -39,12 +43,14 @@ Map<String, dynamic> _$$ModelFirebaseUserImplToJson(_$ModelFirebaseUserImpl inst
       'bookmarks': instance.bookmarks,
     };
 
-_$EditItemImpl _$$EditItemImplFromJson(Map<String, dynamic> json) => _$EditItemImpl(
+_$EditItemImpl _$$EditItemImplFromJson(Map<String, dynamic> json) =>
+    _$EditItemImpl(
       bookmark: json['bookmark'] as bool? ?? false,
       markdown: json['markdown'] as String? ?? '',
     );
 
-Map<String, dynamic> _$$EditItemImplToJson(_$EditItemImpl instance) => <String, dynamic>{
+Map<String, dynamic> _$$EditItemImplToJson(_$EditItemImpl instance) =>
+    <String, dynamic>{
       'bookmark': instance.bookmark,
       'markdown': instance.markdown,
     };

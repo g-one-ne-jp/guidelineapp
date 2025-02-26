@@ -119,17 +119,17 @@ class UiPageHomeCatalogTabMemo extends HookConsumerWidget {
                                   width: double.infinity,
                                   height: 20.h,
                                   child: QuillEditor.basic(
-                                    configurations: QuillEditorConfigurations(
-                                      controller: QuillController.basic()
-                                        ..readOnly = true
-                                        ..document = Document.fromJson(
-                                            _userNotifer.getMemo(
-                                                key: item!.detailKey)),
+                                    controller: QuillController.basic()
+                                      ..readOnly = true
+                                      ..document = Document.fromJson(
+                                          _userNotifer.getMemo(
+                                              key: item!.detailKey)),
+                                    config: QuillEditorConfig(
                                       scrollable: false,
                                       autoFocus: false,
                                       expands: true,
                                       enableSelectionToolbar: false,
-                                      isOnTapOutsideEnabled: false,
+                                      onTapOutsideEnabled: false,
                                       paintCursorAboveText: false,
                                       checkBoxReadOnly: false,
                                       minHeight: 20.h,
