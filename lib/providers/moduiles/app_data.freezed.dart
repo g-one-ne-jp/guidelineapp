@@ -23,20 +23,26 @@ mixin _$AppData {
   bool get isTemplate => throw _privateConstructorUsedError;
   set isTemplate(bool value) => throw _privateConstructorUsedError;
 
+  /// Serializes this AppData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AppData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AppDataCopyWith<AppData> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $AppDataCopyWith<$Res> {
-  factory $AppDataCopyWith(AppData value, $Res Function(AppData) then) = _$AppDataCopyWithImpl<$Res, AppData>;
+  factory $AppDataCopyWith(AppData value, $Res Function(AppData) then) =
+      _$AppDataCopyWithImpl<$Res, AppData>;
   @useResult
   $Res call({bool isTemplate});
 }
 
 /// @nodoc
-class _$AppDataCopyWithImpl<$Res, $Val extends AppData> implements $AppDataCopyWith<$Res> {
+class _$AppDataCopyWithImpl<$Res, $Val extends AppData>
+    implements $AppDataCopyWith<$Res> {
   _$AppDataCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -44,6 +50,8 @@ class _$AppDataCopyWithImpl<$Res, $Val extends AppData> implements $AppDataCopyW
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of AppData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -60,7 +68,8 @@ class _$AppDataCopyWithImpl<$Res, $Val extends AppData> implements $AppDataCopyW
 
 /// @nodoc
 abstract class _$$AppDataImplCopyWith<$Res> implements $AppDataCopyWith<$Res> {
-  factory _$$AppDataImplCopyWith(_$AppDataImpl value, $Res Function(_$AppDataImpl) then) =
+  factory _$$AppDataImplCopyWith(
+          _$AppDataImpl value, $Res Function(_$AppDataImpl) then) =
       __$$AppDataImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -68,10 +77,15 @@ abstract class _$$AppDataImplCopyWith<$Res> implements $AppDataCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$AppDataImplCopyWithImpl<$Res> extends _$AppDataCopyWithImpl<$Res, _$AppDataImpl>
+class __$$AppDataImplCopyWithImpl<$Res>
+    extends _$AppDataCopyWithImpl<$Res, _$AppDataImpl>
     implements _$$AppDataImplCopyWith<$Res> {
-  __$$AppDataImplCopyWithImpl(_$AppDataImpl _value, $Res Function(_$AppDataImpl) _then) : super(_value, _then);
+  __$$AppDataImplCopyWithImpl(
+      _$AppDataImpl _value, $Res Function(_$AppDataImpl) _then)
+      : super(_value, _then);
 
+  /// Create a copy of AppData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -91,7 +105,8 @@ class __$$AppDataImplCopyWithImpl<$Res> extends _$AppDataCopyWithImpl<$Res, _$Ap
 class _$AppDataImpl implements _AppData {
   _$AppDataImpl([this.isTemplate = false]);
 
-  factory _$AppDataImpl.fromJson(Map<String, dynamic> json) => _$$AppDataImplFromJson(json);
+  factory _$AppDataImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AppDataImplFromJson(json);
 
   @override
   @JsonKey()
@@ -102,10 +117,13 @@ class _$AppDataImpl implements _AppData {
     return 'AppData(isTemplate: $isTemplate)';
   }
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AppData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$AppDataImplCopyWith<_$AppDataImpl> get copyWith => __$$AppDataImplCopyWithImpl<_$AppDataImpl>(this, _$identity);
+  _$$AppDataImplCopyWith<_$AppDataImpl> get copyWith =>
+      __$$AppDataImplCopyWithImpl<_$AppDataImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -123,7 +141,11 @@ abstract class _AppData implements AppData {
   @override
   bool get isTemplate;
   set isTemplate(bool value);
+
+  /// Create a copy of AppData
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$AppDataImplCopyWith<_$AppDataImpl> get copyWith => throw _privateConstructorUsedError;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AppDataImplCopyWith<_$AppDataImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

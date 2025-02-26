@@ -43,7 +43,8 @@ class UiPageUtilEdit extends HookConsumerWidget with RepositoryFireStorage {
 
     useEffect(() {
       Future<void>(() async {
-        _minor.value = _tocNotifer.searchMinorCategoryByKeyFromMajor(_tocProvider, minorKey);
+        _minor.value = _tocNotifer.searchMinorCategoryByKeyFromMajor(
+            _tocProvider, minorKey);
 
         final json = _userNotifer.getMemo(key: minorKey);
         if (json.isNotEmpty) {
@@ -63,7 +64,7 @@ class UiPageUtilEdit extends HookConsumerWidget with RepositoryFireStorage {
           onPressed: () async {
             FocusScope.of(context).unfocus();
             // ignore: deprecated_member_use
-            context.router.pop();
+            context.router.maybePop();
           },
         ),
         actions: <Widget>[
@@ -71,7 +72,9 @@ class UiPageUtilEdit extends HookConsumerWidget with RepositoryFireStorage {
             icon: const Icon(Icons.save),
             onPressed: () async {
               await _userNotifer.updateMemo(
-                  key: minorKey, memo: jsonEncode(_controller.value.document.toDelta().toJson()));
+                  key: minorKey,
+                  memo: jsonEncode(
+                      _controller.value.document.toDelta().toJson()));
               FocusScope.of(context).unfocus();
               FocusScope.of(context).nextFocus();
               await Fluttertoast.showToast(
@@ -89,9 +92,9 @@ class UiPageUtilEdit extends HookConsumerWidget with RepositoryFireStorage {
             width: double.infinity,
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal, // 子ウィジェットのスクロール方向
-              child: QuillToolbar.simple(
-                configurations: QuillSimpleToolbarConfigurations(
-                  controller: _controller.value,
+              child: QuillSimpleToolbar(
+                controller: _controller.value,
+                config: QuillSimpleToolbarConfig(
                   showItalicButton: false,
                   showHeaderStyle: false,
                   showUnderLineButton: false,
@@ -126,9 +129,9 @@ class UiPageUtilEdit extends HookConsumerWidget with RepositoryFireStorage {
               width: double.infinity,
               color: Colors.white70,
               child: QuillEditor.basic(
-                configurations: QuillEditorConfigurations(
+                controller: _controller.value,
+                config: QuillEditorConfig(
                   placeholder: 'ここをタップしてメモを入力してください。',
-                  controller: _controller.value,
                   scrollable: true,
                   padding: const EdgeInsets.all(16.0),
                   autoFocus: false,
