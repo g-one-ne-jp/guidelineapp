@@ -14,7 +14,8 @@ import 'package:JCSGuidelines/providers/user_provider.dart';
 import 'package:JCSGuidelines/repotitory/mixin_repository_firestorage.dart';
 
 @RoutePage()
-class UiPageHomeCatalogTabSearch extends HookConsumerWidget with RepositoryFireStorage {
+class UiPageHomeCatalogTabSearch extends HookConsumerWidget
+    with RepositoryFireStorage {
   const UiPageHomeCatalogTabSearch({super.key});
 
   @override
@@ -56,7 +57,8 @@ class UiPageHomeCatalogTabSearch extends HookConsumerWidget with RepositoryFireS
           if (jsonData.containsKey('searchKeywords')) {
             List<dynamic> keywords = jsonData['searchKeywords'];
             if (keywords.any((keyword) => keyword.contains(text))) {
-              if (!_searchResults.value.any((result) => result['title'] == jsonData['settionTitle'])) {
+              if (!_searchResults.value.any(
+                  (result) => result['title'] == jsonData['settionTitle'])) {
                 _searchResults.value = [
                   ..._searchResults.value,
                   {
@@ -69,17 +71,19 @@ class UiPageHomeCatalogTabSearch extends HookConsumerWidget with RepositoryFireS
             if (jsonData.containsKey('markdown')) {
               if (jsonData['markdown'] != '') {
                 final file = await downLoadData(path: jsonData['markdown']);
-                final txt = file.readAsStringSync();
-
-                if (txt.contains(text)) {
-                  if (!_searchResults.value.any((result) => result['title'] == jsonData['settionTitle'])) {
-                    _searchResults.value = [
-                      ..._searchResults.value,
-                      {
-                        'key': _minorKey.value,
-                        'title': jsonData['settionTitle'],
-                      }
-                    ];
+                if (file != null) {
+                  final txt = file.readAsStringSync();
+                  if (txt.contains(text)) {
+                    if (!_searchResults.value.any((result) =>
+                        result['title'] == jsonData['settionTitle'])) {
+                      _searchResults.value = [
+                        ..._searchResults.value,
+                        {
+                          'key': _minorKey.value,
+                          'title': jsonData['settionTitle'],
+                        }
+                      ];
+                    }
                   }
                 }
               }
@@ -109,7 +113,9 @@ class UiPageHomeCatalogTabSearch extends HookConsumerWidget with RepositoryFireS
               controller: _searchController,
               onSubmitted: (value) {
                 _searchResults.value.clear();
-                searchJsonValue(_tos.value.categories.values.toList()[0].toJson(), _searchController.text);
+                searchJsonValue(
+                    _tos.value.categories.values.toList()[0].toJson(),
+                    _searchController.text);
                 FocusScope.of(context).unfocus();
                 _focusNode.value.unfocus();
               },
@@ -120,7 +126,9 @@ class UiPageHomeCatalogTabSearch extends HookConsumerWidget with RepositoryFireS
                   onPressed: () {
                     _searchResults.value.clear();
                     if (_searchController.text.isNotEmpty) {
-                      searchJsonValue(_tos.value.categories.values.toList()[0].toJson(), _searchController.text);
+                      searchJsonValue(
+                          _tos.value.categories.values.toList()[0].toJson(),
+                          _searchController.text);
                     }
                     FocusScope.of(context).unfocus();
                     _focusNode.value.unfocus();
