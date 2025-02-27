@@ -185,7 +185,8 @@ class UiUtilWidgetTile2 extends HookConsumerWidget {
             child: children.isEmpty
                 ? ListTile(
                     trailing: const Icon(Icons.arrow_forward_ios),
-                    title: Text(minor.details.entries.first.value.detailSummary),
+                    title:
+                        Text(minor.details.entries.first.value.detailSummary),
                     onTap: () {
                       onTap();
                     },
@@ -250,7 +251,8 @@ class UiUtilWidgetTile3 extends HookConsumerWidget with RepositoryFireStorage {
       final html = File(path).readAsStringSync();
       return WebViewController()
         ..setJavaScriptMode(JavaScriptMode.unrestricted)
-        ..setNavigationDelegate(NavigationDelegate(onPageStarted: (String url) {}))
+        ..setNavigationDelegate(
+            NavigationDelegate(onPageStarted: (String url) {}))
         ..loadRequest(
           Uri.dataFromString(
             html,
@@ -273,29 +275,49 @@ class UiUtilWidgetTile3 extends HookConsumerWidget with RepositoryFireStorage {
                   children: [
                     const Divider(),
                     ConstrainedBox(
-                      constraints: BoxConstraints(minHeight: 120.h, maxHeight: 360.h), // 最大の高さを200に設定
+                      constraints: BoxConstraints(
+                          minHeight: 120.h, maxHeight: 360.h), // 最大の高さを200に設定
                       child:
                           //MarkdownWidget(data: element.value.markdown)
                           element.value.pdfId.isEmpty
                               ? FutureBuilder(
-                                  future: downLoadData(path: element.value.markdown),
+                                  future: downLoadData(
+                                      path: element.value.markdown),
                                   builder: (context, snapshot) {
-                                    if (snapshot.connectionState == ConnectionState.done) {
-                                      return FutureBuilder(
-                                        future: initController(snapshot.data!.path),
-                                        builder: (context, snapshot) {
-                                          if (snapshot.connectionState == ConnectionState.done) {
-                                            return Container(
-                                                padding: EdgeInsets.all(10.w),
-                                                color: Colors.white,
-                                                child: WebViewWidget(controller: snapshot.data!));
-                                          }
+                                    if (snapshot.connectionState ==
+                                        ConnectionState.done) {
+                                      if (snapshot.data == null) {
+                                        return const Center(
+                                          child: CircularProgressIndicator(),
+                                        );
+                                      } else {
+                                        return FutureBuilder(
+                                          future: initController(
+                                              snapshot.data!.path),
+                                          builder: (context, snapshot) {
+                                            if (snapshot.connectionState ==
+                                                ConnectionState.done) {
+                                              if (snapshot.data == null) {
+                                                return const Center(
+                                                  child:
+                                                      CircularProgressIndicator(),
+                                                );
+                                              }
+                                              return Container(
+                                                  padding: EdgeInsets.all(10.w),
+                                                  color: Colors.white,
+                                                  child: WebViewWidget(
+                                                      controller:
+                                                          snapshot.data!));
+                                            }
 
-                                          return const Center(
-                                            child: CircularProgressIndicator(),
-                                          );
-                                        },
-                                      );
+                                            return const Center(
+                                              child:
+                                                  CircularProgressIndicator(),
+                                            );
+                                          },
+                                        );
+                                      }
                                     }
 
                                     return const Center(
@@ -308,39 +330,55 @@ class UiUtilWidgetTile3 extends HookConsumerWidget with RepositoryFireStorage {
                                     onPdfTap(_pdfPath);
                                   },
                                   child: FutureBuilder(
-                                    future: downLoadData(path: element.value.pdfId),
+                                    future:
+                                        downLoadData(path: element.value.pdfId),
                                     builder: (context, snapshot) {
-                                      if (snapshot.connectionState == ConnectionState.done) {
-                                        _pdfPath = snapshot.data!.path;
-                                      }
-                                      return snapshot.data == null
-                                          ? const Center(
-                                              child: CircularProgressIndicator(),
-                                            )
-                                          : FutureBuilder(
-                                              future: PDFDocument.fromFile(File(snapshot.data!.path)),
-                                              builder: (context, snapshot) {
-                                                if (snapshot.connectionState == ConnectionState.done) {
-                                                  return Stack(
-                                                    children: [
-                                                      PDFViewer(
-                                                        showIndicator: false,
-                                                        showNavigation: false,
-                                                        showPicker: false,
-                                                        enableSwipeNavigation: false,
-                                                        document: snapshot.data!,
-                                                      ),
-                                                      Container(
-                                                        color: Colors.transparent,
-                                                      )
-                                                    ],
+                                      if (snapshot.data == null) {
+                                        return const Center(
+                                          child: CircularProgressIndicator(),
+                                        );
+                                      } else {
+                                        if (snapshot.connectionState ==
+                                            ConnectionState.done) {
+                                          _pdfPath = snapshot.data!.path;
+                                        }
+                                        return snapshot.data == null
+                                            ? const Center(
+                                                child:
+                                                    CircularProgressIndicator(),
+                                              )
+                                            : FutureBuilder(
+                                                future: PDFDocument.fromFile(
+                                                    File(snapshot.data!.path)),
+                                                builder: (context, snapshot) {
+                                                  if (snapshot
+                                                          .connectionState ==
+                                                      ConnectionState.done) {
+                                                    return Stack(
+                                                      children: [
+                                                        PDFViewer(
+                                                          showIndicator: false,
+                                                          showNavigation: false,
+                                                          showPicker: false,
+                                                          enableSwipeNavigation:
+                                                              false,
+                                                          document:
+                                                              snapshot.data!,
+                                                        ),
+                                                        Container(
+                                                          color: Colors
+                                                              .transparent,
+                                                        )
+                                                      ],
+                                                    );
+                                                  }
+                                                  return const Center(
+                                                    child:
+                                                        CircularProgressIndicator(),
                                                   );
-                                                }
-                                                return const Center(
-                                                  child: CircularProgressIndicator(),
-                                                );
-                                              },
-                                            );
+                                                },
+                                              );
+                                      }
                                     },
                                   ),
                                 ),

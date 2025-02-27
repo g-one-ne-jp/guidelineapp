@@ -13,13 +13,18 @@ import 'package:path_provider/path_provider.dart';
 
 mixin RepositoryFireStorage {
   // ファイルをダウンロードする
-  Future<File> downLoadData({
+  Future<File?> downLoadData({
     required String path,
     bool isNewUpdate = false,
   }) async {
+    if (path == '') {
+      return null;
+    }
     final user = FirebaseAuth.instance.currentUser!; // 認証済みユーザーを取得
     var islandRef = FirebaseStorage.instance.ref().child(path);
-    final appDocDir = await getApplicationCacheDirectory();
+    final appDocDir = Platform.isIOS
+        ? await getApplicationDocumentsDirectory()
+        : await getApplicationCacheDirectory();
     final fileDire = "${appDocDir.path}/${user.uid}/";
     final fileName = path.split('/').last;
     final filePath = "$fileDire$fileName";
@@ -29,7 +34,9 @@ mixin RepositoryFireStorage {
     if (await _fileExists(filePath) && await file.exists()) {
       debugPrint('編集済みファイルは既に存在します: ${_getLastTwoPartsOfPath(filePath)}');
       if (!isNewUpdate) {
-        islandRef = FirebaseStorage.instance.ref().child(_getLastTwoPartsOfPath(filePath));
+        islandRef = FirebaseStorage.instance
+            .ref()
+            .child(_getLastTwoPartsOfPath(filePath));
       }
       final fileLastModified = await file.lastModified();
       final storageMetadata = await islandRef.getMetadata();
@@ -52,7 +59,11 @@ mixin RepositoryFireStorage {
     }
     try {
       // ディレクトリが存在しない場合は作成
-      await Directory(fileDire).create(recursive: true);
+      try {
+        await Directory(fileDire).create(recursive: true);
+      } catch (e) {
+        debugPrint('ディレクトリの作成に失敗しました: $e');
+      }
       await islandRef.writeToFile(file);
       debugPrint('ファイルのダウンロードが完了しました: $filePath');
       return file;
@@ -61,7 +72,8 @@ mixin RepositoryFireStorage {
       Fluttertoast.showToast(
         msg: 'ファイルのダウンロード中にエラーが発生しました  path:$path',
       );
-      rethrow;
+
+      return null;
     }
   }
 /*
@@ -118,7 +130,8 @@ mixin RepositoryFireStorage {
   }) async {
     try {
       // 取り出した要素を/で結合して新しいパスを作成
-      final storageRef = FirebaseStorage.instance.ref().child(_getLastTwoPartsOfPath(path));
+      final storageRef =
+          FirebaseStorage.instance.ref().child(_getLastTwoPartsOfPath(path));
 
       // ファイルをアップロード
       final uploadTask = storageRef.putFile(file);
@@ -128,7 +141,8 @@ mixin RepositoryFireStorage {
         switch (taskSnapshot.state) {
           case TaskState.running:
             debugPrint('アップロード中...');
-            final progress = 100.0 * (taskSnapshot.bytesTransferred / taskSnapshot.totalBytes);
+            final progress = 100.0 *
+                (taskSnapshot.bytesTransferred / taskSnapshot.totalBytes);
             debugPrint('進捗: $progress%');
             break;
           case TaskState.paused:
@@ -157,7 +171,8 @@ mixin RepositoryFireStorage {
   //
   Future<bool> _fileExists(String path) async {
     try {
-      final storageRef = FirebaseStorage.instance.ref().child(_getLastTwoPartsOfPath(path));
+      final storageRef =
+          FirebaseStorage.instance.ref().child(_getLastTwoPartsOfPath(path));
       await storageRef.getMetadata();
       return true; // ファイルが存在する
     } on FirebaseException catch (e) {
