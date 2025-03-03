@@ -28,12 +28,13 @@ class ProviderUser extends StateNotifier<ModelFirebaseUser>
     _initializeUserData();
   }
 
-  final user = FirebaseAuth.instance.currentUser!; // 認証済みユーザーを取得
+  var user = FirebaseAuth.instance.currentUser!; // 認証済みユーザーを取得
   final firestore = FirebaseFirestore.instance;
   var userData = ModelFirebaseUser();
   var selectedData = ModelFirebaseUser();
 
   Future<void> _initializeUserData() async {
+    user = FirebaseAuth.instance.currentUser!;
     userData =
         await readUser<ModelFirebaseUser>(fromJson: ModelFirebaseUser.fromJson);
 
@@ -56,6 +57,8 @@ class ProviderUser extends StateNotifier<ModelFirebaseUser>
     required T Function(Map<String, dynamic> json) fromJson,
   }) async {
     try {
+      user = FirebaseAuth.instance.currentUser!;
+
       final doc = await firestore.collection('users').doc(user.uid).get();
       if (doc.exists) {
         final data = doc.data() as Map<String, dynamic>;

@@ -106,7 +106,7 @@ Future<String> utilAuthLogin(
     //ログイン成功
     if (user != null) {
       debugPrint("ログインしました　${user.email} , ${user.uid}");
-      return ': ${user.email}';
+      return '';
     } else {
       //ログイン失敗
       return 'ログインに失敗しました。';

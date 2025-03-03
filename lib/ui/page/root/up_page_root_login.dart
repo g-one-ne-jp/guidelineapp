@@ -92,12 +92,13 @@ class UiPageLogin extends HookConsumerWidget {
                               context: context)
                           .then((onValue) async {
                         if (onValue.isNotEmpty) {
+                          await Fluttertoast.showToast(
+                            msg: onValue,
+                          );
+                        } else {
                           // ignore: use_build_context_synchronously
                           context.router.popUntilRoot();
                           context.router.replaceNamed('/home');
-                        } else {
-                          // ignore: use_build_context_synchronously
-                          context.router.pushNamed('/profileCreate');
                         }
                         FocusScope.of(context).unfocus();
                       });
