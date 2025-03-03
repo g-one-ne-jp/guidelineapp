@@ -185,7 +185,7 @@ Widget uiUtilHtml({
               return Center(child: Text('エラー: ${snapshot.error}'));
             } else if (snapshot.hasData) {
               final controller = WebViewController()
-                ..setJavaScriptMode(JavaScriptMode.unrestricted)
+                ..setBackgroundColor(Colors.transparent) // 背景色を白に設定
                 ..loadRequest(
                   Uri.dataFromString(
                     snapshot.data!,
@@ -197,7 +197,7 @@ Widget uiUtilHtml({
                 itemCount: 1,
                 itemBuilder: (context, index) => ListTile(
                   title: Container(
-                    height: 3000,
+                    height: 3000.h,
                     child: WebViewWidget(controller: controller),
                   ),
                 ),

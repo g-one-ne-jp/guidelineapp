@@ -1,4 +1,5 @@
 // Flutter imports:
+import 'package:JCSGuidelines/module/firebase/model_firebase_user.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -22,6 +23,8 @@ class UiPageHome extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final _user = useState(ModelFirebaseUser());
+
     final _userProvider = ref.watch(userProvider);
     final _userNotifer = ref.watch(userProvider.notifier);
 
@@ -32,6 +35,10 @@ class UiPageHome extends HookConsumerWidget {
 
     useEffect(() {
       Future<void>(() async {
+        //ユーザーデータを読み込み
+        _user.value = await _userNotifer.readUser<ModelFirebaseUser>(
+            fromJson: ModelFirebaseUser.fromJson);
+
         _tos.value = await _userNotifer.readTocsJson();
         await Future.delayed(const Duration(seconds: 1));
         var value = _tos.value.categories.values.toList()[0];
