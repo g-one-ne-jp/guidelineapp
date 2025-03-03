@@ -1,8 +1,12 @@
 // Flutter imports:
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 // Package imports:
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 enum Gender {
   male('男'),
@@ -143,6 +147,66 @@ Widget uiUtilTitleScrollableText({
                   child: Text(content),
                 ),
               ),
+      ),
+    ],
+  );
+}
+
+Widget uiUtilHtml({
+  required String title,
+  bool isEditable = true,
+  Function(String)? onChanged,
+}) {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Text(
+        title,
+        style: const TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      const SizedBox(height: 8),
+      Container(
+        width: double.infinity,
+        height: 300.h,
+        decoration: BoxDecoration(
+          // 枠線を追加
+          border: Border.all(color: Colors.grey), // 枠線の色と太さを指定
+          borderRadius: BorderRadius.circular(8.0), // 角丸を追加する場合
+        ),
+        child: FutureBuilder<String>(
+          future: rootBundle.loadString('assets/txt/GONE.html'),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(child: CircularProgressIndicator());
+            } else if (snapshot.hasError) {
+              return Center(child: Text('エラー: ${snapshot.error}'));
+            } else if (snapshot.hasData) {
+              final controller = WebViewController()
+                ..setJavaScriptMode(JavaScriptMode.unrestricted)
+                ..loadRequest(
+                  Uri.dataFromString(
+                    snapshot.data!,
+                    mimeType: 'text/html',
+                    encoding: Encoding.getByName('utf-8'),
+                  ),
+                );
+              return ListView.builder(
+                itemCount: 1,
+                itemBuilder: (context, index) => ListTile(
+                  title: Container(
+                    height: 3000,
+                    child: WebViewWidget(controller: controller),
+                  ),
+                ),
+              );
+            } else {
+              return const Center(child: Text('データがありません'));
+            }
+          },
+        ),
       ),
     ],
   );

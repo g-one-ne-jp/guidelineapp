@@ -264,10 +264,9 @@ class UiUtilWidgetTile3 extends HookConsumerWidget with RepositoryFireStorage {
 
     //useEffect(() {
     deteil.contents.entries.map((a) => a).toList().forEach((element) {
-      element.value.settions.entries.map((b) => b).toList().forEach((element) {
+      element.value.settions.entries.map((a) => a).toList().forEach((element) {
         _settions.value = List.from(_settions.value)
-          ..insert(
-            0,
+          ..add(
             UiUtilWidgetExpansionTile(
               titile: element.value.settionTitle,
               children: [
@@ -429,12 +428,14 @@ class UiUtilWidgetTile3 extends HookConsumerWidget with RepositoryFireStorage {
                             color: Colors.black,
                           ),
                         ),
+                        /*
                         IconButton(
                           onPressed: () {
                             onDeteilEdit(deteil);
                           },
                           icon: const Icon(Icons.edit),
                         ),
+                        */
                       ],
                     ),
                   ),

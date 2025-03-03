@@ -102,7 +102,7 @@ class UiPageProfileCreate extends HookConsumerWidget {
                         _number.value = value;
                         _isChecked.value = true;
                       }),
-                  uiUtilTitleScrollableText(title: '利用規約', content: 'aaaaas'),
+                  uiUtilHtml(title: '利用規約'),
                   uiUtilCheckBox(
                     text: '利用規約に同意する',
                     onChanged: (bool? value) {
@@ -117,8 +117,8 @@ class UiPageProfileCreate extends HookConsumerWidget {
                       },
                       isChecked: _isMailMagazine.value),
 
-                  //
-
+                  //xl1200n.09+a@gmail.com
+                  //Test12345&
                   //
                   SizedBox(
                     height: 16.0.h,
