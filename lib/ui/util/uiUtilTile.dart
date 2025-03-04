@@ -428,14 +428,12 @@ class UiUtilWidgetTile3 extends HookConsumerWidget with RepositoryFireStorage {
                             color: Colors.black,
                           ),
                         ),
-                        /*
                         IconButton(
                           onPressed: () {
                             onDeteilEdit(deteil);
                           },
                           icon: const Icon(Icons.edit),
                         ),
-                        */
                       ],
                     ),
                   ),
