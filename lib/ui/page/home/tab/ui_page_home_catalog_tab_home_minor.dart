@@ -22,7 +22,8 @@ import 'package:JCSGuidelines/ui/util/uiUtilTile.dart';
 
 @RoutePage()
 // ignore: must_be_immutable
-class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget with RepositoryFireStorage {
+class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
+    with RepositoryFireStorage {
   UiPageHomeCatalogTabHomeMinor({
     super.key,
     @PathParam('minorKey') required this.minorKey,
@@ -47,7 +48,8 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget with RepositoryFi
 
     useEffect(() {
       Future<void>(() async {
-        _minor.value = _tocNotifer.searchMinorCategoryByKeyFromMajor(_tocProvider, minorKey);
+        _minor.value = _tocNotifer.searchMinorCategoryByKeyFromMajor(
+            _tocProvider, minorKey);
       });
       return () => customDebugPrint('dispose!');
     }, []);
@@ -70,9 +72,13 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget with RepositoryFi
         title: Text(_minor.value.minorTitle),
         actions: <Widget>[
           IconButton(
-            icon: Icon(!_userNotifer.getBookmarkState(key: minorKey) ? Icons.bookmark_outline : Icons.bookmark),
+            icon: Icon(!_userNotifer.getBookmarkState(key: minorKey)
+                ? Icons.bookmark_outline
+                : Icons.bookmark),
             onPressed: () {
-              _userNotifer.updateBookmark(key: minorKey, isBookmark: !_userNotifer.getBookmarkState(key: minorKey));
+              _userNotifer.updateBookmark(
+                  key: minorKey,
+                  isBookmark: !_userNotifer.getBookmarkState(key: minorKey));
             },
           ),
         ],
@@ -84,7 +90,8 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget with RepositoryFi
           itemBuilder: (BuildContext context, int index) {
             var value = _minor.value.details.values.toList()[index];
             //memoにkeyが存在しているか？
-            final isMemo = _userNotifer.getMemo(key: value.detailKey).isNotEmpty;
+            final isMemo =
+                _userNotifer.getMemo(key: value.detailKey).isNotEmpty;
 
             return isMemo || !viewTypeMemo
                 ? UiUtilWidgetTile3(
@@ -94,7 +101,8 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget with RepositoryFi
                     },
                     onDeteilEdit: (deteil) {
                       _panelKey.value = deteil.detailKey;
-                      context.router.pushNamed('/edit/${deteil.detailKey}/false');
+                      context.router
+                          .pushNamed('/edit/${deteil.detailKey}/false');
                     })
                 : Container();
           },
