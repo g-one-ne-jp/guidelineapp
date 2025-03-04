@@ -2,7 +2,8 @@
 // ignore_for_file: type=lint
 
 // Flutter imports:
-import 'package:flutter/foundation.dart' show defaultTargetPlatform, kIsWeb, TargetPlatform;
+import 'package:flutter/foundation.dart'
+    show defaultTargetPlatform, kIsWeb, TargetPlatform;
 
 // Package imports:
 import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
@@ -54,7 +55,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyCCcGjEWSwLxrQunJWJnc_j6YoQZ8p-nAc',
-    appId: '1:256963860509:android:ea9712ba69553c01028ef4',
+    appId: '1:256963860509:android:5251574400f5962e028ef4',
     messagingSenderId: '256963860509',
     projectId: 'jcsguideline',
     storageBucket: 'jcsguideline.firebasestorage.app',
@@ -62,13 +63,13 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyAC3spWmWQqBTn1c9fkstdzPEccb7aFn0Q',
-    appId: '1:256963860509:ios:2ef6cff19d60e732028ef4',
+    appId: '1:256963860509:ios:0b906314d7053dc6028ef4',
     messagingSenderId: '256963860509',
     projectId: 'jcsguideline',
     storageBucket: 'jcsguideline.firebasestorage.app',
     androidClientId: '256963860509-35tjd567eg3h2n6e7fmg3nvcj2c5fka9.apps.googleusercontent.com',
-    iosClientId: '256963860509-h49klkinp44lvtv1e2uc5jtme3hqh3rd.apps.googleusercontent.com',
-    iosBundleId: 'com.guideline.dev',
+    iosClientId: '256963860509-s24cf0jburbdrlp384o1oslqr34mat15.apps.googleusercontent.com',
+    iosBundleId: 'jp.co.miceone.jcsguidelines',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
@@ -77,7 +78,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '256963860509',
     projectId: 'jcsguideline',
     storageBucket: 'jcsguideline.firebasestorage.app',
-    iosClientId: '256963860509-ojsg6l9hkala7vrufulc505c88shlmjr.apps.googleusercontent.com',
+    iosClientId:
+        '256963860509-ojsg6l9hkala7vrufulc505c88shlmjr.apps.googleusercontent.com',
     iosBundleId: 'com.example.flutterTemplate',
   );
 

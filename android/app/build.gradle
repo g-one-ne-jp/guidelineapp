@@ -27,7 +27,7 @@ if (flutterVersionName == null) {
 }
 
 android {
-    namespace "com.guideline.dev" // アプリケーションIDを設定
+    namespace "jp.co.miceone.jcsguidelines" // アプリケーションIDを設定
     compileSdkVersion flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
 
@@ -45,7 +45,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.guideline.dev" // アプリケーションIDを設定
+        applicationId "jp.co.miceone.jcsguidelines" // アプリケーションIDを設定
         minSdkVersion 23 
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
