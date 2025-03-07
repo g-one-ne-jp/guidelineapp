@@ -86,3 +86,4 @@ flutter_launcher_icons:
   image_path: "assets/icon/icon.png"
   min_sdk_android: 21
   adaptive_icon_background: "#FFFFFF"  # 背景色を白に
+  remove_alpha_ios: true
