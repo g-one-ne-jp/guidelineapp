@@ -79,8 +79,13 @@ releasebuild:
 	cd ../
 
 ios_profile:
-	#リリースビルド
-	flutter build ipa --profile --export-options-plist="./ios/configs/dev/ExportOptions.plist" --build-name=1.0.0-profile --build-number=1 
+	#プロファイル
+	sh ./shell/ios_profile.sh
 
 ios_release:
-	flutter build ipa --release --export-options-plist="./ios/configs/ExportOptions.plist" --build-name=1.0.0-profile --build-number=1 
+	#リリース
+	sh ./shell/ios_relase.sh
+
+ios_all:
+	make ios_profile
+	make ios_release
