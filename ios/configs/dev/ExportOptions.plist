@@ -17,11 +17,11 @@
 	<string>release-testing</string>
 	<key>provisioningProfiles</key>
 	<dict>
-		<key>com.guideline.dev</key>
-		<string>codemagic_test</string>
+		<key>jp.co.miceone.jcsguidelines</key>
+		<string>JCSGuidelines Distribution Achoc</string>
 	</dict>
 	<key>signingCertificate</key>
-	<string>7BB4BF734E48473EEE1A53C61CE292466B078B82</string>
+	<string>Apple Distribution</string>
 	<key>signingStyle</key>
 	<string>manual</string>
 	<key>stripSwiftSymbols</key>

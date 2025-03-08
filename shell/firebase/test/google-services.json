@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "256963860509",
+    "project_id": "jcsguideline",
+    "storage_bucket": "jcsguideline.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:256963860509:android:ea9712ba69553c01028ef4",
+        "android_client_info": {
+          "package_name": "com.guideline.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "256963860509-35tjd567eg3h2n6e7fmg3nvcj2c5fka9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.guideline.dev",
+            "certificate_hash": "01266bd4a2d69bdadc201e5b9e29149583e9fcd7"
+          }
+        },
+        {
+          "client_id": "256963860509-i8h4a40ik52am43ahg8ij5b86nqvp0dn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.guideline.dev",
+            "certificate_hash": "6e6cab0a040bfa531f19331505379cebaedfe924"
+          }
+        },
+        {
+          "client_id": "256963860509-ci7a8oj963q99det8geblssj4ifqomba.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCcGjEWSwLxrQunJWJnc_j6YoQZ8p-nAc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "256963860509-ci7a8oj963q99det8geblssj4ifqomba.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "256963860509-h49klkinp44lvtv1e2uc5jtme3hqh3rd.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.guideline.dev"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:256963860509:android:5251574400f5962e028ef4",
+        "android_client_info": {
+          "package_name": "jp.co.miceone.jcsguidelines"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "256963860509-ci7a8oj963q99det8geblssj4ifqomba.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCcGjEWSwLxrQunJWJnc_j6YoQZ8p-nAc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "256963860509-ci7a8oj963q99det8geblssj4ifqomba.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "256963860509-h49klkinp44lvtv1e2uc5jtme3hqh3rd.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.guideline.dev"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
