@@ -77,3 +77,10 @@ releasebuild:
 	flutter pub get
 	cd ios/ && pod install
 	cd ../
+
+ios_profile:
+	#リリースビルド
+	flutter build ipa --profile --export-options-plist="./ios/configs/dev/ExportOptions.plist" --build-name=1.0.0-profile --build-number=1 
+
+ios_release:
+	flutter build ipa --release --export-options-plist="./ios/configs/ExportOptions.plist" --build-name=1.0.0-profile --build-number=1 

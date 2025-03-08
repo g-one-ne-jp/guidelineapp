@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>destination</key>
+	<string>export</string>
+	<key>manifest</key>
+	<dict>
+		<key>appURL</key>
+		<string>https://www.google.com/</string>
+		<key>displayImageURL</key>
+		<string>https://www.google.com/</string>
+		<key>fullSizeImageURL</key>
+		<string>https://www.google.com/</string>
+	</dict>
+	<key>method</key>
+	<string>release-testing</string>
+	<key>provisioningProfiles</key>
+	<dict>
+		<key>com.guideline.dev</key>
+		<string>codemagic_test</string>
+	</dict>
+	<key>signingCertificate</key>
+	<string>7BB4BF734E48473EEE1A53C61CE292466B078B82</string>
+	<key>signingStyle</key>
+	<string>manual</string>
+	<key>stripSwiftSymbols</key>
+	<true/>
+	<key>teamID</key>
+	<string>7PS9549772</string>
+	<key>thinning</key>
+	<string>&lt;thin-for-all-variants&gt;</string>
+</dict>
+</plist>
