@@ -84,7 +84,7 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
         ],
       ),
       body: Container(
-        color: Colors.grey[200],
+        color: Colors.white,
         child: ListView.builder(
           itemCount: _minor.value.details.length,
           itemBuilder: (BuildContext context, int index) {

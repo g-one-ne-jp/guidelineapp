@@ -1,8 +1,14 @@
 // Flutter imports:
 import 'package:flutter/foundation.dart';
+import 'package:logger/logger.dart';
 
-void customDebugPrint(String message) {
+var logger = Logger();
+
+void customDebugPrint(
+  String message, {
+  bool isError = false,
+}) {
   if (kDebugMode) {
-    print(message);
+    logger.d(message);
   }
 }

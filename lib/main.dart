@@ -112,7 +112,7 @@ class MyApp extends HookConsumerWidget with WidgetsBindingObserver {
         // routerを追加
         routerConfig: _appRouter.config(),
 
-        title: 'Flutter Demo',
+        title: 'APP',
         theme: ThemeData(
           brightness: Brightness.light,
           primaryColor: Colors.blue,
