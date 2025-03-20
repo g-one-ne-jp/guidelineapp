@@ -41,19 +41,20 @@ class UiPageHomeCatalogTabHomeTOC extends HookConsumerWidget {
         title: Text(_tocProvider.majorTitle),
       ),
       body: Container(
-        color: Colors.grey[400],
+        color: Colors.white,
         child: Column(
           children: [
             Container(
               width: double.infinity,
               height: 60.h,
-              color: const Color(0xFFE4007F),
+              color: const Color(0xFFf6d1bf),
+              padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Center(
                 child: FittedBox(
                   fit: BoxFit.contain,
                   child: Text(
                     _tocProvider.majorSummary,
-                    style: TextStyle(color: Colors.white, fontSize: 20.sp),
+                    style: TextStyle(color: Colors.black, fontSize: 20.sp),
                   ),
                 ),
               ),

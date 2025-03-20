@@ -42,7 +42,7 @@ class UiPageHomeCatalogTabHome extends HookConsumerWidget
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('表紙'),
+        title: const Text(''),
         automaticallyImplyLeading: false, // 戻るボタンを表示しない
       ),
       body: Container(

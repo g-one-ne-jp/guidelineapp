@@ -1,8 +1,10 @@
 // Flutter imports:
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 // Project imports:
@@ -161,6 +163,151 @@ Future<bool> utilAuthLogout() async {
     await FirebaseAuth.instance.signOut();
     return true;
   } catch (e) {
+    return false;
+  }
+}
+
+Future<bool> utilAuthDeleteAccountWithReauth(BuildContext context) async {
+  // テキストフィールドのコントローラ
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
+  // 現在のユーザーを取得
+  User? user = FirebaseAuth.instance.currentUser;
+  if (user == null) {
+    print("ユーザーがログインしていません");
+    return false;
+  }
+
+  // ユーザーがGoogleでログインしているかどうかを確認
+  bool isGoogleUser =
+      user.providerData.any((info) => info.providerId == 'google.com');
+
+  if (isGoogleUser) {
+    // Googleログインの場合の再認証と削除
+    return await _handleGoogleReauthAndDelete(context, user);
+  } else {
+    // メール/パスワードの場合のダイアログ表示
+    bool? dialogResult = await showDialog<bool>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('アカウント削除'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              SizedBox(height: 12),
+              TextField(
+                controller: emailController,
+                decoration: const InputDecoration(
+                  labelText: 'メールアドレス',
+                ),
+                keyboardType: TextInputType.emailAddress,
+              ),
+              SizedBox(height: 12),
+              TextField(
+                controller: passwordController,
+                decoration: const InputDecoration(
+                  labelText: 'パスワード',
+                ),
+                obscureText: true,
+              ),
+              SizedBox(height: 12),
+            ],
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(false); // キャンセル
+              },
+              child: const Text('キャンセル'),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(true); // 確認
+              },
+              child: const Text('削除'),
+            ),
+          ],
+        );
+      },
+    );
+
+    // ダイアログがキャンセルされた場合
+    if (dialogResult == null || !dialogResult) {
+      print("削除がキャンセルされました");
+      return false;
+    }
+
+    // ユーザー入力値を取得
+    String email = emailController.text.trim();
+    String password = passwordController.text.trim();
+
+    try {
+      // 再認証のためのクレデンシャルを作成
+      AuthCredential credential = EmailAuthProvider.credential(
+        email: email,
+        password: password,
+      );
+
+      // 再認証を実行
+      await user.reauthenticateWithCredential(credential);
+
+      print("ユーザーデータを削除");
+      await FirebaseFirestore.instance
+          .collection('users')
+          .doc(user.uid)
+          .delete();
+      // 再認証が成功したらアカウントを削除
+      await user.delete();
+      print("アカウントが正常に削除されました");
+      await FirebaseAuth.instance.signOut();
+      return true;
+    } catch (e) {
+      print("エラー: $e");
+      await Fluttertoast.showToast(
+        msg: 'メールアドレスまたはパスワードが正しくありません',
+      );
+      return false;
+    } finally {
+      // コントローラを破棄
+      emailController.dispose();
+      passwordController.dispose();
+    }
+  }
+}
+
+// Google再認証とアカウント削除の処理
+Future<bool> _handleGoogleReauthAndDelete(
+    BuildContext context, User user) async {
+  try {
+    // Google Sign-Inで再認証
+    final GoogleSignIn googleSignIn = GoogleSignIn();
+    final GoogleSignInAccount? googleUser = await googleSignIn.signIn();
+
+    if (googleUser == null) {
+      print("Googleログインがキャンセルされました");
+      return false;
+    }
+
+    final GoogleSignInAuthentication googleAuth =
+        await googleUser.authentication;
+    final AuthCredential credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth.accessToken,
+      idToken: googleAuth.idToken,
+    );
+
+    // 再認証を実行
+    await user.reauthenticateWithCredential(credential);
+    print("ユーザーデータを削除");
+    await FirebaseFirestore.instance.collection('users').doc(user.uid).delete();
+    // 再認証が成功したらアカウントを削除
+    await user.delete();
+    print("Googleアカウントが正常に削除されました");
+    await FirebaseAuth.instance.signOut();
+    return true;
+  } catch (e) {
+    print("Google再認証エラー: $e");
     return false;
   }
 }

@@ -3,6 +3,8 @@
 // Dart imports:
 
 // Flutter imports:
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -188,38 +190,39 @@ class UiPageLogin extends HookConsumerWidget {
                   },
                   child: const Text('パスワードを忘れた方'),
                 ),
+                if (Platform.isIOS)
 
-                // Goolgwサインインボタン
-                Container(
-                  padding: EdgeInsets.all(10.0.w),
-                  // 横幅いっぱいにする
-                  width: double.infinity,
-                  child: FittedBox(
-                    child: SignInButton(
-                      Buttons.Google,
-                      text: "Googleでログイン",
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(60.0.r),
-                        side: const BorderSide(color: Colors.grey), // 枠線を追加
+                  // Goolgwサインインボタン
+                  Container(
+                    padding: EdgeInsets.all(10.0.w),
+                    // 横幅いっぱいにする
+                    width: double.infinity,
+                    child: FittedBox(
+                      child: SignInButton(
+                        Buttons.Google,
+                        text: "Googleでログイン",
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(60.0.r),
+                          side: const BorderSide(color: Colors.grey), // 枠線を追加
+                        ),
+                        elevation: 0, // 影をなくす
+                        onPressed: () async {
+                          utilGoogleSignin(context: context)
+                              .then((onValue) async {
+                            if (onValue.isNotEmpty) {
+                              await Fluttertoast.showToast(
+                                msg: onValue,
+                              );
+                            } else {
+                              // ignore: use_build_context_synchronously
+                              context.router.popUntilRoot();
+                              context.router.replaceNamed('/home');
+                            }
+                          });
+                        },
                       ),
-                      elevation: 0, // 影をなくす
-                      onPressed: () async {
-                        utilGoogleSignin(context: context)
-                            .then((onValue) async {
-                          if (onValue.isNotEmpty) {
-                            await Fluttertoast.showToast(
-                              msg: onValue,
-                            );
-                          } else {
-                            // ignore: use_build_context_synchronously
-                            context.router.popUntilRoot();
-                            context.router.replaceNamed('/home');
-                          }
-                        });
-                      },
                     ),
                   ),
-                ),
               ],
             ),
           ),

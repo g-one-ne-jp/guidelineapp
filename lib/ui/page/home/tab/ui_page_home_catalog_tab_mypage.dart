@@ -253,6 +253,10 @@ class UiPageHomeCatalogTabMypage extends HookConsumerWidget {
                                   await Fluttertoast.showToast(
                                     msg: 'ログアウトしました。',
                                   );
+                                } else {
+                                  await Fluttertoast.showToast(
+                                    msg: 'ログアウトに失敗しました。',
+                                  );
                                 }
                               },
                               child: const Text('ログアウト'),
@@ -263,6 +267,54 @@ class UiPageHomeCatalogTabMypage extends HookConsumerWidget {
                     );
                   },
                   child: const Text('ログアウト'),
+                ),
+                SizedBox(
+                  height: 16.0.h,
+                ),
+                //ログアウト
+                TextButton(
+                  style: TextButton.styleFrom(
+                    foregroundColor: Colors.blue,
+                    backgroundColor: Colors.transparent,
+                  ),
+                  onPressed: () async {
+                    await showDialog<bool>(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return CupertinoAlertDialog(
+                          title: const Text('確認'),
+                          content: const Text('本当にアカウントを削除しますか？'),
+                          actions: <Widget>[
+                            TextButton(
+                              onPressed: () {
+                                Navigator.of(context).pop(false);
+                              },
+                              child: const Text('キャンセル'),
+                            ),
+                            TextButton(
+                              onPressed: () async {
+                                if (await utilAuthDeleteAccountWithReauth(
+                                    context)) {
+                                  Navigator.of(context).pop(true);
+                                  context.router.popUntilRoot();
+                                  context.router.replaceNamed('/login');
+                                  await Fluttertoast.showToast(
+                                    msg: 'アカウントを削除しました。',
+                                  );
+                                } else {
+                                  await Fluttertoast.showToast(
+                                    msg: 'アカウント削除に失敗しました。',
+                                  );
+                                }
+                              },
+                              child: const Text('削除'),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  },
+                  child: const Text('アカウントの削除'),
                 ),
               ],
             ),

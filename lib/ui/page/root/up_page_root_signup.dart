@@ -3,6 +3,8 @@
 // Dart imports:
 
 // Flutter imports:
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -81,7 +83,8 @@ class UiPageSingup extends HookConsumerWidget {
                   controller: _emailController.value,
                   decoration: InputDecoration(
                     hintText: 'Email',
-                    hintStyle: const TextStyle(color: Colors.grey), // hintの文字色をグレーに設定
+                    hintStyle:
+                        const TextStyle(color: Colors.grey), // hintの文字色をグレーに設定
                     border: OutlineInputBorder(
                       borderSide: const BorderSide(color: Colors.grey),
                       borderRadius: BorderRadius.circular(10.0.r), // 角丸の半径を指定
@@ -99,7 +102,8 @@ class UiPageSingup extends HookConsumerWidget {
                   controller: _passwordController.value,
                   decoration: InputDecoration(
                     hintText: 'パスワード',
-                    hintStyle: const TextStyle(color: Colors.grey), // hintの文字色をグレーに設定
+                    hintStyle:
+                        const TextStyle(color: Colors.grey), // hintの文字色をグレーに設定
                     border: OutlineInputBorder(
                       borderSide: const BorderSide(color: Colors.grey),
                       borderRadius: BorderRadius.circular(10.0.r), // 角丸の半径を指定
@@ -108,7 +112,9 @@ class UiPageSingup extends HookConsumerWidget {
                     fillColor: Colors.grey[100], // 背景色を指定
                     suffixIcon: IconButton(
                       icon: Icon(
-                        _isPasswordVisible.value ? Icons.visibility : Icons.visibility_off,
+                        _isPasswordVisible.value
+                            ? Icons.visibility
+                            : Icons.visibility_off,
                       ),
                       onPressed: () {
                         _isPasswordVisible.value = !_isPasswordVisible.value;
@@ -161,36 +167,37 @@ class UiPageSingup extends HookConsumerWidget {
                   },
                   child: const Text('アカウントをお持ちの方はこちら'),
                 ),
-
-                // Goolgwサインインボタン
-                Container(
-                  padding: EdgeInsets.all(10.0.w),
-                  // 横幅いっぱいにする
-                  width: double.infinity,
-                  child: FittedBox(
-                    child: SignInButton(
-                      Buttons.Google,
-                      text: "Googleで登録",
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(60.0.r),
-                        side: const BorderSide(color: Colors.grey), // 枠線を追加
+                if (!Platform.isIOS)
+                  // Goolgwサインインボタン
+                  Container(
+                    padding: EdgeInsets.all(10.0.w),
+                    // 横幅いっぱいにする
+                    width: double.infinity,
+                    child: FittedBox(
+                      child: SignInButton(
+                        Buttons.Google,
+                        text: "Googleで登録",
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(60.0.r),
+                          side: const BorderSide(color: Colors.grey), // 枠線を追加
+                        ),
+                        elevation: 0, // 影をなくす
+                        onPressed: () async {
+                          utilGoogleSignin(context: context)
+                              .then((onValue) async {
+                            if (onValue.isNotEmpty) {
+                              await Fluttertoast.showToast(
+                                msg: onValue,
+                              );
+                            } else {
+                              context.router.popUntilRoot();
+                              context.router.replaceNamed('/profileCreate');
+                            }
+                          });
+                        },
                       ),
-                      elevation: 0, // 影をなくす
-                      onPressed: () async {
-                        utilGoogleSignin(context: context).then((onValue) async {
-                          if (onValue.isNotEmpty) {
-                            await Fluttertoast.showToast(
-                              msg: onValue,
-                            );
-                          } else {
-                            context.router.popUntilRoot();
-                            context.router.replaceNamed('/profileCreate');
-                          }
-                        });
-                      },
                     ),
                   ),
-                ),
               ],
             ),
           ),
