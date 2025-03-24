@@ -190,7 +190,7 @@ class UiPageLogin extends HookConsumerWidget {
                   },
                   child: const Text('パスワードを忘れた方'),
                 ),
-                if (Platform.isIOS)
+                if (!Platform.isIOS)
 
                   // Goolgwサインインボタン
                   Container(
