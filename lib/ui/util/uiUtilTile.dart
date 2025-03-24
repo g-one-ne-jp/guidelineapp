@@ -53,7 +53,12 @@ class UiUtilWidgetTile extends HookConsumerWidget {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 5.h, horizontal: 10),
               child: Text(
-                title,
+                sub.subTitle != title && children.isNotEmpty
+                    ? title
+                    : sub.minors.entries.first.value.minorTitle != title &&
+                            children.isEmpty
+                        ? title
+                        : '',
                 style: TextStyle(
                   fontSize: 20.0.sp,
                   color: const Color(0xFF50555C),
@@ -66,11 +71,11 @@ class UiUtilWidgetTile extends HookConsumerWidget {
                   ? ListTile(
                       trailing: const Icon(
                         Icons.arrow_forward_ios,
-                        color: Colors.white,
+                        color: Colors.black,
                       ),
                       title: Text(sub.minors.entries.first.value.minorTitle,
                           style: const TextStyle(
-                            color: Colors.white,
+                            color: Colors.black,
                           )),
                       onTap: () {
                         onTap(sub.minors.entries.first.value.minorKey);
@@ -87,16 +92,18 @@ class UiUtilWidgetTile extends HookConsumerWidget {
                         _isExpanded.value
                             ? Icons.remove // 展開されている場合のアイコン
                             : Icons.add, // 折りたたまれている場合のアイコン
-                        color: Colors.white,
+                        color: Colors.black,
                       ),
                       onExpansionChanged: (bool expanded) {
                         _isExpanded.value = expanded;
                       },
                       title: Text(sub.subTitle,
                           style: const TextStyle(
-                            color: Colors.white,
+                            color: Colors.black,
                           )),
-                      subtitle: Text(sub.subSummary),
+                      subtitle: sub.subSummary.isNotEmpty
+                          ? Text(sub.subSummary)
+                          : null,
                       children: sub.minors.entries.map((item) {
                         return Column(
                           children: [
@@ -104,11 +111,11 @@ class UiUtilWidgetTile extends HookConsumerWidget {
                             ListTile(
                               trailing: const Icon(
                                 Icons.arrow_forward_ios,
-                                color: Colors.white,
+                                color: Colors.black,
                               ),
                               title: Text(item.value.minorTitle,
                                   style: const TextStyle(
-                                    color: Colors.white,
+                                    color: Colors.black,
                                   )),
                               onTap: () {
                                 onTap(item.key);
@@ -501,7 +508,7 @@ class UiUtilWidgetExpansionTile extends HookConsumerWidget {
       ),
       child: ExpansionTile(
         trailing: Icon(
-          color: Colors.white,
+          color: Colors.black,
           _isExpanded.value
               ? Icons.remove // 展開されている場合のアイコン
               : Icons.add, // 折りたたまれている場合のアイコン
@@ -512,7 +519,7 @@ class UiUtilWidgetExpansionTile extends HookConsumerWidget {
         title: Text(
           titile,
           style: const TextStyle(
-            color: Colors.white,
+            color: Colors.black,
           ),
         ),
         children: children,
