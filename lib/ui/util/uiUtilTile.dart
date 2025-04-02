@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:io';
 
 // Flutter imports:
+import 'package:alh_pdf_view/alh_pdf_view.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -364,6 +365,24 @@ class UiUtilWidgetTile3 extends HookConsumerWidget with RepositoryFireStorage {
                                                 child:
                                                     CircularProgressIndicator(),
                                               )
+                                            : Stack(children: [
+                                                AlhPdfView(
+                                                  filePath: _pdfPath,
+                                                  autoSpacing: true,
+                                                  fitEachPage: true,
+                                                  backgroundColor: Colors.white,
+                                                ),
+                                                Container(
+                                                  color: Colors.transparent,
+                                                )
+                                              ]);
+                                      }
+                                      /*
+                                        return snapshot.data == null
+                                            ? const Center(
+                                                child:
+                                                    CircularProgressIndicator(),
+                                              )
                                             : FutureBuilder(
                                                 future: PDFDocument.fromFile(
                                                     File(snapshot.data!.path)),
@@ -395,7 +414,7 @@ class UiUtilWidgetTile3 extends HookConsumerWidget with RepositoryFireStorage {
                                                   );
                                                 },
                                               );
-                                      }
+                                              */
                                     },
                                   ),
                                 ),
