@@ -1145,6 +1145,8 @@ PODS:
     - abseil/meta/type_traits
     - abseil/xcprivacy
   - abseil/xcprivacy (1.20240116.2)
+  - alh_pdf_view_ios (0.0.1):
+    - Flutter
   - AppAuth (1.7.6):
     - AppAuth/Core (= 1.7.6)
     - AppAuth/ExternalUserAgent (= 1.7.6)
@@ -1449,6 +1451,7 @@ PODS:
     - FlutterMacOS
 
 DEPENDENCIES:
+  - alh_pdf_view_ios (from `.symlinks/plugins/alh_pdf_view_ios/ios`)
   - cloud_firestore (from `.symlinks/plugins/cloud_firestore/ios`)
   - easy_pdf_viewer (from `.symlinks/plugins/easy_pdf_viewer/ios`)
   - firebase_auth (from `.symlinks/plugins/firebase_auth/ios`)
@@ -1508,6 +1511,8 @@ SPEC REPOS:
     - RecaptchaInterop
 
 EXTERNAL SOURCES:
+  alh_pdf_view_ios:
+    :path: ".symlinks/plugins/alh_pdf_view_ios/ios"
   cloud_firestore:
     :path: ".symlinks/plugins/cloud_firestore/ios"
   easy_pdf_viewer:
@@ -1559,6 +1564,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   abseil: d121da9ef7e2ff4cab7666e76c5a3e0915ae08c3
+  alh_pdf_view_ios: 783c3f58446704b8e394efbe43ee58bfd0fec074
   AppAuth: d4f13a8fe0baf391b2108511793e4b479691fb73
   BoringSSL-GRPC: ca6a8e5d04812fce8ffd6437810c2d46f925eaeb
   cloud_firestore: ffbf407692570e7cc01eb17758b9c36860e73178
@@ -1586,7 +1592,7 @@ SPEC CHECKSUMS:
   flutter_keyboard_visibility_temp_fork: 8a8809c4129e31d25fca77446e0f3fd548122ced
   flutter_localization: f43b18844a2b3d2c71fd64f04ffd6b1e64dd54d4
   flutter_native_splash: edf599c81f74d093a4daf8e17bd7a018854bc778
-  flutter_pdfview: 25f53dd6097661e6395b17de506e6060585946bd
+  flutter_pdfview: 2e4d13ffb774858562ffbdfdb61b40744b191adc
   flutter_secure_storage_darwin: 12d2375c690785d97a4e586f15f11be5ae35d5b0
   fluttertoast: 21eecd6935e7064cc1fcb733a4c5a428f3f24f0f
   google_sign_in_ios: 07375bfbf2620bc93a602c0e27160d6afc6ead38

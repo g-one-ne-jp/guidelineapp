@@ -1,0 +1,1098 @@
+-- Merging decision tree log ---
+application
+INJECTED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml:10:5-47:19
+INJECTED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml:10:5-47:19
+MERGED from [:cloud_firestore] /Users/masayukifuruyama/git/g-one/guidline/build/cloud_firestore/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:7:5-13:19
+MERGED from [:cloud_firestore] /Users/masayukifuruyama/git/g-one/guidline/build/cloud_firestore/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:7:5-13:19
+MERGED from [:firebase_auth] /Users/masayukifuruyama/git/g-one/guidline/build/firebase_auth/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:7:5-13:19
+MERGED from [:firebase_auth] /Users/masayukifuruyama/git/g-one/guidline/build/firebase_auth/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:7:5-13:19
+MERGED from [:firebase_crashlytics] /Users/masayukifuruyama/git/g-one/guidline/build/firebase_crashlytics/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:7:5-13:19
+MERGED from [:firebase_crashlytics] /Users/masayukifuruyama/git/g-one/guidline/build/firebase_crashlytics/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:7:5-13:19
+MERGED from [:firebase_storage] /Users/masayukifuruyama/git/g-one/guidline/build/firebase_storage/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:7:5-13:19
+MERGED from [:firebase_storage] /Users/masayukifuruyama/git/g-one/guidline/build/firebase_storage/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:7:5-13:19
+MERGED from [:firebase_core] /Users/masayukifuruyama/git/g-one/guidline/build/firebase_core/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:7:5-13:19
+MERGED from [:firebase_core] /Users/masayukifuruyama/git/g-one/guidline/build/firebase_core/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:7:5-13:19
+MERGED from [:pdftron_flutter] /Users/masayukifuruyama/git/g-one/guidline/build/pdftron_flutter/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:7:5-15:19
+MERGED from [:pdftron_flutter] /Users/masayukifuruyama/git/g-one/guidline/build/pdftron_flutter/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:7:5-15:19
+MERGED from [:url_launcher_android] /Users/masayukifuruyama/git/g-one/guidline/build/url_launcher_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:7:5-12:19
+MERGED from [:url_launcher_android] /Users/masayukifuruyama/git/g-one/guidline/build/url_launcher_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:7:5-12:19
+MERGED from [com.google.firebase:firebase-crashlytics:19.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/2c26c2876f976bfd08dd4b7e76416618/transformed/jetified-firebase-crashlytics-19.1.0/AndroidManifest.xml:11:5-22:19
+MERGED from [com.google.firebase:firebase-crashlytics:19.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/2c26c2876f976bfd08dd4b7e76416618/transformed/jetified-firebase-crashlytics-19.1.0/AndroidManifest.xml:11:5-22:19
+MERGED from [com.google.firebase:firebase-auth:23.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/829e0cce5c6b03ef3608e02f03834567/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:28:5-73:19
+MERGED from [com.google.firebase:firebase-auth:23.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/829e0cce5c6b03ef3608e02f03834567/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:28:5-73:19
+MERGED from [com.google.firebase:firebase-firestore:25.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/4be03756a76161f939ef901d1cd4263c/transformed/jetified-firebase-firestore-25.1.0/AndroidManifest.xml:13:5-24:19
+MERGED from [com.google.firebase:firebase-firestore:25.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/4be03756a76161f939ef901d1cd4263c/transformed/jetified-firebase-firestore-25.1.0/AndroidManifest.xml:13:5-24:19
+MERGED from [com.google.firebase:firebase-storage:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/95915a61ff3ad99cdddaf08d05c64a09/transformed/jetified-firebase-storage-21.0.0/AndroidManifest.xml:26:5-37:19
+MERGED from [com.google.firebase:firebase-storage:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/95915a61ff3ad99cdddaf08d05c64a09/transformed/jetified-firebase-storage-21.0.0/AndroidManifest.xml:26:5-37:19
+MERGED from [com.google.firebase:firebase-sessions:2.0.4] /Users/masayukifuruyama/.gradle/caches/transforms-4/8579e93dbdf6e55bfc43fdbf9d7e777b/transformed/jetified-firebase-sessions-2.0.4/AndroidManifest.xml:21:5-33:19
+MERGED from [com.google.firebase:firebase-sessions:2.0.4] /Users/masayukifuruyama/.gradle/caches/transforms-4/8579e93dbdf6e55bfc43fdbf9d7e777b/transformed/jetified-firebase-sessions-2.0.4/AndroidManifest.xml:21:5-33:19
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/469876cc07f0b26fa68d4903f4615630/transformed/jetified-firebase-installations-18.0.0/AndroidManifest.xml:11:5-22:19
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/469876cc07f0b26fa68d4903f4615630/transformed/jetified-firebase-installations-18.0.0/AndroidManifest.xml:11:5-22:19
+MERGED from [com.google.firebase:firebase-appcheck:18.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/8a0eb10715fa593bcdaf3943d2535c3a/transformed/jetified-firebase-appcheck-18.0.0/AndroidManifest.xml:21:5-32:19
+MERGED from [com.google.firebase:firebase-appcheck:18.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/8a0eb10715fa593bcdaf3943d2535c3a/transformed/jetified-firebase-appcheck-18.0.0/AndroidManifest.xml:21:5-32:19
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/161cfe6be5c32dd2ccd9ba014fcb3ef7/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:8:5-16:19
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/161cfe6be5c32dd2ccd9ba014fcb3ef7/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:8:5-16:19
+MERGED from [com.google.firebase:firebase-datatransport:19.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/264237d756d79b4302a5991a02a94922/transformed/jetified-firebase-datatransport-19.0.0/AndroidManifest.xml:21:5-29:19
+MERGED from [com.google.firebase:firebase-datatransport:19.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/264237d756d79b4302a5991a02a94922/transformed/jetified-firebase-datatransport-19.0.0/AndroidManifest.xml:21:5-29:19
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.3.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/f1b97ad78868c166a307f2c4c1560c35/transformed/jetified-transport-backend-cct-3.3.0/AndroidManifest.xml:25:5-33:19
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.3.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/f1b97ad78868c166a307f2c4c1560c35/transformed/jetified-transport-backend-cct-3.3.0/AndroidManifest.xml:25:5-33:19
+MERGED from [com.pdftron:tools:11.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/cafece9edd835e80b9aadd6afbbe9f30/transformed/jetified-tools-11.2.0/AndroidManifest.xml:8:5-26:19
+MERGED from [com.pdftron:tools:11.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/cafece9edd835e80b9aadd6afbbe9f30/transformed/jetified-tools-11.2.0/AndroidManifest.xml:8:5-26:19
+MERGED from [androidx.window:window:1.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/9ee4bdd106f02322da94059aaabd5da5/transformed/jetified-window-1.2.0/AndroidManifest.xml:22:5-29:19
+MERGED from [androidx.window:window:1.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/9ee4bdd106f02322da94059aaabd5da5/transformed/jetified-window-1.2.0/AndroidManifest.xml:22:5-29:19
+MERGED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/masayukifuruyama/.gradle/caches/transforms-4/bdf1937af0b0b3950aa9b61a4ccff180/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:23:5-42:19
+MERGED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/masayukifuruyama/.gradle/caches/transforms-4/bdf1937af0b0b3950aa9b61a4ccff180/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:23:5-42:19
+MERGED from [com.google.android.gms:play-services-auth:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/83e992ca55965cd2c05f1bd2171b7a27/transformed/jetified-play-services-auth-21.0.0/AndroidManifest.xml:22:5-38:19
+MERGED from [com.google.android.gms:play-services-auth:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/83e992ca55965cd2c05f1bd2171b7a27/transformed/jetified-play-services-auth-21.0.0/AndroidManifest.xml:22:5-38:19
+MERGED from [com.google.android.material:material:1.5.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/ed32c5be19dec32174c2f3291d3f368e/transformed/material-1.5.0/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.5.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/ed32c5be19dec32174c2f3291d3f368e/transformed/material-1.5.0/AndroidManifest.xml:22:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/01721b17d3e371eee28519face913fb3/transformed/constraintlayout-2.1.0/AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/01721b17d3e371eee28519face913fb3/transformed/constraintlayout-2.1.0/AndroidManifest.xml:9:5-20
+MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/804ee1467dfaf4f5c392c730a6a824dd/transformed/lifecycle-extensions-2.2.0/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/804ee1467dfaf4f5c392c730a6a824dd/transformed/lifecycle-extensions-2.2.0/AndroidManifest.xml:24:5-25:19
+MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/8614c9da2e513907f84d438f84469c79/transformed/jetified-firebase-auth-interop-20.0.0/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/8614c9da2e513907f84d438f84469c79/transformed/jetified-firebase-auth-interop-20.0.0/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.firebase:firebase-common:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/ab61001b3096af063e621017363da98e/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:22:5-39:19
+MERGED from [com.google.firebase:firebase-common:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/ab61001b3096af063e621017363da98e/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:22:5-39:19
+MERGED from [com.google.android.play:integrity:1.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/70ebdd558815703100f438077ec41fc9/transformed/jetified-integrity-1.2.0/AndroidManifest.xml:5:5-6:19
+MERGED from [com.google.android.play:integrity:1.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/70ebdd558815703100f438077ec41fc9/transformed/jetified-integrity-1.2.0/AndroidManifest.xml:5:5-6:19
+MERGED from [com.google.firebase:firebase-appcheck-interop:17.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/8e51855c21b284f27295f36155af1f45/transformed/jetified-firebase-appcheck-interop-17.1.0/AndroidManifest.xml:21:5-20
+MERGED from [com.google.firebase:firebase-appcheck-interop:17.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/8e51855c21b284f27295f36155af1f45/transformed/jetified-firebase-appcheck-interop-17.1.0/AndroidManifest.xml:21:5-20
+MERGED from [com.google.android.gms:play-services-fido:20.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/314454057e06b5fd5edbc50369793d66/transformed/jetified-play-services-fido-20.1.0/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.android.gms:play-services-fido:20.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/314454057e06b5fd5edbc50369793d66/transformed/jetified-play-services-fido-20.1.0/AndroidManifest.xml:7:5-8:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/b6e008bec8298e1e0650f1e29e579caa/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/b6e008bec8298e1e0650f1e29e579caa/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:23:5-33:19
+MERGED from [com.google.android.gms:play-services-base:18.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/e8f1ad76591ab74eaf8633db4baa46ed/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:19:5-23:19
+MERGED from [com.google.android.gms:play-services-base:18.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/e8f1ad76591ab74eaf8633db4baa46ed/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:19:5-23:19
+MERGED from [com.google.android.gms:play-services-tasks:18.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/735b74f1e5332ae34e0c299522b4c396/transformed/jetified-play-services-tasks-18.1.0/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tasks:18.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/735b74f1e5332ae34e0c299522b4c396/transformed/jetified-play-services-tasks-18.1.0/AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-measurement-connector:20.0.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/d65907407dc87cbba7f8a2b5a87c888f/transformed/jetified-firebase-measurement-connector-20.0.1/AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.firebase:firebase-measurement-connector:20.0.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/d65907407dc87cbba7f8a2b5a87c888f/transformed/jetified-firebase-measurement-connector-20.0.1/AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.android.gms:play-services-basement:18.3.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/0a28ac9777ad77d50f7d4cbaa647deae/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:20:5-24:19
+MERGED from [com.google.android.gms:play-services-basement:18.3.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/0a28ac9777ad77d50f7d4cbaa647deae/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:20:5-24:19
+MERGED from [androidx.core:core:1.13.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/bc092efb392e5a81b290836a849bbcc6/transformed/core-1.13.1/AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.13.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/bc092efb392e5a81b290836a849bbcc6/transformed/core-1.13.1/AndroidManifest.xml:28:5-89
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/45069becaa87082a4b780e45e1e1a384/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/45069becaa87082a4b780e45e1e1a384/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/db7c844fbca27f8b6ef79ffd91144dde/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/db7c844fbca27f8b6ef79ffd91144dde/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+MERGED from [com.squareup.picasso:picasso:2.71828] /Users/masayukifuruyama/.gradle/caches/transforms-4/1f609bdb7781b2fd470a6208f5a83952/transformed/jetified-picasso-2.71828/AndroidManifest.xml:7:5-12:19
+MERGED from [com.squareup.picasso:picasso:2.71828] /Users/masayukifuruyama/.gradle/caches/transforms-4/1f609bdb7781b2fd470a6208f5a83952/transformed/jetified-picasso-2.71828/AndroidManifest.xml:7:5-12:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/256a74d652c4fda664728f0be48425f5/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/256a74d652c4fda664728f0be48425f5/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.room:room-runtime:2.4.3] /Users/masayukifuruyama/.gradle/caches/transforms-4/9d05d7ef0a53cf77987b24709bd3bd02/transformed/room-runtime-2.4.3/AndroidManifest.xml:24:5-29:19
+MERGED from [androidx.room:room-runtime:2.4.3] /Users/masayukifuruyama/.gradle/caches/transforms-4/9d05d7ef0a53cf77987b24709bd3bd02/transformed/room-runtime-2.4.3/AndroidManifest.xml:24:5-29:19
+MERGED from [com.google.android.datatransport:transport-runtime:3.3.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/6fe2be0afeefff1c0f73bb02a90c086c/transformed/jetified-transport-runtime-3.3.0/AndroidManifest.xml:23:5-37:19
+MERGED from [com.google.android.datatransport:transport-runtime:3.3.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/6fe2be0afeefff1c0f73bb02a90c086c/transformed/jetified-transport-runtime-3.3.0/AndroidManifest.xml:23:5-37:19
+MERGED from [com.pdftron:pdftron:11.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/80da47ab8988544a82857db78e7f2517/transformed/jetified-pdftron-11.2.0/AndroidManifest.xml:7:5-12:19
+MERGED from [com.pdftron:pdftron:11.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/80da47ab8988544a82857db78e7f2517/transformed/jetified-pdftron-11.2.0/AndroidManifest.xml:7:5-12:19
+MERGED from [com.github.clans:fab:1.6.4] /Users/masayukifuruyama/.gradle/caches/transforms-4/bf0b7290447cba648a50e745e630235f/transformed/jetified-fab-1.6.4/AndroidManifest.xml:12:5-20
+MERGED from [com.github.clans:fab:1.6.4] /Users/masayukifuruyama/.gradle/caches/transforms-4/bf0b7290447cba648a50e745e630235f/transformed/jetified-fab-1.6.4/AndroidManifest.xml:12:5-20
+	android:extractNativeLibs
+		INJECTED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.13.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/bc092efb392e5a81b290836a849bbcc6/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
+	android:label
+		ADDED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml:11:9-38
+	android:icon
+		ADDED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml:13:9-45
+	android:name
+		INJECTED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml:12:9-42
+meta-data#pdftron_license_key
+INJECTED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml:28:13-31:19
+	android:value
+		INJECTED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml:30:17-53
+	android:name
+		ADDED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml:29:17-51
+manifest
+ADDED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml:1:1-59:12
+INJECTED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml:1:1-59:12
+INJECTED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml:1:1-59:12
+INJECTED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml:1:1-59:12
+MERGED from [:alh_pdf_view_android] /Users/masayukifuruyama/git/g-one/guidline/build/alh_pdf_view_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:2:1-7:12
+MERGED from [:cloud_firestore] /Users/masayukifuruyama/git/g-one/guidline/build/cloud_firestore/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:2:1-15:12
+MERGED from [:easy_pdf_viewer] /Users/masayukifuruyama/git/g-one/guidline/build/easy_pdf_viewer/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:2:1-7:12
+MERGED from [:firebase_auth] /Users/masayukifuruyama/git/g-one/guidline/build/firebase_auth/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:2:1-15:12
+MERGED from [:firebase_crashlytics] /Users/masayukifuruyama/git/g-one/guidline/build/firebase_crashlytics/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:2:1-15:12
+MERGED from [:firebase_storage] /Users/masayukifuruyama/git/g-one/guidline/build/firebase_storage/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:2:1-15:12
+MERGED from [:firebase_core] /Users/masayukifuruyama/git/g-one/guidline/build/firebase_core/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:2:1-15:12
+MERGED from [:flutter_keyboard_visibility_temp_fork] /Users/masayukifuruyama/git/g-one/guidline/build/flutter_keyboard_visibility_temp_fork/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:2:1-7:12
+MERGED from [:flutter_localization] /Users/masayukifuruyama/git/g-one/guidline/build/flutter_localization/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:2:1-7:12
+MERGED from [:flutter_native_splash] /Users/masayukifuruyama/git/g-one/guidline/build/flutter_native_splash/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:2:1-7:12
+MERGED from [:flutter_pdfview] /Users/masayukifuruyama/git/g-one/guidline/build/flutter_pdfview/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:2:1-7:12
+MERGED from [:flutter_secure_storage] /Users/masayukifuruyama/git/g-one/guidline/build/flutter_secure_storage/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:2:1-10:12
+MERGED from [:fluttertoast] /Users/masayukifuruyama/git/g-one/guidline/build/fluttertoast/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:2:1-7:12
+MERGED from [:google_sign_in_android] /Users/masayukifuruyama/git/g-one/guidline/build/google_sign_in_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:2:1-9:12
+MERGED from [:path_provider_android] /Users/masayukifuruyama/git/g-one/guidline/build/path_provider_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:2:1-7:12
+MERGED from [:pdftron_flutter] /Users/masayukifuruyama/git/g-one/guidline/build/pdftron_flutter/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:2:1-17:12
+MERGED from [:permission_handler_android] /Users/masayukifuruyama/git/g-one/guidline/build/permission_handler_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:2:1-7:12
+MERGED from [:quill_native_bridge_android] /Users/masayukifuruyama/git/g-one/guidline/build/quill_native_bridge_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:2:1-7:12
+MERGED from [:shared_preferences_android] /Users/masayukifuruyama/git/g-one/guidline/build/shared_preferences_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:2:1-7:12
+MERGED from [:sqflite_android] /Users/masayukifuruyama/git/g-one/guidline/build/sqflite_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:2:1-7:12
+MERGED from [:url_launcher_android] /Users/masayukifuruyama/git/g-one/guidline/build/url_launcher_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:2:1-14:12
+MERGED from [:webview_flutter_android] /Users/masayukifuruyama/git/g-one/guidline/build/webview_flutter_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.firebase:firebase-crashlytics:19.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/2c26c2876f976bfd08dd4b7e76416618/transformed/jetified-firebase-crashlytics-19.1.0/AndroidManifest.xml:2:1-24:12
+MERGED from [com.google.firebase:firebase-auth:23.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/829e0cce5c6b03ef3608e02f03834567/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:17:1-75:12
+MERGED from [com.google.firebase:firebase-firestore:25.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/4be03756a76161f939ef901d1cd4263c/transformed/jetified-firebase-firestore-25.1.0/AndroidManifest.xml:2:1-26:12
+MERGED from [com.google.firebase:firebase-storage:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/95915a61ff3ad99cdddaf08d05c64a09/transformed/jetified-firebase-storage-21.0.0/AndroidManifest.xml:15:1-39:12
+MERGED from [com.google.firebase:firebase-sessions:2.0.4] /Users/masayukifuruyama/.gradle/caches/transforms-4/8579e93dbdf6e55bfc43fdbf9d7e777b/transformed/jetified-firebase-sessions-2.0.4/AndroidManifest.xml:15:1-35:12
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/469876cc07f0b26fa68d4903f4615630/transformed/jetified-firebase-installations-18.0.0/AndroidManifest.xml:2:1-24:12
+MERGED from [com.google.firebase:firebase-appcheck:18.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/8a0eb10715fa593bcdaf3943d2535c3a/transformed/jetified-firebase-appcheck-18.0.0/AndroidManifest.xml:15:1-34:12
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/161cfe6be5c32dd2ccd9ba014fcb3ef7/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:2:1-18:12
+MERGED from [com.google.firebase:firebase-config-interop:16.0.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/fb8216bff909e7c52f2e137449fcd7c0/transformed/jetified-firebase-config-interop-16.0.1/AndroidManifest.xml:15:1-20:12
+MERGED from [com.google.firebase:firebase-datatransport:19.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/264237d756d79b4302a5991a02a94922/transformed/jetified-firebase-datatransport-19.0.0/AndroidManifest.xml:15:1-31:12
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.3.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/f1b97ad78868c166a307f2c4c1560c35/transformed/jetified-transport-backend-cct-3.3.0/AndroidManifest.xml:15:1-35:12
+MERGED from [com.google.firebase:firebase-encoders-json:18.0.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/50abb3fd82fd303bc551cfc74c695ddd/transformed/jetified-firebase-encoders-json-18.0.1/AndroidManifest.xml:15:1-22:12
+MERGED from [com.github.mhiew:android-pdf-viewer:3.2.0-beta.3] /Users/masayukifuruyama/.gradle/caches/transforms-4/f695bb9aac7f1441605e1c78d77e4d14/transformed/jetified-android-pdf-viewer-3.2.0-beta.3/AndroidManifest.xml:2:1-9:12
+MERGED from [com.pdftron:tools:11.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/cafece9edd835e80b9aadd6afbbe9f30/transformed/jetified-tools-11.2.0/AndroidManifest.xml:2:1-28:12
+MERGED from [androidx.preference:preference:1.2.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/d07c2374623c3c38988ea3fefccf9ed7/transformed/preference-1.2.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.browser:browser:1.5.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/2c873d407a50d89f1b292726db7e5d14/transformed/browser-1.5.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.webkit:webkit:1.12.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/33d55e51bbda415b4a4067b97fd55495/transformed/webkit-1.12.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/0fa29143e7713cecd7684a6e960a888a/transformed/legacy-support-v4-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/da06642b6395abe2b5f7708370cc0771/transformed/legacy-support-core-ui-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/3795300b48a0d1efed85fa07a0d5fe81/transformed/slidingpanelayout-1.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.window:window:1.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/9ee4bdd106f02322da94059aaabd5da5/transformed/jetified-window-1.2.0/AndroidManifest.xml:17:1-31:12
+MERGED from [androidx.window:window-java:1.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/fd50c629ff6a3659b7fb0c3e2efc7d16/transformed/jetified-window-java-1.2.0/AndroidManifest.xml:17:1-21:12
+MERGED from [androidx.credentials:credentials:1.2.0-rc01] /Users/masayukifuruyama/.gradle/caches/transforms-4/5f98e3bda215e7bfff703c205e1c5440/transformed/jetified-credentials-1.2.0-rc01/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/masayukifuruyama/.gradle/caches/transforms-4/bdf1937af0b0b3950aa9b61a4ccff180/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:17:1-44:12
+MERGED from [com.google.android.gms:play-services-auth:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/83e992ca55965cd2c05f1bd2171b7a27/transformed/jetified-play-services-auth-21.0.0/AndroidManifest.xml:17:1-40:12
+MERGED from [com.google.android.material:material:1.5.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/ed32c5be19dec32174c2f3291d3f368e/transformed/material-1.5.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/01721b17d3e371eee28519face913fb3/transformed/constraintlayout-2.1.0/AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.appcompat:appcompat:1.3.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/e0b86bc3f41fe3b4b7d114e79a8d3726/transformed/appcompat-1.3.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/804ee1467dfaf4f5c392c730a6a824dd/transformed/lifecycle-extensions-2.2.0/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.fragment:fragment-ktx:1.7.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/14f1845622bd68147f4d320eed42590a/transformed/jetified-fragment-ktx-1.7.1/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/8614c9da2e513907f84d438f84469c79/transformed/jetified-firebase-auth-interop-20.0.0/AndroidManifest.xml:2:1-10:12
+MERGED from [com.google.firebase:firebase-common:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/ab61001b3096af063e621017363da98e/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:15:1-41:12
+MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.2] /Users/masayukifuruyama/.gradle/caches/transforms-4/7ad9dead24c622caa4701676dc0863b4/transformed/jetified-play-services-auth-api-phone-18.0.2/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.gms:play-services-auth-base:18.0.10] /Users/masayukifuruyama/.gradle/caches/transforms-4/64e0c779398efc68dbe670f8e8746389/transformed/jetified-play-services-auth-base-18.0.10/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/223b7a6f72941e2fd5d0a7e7b28df97d/transformed/jetified-recaptcha-18.4.0/AndroidManifest.xml:2:1-11:12
+MERGED from [com.google.android.play:integrity:1.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/70ebdd558815703100f438077ec41fc9/transformed/jetified-integrity-1.2.0/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.firebase:firebase-installations-interop:17.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/138e9ff494bb5acde3f4de5fad7c06bb/transformed/jetified-firebase-installations-interop-17.2.0/AndroidManifest.xml:15:1-19:12
+MERGED from [com.google.firebase:firebase-appcheck-interop:17.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/8e51855c21b284f27295f36155af1f45/transformed/jetified-firebase-appcheck-interop-17.1.0/AndroidManifest.xml:15:1-23:12
+MERGED from [com.google.android.gms:play-services-fido:20.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/314454057e06b5fd5edbc50369793d66/transformed/jetified-play-services-fido-20.1.0/AndroidManifest.xml:2:1-10:12
+MERGED from [androidx.activity:activity-ktx:1.8.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/20c9546b5548765f2703f5ac5df53d92/transformed/jetified-activity-ktx-1.8.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.activity:activity:1.8.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/42af452fa23935075299276553636fac/transformed/jetified-activity-1.8.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.7.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/c16a4b79c1816b4aa8b1f3bacbdd0903/transformed/jetified-lifecycle-runtime-ktx-2.7.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/1407ae4fbc922eeac31d4d68ef8d80b8/transformed/jetified-lifecycle-livedata-core-ktx-2.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/8a894ce926b0733b6ae5f437c3874ca1/transformed/jetified-lifecycle-viewmodel-ktx-2.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-service:2.7.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/4ffbcd47bfa6ee87226e11ef74f2f3ff/transformed/jetified-lifecycle-service-2.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.7.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/d68accd1a6b6f322f957900e93fe16d1/transformed/lifecycle-livedata-2.7.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/ab5325c2de8621f56a7d657ccd5fc75d/transformed/jetified-lifecycle-viewmodel-savedstate-2.7.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.7.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/1f0950e37ea1a638b349b6ef6ed9a833/transformed/lifecycle-viewmodel-2.7.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.7.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/12da96652258e23cec9ebeca16819d02/transformed/lifecycle-livedata-core-2.7.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.7.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/700f4f16fab6071d5b380539a8df74e9/transformed/lifecycle-runtime-2.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/b6e008bec8298e1e0650f1e29e579caa/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/5e61288050f562acfa8cd23f7e211b58/transformed/jetified-savedstate-ktx-1.2.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.2.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/7e728e0e8d308d1ccf994b00940a5616/transformed/jetified-savedstate-1.2.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.datastore:datastore-core-android:1.1.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/0deffc77359e9b62b9e1f124cde0fcdd/transformed/jetified-datastore-core-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.datastore:datastore-preferences:1.1.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/ebbc5e4f88b1af55e985d9313ba02995/transformed/jetified-datastore-preferences-1.1.1/AndroidManifest.xml:2:1-5:12
+MERGED from [androidx.datastore:datastore-preferences-android:1.1.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/47229bc9d2351502ba369ffeb3447f24/transformed/jetified-datastore-preferences-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.datastore:datastore-android:1.1.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/e3dc9016539f92d0bb4ef7ced051179a/transformed/jetified-datastore-release/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.firebase:firebase-database-collection:18.0.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/acebdf890fe1c67a580121a5f76ddbd2/transformed/jetified-firebase-database-collection-18.0.1/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-base:18.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/e8f1ad76591ab74eaf8633db4baa46ed/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:16:1-24:12
+MERGED from [com.google.android.gms:play-services-tasks:18.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/735b74f1e5332ae34e0c299522b4c396/transformed/jetified-play-services-tasks-18.1.0/AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.firebase:firebase-measurement-connector:20.0.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/d65907407dc87cbba7f8a2b5a87c888f/transformed/jetified-firebase-measurement-connector-20.0.1/AndroidManifest.xml:17:1-25:12
+MERGED from [com.google.android.gms:play-services-basement:18.3.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/0a28ac9777ad77d50f7d4cbaa647deae/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:16:1-26:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/af693c97f9e5a56a7a3a85b8b546e9b5/transformed/jetified-viewpager2-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment:1.7.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/9f6b412b17f5ef65b71e81d69ac3727d/transformed/fragment-1.7.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/06b72b876fe66d8fafdfd521cf99c7f2/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/41645aaf14ee68683d2f9b865f8b978f/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/4d51050093f6a6cec40e51bda12422d0/transformed/loader-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.recyclerview:recyclerview:1.2.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/d9781caa03f6c41f9d8e144b06442525/transformed/recyclerview-1.2.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/a0c96753a59976f52f31bd1d075511c9/transformed/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core-ktx:1.13.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/566ae7d68fc2f1c3f9f3e1e775ef7b23/transformed/jetified-core-ktx-1.13.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.media:media:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/b407d9a500e40b7d2616911747d3cf9e/transformed/media-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.appcompat:appcompat-resources:1.3.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/943a8922a8940a0c10e07ae122352203/transformed/jetified-appcompat-resources-1.3.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/e3f86a853dcdc9651f026077725b34c5/transformed/drawerlayout-1.1.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/47c2b313b6386a4111ef5b5badf61f81/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/ed467b3b19b5e4d7d235264814107e89/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/e81f274ae1f0dd68a952775152169b36/transformed/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.customview:customview:1.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/a63fd0d87c6a7d03d48a6dcad63a6670/transformed/customview-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.transition:transition:1.4.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/4832b35e2d146857725baed1a36a0ef7/transformed/transition-1.4.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/d67a66c10dd93dd370b430f07f20a80a/transformed/swiperefreshlayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/5a1c037853da79697390a624e6022968/transformed/asynclayoutinflater-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.13.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/bc092efb392e5a81b290836a849bbcc6/transformed/core-1.13.1/AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/45069becaa87082a4b780e45e1e1a384/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:17:1-55:12
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/db7c844fbca27f8b6ef79ffd91144dde/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.tracing:tracing:1.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/e867feb7778fe09560378106013bd94d/transformed/jetified-tracing-1.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.squareup.picasso:picasso:2.71828] /Users/masayukifuruyama/.gradle/caches/transforms-4/1f609bdb7781b2fd470a6208f5a83952/transformed/jetified-picasso-2.71828/AndroidManifest.xml:2:1-14:12
+MERGED from [androidx.exifinterface:exifinterface:1.3.3] /Users/masayukifuruyama/.gradle/caches/transforms-4/f0804137f970445f1d5c4977f449d6e4/transformed/exifinterface-1.3.3/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/256a74d652c4fda664728f0be48425f5/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/96a10960b7c2c7670a27e759a40f1857/transformed/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.room:room-runtime:2.4.3] /Users/masayukifuruyama/.gradle/caches/transforms-4/9d05d7ef0a53cf77987b24709bd3bd02/transformed/room-runtime-2.4.3/AndroidManifest.xml:17:1-31:12
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/bce1d48e951e2ea4ab1b31de7f7e437b/transformed/core-runtime-2.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/89e7aa7e4c644d0c4eebe21649c9b828/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.firebase:firebase-components:18.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/8396c8c9791450e1220c39a0b63696d6/transformed/jetified-firebase-components-18.0.0/AndroidManifest.xml:15:1-20:12
+MERGED from [com.google.android.datatransport:transport-runtime:3.3.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/6fe2be0afeefff1c0f73bb02a90c086c/transformed/jetified-transport-runtime-3.3.0/AndroidManifest.xml:15:1-39:12
+MERGED from [com.google.android.datatransport:transport-api:3.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/78737735056d649ceef314cc2fa2fe95/transformed/jetified-transport-api-3.2.0/AndroidManifest.xml:15:1-20:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/d1f220610819bc603f7aea0037ec9e38/transformed/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/384c7a57b9699e21b48ffae7e5779e36/transformed/cardview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.sqlite:sqlite-framework:2.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/223be3ec8813a7599f2657a8807ce056/transformed/sqlite-framework-2.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.sqlite:sqlite:2.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/79d086b13991fd54892f34a991052aed/transformed/sqlite-2.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.window.extensions.core:core:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/637522aa7489748a483318c6f92144af/transformed/jetified-core-1.0.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/db123fc3168b6b96a1e987c9ae8801fa/transformed/documentfile-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/917a844dda36ed38d764cbf2162cb00a/transformed/print-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/179e2d455baaddf0778b424744612b2f/transformed/jetified-annotation-experimental-1.4.1/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.libraries.identity.googleid:googleid:1.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/7081963d1e072d734039de7c000dfc2d/transformed/jetified-googleid-1.1.0/AndroidManifest.xml:2:1-7:12
+MERGED from [io.grpc:grpc-android:1.62.2] /Users/masayukifuruyama/.gradle/caches/transforms-4/7e92cfd1c9cc11365b706609e5f5adb8/transformed/jetified-grpc-android-1.62.2/AndroidManifest.xml:2:1-9:12
+MERGED from [com.pdftron:pdftron:11.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/80da47ab8988544a82857db78e7f2517/transformed/jetified-pdftron-11.2.0/AndroidManifest.xml:2:1-14:12
+MERGED from [com.getkeepsafe.relinker:relinker:1.4.5] /Users/masayukifuruyama/.gradle/caches/transforms-4/bb9a87baaadd7ff0597a13c48c8f0174/transformed/jetified-relinker-1.4.5/AndroidManifest.xml:2:1-7:12
+MERGED from [com.github.mhiew:pdfium-android:1.9.2] /Users/masayukifuruyama/.gradle/caches/transforms-4/f85bbe90a0748adc86179091673da611/transformed/jetified-pdfium-android-1.9.2/AndroidManifest.xml:2:1-9:12
+MERGED from [com.github.clans:fab:1.6.4] /Users/masayukifuruyama/.gradle/caches/transforms-4/bf0b7290447cba648a50e745e630235f/transformed/jetified-fab-1.6.4/AndroidManifest.xml:2:1-14:12
+MERGED from [io.reactivex.rxjava2:rxandroid:2.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/01ae378945029cbfd68e910e68261a99/transformed/jetified-rxandroid-2.1.0/AndroidManifest.xml:15:1-20:12
+MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/24350c4908dd786dac98178f796df797/transformed/jetified-protolite-well-known-types-18.0.0/AndroidManifest.xml:2:1-11:12
+	package
+		INJECTED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml:1:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml:3:5-67
+MERGED from [:google_sign_in_android] /Users/masayukifuruyama/git/g-one/guidline/build/google_sign_in_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:7:5-67
+MERGED from [:google_sign_in_android] /Users/masayukifuruyama/git/g-one/guidline/build/google_sign_in_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:7:5-67
+MERGED from [com.google.firebase:firebase-crashlytics:19.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/2c26c2876f976bfd08dd4b7e76416618/transformed/jetified-firebase-crashlytics-19.1.0/AndroidManifest.xml:7:5-67
+MERGED from [com.google.firebase:firebase-crashlytics:19.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/2c26c2876f976bfd08dd4b7e76416618/transformed/jetified-firebase-crashlytics-19.1.0/AndroidManifest.xml:7:5-67
+MERGED from [com.google.firebase:firebase-auth:23.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/829e0cce5c6b03ef3608e02f03834567/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:25:5-67
+MERGED from [com.google.firebase:firebase-auth:23.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/829e0cce5c6b03ef3608e02f03834567/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:25:5-67
+MERGED from [com.google.firebase:firebase-firestore:25.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/4be03756a76161f939ef901d1cd4263c/transformed/jetified-firebase-firestore-25.1.0/AndroidManifest.xml:11:5-67
+MERGED from [com.google.firebase:firebase-firestore:25.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/4be03756a76161f939ef901d1cd4263c/transformed/jetified-firebase-firestore-25.1.0/AndroidManifest.xml:11:5-67
+MERGED from [com.google.firebase:firebase-storage:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/95915a61ff3ad99cdddaf08d05c64a09/transformed/jetified-firebase-storage-21.0.0/AndroidManifest.xml:24:5-67
+MERGED from [com.google.firebase:firebase-storage:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/95915a61ff3ad99cdddaf08d05c64a09/transformed/jetified-firebase-storage-21.0.0/AndroidManifest.xml:24:5-67
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/469876cc07f0b26fa68d4903f4615630/transformed/jetified-firebase-installations-18.0.0/AndroidManifest.xml:8:5-67
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/469876cc07f0b26fa68d4903f4615630/transformed/jetified-firebase-installations-18.0.0/AndroidManifest.xml:8:5-67
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.3.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/f1b97ad78868c166a307f2c4c1560c35/transformed/jetified-transport-backend-cct-3.3.0/AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.3.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/f1b97ad78868c166a307f2c4c1560c35/transformed/jetified-transport-backend-cct-3.3.0/AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/223b7a6f72941e2fd5d0a7e7b28df97d/transformed/jetified-recaptcha-18.4.0/AndroidManifest.xml:7:5-67
+MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/223b7a6f72941e2fd5d0a7e7b28df97d/transformed/jetified-recaptcha-18.4.0/AndroidManifest.xml:7:5-67
+	android:name
+		ADDED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml:3:22-64
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml:5:5-80
+	android:name
+		ADDED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml:5:22-77
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml:6:5-81
+	android:name
+		ADDED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml:6:22-78
+queries
+ADDED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml:53:5-58:15
+intent#action:name:android.intent.action.PROCESS_TEXT+data:mimeType:text/plain
+ADDED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml:54:9-57:18
+action#android.intent.action.PROCESS_TEXT
+ADDED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml:55:13-72
+	android:name
+		ADDED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml:55:21-70
+data
+ADDED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml:56:13-50
+	android:mimeType
+		ADDED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml:56:19-48
+activity#jp.co.miceone.jcsguidelines.MainActivity
+ADDED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml:16:9-41:20
+	android:launchMode
+		ADDED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml:19:13-43
+	android:hardwareAccelerated
+		ADDED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml:22:13-47
+	android:windowSoftInputMode
+		ADDED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml:23:13-55
+	android:exported
+		ADDED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml:18:13-36
+	android:configChanges
+		ADDED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml:21:13-163
+	android:theme
+		ADDED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml:20:13-47
+	android:name
+		ADDED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml:17:13-41
+meta-data#io.flutter.embedding.android.NormalTheme
+ADDED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml:33:13-36:17
+	android:resource
+		ADDED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml:35:15-52
+	android:name
+		ADDED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml:34:15-70
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml:37:13-40:29
+action#android.intent.action.MAIN
+ADDED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml:38:17-68
+	android:name
+		ADDED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml:38:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml:39:17-76
+	android:name
+		ADDED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml:39:27-74
+meta-data#flutterEmbedding
+ADDED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml:44:9-46:33
+	android:value
+		ADDED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml:46:13-30
+	android:name
+		ADDED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml:45:13-44
+uses-sdk
+INJECTED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml
+INJECTED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml
+MERGED from [:alh_pdf_view_android] /Users/masayukifuruyama/git/g-one/guidline/build/alh_pdf_view_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
+MERGED from [:alh_pdf_view_android] /Users/masayukifuruyama/git/g-one/guidline/build/alh_pdf_view_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
+MERGED from [:cloud_firestore] /Users/masayukifuruyama/git/g-one/guidline/build/cloud_firestore/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
+MERGED from [:cloud_firestore] /Users/masayukifuruyama/git/g-one/guidline/build/cloud_firestore/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
+MERGED from [:easy_pdf_viewer] /Users/masayukifuruyama/git/g-one/guidline/build/easy_pdf_viewer/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
+MERGED from [:easy_pdf_viewer] /Users/masayukifuruyama/git/g-one/guidline/build/easy_pdf_viewer/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
+MERGED from [:firebase_auth] /Users/masayukifuruyama/git/g-one/guidline/build/firebase_auth/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
+MERGED from [:firebase_auth] /Users/masayukifuruyama/git/g-one/guidline/build/firebase_auth/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
+MERGED from [:firebase_crashlytics] /Users/masayukifuruyama/git/g-one/guidline/build/firebase_crashlytics/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
+MERGED from [:firebase_crashlytics] /Users/masayukifuruyama/git/g-one/guidline/build/firebase_crashlytics/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
+MERGED from [:firebase_storage] /Users/masayukifuruyama/git/g-one/guidline/build/firebase_storage/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
+MERGED from [:firebase_storage] /Users/masayukifuruyama/git/g-one/guidline/build/firebase_storage/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
+MERGED from [:firebase_core] /Users/masayukifuruyama/git/g-one/guidline/build/firebase_core/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
+MERGED from [:firebase_core] /Users/masayukifuruyama/git/g-one/guidline/build/firebase_core/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
+MERGED from [:flutter_keyboard_visibility_temp_fork] /Users/masayukifuruyama/git/g-one/guidline/build/flutter_keyboard_visibility_temp_fork/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
+MERGED from [:flutter_keyboard_visibility_temp_fork] /Users/masayukifuruyama/git/g-one/guidline/build/flutter_keyboard_visibility_temp_fork/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
+MERGED from [:flutter_localization] /Users/masayukifuruyama/git/g-one/guidline/build/flutter_localization/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
+MERGED from [:flutter_localization] /Users/masayukifuruyama/git/g-one/guidline/build/flutter_localization/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
+MERGED from [:flutter_native_splash] /Users/masayukifuruyama/git/g-one/guidline/build/flutter_native_splash/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
+MERGED from [:flutter_native_splash] /Users/masayukifuruyama/git/g-one/guidline/build/flutter_native_splash/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
+MERGED from [:flutter_pdfview] /Users/masayukifuruyama/git/g-one/guidline/build/flutter_pdfview/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
+MERGED from [:flutter_pdfview] /Users/masayukifuruyama/git/g-one/guidline/build/flutter_pdfview/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
+MERGED from [:flutter_secure_storage] /Users/masayukifuruyama/git/g-one/guidline/build/flutter_secure_storage/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:6:5-8:53
+MERGED from [:flutter_secure_storage] /Users/masayukifuruyama/git/g-one/guidline/build/flutter_secure_storage/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:6:5-8:53
+MERGED from [:fluttertoast] /Users/masayukifuruyama/git/g-one/guidline/build/fluttertoast/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
+MERGED from [:fluttertoast] /Users/masayukifuruyama/git/g-one/guidline/build/fluttertoast/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
+MERGED from [:google_sign_in_android] /Users/masayukifuruyama/git/g-one/guidline/build/google_sign_in_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
+MERGED from [:google_sign_in_android] /Users/masayukifuruyama/git/g-one/guidline/build/google_sign_in_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
+MERGED from [:path_provider_android] /Users/masayukifuruyama/git/g-one/guidline/build/path_provider_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
+MERGED from [:path_provider_android] /Users/masayukifuruyama/git/g-one/guidline/build/path_provider_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
+MERGED from [:pdftron_flutter] /Users/masayukifuruyama/git/g-one/guidline/build/pdftron_flutter/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
+MERGED from [:pdftron_flutter] /Users/masayukifuruyama/git/g-one/guidline/build/pdftron_flutter/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
+MERGED from [:permission_handler_android] /Users/masayukifuruyama/git/g-one/guidline/build/permission_handler_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
+MERGED from [:permission_handler_android] /Users/masayukifuruyama/git/g-one/guidline/build/permission_handler_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
+MERGED from [:quill_native_bridge_android] /Users/masayukifuruyama/git/g-one/guidline/build/quill_native_bridge_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
+MERGED from [:quill_native_bridge_android] /Users/masayukifuruyama/git/g-one/guidline/build/quill_native_bridge_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
+MERGED from [:shared_preferences_android] /Users/masayukifuruyama/git/g-one/guidline/build/shared_preferences_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
+MERGED from [:shared_preferences_android] /Users/masayukifuruyama/git/g-one/guidline/build/shared_preferences_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
+MERGED from [:sqflite_android] /Users/masayukifuruyama/git/g-one/guidline/build/sqflite_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
+MERGED from [:sqflite_android] /Users/masayukifuruyama/git/g-one/guidline/build/sqflite_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
+MERGED from [:url_launcher_android] /Users/masayukifuruyama/git/g-one/guidline/build/url_launcher_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
+MERGED from [:url_launcher_android] /Users/masayukifuruyama/git/g-one/guidline/build/url_launcher_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
+MERGED from [:webview_flutter_android] /Users/masayukifuruyama/git/g-one/guidline/build/webview_flutter_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
+MERGED from [:webview_flutter_android] /Users/masayukifuruyama/git/g-one/guidline/build/webview_flutter_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-crashlytics:19.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/2c26c2876f976bfd08dd4b7e76416618/transformed/jetified-firebase-crashlytics-19.1.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-crashlytics:19.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/2c26c2876f976bfd08dd4b7e76416618/transformed/jetified-firebase-crashlytics-19.1.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-auth:23.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/829e0cce5c6b03ef3608e02f03834567/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:21:5-23:151
+MERGED from [com.google.firebase:firebase-auth:23.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/829e0cce5c6b03ef3608e02f03834567/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:21:5-23:151
+MERGED from [com.google.firebase:firebase-firestore:25.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/4be03756a76161f939ef901d1cd4263c/transformed/jetified-firebase-firestore-25.1.0/AndroidManifest.xml:6:5-44
+MERGED from [com.google.firebase:firebase-firestore:25.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/4be03756a76161f939ef901d1cd4263c/transformed/jetified-firebase-firestore-25.1.0/AndroidManifest.xml:6:5-44
+MERGED from [com.google.firebase:firebase-storage:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/95915a61ff3ad99cdddaf08d05c64a09/transformed/jetified-firebase-storage-21.0.0/AndroidManifest.xml:19:5-44
+MERGED from [com.google.firebase:firebase-storage:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/95915a61ff3ad99cdddaf08d05c64a09/transformed/jetified-firebase-storage-21.0.0/AndroidManifest.xml:19:5-44
+MERGED from [com.google.firebase:firebase-sessions:2.0.4] /Users/masayukifuruyama/.gradle/caches/transforms-4/8579e93dbdf6e55bfc43fdbf9d7e777b/transformed/jetified-firebase-sessions-2.0.4/AndroidManifest.xml:18:5-44
+MERGED from [com.google.firebase:firebase-sessions:2.0.4] /Users/masayukifuruyama/.gradle/caches/transforms-4/8579e93dbdf6e55bfc43fdbf9d7e777b/transformed/jetified-firebase-sessions-2.0.4/AndroidManifest.xml:18:5-44
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/469876cc07f0b26fa68d4903f4615630/transformed/jetified-firebase-installations-18.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/469876cc07f0b26fa68d4903f4615630/transformed/jetified-firebase-installations-18.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-appcheck:18.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/8a0eb10715fa593bcdaf3943d2535c3a/transformed/jetified-firebase-appcheck-18.0.0/AndroidManifest.xml:18:5-44
+MERGED from [com.google.firebase:firebase-appcheck:18.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/8a0eb10715fa593bcdaf3943d2535c3a/transformed/jetified-firebase-appcheck-18.0.0/AndroidManifest.xml:18:5-44
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/161cfe6be5c32dd2ccd9ba014fcb3ef7/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/161cfe6be5c32dd2ccd9ba014fcb3ef7/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-config-interop:16.0.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/fb8216bff909e7c52f2e137449fcd7c0/transformed/jetified-firebase-config-interop-16.0.1/AndroidManifest.xml:18:5-44
+MERGED from [com.google.firebase:firebase-config-interop:16.0.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/fb8216bff909e7c52f2e137449fcd7c0/transformed/jetified-firebase-config-interop-16.0.1/AndroidManifest.xml:18:5-44
+MERGED from [com.google.firebase:firebase-datatransport:19.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/264237d756d79b4302a5991a02a94922/transformed/jetified-firebase-datatransport-19.0.0/AndroidManifest.xml:18:5-44
+MERGED from [com.google.firebase:firebase-datatransport:19.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/264237d756d79b4302a5991a02a94922/transformed/jetified-firebase-datatransport-19.0.0/AndroidManifest.xml:18:5-44
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.3.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/f1b97ad78868c166a307f2c4c1560c35/transformed/jetified-transport-backend-cct-3.3.0/AndroidManifest.xml:18:5-44
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.3.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/f1b97ad78868c166a307f2c4c1560c35/transformed/jetified-transport-backend-cct-3.3.0/AndroidManifest.xml:18:5-44
+MERGED from [com.google.firebase:firebase-encoders-json:18.0.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/50abb3fd82fd303bc551cfc74c695ddd/transformed/jetified-firebase-encoders-json-18.0.1/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.firebase:firebase-encoders-json:18.0.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/50abb3fd82fd303bc551cfc74c695ddd/transformed/jetified-firebase-encoders-json-18.0.1/AndroidManifest.xml:18:5-20:41
+MERGED from [com.github.mhiew:android-pdf-viewer:3.2.0-beta.3] /Users/masayukifuruyama/.gradle/caches/transforms-4/f695bb9aac7f1441605e1c78d77e4d14/transformed/jetified-android-pdf-viewer-3.2.0-beta.3/AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.mhiew:android-pdf-viewer:3.2.0-beta.3] /Users/masayukifuruyama/.gradle/caches/transforms-4/f695bb9aac7f1441605e1c78d77e4d14/transformed/jetified-android-pdf-viewer-3.2.0-beta.3/AndroidManifest.xml:5:5-7:41
+MERGED from [com.pdftron:tools:11.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/cafece9edd835e80b9aadd6afbbe9f30/transformed/jetified-tools-11.2.0/AndroidManifest.xml:6:5-44
+MERGED from [com.pdftron:tools:11.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/cafece9edd835e80b9aadd6afbbe9f30/transformed/jetified-tools-11.2.0/AndroidManifest.xml:6:5-44
+MERGED from [androidx.preference:preference:1.2.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/d07c2374623c3c38988ea3fefccf9ed7/transformed/preference-1.2.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.preference:preference:1.2.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/d07c2374623c3c38988ea3fefccf9ed7/transformed/preference-1.2.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.browser:browser:1.5.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/2c873d407a50d89f1b292726db7e5d14/transformed/browser-1.5.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.browser:browser:1.5.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/2c873d407a50d89f1b292726db7e5d14/transformed/browser-1.5.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.webkit:webkit:1.12.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/33d55e51bbda415b4a4067b97fd55495/transformed/webkit-1.12.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.webkit:webkit:1.12.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/33d55e51bbda415b4a4067b97fd55495/transformed/webkit-1.12.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/0fa29143e7713cecd7684a6e960a888a/transformed/legacy-support-v4-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/0fa29143e7713cecd7684a6e960a888a/transformed/legacy-support-v4-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/da06642b6395abe2b5f7708370cc0771/transformed/legacy-support-core-ui-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/da06642b6395abe2b5f7708370cc0771/transformed/legacy-support-core-ui-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/3795300b48a0d1efed85fa07a0d5fe81/transformed/slidingpanelayout-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/3795300b48a0d1efed85fa07a0d5fe81/transformed/slidingpanelayout-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.window:window:1.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/9ee4bdd106f02322da94059aaabd5da5/transformed/jetified-window-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.window:window:1.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/9ee4bdd106f02322da94059aaabd5da5/transformed/jetified-window-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.window:window-java:1.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/fd50c629ff6a3659b7fb0c3e2efc7d16/transformed/jetified-window-java-1.2.0/AndroidManifest.xml:19:5-44
+MERGED from [androidx.window:window-java:1.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/fd50c629ff6a3659b7fb0c3e2efc7d16/transformed/jetified-window-java-1.2.0/AndroidManifest.xml:19:5-44
+MERGED from [androidx.credentials:credentials:1.2.0-rc01] /Users/masayukifuruyama/.gradle/caches/transforms-4/5f98e3bda215e7bfff703c205e1c5440/transformed/jetified-credentials-1.2.0-rc01/AndroidManifest.xml:5:5-44
+MERGED from [androidx.credentials:credentials:1.2.0-rc01] /Users/masayukifuruyama/.gradle/caches/transforms-4/5f98e3bda215e7bfff703c205e1c5440/transformed/jetified-credentials-1.2.0-rc01/AndroidManifest.xml:5:5-44
+MERGED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/masayukifuruyama/.gradle/caches/transforms-4/bdf1937af0b0b3950aa9b61a4ccff180/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:21:5-44
+MERGED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/masayukifuruyama/.gradle/caches/transforms-4/bdf1937af0b0b3950aa9b61a4ccff180/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:21:5-44
+MERGED from [com.google.android.gms:play-services-auth:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/83e992ca55965cd2c05f1bd2171b7a27/transformed/jetified-play-services-auth-21.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-auth:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/83e992ca55965cd2c05f1bd2171b7a27/transformed/jetified-play-services-auth-21.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.5.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/ed32c5be19dec32174c2f3291d3f368e/transformed/material-1.5.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.5.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/ed32c5be19dec32174c2f3291d3f368e/transformed/material-1.5.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/01721b17d3e371eee28519face913fb3/transformed/constraintlayout-2.1.0/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/01721b17d3e371eee28519face913fb3/transformed/constraintlayout-2.1.0/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.appcompat:appcompat:1.3.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/e0b86bc3f41fe3b4b7d114e79a8d3726/transformed/appcompat-1.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.3.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/e0b86bc3f41fe3b4b7d114e79a8d3726/transformed/appcompat-1.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/804ee1467dfaf4f5c392c730a6a824dd/transformed/lifecycle-extensions-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/804ee1467dfaf4f5c392c730a6a824dd/transformed/lifecycle-extensions-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment-ktx:1.7.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/14f1845622bd68147f4d320eed42590a/transformed/jetified-fragment-ktx-1.7.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.fragment:fragment-ktx:1.7.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/14f1845622bd68147f4d320eed42590a/transformed/jetified-fragment-ktx-1.7.1/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/8614c9da2e513907f84d438f84469c79/transformed/jetified-firebase-auth-interop-20.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/8614c9da2e513907f84d438f84469c79/transformed/jetified-firebase-auth-interop-20.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-common:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/ab61001b3096af063e621017363da98e/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:19:5-44
+MERGED from [com.google.firebase:firebase-common:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/ab61001b3096af063e621017363da98e/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:19:5-44
+MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.2] /Users/masayukifuruyama/.gradle/caches/transforms-4/7ad9dead24c622caa4701676dc0863b4/transformed/jetified-play-services-auth-api-phone-18.0.2/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.2] /Users/masayukifuruyama/.gradle/caches/transforms-4/7ad9dead24c622caa4701676dc0863b4/transformed/jetified-play-services-auth-api-phone-18.0.2/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-base:18.0.10] /Users/masayukifuruyama/.gradle/caches/transforms-4/64e0c779398efc68dbe670f8e8746389/transformed/jetified-play-services-auth-base-18.0.10/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-base:18.0.10] /Users/masayukifuruyama/.gradle/caches/transforms-4/64e0c779398efc68dbe670f8e8746389/transformed/jetified-play-services-auth-base-18.0.10/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/223b7a6f72941e2fd5d0a7e7b28df97d/transformed/jetified-recaptcha-18.4.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/223b7a6f72941e2fd5d0a7e7b28df97d/transformed/jetified-recaptcha-18.4.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.play:integrity:1.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/70ebdd558815703100f438077ec41fc9/transformed/jetified-integrity-1.2.0/AndroidManifest.xml:4:5-44
+MERGED from [com.google.android.play:integrity:1.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/70ebdd558815703100f438077ec41fc9/transformed/jetified-integrity-1.2.0/AndroidManifest.xml:4:5-44
+MERGED from [com.google.firebase:firebase-installations-interop:17.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/138e9ff494bb5acde3f4de5fad7c06bb/transformed/jetified-firebase-installations-interop-17.2.0/AndroidManifest.xml:17:5-44
+MERGED from [com.google.firebase:firebase-installations-interop:17.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/138e9ff494bb5acde3f4de5fad7c06bb/transformed/jetified-firebase-installations-interop-17.2.0/AndroidManifest.xml:17:5-44
+MERGED from [com.google.firebase:firebase-appcheck-interop:17.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/8e51855c21b284f27295f36155af1f45/transformed/jetified-firebase-appcheck-interop-17.1.0/AndroidManifest.xml:18:5-44
+MERGED from [com.google.firebase:firebase-appcheck-interop:17.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/8e51855c21b284f27295f36155af1f45/transformed/jetified-firebase-appcheck-interop-17.1.0/AndroidManifest.xml:18:5-44
+MERGED from [com.google.android.gms:play-services-fido:20.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/314454057e06b5fd5edbc50369793d66/transformed/jetified-play-services-fido-20.1.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-fido:20.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/314454057e06b5fd5edbc50369793d66/transformed/jetified-play-services-fido-20.1.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-ktx:1.8.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/20c9546b5548765f2703f5ac5df53d92/transformed/jetified-activity-ktx-1.8.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-ktx:1.8.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/20c9546b5548765f2703f5ac5df53d92/transformed/jetified-activity-ktx-1.8.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity:1.8.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/42af452fa23935075299276553636fac/transformed/jetified-activity-1.8.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.8.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/42af452fa23935075299276553636fac/transformed/jetified-activity-1.8.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.7.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/c16a4b79c1816b4aa8b1f3bacbdd0903/transformed/jetified-lifecycle-runtime-ktx-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.7.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/c16a4b79c1816b4aa8b1f3bacbdd0903/transformed/jetified-lifecycle-runtime-ktx-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/1407ae4fbc922eeac31d4d68ef8d80b8/transformed/jetified-lifecycle-livedata-core-ktx-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/1407ae4fbc922eeac31d4d68ef8d80b8/transformed/jetified-lifecycle-livedata-core-ktx-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/8a894ce926b0733b6ae5f437c3874ca1/transformed/jetified-lifecycle-viewmodel-ktx-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/8a894ce926b0733b6ae5f437c3874ca1/transformed/jetified-lifecycle-viewmodel-ktx-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-service:2.7.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/4ffbcd47bfa6ee87226e11ef74f2f3ff/transformed/jetified-lifecycle-service-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-service:2.7.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/4ffbcd47bfa6ee87226e11ef74f2f3ff/transformed/jetified-lifecycle-service-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.7.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/d68accd1a6b6f322f957900e93fe16d1/transformed/lifecycle-livedata-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.7.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/d68accd1a6b6f322f957900e93fe16d1/transformed/lifecycle-livedata-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/ab5325c2de8621f56a7d657ccd5fc75d/transformed/jetified-lifecycle-viewmodel-savedstate-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/ab5325c2de8621f56a7d657ccd5fc75d/transformed/jetified-lifecycle-viewmodel-savedstate-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.7.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/1f0950e37ea1a638b349b6ef6ed9a833/transformed/lifecycle-viewmodel-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.7.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/1f0950e37ea1a638b349b6ef6ed9a833/transformed/lifecycle-viewmodel-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.7.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/12da96652258e23cec9ebeca16819d02/transformed/lifecycle-livedata-core-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.7.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/12da96652258e23cec9ebeca16819d02/transformed/lifecycle-livedata-core-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.7.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/700f4f16fab6071d5b380539a8df74e9/transformed/lifecycle-runtime-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.7.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/700f4f16fab6071d5b380539a8df74e9/transformed/lifecycle-runtime-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/b6e008bec8298e1e0650f1e29e579caa/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/b6e008bec8298e1e0650f1e29e579caa/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/5e61288050f562acfa8cd23f7e211b58/transformed/jetified-savedstate-ktx-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/5e61288050f562acfa8cd23f7e211b58/transformed/jetified-savedstate-ktx-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/7e728e0e8d308d1ccf994b00940a5616/transformed/jetified-savedstate-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/7e728e0e8d308d1ccf994b00940a5616/transformed/jetified-savedstate-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.datastore:datastore-core-android:1.1.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/0deffc77359e9b62b9e1f124cde0fcdd/transformed/jetified-datastore-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.datastore:datastore-core-android:1.1.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/0deffc77359e9b62b9e1f124cde0fcdd/transformed/jetified-datastore-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.datastore:datastore-preferences:1.1.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/ebbc5e4f88b1af55e985d9313ba02995/transformed/jetified-datastore-preferences-1.1.1/AndroidManifest.xml:4:5-43
+MERGED from [androidx.datastore:datastore-preferences:1.1.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/ebbc5e4f88b1af55e985d9313ba02995/transformed/jetified-datastore-preferences-1.1.1/AndroidManifest.xml:4:5-43
+MERGED from [androidx.datastore:datastore-preferences-android:1.1.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/47229bc9d2351502ba369ffeb3447f24/transformed/jetified-datastore-preferences-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.datastore:datastore-preferences-android:1.1.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/47229bc9d2351502ba369ffeb3447f24/transformed/jetified-datastore-preferences-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.datastore:datastore-android:1.1.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/e3dc9016539f92d0bb4ef7ced051179a/transformed/jetified-datastore-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.datastore:datastore-android:1.1.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/e3dc9016539f92d0bb4ef7ced051179a/transformed/jetified-datastore-release/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-database-collection:18.0.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/acebdf890fe1c67a580121a5f76ddbd2/transformed/jetified-firebase-database-collection-18.0.1/AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.firebase:firebase-database-collection:18.0.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/acebdf890fe1c67a580121a5f76ddbd2/transformed/jetified-firebase-database-collection-18.0.1/AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.android.gms:play-services-base:18.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/e8f1ad76591ab74eaf8633db4baa46ed/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-base:18.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/e8f1ad76591ab74eaf8633db4baa46ed/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-tasks:18.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/735b74f1e5332ae34e0c299522b4c396/transformed/jetified-play-services-tasks-18.1.0/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tasks:18.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/735b74f1e5332ae34e0c299522b4c396/transformed/jetified-play-services-tasks-18.1.0/AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-measurement-connector:20.0.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/d65907407dc87cbba7f8a2b5a87c888f/transformed/jetified-firebase-measurement-connector-20.0.1/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector:20.0.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/d65907407dc87cbba7f8a2b5a87c888f/transformed/jetified-firebase-measurement-connector-20.0.1/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:18.3.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/0a28ac9777ad77d50f7d4cbaa647deae/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-basement:18.3.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/0a28ac9777ad77d50f7d4cbaa647deae/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:18:5-43
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/af693c97f9e5a56a7a3a85b8b546e9b5/transformed/jetified-viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/af693c97f9e5a56a7a3a85b8b546e9b5/transformed/jetified-viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.7.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/9f6b412b17f5ef65b71e81d69ac3727d/transformed/fragment-1.7.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.fragment:fragment:1.7.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/9f6b412b17f5ef65b71e81d69ac3727d/transformed/fragment-1.7.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/06b72b876fe66d8fafdfd521cf99c7f2/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/06b72b876fe66d8fafdfd521cf99c7f2/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/41645aaf14ee68683d2f9b865f8b978f/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/41645aaf14ee68683d2f9b865f8b978f/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/4d51050093f6a6cec40e51bda12422d0/transformed/loader-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.loader:loader:1.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/4d51050093f6a6cec40e51bda12422d0/transformed/loader-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.2.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/d9781caa03f6c41f9d8e144b06442525/transformed/recyclerview-1.2.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.2.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/d9781caa03f6c41f9d8e144b06442525/transformed/recyclerview-1.2.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/a0c96753a59976f52f31bd1d075511c9/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/a0c96753a59976f52f31bd1d075511c9/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core-ktx:1.13.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/566ae7d68fc2f1c3f9f3e1e775ef7b23/transformed/jetified-core-ktx-1.13.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.13.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/566ae7d68fc2f1c3f9f3e1e775ef7b23/transformed/jetified-core-ktx-1.13.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.media:media:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/b407d9a500e40b7d2616911747d3cf9e/transformed/media-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/b407d9a500e40b7d2616911747d3cf9e/transformed/media-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.3.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/943a8922a8940a0c10e07ae122352203/transformed/jetified-appcompat-resources-1.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.3.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/943a8922a8940a0c10e07ae122352203/transformed/jetified-appcompat-resources-1.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/e3f86a853dcdc9651f026077725b34c5/transformed/drawerlayout-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/e3f86a853dcdc9651f026077725b34c5/transformed/drawerlayout-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/47c2b313b6386a4111ef5b5badf61f81/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/47c2b313b6386a4111ef5b5badf61f81/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/ed467b3b19b5e4d7d235264814107e89/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/ed467b3b19b5e4d7d235264814107e89/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/e81f274ae1f0dd68a952775152169b36/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/e81f274ae1f0dd68a952775152169b36/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/a63fd0d87c6a7d03d48a6dcad63a6670/transformed/customview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/a63fd0d87c6a7d03d48a6dcad63a6670/transformed/customview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.4.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/4832b35e2d146857725baed1a36a0ef7/transformed/transition-1.4.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.4.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/4832b35e2d146857725baed1a36a0ef7/transformed/transition-1.4.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/d67a66c10dd93dd370b430f07f20a80a/transformed/swiperefreshlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/d67a66c10dd93dd370b430f07f20a80a/transformed/swiperefreshlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/5a1c037853da79697390a624e6022968/transformed/asynclayoutinflater-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/5a1c037853da79697390a624e6022968/transformed/asynclayoutinflater-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.13.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/bc092efb392e5a81b290836a849bbcc6/transformed/core-1.13.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.13.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/bc092efb392e5a81b290836a849bbcc6/transformed/core-1.13.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/45069becaa87082a4b780e45e1e1a384/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:21:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/45069becaa87082a4b780e45e1e1a384/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:21:5-44
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/db7c844fbca27f8b6ef79ffd91144dde/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/db7c844fbca27f8b6ef79ffd91144dde/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.tracing:tracing:1.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/e867feb7778fe09560378106013bd94d/transformed/jetified-tracing-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.tracing:tracing:1.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/e867feb7778fe09560378106013bd94d/transformed/jetified-tracing-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [com.squareup.picasso:picasso:2.71828] /Users/masayukifuruyama/.gradle/caches/transforms-4/1f609bdb7781b2fd470a6208f5a83952/transformed/jetified-picasso-2.71828/AndroidManifest.xml:5:5-44
+MERGED from [com.squareup.picasso:picasso:2.71828] /Users/masayukifuruyama/.gradle/caches/transforms-4/1f609bdb7781b2fd470a6208f5a83952/transformed/jetified-picasso-2.71828/AndroidManifest.xml:5:5-44
+MERGED from [androidx.exifinterface:exifinterface:1.3.3] /Users/masayukifuruyama/.gradle/caches/transforms-4/f0804137f970445f1d5c4977f449d6e4/transformed/exifinterface-1.3.3/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.3] /Users/masayukifuruyama/.gradle/caches/transforms-4/f0804137f970445f1d5c4977f449d6e4/transformed/exifinterface-1.3.3/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/256a74d652c4fda664728f0be48425f5/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/256a74d652c4fda664728f0be48425f5/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/96a10960b7c2c7670a27e759a40f1857/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/96a10960b7c2c7670a27e759a40f1857/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.room:room-runtime:2.4.3] /Users/masayukifuruyama/.gradle/caches/transforms-4/9d05d7ef0a53cf77987b24709bd3bd02/transformed/room-runtime-2.4.3/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.room:room-runtime:2.4.3] /Users/masayukifuruyama/.gradle/caches/transforms-4/9d05d7ef0a53cf77987b24709bd3bd02/transformed/room-runtime-2.4.3/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/bce1d48e951e2ea4ab1b31de7f7e437b/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/bce1d48e951e2ea4ab1b31de7f7e437b/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/89e7aa7e4c644d0c4eebe21649c9b828/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/89e7aa7e4c644d0c4eebe21649c9b828/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-components:18.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/8396c8c9791450e1220c39a0b63696d6/transformed/jetified-firebase-components-18.0.0/AndroidManifest.xml:18:5-44
+MERGED from [com.google.firebase:firebase-components:18.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/8396c8c9791450e1220c39a0b63696d6/transformed/jetified-firebase-components-18.0.0/AndroidManifest.xml:18:5-44
+MERGED from [com.google.android.datatransport:transport-runtime:3.3.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/6fe2be0afeefff1c0f73bb02a90c086c/transformed/jetified-transport-runtime-3.3.0/AndroidManifest.xml:18:5-44
+MERGED from [com.google.android.datatransport:transport-runtime:3.3.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/6fe2be0afeefff1c0f73bb02a90c086c/transformed/jetified-transport-runtime-3.3.0/AndroidManifest.xml:18:5-44
+MERGED from [com.google.android.datatransport:transport-api:3.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/78737735056d649ceef314cc2fa2fe95/transformed/jetified-transport-api-3.2.0/AndroidManifest.xml:18:5-44
+MERGED from [com.google.android.datatransport:transport-api:3.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/78737735056d649ceef314cc2fa2fe95/transformed/jetified-transport-api-3.2.0/AndroidManifest.xml:18:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/d1f220610819bc603f7aea0037ec9e38/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/d1f220610819bc603f7aea0037ec9e38/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/384c7a57b9699e21b48ffae7e5779e36/transformed/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/384c7a57b9699e21b48ffae7e5779e36/transformed/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite-framework:2.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/223be3ec8813a7599f2657a8807ce056/transformed/sqlite-framework-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.sqlite:sqlite-framework:2.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/223be3ec8813a7599f2657a8807ce056/transformed/sqlite-framework-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.sqlite:sqlite:2.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/79d086b13991fd54892f34a991052aed/transformed/sqlite-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.sqlite:sqlite:2.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/79d086b13991fd54892f34a991052aed/transformed/sqlite-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.window.extensions.core:core:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/637522aa7489748a483318c6f92144af/transformed/jetified-core-1.0.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.window.extensions.core:core:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/637522aa7489748a483318c6f92144af/transformed/jetified-core-1.0.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/db123fc3168b6b96a1e987c9ae8801fa/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/db123fc3168b6b96a1e987c9ae8801fa/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/917a844dda36ed38d764cbf2162cb00a/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/917a844dda36ed38d764cbf2162cb00a/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/179e2d455baaddf0778b424744612b2f/transformed/jetified-annotation-experimental-1.4.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/179e2d455baaddf0778b424744612b2f/transformed/jetified-annotation-experimental-1.4.1/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.libraries.identity.googleid:googleid:1.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/7081963d1e072d734039de7c000dfc2d/transformed/jetified-googleid-1.1.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.libraries.identity.googleid:googleid:1.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/7081963d1e072d734039de7c000dfc2d/transformed/jetified-googleid-1.1.0/AndroidManifest.xml:5:5-44
+MERGED from [io.grpc:grpc-android:1.62.2] /Users/masayukifuruyama/.gradle/caches/transforms-4/7e92cfd1c9cc11365b706609e5f5adb8/transformed/jetified-grpc-android-1.62.2/AndroidManifest.xml:5:5-44
+MERGED from [io.grpc:grpc-android:1.62.2] /Users/masayukifuruyama/.gradle/caches/transforms-4/7e92cfd1c9cc11365b706609e5f5adb8/transformed/jetified-grpc-android-1.62.2/AndroidManifest.xml:5:5-44
+MERGED from [com.pdftron:pdftron:11.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/80da47ab8988544a82857db78e7f2517/transformed/jetified-pdftron-11.2.0/AndroidManifest.xml:5:5-44
+MERGED from [com.pdftron:pdftron:11.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/80da47ab8988544a82857db78e7f2517/transformed/jetified-pdftron-11.2.0/AndroidManifest.xml:5:5-44
+MERGED from [com.getkeepsafe.relinker:relinker:1.4.5] /Users/masayukifuruyama/.gradle/caches/transforms-4/bb9a87baaadd7ff0597a13c48c8f0174/transformed/jetified-relinker-1.4.5/AndroidManifest.xml:5:5-43
+MERGED from [com.getkeepsafe.relinker:relinker:1.4.5] /Users/masayukifuruyama/.gradle/caches/transforms-4/bb9a87baaadd7ff0597a13c48c8f0174/transformed/jetified-relinker-1.4.5/AndroidManifest.xml:5:5-43
+MERGED from [com.github.mhiew:pdfium-android:1.9.2] /Users/masayukifuruyama/.gradle/caches/transforms-4/f85bbe90a0748adc86179091673da611/transformed/jetified-pdfium-android-1.9.2/AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.mhiew:pdfium-android:1.9.2] /Users/masayukifuruyama/.gradle/caches/transforms-4/f85bbe90a0748adc86179091673da611/transformed/jetified-pdfium-android-1.9.2/AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.clans:fab:1.6.4] /Users/masayukifuruyama/.gradle/caches/transforms-4/bf0b7290447cba648a50e745e630235f/transformed/jetified-fab-1.6.4/AndroidManifest.xml:8:5-10:41
+MERGED from [com.github.clans:fab:1.6.4] /Users/masayukifuruyama/.gradle/caches/transforms-4/bf0b7290447cba648a50e745e630235f/transformed/jetified-fab-1.6.4/AndroidManifest.xml:8:5-10:41
+MERGED from [io.reactivex.rxjava2:rxandroid:2.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/01ae378945029cbfd68e910e68261a99/transformed/jetified-rxandroid-2.1.0/AndroidManifest.xml:18:5-43
+MERGED from [io.reactivex.rxjava2:rxandroid:2.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/01ae378945029cbfd68e910e68261a99/transformed/jetified-rxandroid-2.1.0/AndroidManifest.xml:18:5-43
+MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/24350c4908dd786dac98178f796df797/transformed/jetified-protolite-well-known-types-18.0.0/AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/24350c4908dd786dac98178f796df797/transformed/jetified-protolite-well-known-types-18.0.0/AndroidManifest.xml:7:5-9:41
+	tools:overrideLibrary
+		ADDED from [:flutter_secure_storage] /Users/masayukifuruyama/git/g-one/guidline/build/flutter_secure_storage/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:8:9-50
+	android:targetSdkVersion
+		INJECTED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/masayukifuruyama/git/g-one/guidline/android/app/src/main/AndroidManifest.xml
+service#com.google.firebase.components.ComponentDiscoveryService
+ADDED from [:cloud_firestore] /Users/masayukifuruyama/git/g-one/guidline/build/cloud_firestore/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:8:9-12:19
+MERGED from [:firebase_auth] /Users/masayukifuruyama/git/g-one/guidline/build/firebase_auth/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:8:9-12:19
+MERGED from [:firebase_auth] /Users/masayukifuruyama/git/g-one/guidline/build/firebase_auth/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:8:9-12:19
+MERGED from [:firebase_crashlytics] /Users/masayukifuruyama/git/g-one/guidline/build/firebase_crashlytics/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:8:9-12:19
+MERGED from [:firebase_crashlytics] /Users/masayukifuruyama/git/g-one/guidline/build/firebase_crashlytics/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:8:9-12:19
+MERGED from [:firebase_storage] /Users/masayukifuruyama/git/g-one/guidline/build/firebase_storage/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:8:9-12:19
+MERGED from [:firebase_storage] /Users/masayukifuruyama/git/g-one/guidline/build/firebase_storage/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:8:9-12:19
+MERGED from [:firebase_core] /Users/masayukifuruyama/git/g-one/guidline/build/firebase_core/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:8:9-12:19
+MERGED from [:firebase_core] /Users/masayukifuruyama/git/g-one/guidline/build/firebase_core/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:8:9-12:19
+MERGED from [com.google.firebase:firebase-crashlytics:19.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/2c26c2876f976bfd08dd4b7e76416618/transformed/jetified-firebase-crashlytics-19.1.0/AndroidManifest.xml:12:9-21:19
+MERGED from [com.google.firebase:firebase-crashlytics:19.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/2c26c2876f976bfd08dd4b7e76416618/transformed/jetified-firebase-crashlytics-19.1.0/AndroidManifest.xml:12:9-21:19
+MERGED from [com.google.firebase:firebase-auth:23.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/829e0cce5c6b03ef3608e02f03834567/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:66:9-72:19
+MERGED from [com.google.firebase:firebase-auth:23.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/829e0cce5c6b03ef3608e02f03834567/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:66:9-72:19
+MERGED from [com.google.firebase:firebase-firestore:25.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/4be03756a76161f939ef901d1cd4263c/transformed/jetified-firebase-firestore-25.1.0/AndroidManifest.xml:14:9-23:19
+MERGED from [com.google.firebase:firebase-firestore:25.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/4be03756a76161f939ef901d1cd4263c/transformed/jetified-firebase-firestore-25.1.0/AndroidManifest.xml:14:9-23:19
+MERGED from [com.google.firebase:firebase-storage:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/95915a61ff3ad99cdddaf08d05c64a09/transformed/jetified-firebase-storage-21.0.0/AndroidManifest.xml:27:9-36:19
+MERGED from [com.google.firebase:firebase-storage:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/95915a61ff3ad99cdddaf08d05c64a09/transformed/jetified-firebase-storage-21.0.0/AndroidManifest.xml:27:9-36:19
+MERGED from [com.google.firebase:firebase-sessions:2.0.4] /Users/masayukifuruyama/.gradle/caches/transforms-4/8579e93dbdf6e55bfc43fdbf9d7e777b/transformed/jetified-firebase-sessions-2.0.4/AndroidManifest.xml:26:9-32:19
+MERGED from [com.google.firebase:firebase-sessions:2.0.4] /Users/masayukifuruyama/.gradle/caches/transforms-4/8579e93dbdf6e55bfc43fdbf9d7e777b/transformed/jetified-firebase-sessions-2.0.4/AndroidManifest.xml:26:9-32:19
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/469876cc07f0b26fa68d4903f4615630/transformed/jetified-firebase-installations-18.0.0/AndroidManifest.xml:12:9-21:19
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/469876cc07f0b26fa68d4903f4615630/transformed/jetified-firebase-installations-18.0.0/AndroidManifest.xml:12:9-21:19
+MERGED from [com.google.firebase:firebase-appcheck:18.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/8a0eb10715fa593bcdaf3943d2535c3a/transformed/jetified-firebase-appcheck-18.0.0/AndroidManifest.xml:22:9-31:19
+MERGED from [com.google.firebase:firebase-appcheck:18.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/8a0eb10715fa593bcdaf3943d2535c3a/transformed/jetified-firebase-appcheck-18.0.0/AndroidManifest.xml:22:9-31:19
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/161cfe6be5c32dd2ccd9ba014fcb3ef7/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:9:9-15:19
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/161cfe6be5c32dd2ccd9ba014fcb3ef7/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:9:9-15:19
+MERGED from [com.google.firebase:firebase-datatransport:19.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/264237d756d79b4302a5991a02a94922/transformed/jetified-firebase-datatransport-19.0.0/AndroidManifest.xml:22:9-28:19
+MERGED from [com.google.firebase:firebase-datatransport:19.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/264237d756d79b4302a5991a02a94922/transformed/jetified-firebase-datatransport-19.0.0/AndroidManifest.xml:22:9-28:19
+MERGED from [com.google.firebase:firebase-common:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/ab61001b3096af063e621017363da98e/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:30:9-38:19
+MERGED from [com.google.firebase:firebase-common:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/ab61001b3096af063e621017363da98e/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:30:9-38:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-crashlytics:19.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/2c26c2876f976bfd08dd4b7e76416618/transformed/jetified-firebase-crashlytics-19.1.0/AndroidManifest.xml:14:13-37
+	tools:targetApi
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/ab61001b3096af063e621017363da98e/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:34:13-32
+	android:directBootAware
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/ab61001b3096af063e621017363da98e/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:32:13-43
+	android:name
+		ADDED from [:cloud_firestore] /Users/masayukifuruyama/git/g-one/guidline/build/cloud_firestore/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:8:18-89
+meta-data#com.google.firebase.components:io.flutter.plugins.firebase.firestore.FlutterFirebaseFirestoreRegistrar
+ADDED from [:cloud_firestore] /Users/masayukifuruyama/git/g-one/guidline/build/cloud_firestore/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:9:13-11:85
+	android:value
+		ADDED from [:cloud_firestore] /Users/masayukifuruyama/git/g-one/guidline/build/cloud_firestore/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:11:17-82
+	android:name
+		ADDED from [:cloud_firestore] /Users/masayukifuruyama/git/g-one/guidline/build/cloud_firestore/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:10:17-134
+meta-data#com.google.firebase.components:io.flutter.plugins.firebase.auth.FlutterFirebaseAuthRegistrar
+ADDED from [:firebase_auth] /Users/masayukifuruyama/git/g-one/guidline/build/firebase_auth/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:9:13-11:85
+	android:value
+		ADDED from [:firebase_auth] /Users/masayukifuruyama/git/g-one/guidline/build/firebase_auth/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:11:17-82
+	android:name
+		ADDED from [:firebase_auth] /Users/masayukifuruyama/git/g-one/guidline/build/firebase_auth/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:10:17-124
+meta-data#com.google.firebase.components:io.flutter.plugins.firebase.crashlytics.FlutterFirebaseAppRegistrar
+ADDED from [:firebase_crashlytics] /Users/masayukifuruyama/git/g-one/guidline/build/firebase_crashlytics/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:9:13-11:85
+	android:value
+		ADDED from [:firebase_crashlytics] /Users/masayukifuruyama/git/g-one/guidline/build/firebase_crashlytics/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:11:17-82
+	android:name
+		ADDED from [:firebase_crashlytics] /Users/masayukifuruyama/git/g-one/guidline/build/firebase_crashlytics/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:10:17-130
+meta-data#com.google.firebase.components:io.flutter.plugins.firebase.storage.FlutterFirebaseAppRegistrar
+ADDED from [:firebase_storage] /Users/masayukifuruyama/git/g-one/guidline/build/firebase_storage/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:9:13-11:85
+	android:value
+		ADDED from [:firebase_storage] /Users/masayukifuruyama/git/g-one/guidline/build/firebase_storage/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:11:17-82
+	android:name
+		ADDED from [:firebase_storage] /Users/masayukifuruyama/git/g-one/guidline/build/firebase_storage/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:10:17-126
+meta-data#com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar
+ADDED from [:firebase_core] /Users/masayukifuruyama/git/g-one/guidline/build/firebase_core/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:9:13-11:85
+	android:value
+		ADDED from [:firebase_core] /Users/masayukifuruyama/git/g-one/guidline/build/firebase_core/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:11:17-82
+	android:name
+		ADDED from [:firebase_core] /Users/masayukifuruyama/git/g-one/guidline/build/firebase_core/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:10:17-124
+activity#com.pdftron.pdftronflutter.FlutterDocumentActivity
+ADDED from [:pdftron_flutter] /Users/masayukifuruyama/git/g-one/guidline/build/pdftron_flutter/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:10:9-14:55
+	android:windowSoftInputMode
+		ADDED from [:pdftron_flutter] /Users/masayukifuruyama/git/g-one/guidline/build/pdftron_flutter/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:14:13-52
+	android:configChanges
+		ADDED from [:pdftron_flutter] /Users/masayukifuruyama/git/g-one/guidline/build/pdftron_flutter/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:12:13-106
+	android:theme
+		ADDED from [:pdftron_flutter] /Users/masayukifuruyama/git/g-one/guidline/build/pdftron_flutter/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:13:13-51
+	android:name
+		ADDED from [:pdftron_flutter] /Users/masayukifuruyama/git/g-one/guidline/build/pdftron_flutter/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:11:13-78
+activity#io.flutter.plugins.urllauncher.WebViewActivity
+ADDED from [:url_launcher_android] /Users/masayukifuruyama/git/g-one/guidline/build/url_launcher_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:8:9-11:74
+	android:exported
+		ADDED from [:url_launcher_android] /Users/masayukifuruyama/git/g-one/guidline/build/url_launcher_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:10:13-37
+	android:theme
+		ADDED from [:url_launcher_android] /Users/masayukifuruyama/git/g-one/guidline/build/url_launcher_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:11:13-71
+	android:name
+		ADDED from [:url_launcher_android] /Users/masayukifuruyama/git/g-one/guidline/build/url_launcher_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:9:13-74
+meta-data#com.google.firebase.components:com.google.firebase.crashlytics.FirebaseCrashlyticsKtxRegistrar
+ADDED from [com.google.firebase:firebase-crashlytics:19.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/2c26c2876f976bfd08dd4b7e76416618/transformed/jetified-firebase-crashlytics-19.1.0/AndroidManifest.xml:15:13-17:85
+	android:value
+		ADDED from [com.google.firebase:firebase-crashlytics:19.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/2c26c2876f976bfd08dd4b7e76416618/transformed/jetified-firebase-crashlytics-19.1.0/AndroidManifest.xml:17:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-crashlytics:19.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/2c26c2876f976bfd08dd4b7e76416618/transformed/jetified-firebase-crashlytics-19.1.0/AndroidManifest.xml:16:17-126
+meta-data#com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar
+ADDED from [com.google.firebase:firebase-crashlytics:19.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/2c26c2876f976bfd08dd4b7e76416618/transformed/jetified-firebase-crashlytics-19.1.0/AndroidManifest.xml:18:13-20:85
+	android:value
+		ADDED from [com.google.firebase:firebase-crashlytics:19.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/2c26c2876f976bfd08dd4b7e76416618/transformed/jetified-firebase-crashlytics-19.1.0/AndroidManifest.xml:20:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-crashlytics:19.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/2c26c2876f976bfd08dd4b7e76416618/transformed/jetified-firebase-crashlytics-19.1.0/AndroidManifest.xml:19:17-115
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/829e0cce5c6b03ef3608e02f03834567/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:26:5-79
+MERGED from [com.google.firebase:firebase-firestore:25.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/4be03756a76161f939ef901d1cd4263c/transformed/jetified-firebase-firestore-25.1.0/AndroidManifest.xml:10:5-79
+MERGED from [com.google.firebase:firebase-firestore:25.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/4be03756a76161f939ef901d1cd4263c/transformed/jetified-firebase-firestore-25.1.0/AndroidManifest.xml:10:5-79
+MERGED from [com.google.firebase:firebase-storage:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/95915a61ff3ad99cdddaf08d05c64a09/transformed/jetified-firebase-storage-21.0.0/AndroidManifest.xml:23:5-79
+MERGED from [com.google.firebase:firebase-storage:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/95915a61ff3ad99cdddaf08d05c64a09/transformed/jetified-firebase-storage-21.0.0/AndroidManifest.xml:23:5-79
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/469876cc07f0b26fa68d4903f4615630/transformed/jetified-firebase-installations-18.0.0/AndroidManifest.xml:7:5-79
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/469876cc07f0b26fa68d4903f4615630/transformed/jetified-firebase-installations-18.0.0/AndroidManifest.xml:7:5-79
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.3.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/f1b97ad78868c166a307f2c4c1560c35/transformed/jetified-transport-backend-cct-3.3.0/AndroidManifest.xml:22:5-79
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.3.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/f1b97ad78868c166a307f2c4c1560c35/transformed/jetified-transport-backend-cct-3.3.0/AndroidManifest.xml:22:5-79
+MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/223b7a6f72941e2fd5d0a7e7b28df97d/transformed/jetified-recaptcha-18.4.0/AndroidManifest.xml:8:5-79
+MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/223b7a6f72941e2fd5d0a7e7b28df97d/transformed/jetified-recaptcha-18.4.0/AndroidManifest.xml:8:5-79
+MERGED from [com.google.android.datatransport:transport-runtime:3.3.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/6fe2be0afeefff1c0f73bb02a90c086c/transformed/jetified-transport-runtime-3.3.0/AndroidManifest.xml:20:5-79
+MERGED from [com.google.android.datatransport:transport-runtime:3.3.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/6fe2be0afeefff1c0f73bb02a90c086c/transformed/jetified-transport-runtime-3.3.0/AndroidManifest.xml:20:5-79
+MERGED from [io.grpc:grpc-android:1.62.2] /Users/masayukifuruyama/.gradle/caches/transforms-4/7e92cfd1c9cc11365b706609e5f5adb8/transformed/jetified-grpc-android-1.62.2/AndroidManifest.xml:7:5-79
+MERGED from [io.grpc:grpc-android:1.62.2] /Users/masayukifuruyama/.gradle/caches/transforms-4/7e92cfd1c9cc11365b706609e5f5adb8/transformed/jetified-grpc-android-1.62.2/AndroidManifest.xml:7:5-79
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/829e0cce5c6b03ef3608e02f03834567/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:26:22-76
+activity#com.google.firebase.auth.internal.GenericIdpActivity
+ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/829e0cce5c6b03ef3608e02f03834567/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:29:9-46:20
+	android:excludeFromRecents
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/829e0cce5c6b03ef3608e02f03834567/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:31:13-46
+	android:launchMode
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/829e0cce5c6b03ef3608e02f03834567/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:33:13-44
+	android:exported
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/829e0cce5c6b03ef3608e02f03834567/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:32:13-36
+	android:theme
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/829e0cce5c6b03ef3608e02f03834567/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:34:13-72
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/829e0cce5c6b03ef3608e02f03834567/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:30:13-80
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:host:firebase.auth+data:path:/+data:scheme:genericidp
+ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/829e0cce5c6b03ef3608e02f03834567/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:35:13-45:29
+action#android.intent.action.VIEW
+ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/829e0cce5c6b03ef3608e02f03834567/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:36:17-69
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/829e0cce5c6b03ef3608e02f03834567/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:36:25-66
+category#android.intent.category.DEFAULT
+ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/829e0cce5c6b03ef3608e02f03834567/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:38:17-76
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/829e0cce5c6b03ef3608e02f03834567/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:38:27-73
+category#android.intent.category.BROWSABLE
+ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/829e0cce5c6b03ef3608e02f03834567/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:39:17-78
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/829e0cce5c6b03ef3608e02f03834567/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:39:27-75
+activity#com.google.firebase.auth.internal.RecaptchaActivity
+ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/829e0cce5c6b03ef3608e02f03834567/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:47:9-64:20
+	android:excludeFromRecents
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/829e0cce5c6b03ef3608e02f03834567/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:49:13-46
+	android:launchMode
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/829e0cce5c6b03ef3608e02f03834567/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:51:13-44
+	android:exported
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/829e0cce5c6b03ef3608e02f03834567/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:50:13-36
+	android:theme
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/829e0cce5c6b03ef3608e02f03834567/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:52:13-72
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/829e0cce5c6b03ef3608e02f03834567/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:48:13-79
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:host:firebase.auth+data:path:/+data:scheme:recaptcha
+ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/829e0cce5c6b03ef3608e02f03834567/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:53:13-63:29
+meta-data#com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar
+ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/829e0cce5c6b03ef3608e02f03834567/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:69:13-71:85
+	android:value
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/829e0cce5c6b03ef3608e02f03834567/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:71:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/829e0cce5c6b03ef3608e02f03834567/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:70:17-109
+meta-data#com.google.firebase.components:com.google.firebase.firestore.FirebaseFirestoreKtxRegistrar
+ADDED from [com.google.firebase:firebase-firestore:25.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/4be03756a76161f939ef901d1cd4263c/transformed/jetified-firebase-firestore-25.1.0/AndroidManifest.xml:17:13-19:85
+	android:value
+		ADDED from [com.google.firebase:firebase-firestore:25.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/4be03756a76161f939ef901d1cd4263c/transformed/jetified-firebase-firestore-25.1.0/AndroidManifest.xml:19:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-firestore:25.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/4be03756a76161f939ef901d1cd4263c/transformed/jetified-firebase-firestore-25.1.0/AndroidManifest.xml:18:17-122
+meta-data#com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar
+ADDED from [com.google.firebase:firebase-firestore:25.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/4be03756a76161f939ef901d1cd4263c/transformed/jetified-firebase-firestore-25.1.0/AndroidManifest.xml:20:13-22:85
+	android:value
+		ADDED from [com.google.firebase:firebase-firestore:25.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/4be03756a76161f939ef901d1cd4263c/transformed/jetified-firebase-firestore-25.1.0/AndroidManifest.xml:22:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-firestore:25.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/4be03756a76161f939ef901d1cd4263c/transformed/jetified-firebase-firestore-25.1.0/AndroidManifest.xml:21:17-111
+meta-data#com.google.firebase.components:com.google.firebase.storage.FirebaseStorageKtxRegistrar
+ADDED from [com.google.firebase:firebase-storage:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/95915a61ff3ad99cdddaf08d05c64a09/transformed/jetified-firebase-storage-21.0.0/AndroidManifest.xml:30:13-32:85
+	android:value
+		ADDED from [com.google.firebase:firebase-storage:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/95915a61ff3ad99cdddaf08d05c64a09/transformed/jetified-firebase-storage-21.0.0/AndroidManifest.xml:32:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-storage:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/95915a61ff3ad99cdddaf08d05c64a09/transformed/jetified-firebase-storage-21.0.0/AndroidManifest.xml:31:17-118
+meta-data#com.google.firebase.components:com.google.firebase.storage.StorageRegistrar
+ADDED from [com.google.firebase:firebase-storage:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/95915a61ff3ad99cdddaf08d05c64a09/transformed/jetified-firebase-storage-21.0.0/AndroidManifest.xml:33:13-35:85
+	android:value
+		ADDED from [com.google.firebase:firebase-storage:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/95915a61ff3ad99cdddaf08d05c64a09/transformed/jetified-firebase-storage-21.0.0/AndroidManifest.xml:35:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-storage:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/95915a61ff3ad99cdddaf08d05c64a09/transformed/jetified-firebase-storage-21.0.0/AndroidManifest.xml:34:17-107
+service#com.google.firebase.sessions.SessionLifecycleService
+ADDED from [com.google.firebase:firebase-sessions:2.0.4] /Users/masayukifuruyama/.gradle/caches/transforms-4/8579e93dbdf6e55bfc43fdbf9d7e777b/transformed/jetified-firebase-sessions-2.0.4/AndroidManifest.xml:22:9-25:40
+	android:enabled
+		ADDED from [com.google.firebase:firebase-sessions:2.0.4] /Users/masayukifuruyama/.gradle/caches/transforms-4/8579e93dbdf6e55bfc43fdbf9d7e777b/transformed/jetified-firebase-sessions-2.0.4/AndroidManifest.xml:24:13-35
+	android:exported
+		ADDED from [com.google.firebase:firebase-sessions:2.0.4] /Users/masayukifuruyama/.gradle/caches/transforms-4/8579e93dbdf6e55bfc43fdbf9d7e777b/transformed/jetified-firebase-sessions-2.0.4/AndroidManifest.xml:25:13-37
+	android:name
+		ADDED from [com.google.firebase:firebase-sessions:2.0.4] /Users/masayukifuruyama/.gradle/caches/transforms-4/8579e93dbdf6e55bfc43fdbf9d7e777b/transformed/jetified-firebase-sessions-2.0.4/AndroidManifest.xml:23:13-80
+meta-data#com.google.firebase.components:com.google.firebase.sessions.FirebaseSessionsRegistrar
+ADDED from [com.google.firebase:firebase-sessions:2.0.4] /Users/masayukifuruyama/.gradle/caches/transforms-4/8579e93dbdf6e55bfc43fdbf9d7e777b/transformed/jetified-firebase-sessions-2.0.4/AndroidManifest.xml:29:13-31:85
+	android:value
+		ADDED from [com.google.firebase:firebase-sessions:2.0.4] /Users/masayukifuruyama/.gradle/caches/transforms-4/8579e93dbdf6e55bfc43fdbf9d7e777b/transformed/jetified-firebase-sessions-2.0.4/AndroidManifest.xml:31:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-sessions:2.0.4] /Users/masayukifuruyama/.gradle/caches/transforms-4/8579e93dbdf6e55bfc43fdbf9d7e777b/transformed/jetified-firebase-sessions-2.0.4/AndroidManifest.xml:30:17-117
+meta-data#com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsKtxRegistrar
+ADDED from [com.google.firebase:firebase-installations:18.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/469876cc07f0b26fa68d4903f4615630/transformed/jetified-firebase-installations-18.0.0/AndroidManifest.xml:15:13-17:85
+	android:value
+		ADDED from [com.google.firebase:firebase-installations:18.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/469876cc07f0b26fa68d4903f4615630/transformed/jetified-firebase-installations-18.0.0/AndroidManifest.xml:17:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-installations:18.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/469876cc07f0b26fa68d4903f4615630/transformed/jetified-firebase-installations-18.0.0/AndroidManifest.xml:16:17-130
+meta-data#com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar
+ADDED from [com.google.firebase:firebase-installations:18.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/469876cc07f0b26fa68d4903f4615630/transformed/jetified-firebase-installations-18.0.0/AndroidManifest.xml:18:13-20:85
+	android:value
+		ADDED from [com.google.firebase:firebase-installations:18.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/469876cc07f0b26fa68d4903f4615630/transformed/jetified-firebase-installations-18.0.0/AndroidManifest.xml:20:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-installations:18.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/469876cc07f0b26fa68d4903f4615630/transformed/jetified-firebase-installations-18.0.0/AndroidManifest.xml:19:17-127
+meta-data#com.google.firebase.components:com.google.firebase.appcheck.FirebaseAppCheckKtxRegistrar
+ADDED from [com.google.firebase:firebase-appcheck:18.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/8a0eb10715fa593bcdaf3943d2535c3a/transformed/jetified-firebase-appcheck-18.0.0/AndroidManifest.xml:25:13-27:85
+	android:value
+		ADDED from [com.google.firebase:firebase-appcheck:18.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/8a0eb10715fa593bcdaf3943d2535c3a/transformed/jetified-firebase-appcheck-18.0.0/AndroidManifest.xml:27:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-appcheck:18.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/8a0eb10715fa593bcdaf3943d2535c3a/transformed/jetified-firebase-appcheck-18.0.0/AndroidManifest.xml:26:17-120
+meta-data#com.google.firebase.components:com.google.firebase.appcheck.FirebaseAppCheckRegistrar
+ADDED from [com.google.firebase:firebase-appcheck:18.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/8a0eb10715fa593bcdaf3943d2535c3a/transformed/jetified-firebase-appcheck-18.0.0/AndroidManifest.xml:28:13-30:85
+	android:value
+		ADDED from [com.google.firebase:firebase-appcheck:18.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/8a0eb10715fa593bcdaf3943d2535c3a/transformed/jetified-firebase-appcheck-18.0.0/AndroidManifest.xml:30:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-appcheck:18.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/8a0eb10715fa593bcdaf3943d2535c3a/transformed/jetified-firebase-appcheck-18.0.0/AndroidManifest.xml:29:17-117
+meta-data#com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar
+ADDED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/161cfe6be5c32dd2ccd9ba014fcb3ef7/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:12:13-14:85
+	android:value
+		ADDED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/161cfe6be5c32dd2ccd9ba014fcb3ef7/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:14:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/161cfe6be5c32dd2ccd9ba014fcb3ef7/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:13:17-116
+meta-data#com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar
+ADDED from [com.google.firebase:firebase-datatransport:19.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/264237d756d79b4302a5991a02a94922/transformed/jetified-firebase-datatransport-19.0.0/AndroidManifest.xml:25:13-27:85
+	android:value
+		ADDED from [com.google.firebase:firebase-datatransport:19.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/264237d756d79b4302a5991a02a94922/transformed/jetified-firebase-datatransport-19.0.0/AndroidManifest.xml:27:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-datatransport:19.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/264237d756d79b4302a5991a02a94922/transformed/jetified-firebase-datatransport-19.0.0/AndroidManifest.xml:26:17-115
+service#com.google.android.datatransport.runtime.backends.TransportBackendDiscovery
+ADDED from [com.google.android.datatransport:transport-backend-cct:3.3.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/f1b97ad78868c166a307f2c4c1560c35/transformed/jetified-transport-backend-cct-3.3.0/AndroidManifest.xml:26:9-32:19
+MERGED from [com.google.android.datatransport:transport-runtime:3.3.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/6fe2be0afeefff1c0f73bb02a90c086c/transformed/jetified-transport-runtime-3.3.0/AndroidManifest.xml:34:9-36:40
+MERGED from [com.google.android.datatransport:transport-runtime:3.3.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/6fe2be0afeefff1c0f73bb02a90c086c/transformed/jetified-transport-runtime-3.3.0/AndroidManifest.xml:34:9-36:40
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-backend-cct:3.3.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/f1b97ad78868c166a307f2c4c1560c35/transformed/jetified-transport-backend-cct-3.3.0/AndroidManifest.xml:28:13-37
+	android:name
+		ADDED from [com.google.android.datatransport:transport-backend-cct:3.3.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/f1b97ad78868c166a307f2c4c1560c35/transformed/jetified-transport-backend-cct-3.3.0/AndroidManifest.xml:27:13-103
+meta-data#backend:com.google.android.datatransport.cct.CctBackendFactory
+ADDED from [com.google.android.datatransport:transport-backend-cct:3.3.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/f1b97ad78868c166a307f2c4c1560c35/transformed/jetified-transport-backend-cct-3.3.0/AndroidManifest.xml:29:13-31:39
+	android:value
+		ADDED from [com.google.android.datatransport:transport-backend-cct:3.3.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/f1b97ad78868c166a307f2c4c1560c35/transformed/jetified-transport-backend-cct-3.3.0/AndroidManifest.xml:31:17-36
+	android:name
+		ADDED from [com.google.android.datatransport:transport-backend-cct:3.3.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/f1b97ad78868c166a307f2c4c1560c35/transformed/jetified-transport-backend-cct-3.3.0/AndroidManifest.xml:30:17-94
+provider#com.pdftron.pdf.utils.PDFTronToolsInitializer
+ADDED from [com.pdftron:tools:11.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/cafece9edd835e80b9aadd6afbbe9f30/transformed/jetified-tools-11.2.0/AndroidManifest.xml:9:9-12:40
+	android:authorities
+		ADDED from [com.pdftron:tools:11.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/cafece9edd835e80b9aadd6afbbe9f30/transformed/jetified-tools-11.2.0/AndroidManifest.xml:11:13-65
+	android:exported
+		ADDED from [com.pdftron:tools:11.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/cafece9edd835e80b9aadd6afbbe9f30/transformed/jetified-tools-11.2.0/AndroidManifest.xml:12:13-37
+	android:name
+		ADDED from [com.pdftron:tools:11.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/cafece9edd835e80b9aadd6afbbe9f30/transformed/jetified-tools-11.2.0/AndroidManifest.xml:10:13-73
+provider#com.pdftron.pdfnet.PDFNetInitializer
+ADDED from [com.pdftron:tools:11.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/cafece9edd835e80b9aadd6afbbe9f30/transformed/jetified-tools-11.2.0/AndroidManifest.xml:13:9-16:35
+REJECTED from [com.pdftron:pdftron:11.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/80da47ab8988544a82857db78e7f2517/transformed/jetified-pdftron-11.2.0/AndroidManifest.xml:8:9-11:40
+	tools:node
+		ADDED from [com.pdftron:tools:11.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/cafece9edd835e80b9aadd6afbbe9f30/transformed/jetified-tools-11.2.0/AndroidManifest.xml:16:13-32
+	android:authorities
+		ADDED from [com.pdftron:tools:11.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/cafece9edd835e80b9aadd6afbbe9f30/transformed/jetified-tools-11.2.0/AndroidManifest.xml:15:13-66
+	android:name
+		ADDED from [com.pdftron:tools:11.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/cafece9edd835e80b9aadd6afbbe9f30/transformed/jetified-tools-11.2.0/AndroidManifest.xml:14:13-64
+provider#com.pdftron.pdf.utils.ShareProvider
+ADDED from [com.pdftron:tools:11.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/cafece9edd835e80b9aadd6afbbe9f30/transformed/jetified-tools-11.2.0/AndroidManifest.xml:17:9-25:20
+	android:grantUriPermissions
+		ADDED from [com.pdftron:tools:11.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/cafece9edd835e80b9aadd6afbbe9f30/transformed/jetified-tools-11.2.0/AndroidManifest.xml:21:13-47
+	android:authorities
+		ADDED from [com.pdftron:tools:11.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/cafece9edd835e80b9aadd6afbbe9f30/transformed/jetified-tools-11.2.0/AndroidManifest.xml:19:13-72
+	android:exported
+		ADDED from [com.pdftron:tools:11.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/cafece9edd835e80b9aadd6afbbe9f30/transformed/jetified-tools-11.2.0/AndroidManifest.xml:20:13-37
+	android:name
+		ADDED from [com.pdftron:tools:11.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/cafece9edd835e80b9aadd6afbbe9f30/transformed/jetified-tools-11.2.0/AndroidManifest.xml:18:13-63
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from [com.pdftron:tools:11.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/cafece9edd835e80b9aadd6afbbe9f30/transformed/jetified-tools-11.2.0/AndroidManifest.xml:22:13-24:66
+	android:resource
+		ADDED from [com.pdftron:tools:11.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/cafece9edd835e80b9aadd6afbbe9f30/transformed/jetified-tools-11.2.0/AndroidManifest.xml:24:17-63
+	android:name
+		ADDED from [com.pdftron:tools:11.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/cafece9edd835e80b9aadd6afbbe9f30/transformed/jetified-tools-11.2.0/AndroidManifest.xml:23:17-67
+uses-library#androidx.window.extensions
+ADDED from [androidx.window:window:1.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/9ee4bdd106f02322da94059aaabd5da5/transformed/jetified-window-1.2.0/AndroidManifest.xml:23:9-25:40
+	android:required
+		ADDED from [androidx.window:window:1.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/9ee4bdd106f02322da94059aaabd5da5/transformed/jetified-window-1.2.0/AndroidManifest.xml:25:13-37
+	android:name
+		ADDED from [androidx.window:window:1.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/9ee4bdd106f02322da94059aaabd5da5/transformed/jetified-window-1.2.0/AndroidManifest.xml:24:13-54
+uses-library#androidx.window.sidecar
+ADDED from [androidx.window:window:1.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/9ee4bdd106f02322da94059aaabd5da5/transformed/jetified-window-1.2.0/AndroidManifest.xml:26:9-28:40
+	android:required
+		ADDED from [androidx.window:window:1.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/9ee4bdd106f02322da94059aaabd5da5/transformed/jetified-window-1.2.0/AndroidManifest.xml:28:13-37
+	android:name
+		ADDED from [androidx.window:window:1.2.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/9ee4bdd106f02322da94059aaabd5da5/transformed/jetified-window-1.2.0/AndroidManifest.xml:27:13-51
+service#androidx.credentials.playservices.CredentialProviderMetadataHolder
+ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/masayukifuruyama/.gradle/caches/transforms-4/bdf1937af0b0b3950aa9b61a4ccff180/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:24:9-32:19
+	android:enabled
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/masayukifuruyama/.gradle/caches/transforms-4/bdf1937af0b0b3950aa9b61a4ccff180/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:26:13-35
+	android:exported
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/masayukifuruyama/.gradle/caches/transforms-4/bdf1937af0b0b3950aa9b61a4ccff180/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:27:13-37
+	tools:ignore
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/masayukifuruyama/.gradle/caches/transforms-4/bdf1937af0b0b3950aa9b61a4ccff180/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:28:13-60
+	android:name
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/masayukifuruyama/.gradle/caches/transforms-4/bdf1937af0b0b3950aa9b61a4ccff180/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:25:13-94
+meta-data#androidx.credentials.CREDENTIAL_PROVIDER_KEY
+ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/masayukifuruyama/.gradle/caches/transforms-4/bdf1937af0b0b3950aa9b61a4ccff180/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:29:13-31:104
+	android:value
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/masayukifuruyama/.gradle/caches/transforms-4/bdf1937af0b0b3950aa9b61a4ccff180/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:31:17-101
+	android:name
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/masayukifuruyama/.gradle/caches/transforms-4/bdf1937af0b0b3950aa9b61a4ccff180/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:30:17-76
+activity#androidx.credentials.playservices.HiddenActivity
+ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/masayukifuruyama/.gradle/caches/transforms-4/bdf1937af0b0b3950aa9b61a4ccff180/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:34:9-41:20
+	android:fitsSystemWindows
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/masayukifuruyama/.gradle/caches/transforms-4/bdf1937af0b0b3950aa9b61a4ccff180/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:39:13-45
+	android:enabled
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/masayukifuruyama/.gradle/caches/transforms-4/bdf1937af0b0b3950aa9b61a4ccff180/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/masayukifuruyama/.gradle/caches/transforms-4/bdf1937af0b0b3950aa9b61a4ccff180/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:38:13-37
+	android:configChanges
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/masayukifuruyama/.gradle/caches/transforms-4/bdf1937af0b0b3950aa9b61a4ccff180/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:36:13-87
+	android:theme
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/masayukifuruyama/.gradle/caches/transforms-4/bdf1937af0b0b3950aa9b61a4ccff180/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:40:13-48
+	android:name
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/masayukifuruyama/.gradle/caches/transforms-4/bdf1937af0b0b3950aa9b61a4ccff180/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:35:13-76
+activity#com.google.android.gms.auth.api.signin.internal.SignInHubActivity
+ADDED from [com.google.android.gms:play-services-auth:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/83e992ca55965cd2c05f1bd2171b7a27/transformed/jetified-play-services-auth-21.0.0/AndroidManifest.xml:23:9-27:75
+	android:excludeFromRecents
+		ADDED from [com.google.android.gms:play-services-auth:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/83e992ca55965cd2c05f1bd2171b7a27/transformed/jetified-play-services-auth-21.0.0/AndroidManifest.xml:25:13-46
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/83e992ca55965cd2c05f1bd2171b7a27/transformed/jetified-play-services-auth-21.0.0/AndroidManifest.xml:26:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-auth:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/83e992ca55965cd2c05f1bd2171b7a27/transformed/jetified-play-services-auth-21.0.0/AndroidManifest.xml:27:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/83e992ca55965cd2c05f1bd2171b7a27/transformed/jetified-play-services-auth-21.0.0/AndroidManifest.xml:24:13-93
+service#com.google.android.gms.auth.api.signin.RevocationBoundService
+ADDED from [com.google.android.gms:play-services-auth:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/83e992ca55965cd2c05f1bd2171b7a27/transformed/jetified-play-services-auth-21.0.0/AndroidManifest.xml:33:9-37:51
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/83e992ca55965cd2c05f1bd2171b7a27/transformed/jetified-play-services-auth-21.0.0/AndroidManifest.xml:35:13-36
+	android:visibleToInstantApps
+		ADDED from [com.google.android.gms:play-services-auth:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/83e992ca55965cd2c05f1bd2171b7a27/transformed/jetified-play-services-auth-21.0.0/AndroidManifest.xml:37:13-48
+	android:permission
+		ADDED from [com.google.android.gms:play-services-auth:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/83e992ca55965cd2c05f1bd2171b7a27/transformed/jetified-play-services-auth-21.0.0/AndroidManifest.xml:36:13-107
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/83e992ca55965cd2c05f1bd2171b7a27/transformed/jetified-play-services-auth-21.0.0/AndroidManifest.xml:34:13-89
+provider#com.google.firebase.provider.FirebaseInitProvider
+ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/ab61001b3096af063e621017363da98e/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:23:9-28:39
+	android:authorities
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/ab61001b3096af063e621017363da98e/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:25:13-72
+	android:exported
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/ab61001b3096af063e621017363da98e/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:27:13-37
+	android:directBootAware
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/ab61001b3096af063e621017363da98e/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:26:13-43
+	android:initOrder
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/ab61001b3096af063e621017363da98e/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:28:13-36
+	android:name
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/ab61001b3096af063e621017363da98e/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:24:13-77
+meta-data#com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar
+ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/ab61001b3096af063e621017363da98e/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:35:13-37:85
+	android:value
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/ab61001b3096af063e621017363da98e/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:37:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/ab61001b3096af063e621017363da98e/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:36:17-109
+uses-permission#com.google.android.providers.gsf.permission.READ_GSERVICES
+ADDED from [com.google.android.recaptcha:recaptcha:18.4.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/223b7a6f72941e2fd5d0a7e7b28df97d/transformed/jetified-recaptcha-18.4.0/AndroidManifest.xml:9:5-98
+	android:name
+		ADDED from [com.google.android.recaptcha:recaptcha:18.4.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/223b7a6f72941e2fd5d0a7e7b28df97d/transformed/jetified-recaptcha-18.4.0/AndroidManifest.xml:9:22-95
+provider#androidx.startup.InitializationProvider
+ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/b6e008bec8298e1e0650f1e29e579caa/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/45069becaa87082a4b780e45e1e1a384/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/45069becaa87082a4b780e45e1e1a384/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/db7c844fbca27f8b6ef79ffd91144dde/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/db7c844fbca27f8b6ef79ffd91144dde/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+	tools:node
+		ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/b6e008bec8298e1e0650f1e29e579caa/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:28:13-31
+	android:authorities
+		ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/b6e008bec8298e1e0650f1e29e579caa/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:26:13-68
+	android:exported
+		ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/b6e008bec8298e1e0650f1e29e579caa/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/b6e008bec8298e1e0650f1e29e579caa/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:25:13-67
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/b6e008bec8298e1e0650f1e29e579caa/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/b6e008bec8298e1e0650f1e29e579caa/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/b6e008bec8298e1e0650f1e29e579caa/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:30:17-78
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:18.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/e8f1ad76591ab74eaf8633db4baa46ed/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:20:9-22:45
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:18.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/e8f1ad76591ab74eaf8633db4baa46ed/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:22:19-43
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:18.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/e8f1ad76591ab74eaf8633db4baa46ed/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:21:19-78
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:18.1.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/e8f1ad76591ab74eaf8633db4baa46ed/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:20:19-85
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:18.3.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/0a28ac9777ad77d50f7d4cbaa647deae/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:21:9-23:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:18.3.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/0a28ac9777ad77d50f7d4cbaa647deae/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:23:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:18.3.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/0a28ac9777ad77d50f7d4cbaa647deae/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:22:13-58
+permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/bc092efb392e5a81b290836a849bbcc6/transformed/core-1.13.1/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.13.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/bc092efb392e5a81b290836a849bbcc6/transformed/core-1.13.1/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.13.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/bc092efb392e5a81b290836a849bbcc6/transformed/core-1.13.1/AndroidManifest.xml:23:9-81
+permission#jp.co.miceone.jcsguidelines.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/bc092efb392e5a81b290836a849bbcc6/transformed/core-1.13.1/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.13.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/bc092efb392e5a81b290836a849bbcc6/transformed/core-1.13.1/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.13.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/bc092efb392e5a81b290836a849bbcc6/transformed/core-1.13.1/AndroidManifest.xml:23:9-81
+uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/bc092efb392e5a81b290836a849bbcc6/transformed/core-1.13.1/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.13.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/bc092efb392e5a81b290836a849bbcc6/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
+uses-permission#jp.co.miceone.jcsguidelines.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/bc092efb392e5a81b290836a849bbcc6/transformed/core-1.13.1/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.13.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/bc092efb392e5a81b290836a849bbcc6/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
+meta-data#androidx.profileinstaller.ProfileInstallerInitializer
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/45069becaa87082a4b780e45e1e1a384/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/45069becaa87082a4b780e45e1e1a384/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/45069becaa87082a4b780e45e1e1a384/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
+receiver#androidx.profileinstaller.ProfileInstallReceiver
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/45069becaa87082a4b780e45e1e1a384/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
+	android:enabled
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/45069becaa87082a4b780e45e1e1a384/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/45069becaa87082a4b780e45e1e1a384/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
+	android:permission
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/45069becaa87082a4b780e45e1e1a384/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
+	android:directBootAware
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/45069becaa87082a4b780e45e1e1a384/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/45069becaa87082a4b780e45e1e1a384/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
+intent-filter#action:name:androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/45069becaa87082a4b780e45e1e1a384/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
+action#androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/45069becaa87082a4b780e45e1e1a384/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/45069becaa87082a4b780e45e1e1a384/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
+intent-filter#action:name:androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/45069becaa87082a4b780e45e1e1a384/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
+action#androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/45069becaa87082a4b780e45e1e1a384/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/45069becaa87082a4b780e45e1e1a384/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
+intent-filter#action:name:androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/45069becaa87082a4b780e45e1e1a384/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
+action#androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/45069becaa87082a4b780e45e1e1a384/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/45069becaa87082a4b780e45e1e1a384/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
+intent-filter#action:name:androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/45069becaa87082a4b780e45e1e1a384/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
+action#androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/45069becaa87082a4b780e45e1e1a384/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/masayukifuruyama/.gradle/caches/transforms-4/45069becaa87082a4b780e45e1e1a384/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:50:25-92
+provider#com.squareup.picasso.PicassoProvider
+ADDED from [com.squareup.picasso:picasso:2.71828] /Users/masayukifuruyama/.gradle/caches/transforms-4/1f609bdb7781b2fd470a6208f5a83952/transformed/jetified-picasso-2.71828/AndroidManifest.xml:8:9-11:40
+	android:authorities
+		ADDED from [com.squareup.picasso:picasso:2.71828] /Users/masayukifuruyama/.gradle/caches/transforms-4/1f609bdb7781b2fd470a6208f5a83952/transformed/jetified-picasso-2.71828/AndroidManifest.xml:10:13-72
+	android:exported
+		ADDED from [com.squareup.picasso:picasso:2.71828] /Users/masayukifuruyama/.gradle/caches/transforms-4/1f609bdb7781b2fd470a6208f5a83952/transformed/jetified-picasso-2.71828/AndroidManifest.xml:11:13-37
+	android:name
+		ADDED from [com.squareup.picasso:picasso:2.71828] /Users/masayukifuruyama/.gradle/caches/transforms-4/1f609bdb7781b2fd470a6208f5a83952/transformed/jetified-picasso-2.71828/AndroidManifest.xml:9:13-64
+service#androidx.room.MultiInstanceInvalidationService
+ADDED from [androidx.room:room-runtime:2.4.3] /Users/masayukifuruyama/.gradle/caches/transforms-4/9d05d7ef0a53cf77987b24709bd3bd02/transformed/room-runtime-2.4.3/AndroidManifest.xml:25:9-28:40
+	android:exported
+		ADDED from [androidx.room:room-runtime:2.4.3] /Users/masayukifuruyama/.gradle/caches/transforms-4/9d05d7ef0a53cf77987b24709bd3bd02/transformed/room-runtime-2.4.3/AndroidManifest.xml:28:13-37
+	android:directBootAware
+		ADDED from [androidx.room:room-runtime:2.4.3] /Users/masayukifuruyama/.gradle/caches/transforms-4/9d05d7ef0a53cf77987b24709bd3bd02/transformed/room-runtime-2.4.3/AndroidManifest.xml:27:13-43
+	android:name
+		ADDED from [androidx.room:room-runtime:2.4.3] /Users/masayukifuruyama/.gradle/caches/transforms-4/9d05d7ef0a53cf77987b24709bd3bd02/transformed/room-runtime-2.4.3/AndroidManifest.xml:26:13-74
+service#com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService
+ADDED from [com.google.android.datatransport:transport-runtime:3.3.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/6fe2be0afeefff1c0f73bb02a90c086c/transformed/jetified-transport-runtime-3.3.0/AndroidManifest.xml:24:9-28:19
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-runtime:3.3.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/6fe2be0afeefff1c0f73bb02a90c086c/transformed/jetified-transport-runtime-3.3.0/AndroidManifest.xml:26:13-37
+	android:permission
+		ADDED from [com.google.android.datatransport:transport-runtime:3.3.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/6fe2be0afeefff1c0f73bb02a90c086c/transformed/jetified-transport-runtime-3.3.0/AndroidManifest.xml:27:13-69
+	android:name
+		ADDED from [com.google.android.datatransport:transport-runtime:3.3.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/6fe2be0afeefff1c0f73bb02a90c086c/transformed/jetified-transport-runtime-3.3.0/AndroidManifest.xml:25:13-117
+receiver#com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver
+ADDED from [com.google.android.datatransport:transport-runtime:3.3.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/6fe2be0afeefff1c0f73bb02a90c086c/transformed/jetified-transport-runtime-3.3.0/AndroidManifest.xml:30:9-32:40
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-runtime:3.3.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/6fe2be0afeefff1c0f73bb02a90c086c/transformed/jetified-transport-runtime-3.3.0/AndroidManifest.xml:32:13-37
+	android:name
+		ADDED from [com.google.android.datatransport:transport-runtime:3.3.0] /Users/masayukifuruyama/.gradle/caches/transforms-4/6fe2be0afeefff1c0f73bb02a90c086c/transformed/jetified-transport-runtime-3.3.0/AndroidManifest.xml:31:13-132
