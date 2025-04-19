@@ -9,6 +9,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 
 // Project imports:
 import 'package:JCSGuidelines/ui/util/uiUtilDialog.dart';
+import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
 //Googleサインイン
 Future<String> utilGoogleSignin({required BuildContext context}) async {
@@ -28,7 +29,48 @@ Future<String> utilGoogleSignin({required BuildContext context}) async {
     uiUtilhideProgress(context);
     if (userCredential.additionalUserInfo!.isNewUser) {
       //新規ユーザーの場合の処理
+      return 'newUser';
+    } else {
+      //既存ユーザーの場合の処理
       return '';
+    }
+  } catch (e) {
+    uiUtilhideProgress(context);
+    return _errorCoce(e: e as FirebaseAuthException);
+  }
+}
+
+//Appleサインイン
+Future<String> utilAppleSignin({required BuildContext context}) async {
+  //タップされたらプログレスを表示
+  uiUtilshowProgress(context);
+
+  try {
+    print('AppSignInを実行');
+    // generateNonceは、sign_in_with_appleパッケージの中にあるメソッド
+    final rawNonce = generateNonce();
+
+    // ここで、Apple Sign Inの認証画面が表示される
+    final appleCredential = await SignInWithApple.getAppleIDCredential(
+      scopes: [
+        AppleIDAuthorizationScopes.email,
+        AppleIDAuthorizationScopes.fullName,
+      ],
+    );
+    print(appleCredential);
+    // ここで、Firebaseの認証画面が表示される
+    final oauthCredential = OAuthProvider("apple.com").credential(
+      idToken: appleCredential.identityToken,
+      accessToken: appleCredential.authorizationCode,
+    );
+
+    //サインイン実行
+    UserCredential userCredential =
+        await FirebaseAuth.instance.signInWithCredential(oauthCredential);
+    uiUtilhideProgress(context);
+    if (userCredential.additionalUserInfo!.isNewUser) {
+      //新規ユーザーの場合の処理
+      return 'newUser';
     } else {
       //既存ユーザーの場合の処理
       return '';

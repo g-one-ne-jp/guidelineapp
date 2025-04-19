@@ -2,6 +2,8 @@
 import 'dart:async';
 
 // Flutter imports:
+import 'package:firebase_app_check/firebase_app_check.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -29,6 +31,14 @@ void main() async {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
+    //-----AppCheckの初期化コード-----//
+    await FirebaseAppCheck.instance.activate(
+      appleProvider:
+          kReleaseMode ? AppleProvider.deviceCheck : AppleProvider.debug,
+      androidProvider:
+          kReleaseMode ? AndroidProvider.playIntegrity : AndroidProvider.debug,
+    );
+    //------------------------------//
     //Flutterでキャッチされた例外/エラー
     //FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
 
@@ -53,6 +63,8 @@ void main() async {
     //FirebaseCrashlytics.instance.recordError(error, stackTrace);
   });
 }
+
+final navigatorKey = GlobalKey<NavigatorState>();
 
 class MyApp extends HookConsumerWidget with WidgetsBindingObserver {
   MyApp({super.key});
@@ -106,12 +118,13 @@ class MyApp extends HookConsumerWidget with WidgetsBindingObserver {
     }, []);
 
     return ScreenUtilInit(
+      key: navigatorKey,
+
       // デザイン原案におけるデバイス画面の大きさ(単位：dp)
       designSize: const Size(375, 812),
       builder: (context, child) => MaterialApp.router(
         // routerを追加
         routerConfig: _appRouter.config(),
-
         title: 'APP',
         theme: ThemeData(
           brightness: Brightness.light,
@@ -216,6 +229,7 @@ class MyApp extends HookConsumerWidget with WidgetsBindingObserver {
         supportedLocales: const [
           Locale("ja", "JP"),
         ],
+
         // home: const HomePage(), // homeを削除
       ),
 

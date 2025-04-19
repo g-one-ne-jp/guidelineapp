@@ -21,59 +21,61 @@ mixin RepositoryFireStorage {
     if (path == '') {
       return null;
     }
-    final user = FirebaseAuth.instance.currentUser!; // 認証済みユーザーを取得
+
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) {
+      debugPrint('ユーザーが認証されていません');
+      Fluttertoast.showToast(msg: 'ログインが必要です');
+      return null;
+    }
+
     var islandRef = FirebaseStorage.instance.ref().child(path);
     final appDocDir = Platform.isIOS
         ? await getApplicationDocumentsDirectory()
-        : await getApplicationCacheDirectory();
+        : await getApplicationDocumentsDirectory();
     final fileDire = "${appDocDir.path}/${user.uid}/";
     final fileName = path.split('/').last;
     final filePath = "$fileDire$fileName";
     final file = File(filePath);
 
-    //user/uid/ファイル名にファイルが存在する場合はそちらを使う
     if (await _fileExists(filePath) && await file.exists()) {
       debugPrint('編集済みファイルは既に存在します: ${_getLastTwoPartsOfPath(filePath)}');
       if (!isNewUpdate) {
-        islandRef = FirebaseStorage.instance
-            .ref()
-            .child(_getLastTwoPartsOfPath(filePath));
+        final updatedPath = _getLastTwoPartsOfPath(filePath);
+        debugPrint('更新後の参照パス: $updatedPath');
+        islandRef = FirebaseStorage.instance.ref().child(updatedPath);
       }
       final fileLastModified = await file.lastModified();
       final storageMetadata = await islandRef.getMetadata();
       final storageLastModified = storageMetadata.updated;
 
-      // Storage 上のファイルが更新されている場合のみダウンロード
       if (storageLastModified!.isAfter(fileLastModified)) {
         debugPrint('ファイルが更新されています: $filePath');
         await islandRef.writeToFile(file);
       }
     }
+
     if (isNewUpdate && await file.exists()) {
       debugPrint('ファイルが更新されています: $filePath');
       await islandRef.writeToFile(file);
     }
-    // ローカルにファイルが存在する場合は、ダウンロードせずに true を返す
+
     if (await file.exists()) {
       debugPrint('新規ファイルは既に存在します: $filePath');
       return file;
     }
+
     try {
-      // ディレクトリが存在しない場合は作成
-      try {
-        await Directory(fileDire).create(recursive: true);
-      } catch (e) {
-        debugPrint('ディレクトリの作成に失敗しました: $e');
-      }
+      await Directory(fileDire).create(recursive: true);
+
       await islandRef.writeToFile(file);
       debugPrint('ファイルのダウンロードが完了しました: $filePath');
       return file;
-    } on FirebaseException catch (e) {
-      debugPrint('ファイルのダウンロード中にエラーが発生しました: ${e.message}');
+    } catch (e) {
+      debugPrint('ファイルのダウンロード中にエラーが発生しました: $e');
       Fluttertoast.showToast(
         msg: 'ファイルのダウンロード中にエラーが発生しました  path:$path',
       );
-
       return null;
     }
   }
@@ -180,7 +182,7 @@ mixin RepositoryFireStorage {
       if (e.code == 'object-not-found') {
         return false; // ファイルが存在しない
       } else {
-        rethrow; // その他のエラーは再スロー
+        return false; // ファイルが存在しないスロー
       }
     }
   }

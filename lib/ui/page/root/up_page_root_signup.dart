@@ -167,31 +167,73 @@ class UiPageSingup extends HookConsumerWidget {
                   },
                   child: const Text('アカウントをお持ちの方はこちら'),
                 ),
-                if (!Platform.isIOS)
-                  // Goolgwサインインボタン
+                // Goolgwサインインボタン
+                Container(
+                  padding: EdgeInsets.all(6.0.w),
+                  // 横幅いっぱいにする
+                  width: double.infinity,
+                  child: FittedBox(
+                    child: SignInButton(
+                      Buttons.Google,
+                      text: "Googleで登録",
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(60.0.r),
+                        side: const BorderSide(color: Colors.grey), // 枠線を追加
+                      ),
+                      elevation: 0, // 影をなくす
+                      onPressed: () async {
+                        utilGoogleSignin(context: context)
+                            .then((onValue) async {
+                          if (onValue.isNotEmpty) {
+                            if (onValue == 'newUser') {
+                              context.router.popUntilRoot();
+                              context.router.replaceNamed('/profileCreate');
+                            } else {
+                              await Fluttertoast.showToast(
+                                msg: onValue,
+                              );
+                            }
+                          } else {
+                            // ignore: use_build_context_synchronously
+                            context.router.popUntilRoot();
+                            context.router.replaceNamed('/home');
+                          }
+                        });
+                      },
+                    ),
+                  ),
+                ),
+                if (Platform.isIOS)
+                  // Appleサインインボタン
                   Container(
-                    padding: EdgeInsets.all(10.0.w),
+                    padding: EdgeInsets.all(6.0.w),
                     // 横幅いっぱいにする
                     width: double.infinity,
                     child: FittedBox(
                       child: SignInButton(
-                        Buttons.Google,
-                        text: "Googleで登録",
+                        Buttons.Apple,
+                        text: "Appleで登録",
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(60.0.r),
                           side: const BorderSide(color: Colors.grey), // 枠線を追加
                         ),
                         elevation: 0, // 影をなくす
                         onPressed: () async {
-                          utilGoogleSignin(context: context)
+                          utilAppleSignin(context: context)
                               .then((onValue) async {
                             if (onValue.isNotEmpty) {
-                              await Fluttertoast.showToast(
-                                msg: onValue,
-                              );
+                              if (onValue == 'newUser') {
+                                context.router.popUntilRoot();
+                                context.router.replaceNamed('/profileCreate');
+                              } else {
+                                await Fluttertoast.showToast(
+                                  msg: onValue,
+                                );
+                              }
                             } else {
+                              // ignore: use_build_context_synchronously
                               context.router.popUntilRoot();
-                              context.router.replaceNamed('/profileCreate');
+                              context.router.replaceNamed('/home');
                             }
                           });
                         },
