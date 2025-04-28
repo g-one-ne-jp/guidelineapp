@@ -88,7 +88,7 @@ class UiPageHomeCatalogTabHome extends HookConsumerWidget
             ),
             //
             Container(
-              padding: EdgeInsets.all(10.0.w),
+              padding: EdgeInsets.all(5.0.w),
               // 横幅いっぱいにする
               width: double.infinity,
               child: ElevatedButton(
@@ -97,7 +97,13 @@ class UiPageHomeCatalogTabHome extends HookConsumerWidget
                     '/toc',
                   );
                 },
-                child: const Text('ガイドラインを開く'),
+                child: Text(
+                  'ガイドラインを開く',
+                  style: TextStyle(
+                    fontSize: 12.sp,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
             ),
           ],

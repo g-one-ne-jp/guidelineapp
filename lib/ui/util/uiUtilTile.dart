@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:io';
 
 // Flutter imports:
+import 'package:alh_pdf_view/alh_pdf_view.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -53,7 +54,12 @@ class UiUtilWidgetTile extends HookConsumerWidget {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 5.h, horizontal: 10),
               child: Text(
-                title,
+                sub.subTitle != title && children.isNotEmpty
+                    ? title
+                    : sub.minors.entries.first.value.minorTitle != title &&
+                            children.isEmpty
+                        ? title
+                        : '',
                 style: TextStyle(
                   fontSize: 20.0.sp,
                   color: const Color(0xFF50555C),
@@ -66,11 +72,11 @@ class UiUtilWidgetTile extends HookConsumerWidget {
                   ? ListTile(
                       trailing: const Icon(
                         Icons.arrow_forward_ios,
-                        color: Colors.white,
+                        color: Colors.black,
                       ),
                       title: Text(sub.minors.entries.first.value.minorTitle,
                           style: const TextStyle(
-                            color: Colors.white,
+                            color: Colors.black,
                           )),
                       onTap: () {
                         onTap(sub.minors.entries.first.value.minorKey);
@@ -87,16 +93,18 @@ class UiUtilWidgetTile extends HookConsumerWidget {
                         _isExpanded.value
                             ? Icons.remove // 展開されている場合のアイコン
                             : Icons.add, // 折りたたまれている場合のアイコン
-                        color: Colors.white,
+                        color: Colors.black,
                       ),
                       onExpansionChanged: (bool expanded) {
                         _isExpanded.value = expanded;
                       },
                       title: Text(sub.subTitle,
                           style: const TextStyle(
-                            color: Colors.white,
+                            color: Colors.black,
                           )),
-                      subtitle: Text(sub.subSummary),
+                      subtitle: sub.subSummary.isNotEmpty
+                          ? Text(sub.subSummary)
+                          : null,
                       children: sub.minors.entries.map((item) {
                         return Column(
                           children: [
@@ -104,11 +112,11 @@ class UiUtilWidgetTile extends HookConsumerWidget {
                             ListTile(
                               trailing: const Icon(
                                 Icons.arrow_forward_ios,
-                                color: Colors.white,
+                                color: Colors.black,
                               ),
                               title: Text(item.value.minorTitle,
                                   style: const TextStyle(
-                                    color: Colors.white,
+                                    color: Colors.black,
                                   )),
                               onTap: () {
                                 onTap(item.key);
@@ -251,12 +259,14 @@ class UiUtilWidgetTile3 extends HookConsumerWidget with RepositoryFireStorage {
 
   final Function(DetailCategory) onDeteilEdit;
   final Function(String path) onPdfTap;
+  var _pdfPath = '';
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final _settions = useState(<Widget>[]);
-    var _pdfPath = '';
     _settions.value.clear();
+
+    //  final pdfPath = useState('');
 
     Future<WebViewController> initController(String path) async {
       final html = File(path).readAsStringSync();
@@ -335,62 +345,42 @@ class UiUtilWidgetTile3 extends HookConsumerWidget with RepositoryFireStorage {
                                     );
                                   },
                                 )
-                              : GestureDetector(
-                                  onTap: () {
-                                    onPdfTap(_pdfPath);
-                                  },
-                                  child: FutureBuilder(
-                                    future:
-                                        downLoadData(path: element.value.pdfId),
-                                    builder: (context, snapshot) {
-                                      if (snapshot.data == null) {
-                                        return const Center(
-                                          child: CircularProgressIndicator(),
-                                        );
-                                      } else {
-                                        if (snapshot.connectionState ==
-                                            ConnectionState.done) {
-                                          _pdfPath = snapshot.data!.path;
-                                        }
-                                        return snapshot.data == null
-                                            ? const Center(
-                                                child:
-                                                    CircularProgressIndicator(),
-                                              )
-                                            : FutureBuilder(
-                                                future: PDFDocument.fromFile(
-                                                    File(snapshot.data!.path)),
-                                                builder: (context, snapshot) {
-                                                  if (snapshot
-                                                          .connectionState ==
-                                                      ConnectionState.done) {
-                                                    return Stack(
-                                                      children: [
-                                                        PDFViewer(
-                                                          showIndicator: false,
-                                                          showNavigation: false,
-                                                          showPicker: false,
-                                                          enableSwipeNavigation:
-                                                              false,
-                                                          document:
-                                                              snapshot.data!,
-                                                        ),
-                                                        Container(
-                                                          color: Colors
-                                                              .transparent,
-                                                        )
-                                                      ],
-                                                    );
-                                                  }
-                                                  return const Center(
-                                                    child:
-                                                        CircularProgressIndicator(),
-                                                  );
-                                                },
-                                              );
+                              : FutureBuilder(
+                                  future:
+                                      downLoadData(path: element.value.pdfId),
+                                  builder: (context, snapshot) {
+                                    if (snapshot.data == null) {
+                                      return const Center(
+                                        child: CircularProgressIndicator(),
+                                      );
+                                    } else {
+                                      if (snapshot.connectionState ==
+                                          ConnectionState.done) {
+                                        _pdfPath = snapshot.data!.path;
                                       }
-                                    },
-                                  ),
+                                      return snapshot.data == null
+                                          ? const Center(
+                                              child:
+                                                  CircularProgressIndicator(),
+                                            )
+                                          : GestureDetector(
+                                              onTap: () {
+                                                onPdfTap(snapshot.data!.path);
+                                              },
+                                              child: Stack(children: [
+                                                AlhPdfView(
+                                                  filePath: _pdfPath,
+                                                  autoSpacing: true,
+                                                  fitEachPage: true,
+                                                  backgroundColor: Colors.white,
+                                                ),
+                                                Container(
+                                                  color: Colors.transparent,
+                                                )
+                                              ]),
+                                            );
+                                    }
+                                  },
                                 ),
                     ),
                   ],
@@ -501,7 +491,7 @@ class UiUtilWidgetExpansionTile extends HookConsumerWidget {
       ),
       child: ExpansionTile(
         trailing: Icon(
-          color: Colors.white,
+          color: Colors.black,
           _isExpanded.value
               ? Icons.remove // 展開されている場合のアイコン
               : Icons.add, // 折りたたまれている場合のアイコン
@@ -512,7 +502,7 @@ class UiUtilWidgetExpansionTile extends HookConsumerWidget {
         title: Text(
           titile,
           style: const TextStyle(
-            color: Colors.white,
+            color: Colors.black,
           ),
         ),
         children: children,
