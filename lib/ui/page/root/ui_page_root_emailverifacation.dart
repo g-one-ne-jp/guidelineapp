@@ -44,7 +44,16 @@ class UiPageEmailVerification extends HookConsumerWidget {
     }, []);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('メールアドレス確認')),
+      appBar: AppBar(
+        title: const Text('メールアドレス確認'),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            context.router.popUntilRoot();
+            context.router.replaceNamed('/login');
+          },
+        ),
+      ),
       body: Container(
         color: Colors.grey[200],
         padding: const EdgeInsets.all(24),

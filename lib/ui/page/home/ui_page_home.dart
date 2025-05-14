@@ -1,4 +1,5 @@
 // Flutter imports:
+import 'package:JCSGuidelines/util/util_googlesingin.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -35,19 +36,30 @@ class UiPageHome extends HookConsumerWidget {
 
     useEffect(() {
       Future<void>(() async {
-        //ユーザーデータを読み込み
-        _user.value = await _userNotifer.readUser<ModelFirebaseUser>(
-            fromJson: ModelFirebaseUser.fromJson);
-
-        _tos.value = await _userNotifer.readTocsJson();
-        await Future.delayed(const Duration(seconds: 1));
-        var value = _tos.value.categories.values.toList()[0];
-        //選択した目次のIDを保持
-        _tocNotifer.writeToc(data: value);
-        // ignore: use_build_context_synchronously
-        context.router.pushNamed(
-          '/catalog',
-        );
+        try {
+          //ユーザーデータを読み込み
+          _user.value = await _userNotifer.readUser<ModelFirebaseUser>(
+              fromJson: ModelFirebaseUser.fromJson);
+          _tos.value = await _userNotifer.readTocsJson(context: context);
+          await Future.delayed(const Duration(seconds: 1));
+          var value = _tos.value.categories.values.toList()[0];
+          //選択した目次のIDを保持
+          _tocNotifer.writeToc(data: value);
+          // ignore: use_build_context_synchronously
+          context.router.pushNamed(
+            '/catalog',
+          );
+        } catch (e) {
+          customDebugPrint('error: $e');
+          try {
+            if (await utilAuthLogout()) {
+              context.router.popUntilRoot();
+              context.router.replaceNamed('/login');
+            }
+          } catch (e) {
+            customDebugPrint('ユーザーが認証されていません: $e');
+          }
+        }
       });
       return () => customDebugPrint('dispose!');
     }, []);

@@ -88,10 +88,13 @@ class ProviderUser extends StateNotifier<ModelFirebaseUser>
     }
   }
 
-  Future<ModelFirebasePdfConfig> readTocsJson() async {
+  Future<ModelFirebasePdfConfig> readTocsJson(
+      {required BuildContext context}) async {
     try {
       final file = await downLoadData(
-          path: 'gidline/json/gidline.json', isNewUpdate: true);
+          context: context,
+          path: 'gidline/json/gidline.json',
+          isNewUpdate: true);
       // fileをMapに変換
       final json = jsonDecode(file!.readAsStringSync());
       final result = ModelFirebasePdfConfig.fromJson(json);

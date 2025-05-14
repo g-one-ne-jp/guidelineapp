@@ -89,14 +89,13 @@ ios_release:
 
 android_release:
 	#リリース
-	sh ./shell/android_release_aab.sh
 	sh ./shell/android_release_apk.sh
+	sh ./shell/android_release_aab.sh
 
 ios_all:
 	make ios_profile
 	make ios_release
 
 relese_build:
-	make ios_profile
 	make ios_release
 	make android_release

@@ -302,6 +302,7 @@ class UiUtilWidgetTile3 extends HookConsumerWidget with RepositoryFireStorage {
                           element.value.pdfId.isEmpty
                               ? FutureBuilder(
                                   future: downLoadData(
+                                      context: context,
                                       path: element.value.markdown),
                                   builder: (context, snapshot) {
                                     if (snapshot.connectionState ==
@@ -346,8 +347,9 @@ class UiUtilWidgetTile3 extends HookConsumerWidget with RepositoryFireStorage {
                                   },
                                 )
                               : FutureBuilder(
-                                  future:
-                                      downLoadData(path: element.value.pdfId),
+                                  future: downLoadData(
+                                      context: context,
+                                      path: element.value.pdfId),
                                   builder: (context, snapshot) {
                                     if (snapshot.data == null) {
                                       return const Center(

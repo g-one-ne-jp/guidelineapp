@@ -90,8 +90,8 @@ class AuthGuard extends AutoRouteGuard {
       }
       //認証がまだ
       else {
-        // メール認証確認画面
-        router.replaceNamed('/emailVerification');
+        // 未ログインの場合はログイン画面へ遷移
+        resolver.next(true);
       }
     } else {
       // 未ログインの場合はログイン画面へ遷移

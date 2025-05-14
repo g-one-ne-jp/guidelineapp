@@ -34,7 +34,7 @@ class UiPageHomeCatalogTabSearch extends HookConsumerWidget
     final _minorKeys = useState(<String>[]);
     useEffect(() {
       Future<void>(() async {
-        _tos.value = await _userNotifer.readTocsJson();
+        _tos.value = await _userNotifer.readTocsJson(context: context);
       });
       return () => customDebugPrint('dispose!');
     }, []);
@@ -70,7 +70,8 @@ class UiPageHomeCatalogTabSearch extends HookConsumerWidget
             }
             if (jsonData.containsKey('markdown')) {
               if (jsonData['markdown'] != '') {
-                final file = await downLoadData(path: jsonData['markdown']);
+                final file = await downLoadData(
+                    context: context, path: jsonData['markdown']);
                 if (file != null) {
                   final txt = file.readAsStringSync();
                   if (txt.contains(text)) {

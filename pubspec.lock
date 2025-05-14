@@ -965,6 +965,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.7.0"
+  hive:
+    dependency: transitive
+    description:
+      name: hive
+      sha256: "8dcf6db979d7933da8217edcec84e9df1bdb4e4edc7fc77dbd5aa74356d6d941"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.2.3"
+  hive_flutter:
+    dependency: "direct main"
+    description:
+      name: hive_flutter
+      sha256: dca1da446b1d808a51689fb5d0c6c9510c0a2ba01e22805d492c73b68e33eecc
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.0"
   hooks_riverpod:
     dependency: "direct main"
     description:
@@ -1281,10 +1297,10 @@ packages:
     dependency: "direct main"
     description:
       name: pdftron_flutter
-      sha256: ce159214969115fc9f815124b5b983cd326f83f21811de681c7ee8b052876c78
+      sha256: aad74f46abbd5ef306537cb592489d5850b3b536a6f143f11c98cfc9076e85af
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.1-40"
+    version: "1.0.1-43"
   permission_handler:
     dependency: "direct main"
     description:

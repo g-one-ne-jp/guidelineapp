@@ -3,6 +3,8 @@ import 'dart:async';
 import 'dart:io';
 
 // Flutter imports:
+import 'package:JCSGuidelines/util/util_googlesingin.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -13,10 +15,10 @@ import 'package:path_provider/path_provider.dart';
 
 mixin RepositoryFireStorage {
   // ファイルをダウンロードする
-  Future<File?> downLoadData({
-    required String path,
-    bool isNewUpdate = false,
-  }) async {
+  Future<File?> downLoadData(
+      {required String path,
+      bool isNewUpdate = false,
+      required BuildContext context}) async {
     if (path == '') {
       return null;
     }
@@ -25,6 +27,14 @@ mixin RepositoryFireStorage {
     if (user == null) {
       debugPrint('ユーザーが認証されていません');
       Fluttertoast.showToast(msg: 'ログインが必要です');
+      try {
+        if (await utilAuthLogout()) {
+          context.router.popUntilRoot();
+          context.router.replaceNamed('/login');
+        }
+      } catch (e) {
+        debugPrint('ユーザーが認証されていません: $e');
+      }
       return null;
     }
 

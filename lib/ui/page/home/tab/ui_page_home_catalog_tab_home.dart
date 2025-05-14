@@ -51,7 +51,8 @@ class UiPageHomeCatalogTabHome extends HookConsumerWidget
           children: [
             Expanded(
               child: FutureBuilder(
-                future: downLoadData(path: 'gidline/cover/ガイドライン_表紙.pdf'),
+                future: downLoadData(
+                    context: context, path: 'gidline/cover/ガイドライン_表紙.pdf'),
                 builder: (context, snapshot) {
                   return snapshot.data == null
                       ? const Center(
