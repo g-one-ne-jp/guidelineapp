@@ -16,6 +16,7 @@ import 'package:JCSGuidelines/module/firebase/model_firebase_user.dart';
 import 'package:JCSGuidelines/providers/user_provider.dart';
 import 'package:JCSGuidelines/ui/util/uiUtilWidget.dart';
 import 'package:JCSGuidelines/util/util_googlesingin.dart';
+import 'package:toastification/toastification.dart';
 
 @RoutePage()
 class UiPageHomeCatalogTabMypage extends HookConsumerWidget {
@@ -212,8 +213,13 @@ class UiPageHomeCatalogTabMypage extends HookConsumerWidget {
                             context: context,
                           ).then((onValue) async {
                             if (onValue.isNotEmpty) {
-                              await Fluttertoast.showToast(
-                                msg: onValue,
+                              toastification.show(
+                                context: context,
+                                title: Text(onValue),
+                                autoCloseDuration: const Duration(seconds: 3),
+                                alignment: Alignment.bottomCenter,
+                                icon: Container(),
+                                backgroundColor: Colors.grey[100],
                               );
                             }
                           });

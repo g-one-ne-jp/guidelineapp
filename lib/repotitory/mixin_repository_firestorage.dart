@@ -15,6 +15,53 @@ import 'package:path_provider/path_provider.dart';
 
 mixin RepositoryFireStorage {
   // ファイルをダウンロードする
+  Future<bool> isFileUpdate(
+      {required String path, required BuildContext context}) async {
+    if (path == '') {
+      return false;
+    }
+
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) {
+      debugPrint('ユーザーが認証されていません');
+      Fluttertoast.showToast(msg: 'ログインが必要です');
+      try {
+        if (await utilAuthLogout()) {
+          context.router.popUntilRoot();
+          context.router.replaceNamed('/login');
+        }
+      } catch (e) {
+        debugPrint('ユーザーが認証されていません: $e');
+      }
+      return false;
+    }
+
+    var islandRef = FirebaseStorage.instance.ref().child(path);
+    final appDocDir = Platform.isIOS
+        ? await getApplicationDocumentsDirectory()
+        : await getApplicationDocumentsDirectory();
+    final fileDire = "${appDocDir.path}/${user.uid}/";
+    final fileName = path.split('/').last;
+    final filePath = "$fileDire$fileName";
+    final file = File(filePath);
+
+    if (await _fileExists(filePath) && await file.exists()) {
+      debugPrint(
+          'isFileUpdate:編集済みファイルは既に存在します: ${_getLastTwoPartsOfPath(filePath)}');
+
+      final fileLastModified = await file.lastModified();
+      final storageMetadata = await islandRef.getMetadata();
+      final storageLastModified = storageMetadata.updated;
+      if (storageLastModified!.isAfter(fileLastModified)) {
+        return true;
+      }
+    }
+    debugPrint('isFileUpdate:更新なし');
+
+    return false;
+  }
+
+  // ファイルをダウンロードする
   Future<File?> downLoadData(
       {required String path,
       bool isNewUpdate = false,

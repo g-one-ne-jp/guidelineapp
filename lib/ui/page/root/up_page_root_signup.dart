@@ -17,6 +17,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
 import 'package:JCSGuidelines/util/util_googlesingin.dart';
+import 'package:toastification/toastification.dart';
 
 @RoutePage()
 class UiPageSingup extends HookConsumerWidget {
@@ -98,6 +99,7 @@ class UiPageSingup extends HookConsumerWidget {
                 SizedBox(
                   height: 16.0.h,
                 ),
+
                 TextField(
                   controller: _passwordController.value,
                   decoration: InputDecoration(
@@ -124,7 +126,16 @@ class UiPageSingup extends HookConsumerWidget {
                   obscureText: !_isPasswordVisible.value,
                   onSubmitted: (String value) {},
                 ),
-
+                const Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    '*パスワードは大文字小文字英字、数字、記号の組み合わせで8文字以上にしてください。',
+                    style: TextStyle(
+                      color: Colors.black54,
+                      fontSize: 10.0,
+                    ),
+                  ),
+                ),
                 //
                 SizedBox(
                   height: 16.0.h,
@@ -143,8 +154,13 @@ class UiPageSingup extends HookConsumerWidget {
                               context: context)
                           .then((onValue) async {
                         if (onValue.isNotEmpty) {
-                          await Fluttertoast.showToast(
-                            msg: onValue,
+                          toastification.show(
+                            context: context,
+                            title: Text(onValue),
+                            autoCloseDuration: const Duration(seconds: 3),
+                            alignment: Alignment.bottomCenter,
+                            icon: Container(),
+                            backgroundColor: Colors.grey[100],
                           );
                         } else {
                           context.router.popUntilRoot();
@@ -189,8 +205,13 @@ class UiPageSingup extends HookConsumerWidget {
                               context.router.popUntilRoot();
                               context.router.replaceNamed('/profileCreate');
                             } else {
-                              await Fluttertoast.showToast(
-                                msg: onValue,
+                              toastification.show(
+                                context: context,
+                                title: Text(onValue),
+                                autoCloseDuration: const Duration(seconds: 3),
+                                alignment: Alignment.bottomCenter,
+                                icon: Container(),
+                                backgroundColor: Colors.grey[100],
                               );
                             }
                           } else {
@@ -226,8 +247,13 @@ class UiPageSingup extends HookConsumerWidget {
                                 context.router.popUntilRoot();
                                 context.router.replaceNamed('/profileCreate');
                               } else {
-                                await Fluttertoast.showToast(
-                                  msg: onValue,
+                                toastification.show(
+                                  context: context,
+                                  title: Text(onValue),
+                                  autoCloseDuration: const Duration(seconds: 3),
+                                  alignment: Alignment.bottomCenter,
+                                  icon: Container(),
+                                  backgroundColor: Colors.grey[100],
                                 );
                               }
                             } else {

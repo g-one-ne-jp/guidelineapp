@@ -4,6 +4,7 @@ import 'dart:io';
 
 // Flutter imports:
 import 'package:alh_pdf_view/alh_pdf_view.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -260,10 +261,12 @@ class UiUtilWidgetTile3 extends HookConsumerWidget with RepositoryFireStorage {
   final Function(DetailCategory) onDeteilEdit;
   final Function(String path) onPdfTap;
   var _pdfPath = '';
+  var _loading = false;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final _settions = useState(<Widget>[]);
+    final _updateCnt = useState(0);
     _settions.value.clear();
 
     //  final pdfPath = useState('');
@@ -283,7 +286,10 @@ class UiUtilWidgetTile3 extends HookConsumerWidget with RepositoryFireStorage {
         );
     }
 
-    //useEffect(() {
+    if (_loading) {
+      _loading = false;
+      Navigator.of(context, rootNavigator: true).pop();
+    } //useEffect(() {
     deteil.contents.entries.map((a) => a).toList().forEach((element) {
       element.value.settions.entries.map((a) => a).toList().forEach((element) {
         _settions.value = List.from(_settions.value)
@@ -325,11 +331,11 @@ class UiUtilWidgetTile3 extends HookConsumerWidget with RepositoryFireStorage {
                                                 );
                                               }
                                               return Container(
-                                                  padding: EdgeInsets.all(10.w),
-                                                  color: Colors.white,
-                                                  child: WebViewWidget(
-                                                      controller:
-                                                          snapshot.data!));
+                                                padding: EdgeInsets.all(10.w),
+                                                color: Colors.red,
+                                                child: WebViewWidget(
+                                                    controller: snapshot.data!),
+                                              );
                                             }
 
                                             return const Center(
@@ -365,21 +371,96 @@ class UiUtilWidgetTile3 extends HookConsumerWidget with RepositoryFireStorage {
                                               child:
                                                   CircularProgressIndicator(),
                                             )
-                                          : GestureDetector(
-                                              onTap: () {
-                                                onPdfTap(snapshot.data!.path);
+                                          : FutureBuilder(
+                                              future: isFileUpdate(
+                                                  context: context,
+                                                  path: element.value.pdfId),
+                                              builder: (context, isUpdate) {
+                                                return GestureDetector(
+                                                  onTap: () {
+                                                    onPdfTap(
+                                                        snapshot.data!.path);
+                                                  },
+                                                  child: Stack(children: [
+                                                    AlhPdfView(
+                                                      filePath: _pdfPath,
+                                                      autoSpacing: true,
+                                                      fitEachPage: true,
+                                                      backgroundColor:
+                                                          Colors.white,
+                                                    ),
+                                                    Container(
+                                                      color: Colors.transparent,
+                                                    ),
+                                                    isUpdate.data == null
+                                                        ? Container()
+                                                        : isUpdate.data!
+                                                            ? Positioned(
+                                                                top: 0,
+                                                                right: 0,
+                                                                child:
+                                                                    IconButton(
+                                                                  iconSize:
+                                                                      30.w,
+                                                                  icon: Icon(
+                                                                    Icons
+                                                                        .download_for_offline,
+                                                                  ),
+                                                                  onPressed:
+                                                                      () async {
+                                                                    await showDialog<
+                                                                        bool>(
+                                                                      context:
+                                                                          context,
+                                                                      builder:
+                                                                          (BuildContext
+                                                                              context) {
+                                                                        return CupertinoAlertDialog(
+                                                                          title:
+                                                                              const Text('資料が更新されています。'),
+                                                                          content:
+                                                                              const Text('資料を更新しますか？　更新した場合は、現在の資料は削除されます。'),
+                                                                          actions: <Widget>[
+                                                                            TextButton(
+                                                                              onPressed: () {
+                                                                                Navigator.of(context).pop();
+                                                                              },
+                                                                              child: const Text('キャンセル'),
+                                                                            ),
+                                                                            TextButton(
+                                                                              onPressed: () async {
+                                                                                Navigator.of(context).pop();
+
+                                                                                showDialog(
+                                                                                  context: context,
+                                                                                  barrierDismissible: false,
+                                                                                  builder: (BuildContext context) {
+                                                                                    return const Center(
+                                                                                      child: CircularProgressIndicator(),
+                                                                                    );
+                                                                                  },
+                                                                                );
+                                                                                _loading = true;
+
+                                                                                await downLoadData(context: context, isNewUpdate: true, path: element.value.pdfId).then((value) {
+                                                                                  _pdfPath = value!.path;
+                                                                                  _settions.value.clear();
+                                                                                  _updateCnt.value++;
+                                                                                });
+                                                                              },
+                                                                              child: const Text('更新'),
+                                                                            ),
+                                                                          ],
+                                                                        );
+                                                                      },
+                                                                    );
+                                                                  },
+                                                                ),
+                                                              )
+                                                            : Container(),
+                                                  ]),
+                                                );
                                               },
-                                              child: Stack(children: [
-                                                AlhPdfView(
-                                                  filePath: _pdfPath,
-                                                  autoSpacing: true,
-                                                  fitEachPage: true,
-                                                  backgroundColor: Colors.white,
-                                                ),
-                                                Container(
-                                                  color: Colors.transparent,
-                                                )
-                                              ]),
                                             );
                                     }
                                   },

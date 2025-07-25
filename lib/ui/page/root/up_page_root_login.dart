@@ -18,6 +18,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 // Project imports:
 import 'package:JCSGuidelines/ui/util/uiUtilWidget.dart';
 import 'package:JCSGuidelines/util/util_googlesingin.dart';
+import 'package:toastification/toastification.dart';
 
 @RoutePage()
 class UiPageLogin extends HookConsumerWidget {
@@ -94,8 +95,13 @@ class UiPageLogin extends HookConsumerWidget {
                               context: context)
                           .then((onValue) async {
                         if (onValue.isNotEmpty) {
-                          await Fluttertoast.showToast(
-                            msg: onValue,
+                          toastification.show(
+                            context: context,
+                            title: Text(onValue),
+                            autoCloseDuration: const Duration(seconds: 3),
+                            alignment: Alignment.bottomCenter,
+                            icon: Container(),
+                            backgroundColor: Colors.grey[100],
                           );
                         } else {
                           // ignore: use_build_context_synchronously
@@ -213,8 +219,13 @@ class UiPageLogin extends HookConsumerWidget {
                               context.router.popUntilRoot();
                               context.router.replaceNamed('/profileCreate');
                             } else {
-                              await Fluttertoast.showToast(
-                                msg: onValue,
+                              toastification.show(
+                                context: context,
+                                title: Text(onValue),
+                                autoCloseDuration: const Duration(seconds: 3),
+                                alignment: Alignment.bottomCenter,
+                                icon: Container(),
+                                backgroundColor: Colors.grey[100],
                               );
                             }
                           } else {
@@ -250,8 +261,13 @@ class UiPageLogin extends HookConsumerWidget {
                                 context.router.popUntilRoot();
                                 context.router.replaceNamed('/profileCreate');
                               } else {
-                                await Fluttertoast.showToast(
-                                  msg: onValue,
+                                toastification.show(
+                                  context: context,
+                                  title: Text(onValue),
+                                  autoCloseDuration: const Duration(seconds: 3),
+                                  alignment: Alignment.bottomCenter,
+                                  icon: Container(),
+                                  backgroundColor: Colors.grey[100],
                                 );
                               }
                             } else {
