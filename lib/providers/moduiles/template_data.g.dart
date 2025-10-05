@@ -6,12 +6,12 @@ part of 'template_data.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$TemplateDataImpl _$$TemplateDataImplFromJson(Map<String, dynamic> json) =>
-    _$TemplateDataImpl(
+_TemplateData _$TemplateDataFromJson(Map<String, dynamic> json) =>
+    _TemplateData(
       json['isTemplate'] as bool? ?? false,
     );
 
-Map<String, dynamic> _$$TemplateDataImplToJson(_$TemplateDataImpl instance) =>
+Map<String, dynamic> _$TemplateDataToJson(_TemplateData instance) =>
     <String, dynamic>{
       'isTemplate': instance.isTemplate,
     };

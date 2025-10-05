@@ -3,12 +3,11 @@ import 'dart:convert';
 import 'dart:io';
 
 // Flutter imports:
-import 'package:alh_pdf_view/alh_pdf_view.dart';
+import 'package:easy_pdf_viewer/easy_pdf_viewer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:easy_pdf_viewer/easy_pdf_viewer.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -382,13 +381,8 @@ class UiUtilWidgetTile3 extends HookConsumerWidget with RepositoryFireStorage {
                                                         snapshot.data!.path);
                                                   },
                                                   child: Stack(children: [
-                                                    AlhPdfView(
-                                                      filePath: _pdfPath,
-                                                      autoSpacing: true,
-                                                      fitEachPage: true,
-                                                      backgroundColor:
-                                                          Colors.white,
-                                                    ),
+                                                    pdfView(
+                                                        snapshot.data!.path),
                                                     Container(
                                                       color: Colors.transparent,
                                                     ),
@@ -592,4 +586,32 @@ class UiUtilWidgetExpansionTile extends HookConsumerWidget {
       ),
     );
   }
+}
+
+Widget pdfView(String path) {
+  return FutureBuilder(
+    future: PDFDocument.fromFile(File(path)),
+    builder: (context, snapshot) {
+      if (snapshot.connectionState == ConnectionState.done &&
+          snapshot.data != null) {
+        return Stack(
+          children: [
+            PDFViewer(
+              showIndicator: true,
+              showNavigation: true,
+              showPicker: true,
+              enableSwipeNavigation: true,
+              document: snapshot.data!,
+            ),
+            Container(
+              color: Colors.transparent,
+            )
+          ],
+        );
+      }
+      return const Center(
+        child: CircularProgressIndicator(),
+      );
+    },
+  );
 }

@@ -2,6 +2,7 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+        maven { url 'https://jitpack.io' }
     }
 }
 
@@ -14,7 +15,7 @@ rootProject.buildDir = '../build'
 subprojects {
     afterEvaluate {
         android {
-            compileSdkVersion 34
+            compileSdkVersion 35
         }
     }
 }

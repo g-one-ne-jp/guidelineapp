@@ -14,7 +14,7 @@ part of 'app_router.dart';
 /// [UiPageEmailVerification]
 class UiRouteEmailVerification extends PageRouteInfo<void> {
   const UiRouteEmailVerification({List<PageRouteInfo>? children})
-    : super(UiRouteEmailVerification.name, initialChildren: children);
+      : super(UiRouteEmailVerification.name, initialChildren: children);
 
   static const String name = 'UiRouteEmailVerification';
 
@@ -30,7 +30,7 @@ class UiRouteEmailVerification extends PageRouteInfo<void> {
 /// [UiPageHome]
 class UiRouteHome extends PageRouteInfo<void> {
   const UiRouteHome({List<PageRouteInfo>? children})
-    : super(UiRouteHome.name, initialChildren: children);
+      : super(UiRouteHome.name, initialChildren: children);
 
   static const String name = 'UiRouteHome';
 
@@ -46,7 +46,7 @@ class UiRouteHome extends PageRouteInfo<void> {
 /// [UiPageHomeCatalog]
 class UiRouteHomeCatalog extends PageRouteInfo<void> {
   const UiRouteHomeCatalog({List<PageRouteInfo>? children})
-    : super(UiRouteHomeCatalog.name, initialChildren: children);
+      : super(UiRouteHomeCatalog.name, initialChildren: children);
 
   static const String name = 'UiRouteHomeCatalog';
 
@@ -62,7 +62,7 @@ class UiRouteHomeCatalog extends PageRouteInfo<void> {
 /// [UiPageHomeCatalogTabBookmark]
 class UiRouteHomeCatalogTabBookmark extends PageRouteInfo<void> {
   const UiRouteHomeCatalogTabBookmark({List<PageRouteInfo>? children})
-    : super(UiRouteHomeCatalogTabBookmark.name, initialChildren: children);
+      : super(UiRouteHomeCatalogTabBookmark.name, initialChildren: children);
 
   static const String name = 'UiRouteHomeCatalogTabBookmark';
 
@@ -79,11 +79,11 @@ class UiRouteHomeCatalogTabBookmark extends PageRouteInfo<void> {
 class UiRouteHomeCatalogTabHome
     extends PageRouteInfo<UiRouteHomeCatalogTabHomeArgs> {
   UiRouteHomeCatalogTabHome({Key? key, List<PageRouteInfo>? children})
-    : super(
-        UiRouteHomeCatalogTabHome.name,
-        args: UiRouteHomeCatalogTabHomeArgs(key: key),
-        initialChildren: children,
-      );
+      : super(
+          UiRouteHomeCatalogTabHome.name,
+          args: UiRouteHomeCatalogTabHomeArgs(key: key),
+          initialChildren: children,
+        );
 
   static const String name = 'UiRouteHomeCatalogTabHome';
 
@@ -107,6 +107,16 @@ class UiRouteHomeCatalogTabHomeArgs {
   String toString() {
     return 'UiRouteHomeCatalogTabHomeArgs{key: $key}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! UiRouteHomeCatalogTabHomeArgs) return false;
+    return key == other.key;
+  }
+
+  @override
+  int get hashCode => key.hashCode;
 }
 
 /// generated route for
@@ -119,15 +129,15 @@ class UiRouteHomeCatalogTabHomeMinor
     required bool viewTypeMemo,
     List<PageRouteInfo>? children,
   }) : super(
-         UiRouteHomeCatalogTabHomeMinor.name,
-         args: UiRouteHomeCatalogTabHomeMinorArgs(
-           key: key,
-           minorKey: minorKey,
-           viewTypeMemo: viewTypeMemo,
-         ),
-         rawPathParams: {'minorKey': minorKey, 'viewTypeMemo': viewTypeMemo},
-         initialChildren: children,
-       );
+          UiRouteHomeCatalogTabHomeMinor.name,
+          args: UiRouteHomeCatalogTabHomeMinorArgs(
+            key: key,
+            minorKey: minorKey,
+            viewTypeMemo: viewTypeMemo,
+          ),
+          rawPathParams: {'minorKey': minorKey, 'viewTypeMemo': viewTypeMemo},
+          initialChildren: children,
+        );
 
   static const String name = 'UiRouteHomeCatalogTabHomeMinor';
 
@@ -136,11 +146,10 @@ class UiRouteHomeCatalogTabHomeMinor
     builder: (data) {
       final pathParams = data.inheritedPathParams;
       final args = data.argsAs<UiRouteHomeCatalogTabHomeMinorArgs>(
-        orElse:
-            () => UiRouteHomeCatalogTabHomeMinorArgs(
-              minorKey: pathParams.getString('minorKey'),
-              viewTypeMemo: pathParams.getBool('viewTypeMemo'),
-            ),
+        orElse: () => UiRouteHomeCatalogTabHomeMinorArgs(
+          minorKey: pathParams.getString('minorKey'),
+          viewTypeMemo: pathParams.getBool('viewTypeMemo'),
+        ),
       );
       return UiPageHomeCatalogTabHomeMinor(
         key: args.key,
@@ -168,13 +177,25 @@ class UiRouteHomeCatalogTabHomeMinorArgs {
   String toString() {
     return 'UiRouteHomeCatalogTabHomeMinorArgs{key: $key, minorKey: $minorKey, viewTypeMemo: $viewTypeMemo}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! UiRouteHomeCatalogTabHomeMinorArgs) return false;
+    return key == other.key &&
+        minorKey == other.minorKey &&
+        viewTypeMemo == other.viewTypeMemo;
+  }
+
+  @override
+  int get hashCode => key.hashCode ^ minorKey.hashCode ^ viewTypeMemo.hashCode;
 }
 
 /// generated route for
 /// [UiPageHomeCatalogTabHomeTOC]
 class UiRouteHomeCatalogTabHomeTOC extends PageRouteInfo<void> {
   const UiRouteHomeCatalogTabHomeTOC({List<PageRouteInfo>? children})
-    : super(UiRouteHomeCatalogTabHomeTOC.name, initialChildren: children);
+      : super(UiRouteHomeCatalogTabHomeTOC.name, initialChildren: children);
 
   static const String name = 'UiRouteHomeCatalogTabHomeTOC';
 
@@ -190,7 +211,7 @@ class UiRouteHomeCatalogTabHomeTOC extends PageRouteInfo<void> {
 /// [UiPageHomeCatalogTabMemo]
 class UiRouteHomeCatalogTabMemo extends PageRouteInfo<void> {
   const UiRouteHomeCatalogTabMemo({List<PageRouteInfo>? children})
-    : super(UiRouteHomeCatalogTabMemo.name, initialChildren: children);
+      : super(UiRouteHomeCatalogTabMemo.name, initialChildren: children);
 
   static const String name = 'UiRouteHomeCatalogTabMemo';
 
@@ -206,7 +227,7 @@ class UiRouteHomeCatalogTabMemo extends PageRouteInfo<void> {
 /// [UiPageHomeCatalogTabMypage]
 class UiRouteHomeCatalogTabMypage extends PageRouteInfo<void> {
   const UiRouteHomeCatalogTabMypage({List<PageRouteInfo>? children})
-    : super(UiRouteHomeCatalogTabMypage.name, initialChildren: children);
+      : super(UiRouteHomeCatalogTabMypage.name, initialChildren: children);
 
   static const String name = 'UiRouteHomeCatalogTabMypage';
 
@@ -222,7 +243,7 @@ class UiRouteHomeCatalogTabMypage extends PageRouteInfo<void> {
 /// [UiPageHomeCatalogTabSearch]
 class UiRouteHomeCatalogTabSearch extends PageRouteInfo<void> {
   const UiRouteHomeCatalogTabSearch({List<PageRouteInfo>? children})
-    : super(UiRouteHomeCatalogTabSearch.name, initialChildren: children);
+      : super(UiRouteHomeCatalogTabSearch.name, initialChildren: children);
 
   static const String name = 'UiRouteHomeCatalogTabSearch';
 
@@ -238,7 +259,7 @@ class UiRouteHomeCatalogTabSearch extends PageRouteInfo<void> {
 /// [UiPageLogin]
 class UiRouteLogin extends PageRouteInfo<void> {
   const UiRouteLogin({List<PageRouteInfo>? children})
-    : super(UiRouteLogin.name, initialChildren: children);
+      : super(UiRouteLogin.name, initialChildren: children);
 
   static const String name = 'UiRouteLogin';
 
@@ -254,7 +275,7 @@ class UiRouteLogin extends PageRouteInfo<void> {
 /// [UiPageProfileCreate]
 class UiRouteProfileCreate extends PageRouteInfo<void> {
   const UiRouteProfileCreate({List<PageRouteInfo>? children})
-    : super(UiRouteProfileCreate.name, initialChildren: children);
+      : super(UiRouteProfileCreate.name, initialChildren: children);
 
   static const String name = 'UiRouteProfileCreate';
 
@@ -270,7 +291,7 @@ class UiRouteProfileCreate extends PageRouteInfo<void> {
 /// [UiPageSingup]
 class UiRouteSingup extends PageRouteInfo<void> {
   const UiRouteSingup({List<PageRouteInfo>? children})
-    : super(UiRouteSingup.name, initialChildren: children);
+      : super(UiRouteSingup.name, initialChildren: children);
 
   static const String name = 'UiRouteSingup';
 
@@ -291,15 +312,15 @@ class UiRouteUtilEdit extends PageRouteInfo<UiRouteUtilEditArgs> {
     required bool viewTypeMemo,
     List<PageRouteInfo>? children,
   }) : super(
-         UiRouteUtilEdit.name,
-         args: UiRouteUtilEditArgs(
-           key: key,
-           minorKey: minorKey,
-           viewTypeMemo: viewTypeMemo,
-         ),
-         rawPathParams: {'minorKey': minorKey, 'viewTypeMemo': viewTypeMemo},
-         initialChildren: children,
-       );
+          UiRouteUtilEdit.name,
+          args: UiRouteUtilEditArgs(
+            key: key,
+            minorKey: minorKey,
+            viewTypeMemo: viewTypeMemo,
+          ),
+          rawPathParams: {'minorKey': minorKey, 'viewTypeMemo': viewTypeMemo},
+          initialChildren: children,
+        );
 
   static const String name = 'UiRouteUtilEdit';
 
@@ -308,11 +329,10 @@ class UiRouteUtilEdit extends PageRouteInfo<UiRouteUtilEditArgs> {
     builder: (data) {
       final pathParams = data.inheritedPathParams;
       final args = data.argsAs<UiRouteUtilEditArgs>(
-        orElse:
-            () => UiRouteUtilEditArgs(
-              minorKey: pathParams.getString('minorKey'),
-              viewTypeMemo: pathParams.getBool('viewTypeMemo'),
-            ),
+        orElse: () => UiRouteUtilEditArgs(
+          minorKey: pathParams.getString('minorKey'),
+          viewTypeMemo: pathParams.getBool('viewTypeMemo'),
+        ),
       );
       return UiPageUtilEdit(
         key: args.key,
@@ -340,4 +360,16 @@ class UiRouteUtilEditArgs {
   String toString() {
     return 'UiRouteUtilEditArgs{key: $key, minorKey: $minorKey, viewTypeMemo: $viewTypeMemo}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! UiRouteUtilEditArgs) return false;
+    return key == other.key &&
+        minorKey == other.minorKey &&
+        viewTypeMemo == other.viewTypeMemo;
+  }
+
+  @override
+  int get hashCode => key.hashCode ^ minorKey.hashCode ^ viewTypeMemo.hashCode;
 }

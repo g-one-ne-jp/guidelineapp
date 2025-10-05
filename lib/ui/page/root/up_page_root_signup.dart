@@ -2,9 +2,10 @@
 
 // Dart imports:
 
-// Flutter imports:
+// Dart imports:
 import 'dart:io';
 
+// Flutter imports:
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -14,10 +15,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:toastification/toastification.dart';
 
 // Project imports:
 import 'package:JCSGuidelines/util/util_googlesingin.dart';
-import 'package:toastification/toastification.dart';
 
 @RoutePage()
 class UiPageSingup extends HookConsumerWidget {

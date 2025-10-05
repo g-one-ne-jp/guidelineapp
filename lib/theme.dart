@@ -83,7 +83,7 @@ class AppTheme {
       ),
     ),
     //Card
-    cardTheme: CardTheme(
+    cardTheme: CardThemeData(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.r),
       ),

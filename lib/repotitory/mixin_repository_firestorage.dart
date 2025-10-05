@@ -3,15 +3,17 @@ import 'dart:async';
 import 'dart:io';
 
 // Flutter imports:
-import 'package:JCSGuidelines/util/util_googlesingin.dart';
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
+import 'package:auto_route/auto_route.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:path_provider/path_provider.dart';
+
+// Project imports:
+import 'package:JCSGuidelines/util/util_googlesingin.dart';
 
 mixin RepositoryFireStorage {
   // ファイルをダウンロードする
