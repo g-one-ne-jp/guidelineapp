@@ -1,22 +1,18 @@
 // Flutter imports:
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-
+import 'package:JCSGuidelines/module/firebase/model_firebase_user.dart';
+import 'package:JCSGuidelines/providers/user_provider.dart';
+import 'package:JCSGuidelines/ui/util/uiUtilWidget.dart';
+import 'package:JCSGuidelines/util/util_googlesingin.dart';
 // Package imports:
 import 'package:auto_route/auto_route.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:toastification/toastification.dart';
-
-// Project imports:
-import 'package:JCSGuidelines/debug/debug_print.dart';
-import 'package:JCSGuidelines/module/firebase/model_firebase_user.dart';
-import 'package:JCSGuidelines/providers/user_provider.dart';
-import 'package:JCSGuidelines/ui/util/uiUtilWidget.dart';
-import 'package:JCSGuidelines/util/util_googlesingin.dart';
 
 @RoutePage()
 class UiPageHomeCatalogTabMypage extends HookConsumerWidget {
@@ -52,7 +48,8 @@ class UiPageHomeCatalogTabMypage extends HookConsumerWidget {
         _number.value = _user.value.number;
         _isMailMagazine.value = _user.value.ismailmagazine;
       });
-      return () => customDebugPrint('dispose!');
+      return null;
+//      return () => customDebugPrint('dispose!');
     }, []);
 
     return Scaffold(

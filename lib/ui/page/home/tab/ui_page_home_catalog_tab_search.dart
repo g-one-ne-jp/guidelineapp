@@ -1,17 +1,13 @@
 // Flutter imports:
-import 'package:flutter/material.dart';
-
-// Package imports:
-import 'package:auto_route/auto_route.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
-
-// Project imports:
-import 'package:JCSGuidelines/debug/debug_print.dart';
 import 'package:JCSGuidelines/module/firebase/model_firebase_pdf_config.dart';
 import 'package:JCSGuidelines/providers/user_provider.dart';
 import 'package:JCSGuidelines/repotitory/mixin_repository_firestorage.dart';
+// Package imports:
+import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 @RoutePage()
 class UiPageHomeCatalogTabSearch extends HookConsumerWidget
@@ -36,7 +32,8 @@ class UiPageHomeCatalogTabSearch extends HookConsumerWidget
       Future<void>(() async {
         _tos.value = await _userNotifer.readTocsJson(context: context);
       });
-      return () => customDebugPrint('dispose!');
+      return null;
+//      return () => customDebugPrint('dispose!');
     }, []);
 
     // 再帰関数でJSONデータを走査し、特定のキーの値を検索

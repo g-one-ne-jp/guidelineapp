@@ -3,19 +3,15 @@
 // Dart imports:
 import 'dart:async';
 
-// Flutter imports:
-import 'package:flutter/material.dart';
-
 // Package imports:
 import 'package:auto_route/auto_route.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+// Flutter imports:
+import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
-// Project imports:
-import 'package:JCSGuidelines/debug/debug_print.dart';
 
 @RoutePage()
 class UiPageEmailVerification extends HookConsumerWidget {
@@ -40,7 +36,8 @@ class UiPageEmailVerification extends HookConsumerWidget {
           } catch (e) {}
         }
       });
-      return () => customDebugPrint('dispose!');
+      return null;
+//      return () => customDebugPrint('dispose!');
     }, []);
 
     return Scaffold(

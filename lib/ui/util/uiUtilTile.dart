@@ -2,11 +2,13 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:JCSGuidelines/debug/debug_print.dart';
+import 'package:JCSGuidelines/module/firebase/model_firebase_pdf_config.dart';
+import 'package:JCSGuidelines/repotitory/mixin_repository_firestorage.dart';
 // Flutter imports:
 import 'package:easy_pdf_viewer/easy_pdf_viewer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 // Package imports:
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,11 +16,11 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-// Project imports:
-import 'package:JCSGuidelines/debug/debug_print.dart';
-import 'package:JCSGuidelines/module/firebase/model_firebase_pdf_config.dart';
-import 'package:JCSGuidelines/repotitory/mixin_repository_firestorage.dart';
-
+/// UI用タイルウィジェット
+/// 本編URL/略語一覧 <br>
+/// I はじめに <br>
+/// II 定義... <br>
+/// と、大分類を表示用
 // ignore: must_be_immutable
 class UiUtilWidgetTile extends HookConsumerWidget {
   UiUtilWidgetTile({
@@ -33,10 +35,14 @@ class UiUtilWidgetTile extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final _isExpanded = useState(false);
-
+    // if (sub.subTitle.startsWith("本編")) {
+    //   customDebugPrint("タイル表示");
+    //   print(sub);
+    // }
     useEffect(() {
       Future<void>(() async {});
-      return () => customDebugPrint('dispose!');
+      return null;
+//      return () => customDebugPrint('dispose!');
     }, []);
 
     Widget createCard({
@@ -45,6 +51,22 @@ class UiUtilWidgetTile extends HookConsumerWidget {
       required Function onTap,
       required Map<String, MinorCategory> children,
     }) {
+      String dbg = "";
+      dbg += "UiUtilWidgetTile無印 createCard\n";
+      dbg += "title: $title\n";
+      dbg += "summary: $summary\n";
+      children.entries.map((e) => e).toList().forEach((element) {
+        dbg += "minorTitle: ${element.value.minorTitle}\n";
+        dbg += "minorSummary: ${element.value.minorSummary}\n";
+      });
+      customDebugPrint(dbg);
+      // print("UiUtilWidgetTile無印 createCard");
+      // print("title: $title");
+      // print("summary: $summary");
+      // children.entries.map((e) => e).toList().forEach((element) {
+      //   customDebugPrint("-->minorTitle: ${element.value.minorTitle}");
+      // });
+//      print("children: $children");
       return Padding(
         padding: EdgeInsets.symmetric(vertical: 5.h, horizontal: 10.w),
         child: Column(
@@ -147,6 +169,7 @@ class UiUtilWidgetTile extends HookConsumerWidget {
     }
     //1件以上マイナーが存在していたら
     else if (sub.minors.length > 1) {
+      customDebugPrint("複数表示");
       return createCard(
         title: sub.subTitle,
         summary: sub.subSummary,
@@ -158,6 +181,7 @@ class UiUtilWidgetTile extends HookConsumerWidget {
     }
     //1件のみマイナーが存在していたら
     else {
+      customDebugPrint("単一表示");
       return createCard(
         title: sub.minors.entries.first.value.minorTitle,
         summary: sub.minors.entries.first.value.minorSummary,
@@ -187,7 +211,8 @@ class UiUtilWidgetTile2 extends HookConsumerWidget {
 
     useEffect(() {
       Future<void>(() async {});
-      return () => customDebugPrint('dispose!');
+      return null;
+//      return () => customDebugPrint('dispose!');
     }, []);
 
     Widget createCard({
@@ -552,7 +577,8 @@ class UiUtilWidgetExpansionTile extends HookConsumerWidget {
 
     useEffect(() {
       Future<void>(() async {});
-      return () => customDebugPrint('dispose!');
+      return null;
+//      return () => customDebugPrint('dispose!');
     }, []);
 
     return Container(

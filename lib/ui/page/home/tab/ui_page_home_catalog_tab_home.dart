@@ -1,21 +1,17 @@
 // Dart imports:
 import 'dart:io';
 
-// Flutter imports:
-import 'package:easy_pdf_viewer/easy_pdf_viewer.dart';
-import 'package:flutter/material.dart';
-
-// Package imports:
-import 'package:auto_route/auto_route.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
-
-// Project imports:
-import 'package:JCSGuidelines/debug/debug_print.dart';
 import 'package:JCSGuidelines/providers/toc_provider.dart';
 import 'package:JCSGuidelines/providers/user_provider.dart';
 import 'package:JCSGuidelines/repotitory/mixin_repository_firestorage.dart';
+// Package imports:
+import 'package:auto_route/auto_route.dart';
+// Flutter imports:
+import 'package:easy_pdf_viewer/easy_pdf_viewer.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 @RoutePage()
 // ignore: must_be_immutable
@@ -37,7 +33,8 @@ class UiPageHomeCatalogTabHome extends HookConsumerWidget
       Future<void>(() async {
         await _userNotifer.readTocs();
       });
-      return () => customDebugPrint('dispose!');
+      return null;
+//      return () => customDebugPrint('dispose!');
     }, []);
 
     return Scaffold(
