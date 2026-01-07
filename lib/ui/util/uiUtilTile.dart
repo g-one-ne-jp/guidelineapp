@@ -14,6 +14,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:pdfx/pdfx.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 /// UI用タイルウィジェット
@@ -406,7 +407,7 @@ class UiUtilWidgetTile3 extends HookConsumerWidget with RepositoryFireStorage {
                                                         snapshot.data!.path);
                                                   },
                                                   child: Stack(children: [
-                                                    pdfView(
+                                                    pdfViewPdfx(
                                                         snapshot.data!.path),
                                                     Container(
                                                       color: Colors.transparent,
@@ -641,3 +642,71 @@ Widget pdfView(String path) {
     },
   );
 }
+
+Widget pdfViewPdfx(String path) {
+  return FutureBuilder<PdfDocument>(
+    future: PdfDocument.openFile(path),
+    builder: (context, snapshot) {
+      if (snapshot.connectionState == ConnectionState.done &&
+          snapshot.data != null) {
+        final doc = snapshot.data!;
+        final controller = PdfController(document: Future.value(doc));
+
+        return Stack(
+          children: [
+            PdfView(controller: controller),
+            Container(
+              color: Colors.transparent,
+            )
+          ],
+        );
+      }
+      return const Center(
+        child: CircularProgressIndicator(),
+      );
+    },
+  );
+}
+/*
+Widget pdfViewTest(String path) {
+  print("pdfView path: $path");
+  // 複数のpdfをロードすると落ちる？
+//  PDFDocument.fromFile(File(path));
+
+//  return Text("path: $path");
+//  final doc = await PdfDocument.openFile('assets/sample.pdf');
+  return FutureBuilder<PdfDocument>(
+      future: PdfDocument.openFile(path),
+      //PDFDocument.fromFile(File(path)),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator());
+        }
+        if (snapshot.hasError) {
+          print("pdfView error: ${snapshot.error}");
+          return Center(child: Text('PDFの読み込みに失敗しました: ${snapshot.error}'));
+        }
+
+        final doc = snapshot.data!;
+        print("pdfView doc: $doc");
+        final controller = PdfController(document: Future.value(doc));
+        return Stack(
+          children: [
+            PdfView(controller: controller),
+            // PDFViewer(
+            //   lazyLoad: false,
+            //   // showIndicator: true,
+            //   // showNavigation: true,
+            //   // showPicker: true,
+            //   // enableSwipeNavigation: true,
+            //   document: snapshot.data!,
+            // ),
+            Text("path: $path"),
+            Container(
+              color: Colors.transparent,
+            )
+          ],
+        );
+      });
+}
+*/
