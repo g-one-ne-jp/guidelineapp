@@ -17,6 +17,11 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pdftron_flutter/pdftron_flutter.dart';
 
 @RoutePage()
+
+/// pdfを表示する画面
+/// /tabHomeMinor/:minorKey/:viewTypeMemo のルーティングで呼ばれる。
+/// [推奨・エビデンスレベル]の場合
+/// tabHomeMinor/minorKey3/false など
 // ignore: must_be_immutable
 class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
     with RepositoryFireStorage {
