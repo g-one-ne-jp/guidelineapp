@@ -95,7 +95,7 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
             final isMemo =
                 _userNotifer.getMemo(key: value.detailKey).isNotEmpty;
             return isMemo || !viewTypeMemo
-                ? UiUtilWidgetTile3(
+                ? PdfGridView(
                     deteil: value,
                     onPdfTap: (String path) {
                       showViewer(document: path);

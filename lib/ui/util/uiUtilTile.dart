@@ -710,3 +710,294 @@ Widget pdfViewTest(String path) {
       });
 }
 */
+
+class PdfGridView extends HookConsumerWidget with RepositoryFireStorage {
+  PdfGridView({
+    super.key,
+    required this.deteil,
+    required this.onPdfTap,
+    required this.onDeteilEdit,
+  });
+
+  var deteil = DetailCategory();
+
+  final Function(DetailCategory) onDeteilEdit;
+  final Function(String path) onPdfTap;
+  var _pdfPath = '';
+  var _loading = false;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final _settions = useState(<Widget>[]);
+    final _updateCnt = useState(0);
+    _settions.value.clear();
+
+    //  final pdfPath = useState('');
+
+    Future<WebViewController> initController(String path) async {
+      final html = File(path).readAsStringSync();
+      return WebViewController()
+        ..setJavaScriptMode(JavaScriptMode.unrestricted)
+        ..setNavigationDelegate(
+            NavigationDelegate(onPageStarted: (String url) {}))
+        ..loadRequest(
+          Uri.dataFromString(
+            html,
+            mimeType: "text/html",
+            encoding: Encoding.getByName("utf-8"),
+          ),
+        );
+    }
+
+    if (_loading) {
+      _loading = false;
+      Navigator.of(context, rootNavigator: true).pop();
+    } //useEffect(() {
+    deteil.contents.entries.map((a) => a).toList().forEach((element) {
+      element.value.settions.entries.map((a) => a).toList().forEach((element) {
+        print("ビルド:${element.value.pdfId}");
+
+        _settions.value = List.from(_settions.value)
+          ..add(
+            UiUtilWidgetExpansionTile(
+              titile: element.value.settionTitle,
+              children: [
+                Column(
+                  children: [
+                    const Divider(),
+                    ConstrainedBox(
+                      constraints: BoxConstraints(
+                          minHeight: 120.h, maxHeight: 360.h), // 最大の高さを200に設定
+                      child:
+                          //MarkdownWidget(data: element.value.markdown)
+                          element.value.pdfId.isEmpty
+                              ? FutureBuilder(
+                                  future: downLoadData(
+                                      context: context,
+                                      path: element.value.markdown),
+                                  builder: (context, snapshot) {
+                                    if (snapshot.connectionState ==
+                                        ConnectionState.done) {
+                                      if (snapshot.data == null) {
+                                        return const Center(
+                                          child: CircularProgressIndicator(),
+                                        );
+                                      } else {
+                                        return FutureBuilder(
+                                          future: initController(
+                                              snapshot.data!.path),
+                                          builder: (context, snapshot) {
+                                            if (snapshot.connectionState ==
+                                                ConnectionState.done) {
+                                              if (snapshot.data == null) {
+                                                return const Center(
+                                                  child:
+                                                      CircularProgressIndicator(),
+                                                );
+                                              }
+                                              return Container(
+                                                padding: EdgeInsets.all(10.w),
+                                                color: Colors.red,
+                                                child: WebViewWidget(
+                                                    controller: snapshot.data!),
+                                              );
+                                            }
+
+                                            return const Center(
+                                              child:
+                                                  CircularProgressIndicator(),
+                                            );
+                                          },
+                                        );
+                                      }
+                                    }
+
+                                    return const Center(
+                                      child: CircularProgressIndicator(),
+                                    );
+                                  },
+                                )
+                              : FutureBuilder(
+                                  future: downLoadData(
+                                      context: context,
+                                      path: element.value.pdfId),
+                                  builder: (context, snapshot) {
+                                    if (snapshot.data == null) {
+                                      return const Center(
+                                        child: CircularProgressIndicator(),
+                                      );
+                                    } else {
+                                      if (snapshot.connectionState ==
+                                          ConnectionState.done) {
+                                        _pdfPath = snapshot.data!.path;
+                                      }
+                                      return snapshot.data == null
+                                          ? const Center(
+                                              child:
+                                                  CircularProgressIndicator(),
+                                            )
+                                          : FutureBuilder(
+                                              future: isFileUpdate(
+                                                  context: context,
+                                                  path: element.value.pdfId),
+                                              builder: (context, isUpdate) {
+                                                return GestureDetector(
+                                                  onTap: () {
+                                                    onPdfTap(
+                                                        snapshot.data!.path);
+                                                  },
+                                                  child: Stack(children: [
+                                                    pdfViewPdfx(
+                                                        snapshot.data!.path),
+                                                    Container(
+                                                      color: Colors.transparent,
+                                                    ),
+                                                    isUpdate.data == null
+                                                        ? Container()
+                                                        : isUpdate.data!
+                                                            ? Positioned(
+                                                                top: 0,
+                                                                right: 0,
+                                                                child:
+                                                                    IconButton(
+                                                                  iconSize:
+                                                                      30.w,
+                                                                  icon: Icon(
+                                                                    Icons
+                                                                        .download_for_offline,
+                                                                  ),
+                                                                  onPressed:
+                                                                      () async {
+                                                                    await showDialog<
+                                                                        bool>(
+                                                                      context:
+                                                                          context,
+                                                                      builder:
+                                                                          (BuildContext
+                                                                              context) {
+                                                                        return CupertinoAlertDialog(
+                                                                          title:
+                                                                              const Text('資料が更新されています。'),
+                                                                          content:
+                                                                              const Text('資料を更新しますか？　更新した場合は、現在の資料は削除されます。'),
+                                                                          actions: <Widget>[
+                                                                            TextButton(
+                                                                              onPressed: () {
+                                                                                Navigator.of(context).pop();
+                                                                              },
+                                                                              child: const Text('キャンセル'),
+                                                                            ),
+                                                                            TextButton(
+                                                                              onPressed: () async {
+                                                                                Navigator.of(context).pop();
+
+                                                                                showDialog(
+                                                                                  context: context,
+                                                                                  barrierDismissible: false,
+                                                                                  builder: (BuildContext context) {
+                                                                                    return const Center(
+                                                                                      child: CircularProgressIndicator(),
+                                                                                    );
+                                                                                  },
+                                                                                );
+                                                                                _loading = true;
+
+                                                                                await downLoadData(context: context, isNewUpdate: true, path: element.value.pdfId).then((value) {
+                                                                                  _pdfPath = value!.path;
+                                                                                  _settions.value.clear();
+                                                                                  _updateCnt.value++;
+                                                                                });
+                                                                              },
+                                                                              child: const Text('更新'),
+                                                                            ),
+                                                                          ],
+                                                                        );
+                                                                      },
+                                                                    );
+                                                                  },
+                                                                ),
+                                                              )
+                                                            : Container(),
+                                                  ]),
+                                                );
+                                              },
+                                            );
+                                    }
+                                  },
+                                ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          );
+      });
+    });
+
+    //  return () => customDebugPrint('dispose!');
+    //}, []);
+
+    return Container(
+      color: const Color(0xFFEFEFEF),
+      child: Stack(
+        children: [
+          Container(
+            color: Colors.white,
+            height: 80.h,
+          ),
+          Card(
+            color: const Color(0xFFEFEFEF),
+            margin: EdgeInsets.all(10.w),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(5.0.r),
+            ),
+            child: Container(
+              padding: EdgeInsets.all(5.w),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    height: 5.h,
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(8.0),
+                    color: const Color(0xFFEFEFEF),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          deteil.detailTitle,
+                          style: const TextStyle(
+                            color: Colors.black,
+                          ),
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            onDeteilEdit(deteil);
+                          },
+                          icon: const Icon(Icons.edit),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(vertical: 5.h),
+                    child: Container(
+                      color: Color(0xfffccfae),
+                      child: Column(children: _settions.value),
+                    ),
+                  ),
+                  Container(
+                    color: const Color(0xFFEFEFEF),
+                    height: 5.h,
+                  )
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
