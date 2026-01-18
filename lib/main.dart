@@ -2,6 +2,8 @@
 import 'dart:async';
 
 // Flutter imports:
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_analytics/observer.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -20,6 +22,13 @@ import 'package:JCSGuidelines/app_router.dart';
 import 'package:JCSGuidelines/debug/debug_print.dart';
 import 'package:JCSGuidelines/firebase_options.dart';
 import 'package:JCSGuidelines/theme.dart';
+
+/// FirebaseAnalyticsのインスタンス
+final analyticsRepository = Provider((ref) => FirebaseAnalytics.instance);
+
+/// FirebaseAnalyticsObserverのインスタンス
+final analyticsObserverRepository = Provider((ref) =>
+    FirebaseAnalyticsObserver(analytics: ref.watch(analyticsRepository)));
 
 void main() async {
   // runZonedGuardedで全体を新しいエラーゾーンを定義
@@ -77,6 +86,9 @@ class MyApp extends HookConsumerWidget with WidgetsBindingObserver {
     final isInit = useState(false);
     final isInitError = useState(false);
 
+    var analytics = ref.watch(analyticsRepository);
+    var analyticsObserver = ref.watch(analyticsObserverRepository);
+
     Future<void> initServicesWithTimeout() async {
       var isInitComplete = false; // 初期化が完了したかのフラグ
 
@@ -112,6 +124,8 @@ class MyApp extends HookConsumerWidget with WidgetsBindingObserver {
       );
       Future<void>(() async {
         await initServicesWithTimeout();
+        // アプリが開かれたことをFirebaseAnalyticsに送信
+        analytics.logAppOpen();
       });
 
       return () {};
@@ -124,7 +138,9 @@ class MyApp extends HookConsumerWidget with WidgetsBindingObserver {
       designSize: const Size(375, 812),
       builder: (context, child) => MaterialApp.router(
         // routerを追加
-        routerConfig: _appRouter.config(),
+        routerConfig: _appRouter.config(
+          navigatorObservers: () => [analyticsObserver],
+        ),
         title: 'APP',
         theme: ThemeData(
           brightness: Brightness.light,
