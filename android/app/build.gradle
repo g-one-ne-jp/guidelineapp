@@ -50,7 +50,7 @@ android {
     }
     defaultConfig {
         applicationId "jp.co.miceone.jcsguidelines" // アプリケーションIDを設定
-        minSdkVersion 23 
+        minSdkVersion flutter.minSdkVersion 
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
