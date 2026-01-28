@@ -5,6 +5,7 @@ import 'package:JCSGuidelines/module/firebase/model_firebase_pdf_config.dart';
 import 'package:JCSGuidelines/module/firebase/model_firebase_user.dart';
 import 'package:JCSGuidelines/providers/toc_provider.dart';
 import 'package:JCSGuidelines/providers/user_provider.dart';
+import 'package:JCSGuidelines/ui/page/root/up_page_root_select_guideline.dart';
 import 'package:JCSGuidelines/util/util_googlesingin.dart';
 // Package imports:
 import 'package:auto_route/auto_route.dart';
@@ -33,13 +34,15 @@ class UiPageHome extends HookConsumerWidget {
     final _tos = useState(ModelFirebasePdfConfig());
 
     useEffect(() {
+      final name = GuidelineFile.instance.getFullName();
+
       Future<void>(() async {
         try {
           //ユーザーデータを読み込み
           _user.value = await _userNotifer.readUser<ModelFirebaseUser>(
               fromJson: ModelFirebaseUser.fromJson);
           _tos.value =
-              await _userNotifer.readTocsJson("gidline.json", context: context);
+              await _userNotifer.readTocsJson(name, context: context);
           await Future.delayed(const Duration(seconds: 1));
           var value = _tos.value.categories.values.toList()[0];
           //選択した目次のIDを保持

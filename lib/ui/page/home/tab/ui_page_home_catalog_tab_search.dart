@@ -2,6 +2,7 @@
 import 'package:JCSGuidelines/module/firebase/model_firebase_pdf_config.dart';
 import 'package:JCSGuidelines/providers/user_provider.dart';
 import 'package:JCSGuidelines/repotitory/mixin_repository_firestorage.dart';
+import 'package:JCSGuidelines/ui/page/root/up_page_root_select_guideline.dart';
 // Package imports:
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -29,9 +30,11 @@ class UiPageHomeCatalogTabSearch extends HookConsumerWidget
     final _minorKey = useState('');
     final _minorKeys = useState(<String>[]);
     useEffect(() {
+      final name = GuidelineFile.instance.getFullName();
+
       Future<void>(() async {
         _tos.value =
-            await _userNotifer.readTocsJson("gidline.json", context: context);
+            await _userNotifer.readTocsJson(name, context: context);
       });
       return null;
 //      return () => customDebugPrint('dispose!');

@@ -1,10 +1,4 @@
 // Flutter imports:
-import 'package:flutter/material.dart';
-
-// Package imports:
-import 'package:auto_route/auto_route.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-
 // Project imports:
 import 'package:JCSGuidelines/ui/page/home/tab/ui_page_home_catalog_tab_bookmark.dart';
 import 'package:JCSGuidelines/ui/page/home/tab/ui_page_home_catalog_tab_home.dart';
@@ -18,9 +12,14 @@ import 'package:JCSGuidelines/ui/page/home/ui_page_home_catalog.dart';
 import 'package:JCSGuidelines/ui/page/root/ui_page_root_emailverifacation.dart';
 import 'package:JCSGuidelines/ui/page/root/up_page_root_login.dart';
 import 'package:JCSGuidelines/ui/page/root/up_page_root_profile.dart';
+import 'package:JCSGuidelines/ui/page/root/up_page_root_select_guideline.dart';
 import 'package:JCSGuidelines/ui/page/root/up_page_root_signup.dart';
 import 'package:JCSGuidelines/ui/util/uiUtilEdit.dart';
 import 'package:JCSGuidelines/util/util_googlesingin.dart';
+// Package imports:
+import 'package:auto_route/auto_route.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 
 part 'app_router.gr.dart';
 
@@ -37,6 +36,8 @@ class AppRouter extends RootStackRouter {
             AuthGuard(),
           ],
         ), // ログイン済みでなければアクセスできない
+
+        AutoRoute(page: UiRouteSelectGuideline.page, path: '/selectGuideline'),
 
         AutoRoute(page: UiRouteHome.page, path: '/home'),
         AutoRoute(page: UiRouteSingup.page, path: '/singup'),
@@ -86,7 +87,7 @@ class AuthGuard extends AutoRouteGuard {
       //email認証が終わってる？
       if (user.emailVerified || !utilAuthIsLoginTypePassWord()) {
         // ログイン済みの場合はホーム画面などへ遷移
-        router.replaceNamed('/home'); // ログイン成功したら元のパスへ
+        router.replaceNamed('/selectGuideline'); // ログイン成功したら元のパスへ
       }
       //認証がまだ
       else {

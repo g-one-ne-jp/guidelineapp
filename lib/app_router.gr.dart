@@ -288,6 +288,22 @@ class UiRouteProfileCreate extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [UiPageSelectGuideline]
+class UiRouteSelectGuideline extends PageRouteInfo<void> {
+  const UiRouteSelectGuideline({List<PageRouteInfo>? children})
+      : super(UiRouteSelectGuideline.name, initialChildren: children);
+
+  static const String name = 'UiRouteSelectGuideline';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const UiPageSelectGuideline();
+    },
+  );
+}
+
+/// generated route for
 /// [UiPageSingup]
 class UiRouteSingup extends PageRouteInfo<void> {
   const UiRouteSingup({List<PageRouteInfo>? children})
