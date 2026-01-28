@@ -67,8 +67,14 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
         _shouldRebuild.value = !_shouldRebuild.value;
       });
     }
+    // int c = _minor.value.details.length - 1;
+    // if (c < 0) {
+    //   c = 0;
+    // }
 
     debugPrint('minorKey: $minorKey');
+    print(
+        '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~detail count: ${_minor.value.details.length}');
     return Scaffold(
       appBar: AppBar(
         title: Text(_minor.value.minorTitle),

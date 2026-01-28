@@ -1,12 +1,13 @@
 {
-    "files.exclude": {
-        "**/.git": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/CVS": true,
-        "**/.DS_Store": true,
-        "**/Thumbs.db": true
-    },
-    "java.compile.nullAnalysis.mode": "automatic",
-    "cmake.sourceDirectory": "/Users/masayukifuruyama/git/g-one/guideline_Flutter/linux"
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true
+  },
+  "java.compile.nullAnalysis.mode": "automatic",
+  "cmake.sourceDirectory": "/Users/masayukifuruyama/git/g-one/guideline_Flutter/linux",
+  "dart.flutterSdkPath": ".fvm/versions/3.32.8"
 }

@@ -317,444 +317,6 @@ class UiUtilWidgetTile3 extends HookConsumerWidget with RepositoryFireStorage {
     } //useEffect(() {
     deteil.contents.entries.map((a) => a).toList().forEach((element) {
       element.value.settions.entries.map((a) => a).toList().forEach((element) {
-        _settions.value = List.from(_settions.value)
-          ..add(
-            UiUtilWidgetExpansionTile(
-              titile: element.value.settionTitle,
-              children: [
-                Column(
-                  children: [
-                    const Divider(),
-                    ConstrainedBox(
-                      constraints: BoxConstraints(
-                          minHeight: 120.h, maxHeight: 360.h), // 最大の高さを200に設定
-                      child:
-                          //MarkdownWidget(data: element.value.markdown)
-                          element.value.pdfId.isEmpty
-                              ? FutureBuilder(
-                                  future: downLoadData(
-                                      context: context,
-                                      path: element.value.markdown),
-                                  builder: (context, snapshot) {
-                                    if (snapshot.connectionState ==
-                                        ConnectionState.done) {
-                                      if (snapshot.data == null) {
-                                        return const Center(
-                                          child: CircularProgressIndicator(),
-                                        );
-                                      } else {
-                                        return FutureBuilder(
-                                          future: initController(
-                                              snapshot.data!.path),
-                                          builder: (context, snapshot) {
-                                            if (snapshot.connectionState ==
-                                                ConnectionState.done) {
-                                              if (snapshot.data == null) {
-                                                return const Center(
-                                                  child:
-                                                      CircularProgressIndicator(),
-                                                );
-                                              }
-                                              return Container(
-                                                padding: EdgeInsets.all(10.w),
-                                                color: Colors.red,
-                                                child: WebViewWidget(
-                                                    controller: snapshot.data!),
-                                              );
-                                            }
-
-                                            return const Center(
-                                              child:
-                                                  CircularProgressIndicator(),
-                                            );
-                                          },
-                                        );
-                                      }
-                                    }
-
-                                    return const Center(
-                                      child: CircularProgressIndicator(),
-                                    );
-                                  },
-                                )
-                              : FutureBuilder(
-                                  future: downLoadData(
-                                      context: context,
-                                      path: element.value.pdfId),
-                                  builder: (context, snapshot) {
-                                    if (snapshot.data == null) {
-                                      return const Center(
-                                        child: CircularProgressIndicator(),
-                                      );
-                                    } else {
-                                      if (snapshot.connectionState ==
-                                          ConnectionState.done) {
-                                        _pdfPath = snapshot.data!.path;
-                                      }
-                                      return snapshot.data == null
-                                          ? const Center(
-                                              child:
-                                                  CircularProgressIndicator(),
-                                            )
-                                          : FutureBuilder(
-                                              future: isFileUpdate(
-                                                  context: context,
-                                                  path: element.value.pdfId),
-                                              builder: (context, isUpdate) {
-                                                return GestureDetector(
-                                                  onTap: () {
-                                                    onPdfTap(
-                                                        snapshot.data!.path);
-                                                  },
-                                                  child: Stack(children: [
-                                                    pdfViewPdfx(
-                                                        snapshot.data!.path),
-                                                    Container(
-                                                      color: Colors.transparent,
-                                                    ),
-                                                    isUpdate.data == null
-                                                        ? Container()
-                                                        : isUpdate.data!
-                                                            ? Positioned(
-                                                                top: 0,
-                                                                right: 0,
-                                                                child:
-                                                                    IconButton(
-                                                                  iconSize:
-                                                                      30.w,
-                                                                  icon: Icon(
-                                                                    Icons
-                                                                        .download_for_offline,
-                                                                  ),
-                                                                  onPressed:
-                                                                      () async {
-                                                                    await showDialog<
-                                                                        bool>(
-                                                                      context:
-                                                                          context,
-                                                                      builder:
-                                                                          (BuildContext
-                                                                              context) {
-                                                                        return CupertinoAlertDialog(
-                                                                          title:
-                                                                              const Text('資料が更新されています。'),
-                                                                          content:
-                                                                              const Text('資料を更新しますか？　更新した場合は、現在の資料は削除されます。'),
-                                                                          actions: <Widget>[
-                                                                            TextButton(
-                                                                              onPressed: () {
-                                                                                Navigator.of(context).pop();
-                                                                              },
-                                                                              child: const Text('キャンセル'),
-                                                                            ),
-                                                                            TextButton(
-                                                                              onPressed: () async {
-                                                                                Navigator.of(context).pop();
-
-                                                                                showDialog(
-                                                                                  context: context,
-                                                                                  barrierDismissible: false,
-                                                                                  builder: (BuildContext context) {
-                                                                                    return const Center(
-                                                                                      child: CircularProgressIndicator(),
-                                                                                    );
-                                                                                  },
-                                                                                );
-                                                                                _loading = true;
-
-                                                                                await downLoadData(context: context, isNewUpdate: true, path: element.value.pdfId).then((value) {
-                                                                                  _pdfPath = value!.path;
-                                                                                  _settions.value.clear();
-                                                                                  _updateCnt.value++;
-                                                                                });
-                                                                              },
-                                                                              child: const Text('更新'),
-                                                                            ),
-                                                                          ],
-                                                                        );
-                                                                      },
-                                                                    );
-                                                                  },
-                                                                ),
-                                                              )
-                                                            : Container(),
-                                                  ]),
-                                                );
-                                              },
-                                            );
-                                    }
-                                  },
-                                ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          );
-      });
-    });
-
-    //  return () => customDebugPrint('dispose!');
-    //}, []);
-
-    return Container(
-      color: const Color(0xFFEFEFEF),
-      child: Stack(
-        children: [
-          Container(
-            color: Colors.white,
-            height: 80.h,
-          ),
-          Card(
-            color: const Color(0xFFEFEFEF),
-            margin: EdgeInsets.all(10.w),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(5.0.r),
-            ),
-            child: Container(
-              padding: EdgeInsets.all(5.w),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    height: 5.h,
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(8.0),
-                    color: const Color(0xFFEFEFEF),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          deteil.detailTitle,
-                          style: const TextStyle(
-                            color: Colors.black,
-                          ),
-                        ),
-                        IconButton(
-                          onPressed: () {
-                            onDeteilEdit(deteil);
-                          },
-                          icon: const Icon(Icons.edit),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(vertical: 5.h),
-                    child: Container(
-                      color: Color(0xfffccfae),
-                      child: Column(children: _settions.value),
-                    ),
-                  ),
-                  Container(
-                    color: const Color(0xFFEFEFEF),
-                    height: 5.h,
-                  )
-                ],
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class UiUtilWidgetExpansionTile extends HookConsumerWidget {
-  const UiUtilWidgetExpansionTile({
-    super.key,
-    required this.children,
-    required this.titile,
-  });
-
-  final String titile;
-  final List<Widget> children;
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final _isExpanded = useState(false);
-
-    useEffect(() {
-      Future<void>(() async {});
-      return null;
-//      return () => customDebugPrint('dispose!');
-    }, []);
-
-    return Container(
-      decoration: BoxDecoration(
-        border: _isExpanded.value
-            ? null
-            : const Border(
-                bottom: BorderSide(
-                  color: Colors.white,
-                  width: 1.0, // 下線の太さ
-                ),
-              ),
-      ),
-      child: ExpansionTile(
-        trailing: Icon(
-          color: Colors.black,
-          _isExpanded.value
-              ? Icons.remove // 展開されている場合のアイコン
-              : Icons.add, // 折りたたまれている場合のアイコン
-        ),
-        onExpansionChanged: (bool expanded) {
-          _isExpanded.value = expanded;
-        },
-        title: Text(
-          titile,
-          style: const TextStyle(
-            color: Colors.black,
-          ),
-        ),
-        children: children,
-      ),
-    );
-  }
-}
-
-Widget pdfView(String path) {
-  return FutureBuilder(
-    future: PDFDocument.fromFile(File(path)),
-    builder: (context, snapshot) {
-      if (snapshot.connectionState == ConnectionState.done &&
-          snapshot.data != null) {
-        return Stack(
-          children: [
-            PDFViewer(
-              showIndicator: true,
-              showNavigation: true,
-              showPicker: true,
-              enableSwipeNavigation: true,
-              document: snapshot.data!,
-            ),
-            Container(
-              color: Colors.transparent,
-            )
-          ],
-        );
-      }
-      return const Center(
-        child: CircularProgressIndicator(),
-      );
-    },
-  );
-}
-
-Widget pdfViewPdfx(String path) {
-  return FutureBuilder<PdfDocument>(
-    future: PdfDocument.openFile(path),
-    builder: (context, snapshot) {
-      if (snapshot.connectionState == ConnectionState.done &&
-          snapshot.data != null) {
-        final doc = snapshot.data!;
-        final controller = PdfController(document: Future.value(doc));
-
-        return Stack(
-          children: [
-            PdfView(controller: controller),
-            Container(
-              color: Colors.transparent,
-            )
-          ],
-        );
-      }
-      return const Center(
-        child: CircularProgressIndicator(),
-      );
-    },
-  );
-}
-/*
-Widget pdfViewTest(String path) {
-  print("pdfView path: $path");
-  // 複数のpdfをロードすると落ちる？
-//  PDFDocument.fromFile(File(path));
-
-//  return Text("path: $path");
-//  final doc = await PdfDocument.openFile('assets/sample.pdf');
-  return FutureBuilder<PdfDocument>(
-      future: PdfDocument.openFile(path),
-      //PDFDocument.fromFile(File(path)),
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Center(child: CircularProgressIndicator());
-        }
-        if (snapshot.hasError) {
-          print("pdfView error: ${snapshot.error}");
-          return Center(child: Text('PDFの読み込みに失敗しました: ${snapshot.error}'));
-        }
-
-        final doc = snapshot.data!;
-        print("pdfView doc: $doc");
-        final controller = PdfController(document: Future.value(doc));
-        return Stack(
-          children: [
-            PdfView(controller: controller),
-            // PDFViewer(
-            //   lazyLoad: false,
-            //   // showIndicator: true,
-            //   // showNavigation: true,
-            //   // showPicker: true,
-            //   // enableSwipeNavigation: true,
-            //   document: snapshot.data!,
-            // ),
-            Text("path: $path"),
-            Container(
-              color: Colors.transparent,
-            )
-          ],
-        );
-      });
-}
-*/
-
-class PdfGridView extends HookConsumerWidget with RepositoryFireStorage {
-  PdfGridView({
-    super.key,
-    required this.deteil,
-    required this.onPdfTap,
-    required this.onDeteilEdit,
-  });
-
-  var deteil = DetailCategory();
-
-  final Function(DetailCategory) onDeteilEdit;
-  final Function(String path) onPdfTap;
-  var _pdfPath = '';
-  var _loading = false;
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final _settions = useState(<Widget>[]);
-    final _updateCnt = useState(0);
-    _settions.value.clear();
-
-    //  final pdfPath = useState('');
-
-    Future<WebViewController> initController(String path) async {
-      final html = File(path).readAsStringSync();
-      return WebViewController()
-        ..setJavaScriptMode(JavaScriptMode.unrestricted)
-        ..setNavigationDelegate(
-            NavigationDelegate(onPageStarted: (String url) {}))
-        ..loadRequest(
-          Uri.dataFromString(
-            html,
-            mimeType: "text/html",
-            encoding: Encoding.getByName("utf-8"),
-          ),
-        );
-    }
-
-    if (_loading) {
-      _loading = false;
-      Navigator.of(context, rootNavigator: true).pop();
-    } //useEffect(() {
-    deteil.contents.entries.map((a) => a).toList().forEach((element) {
-      element.value.settions.entries.map((a) => a).toList().forEach((element) {
         print("ビルド:${element.value.pdfId}");
 
         _settions.value = List.from(_settions.value)
@@ -981,6 +543,8 @@ class PdfGridView extends HookConsumerWidget with RepositoryFireStorage {
                       ],
                     ),
                   ),
+
+                  
                   Padding(
                     padding: EdgeInsets.symmetric(vertical: 5.h),
                     child: Container(
@@ -999,5 +563,497 @@ class PdfGridView extends HookConsumerWidget with RepositoryFireStorage {
         ],
       ),
     );
+  }
+}
+
+class UiUtilWidgetExpansionTile extends HookConsumerWidget {
+  const UiUtilWidgetExpansionTile({
+    super.key,
+    required this.children,
+    required this.titile,
+  });
+
+  final String titile;
+  final List<Widget> children;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final _isExpanded = useState(false);
+
+    useEffect(() {
+      Future<void>(() async {});
+      return null;
+//      return () => customDebugPrint('dispose!');
+    }, []);
+
+    return Container(
+      decoration: BoxDecoration(
+        border: _isExpanded.value
+            ? null
+            : const Border(
+                bottom: BorderSide(
+                  color: Colors.white,
+                  width: 1.0, // 下線の太さ
+                ),
+              ),
+      ),
+      child: ExpansionTile(
+        trailing: Icon(
+          color: Colors.black,
+          _isExpanded.value
+              ? Icons.remove // 展開されている場合のアイコン
+              : Icons.add, // 折りたたまれている場合のアイコン
+        ),
+        onExpansionChanged: (bool expanded) {
+          _isExpanded.value = expanded;
+        },
+        title: Text(
+          titile,
+          style: const TextStyle(
+            color: Colors.black,
+          ),
+        ),
+        children: children,
+      ),
+    );
+  }
+}
+
+
+class GridItem extends HookConsumerWidget {
+  const GridItem({
+    super.key,
+    required this.children,
+    required this.titile,
+  });
+
+  final String titile;
+  final List<Widget> children;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Container(
+        // decoration: BoxDecoration(
+        //   border: const Border(
+        //     bottom: BorderSide(
+        //       color: Colors.red,
+        //       width: 1.0, // 下線の太さ
+        //     ),
+        //   ),
+        // ),
+        child: Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        ...children,
+        Text(
+          titile,
+          style: const TextStyle(
+            color: Colors.red,
+          ),
+        ),
+      ],
+    ));
+  }
+}
+
+Widget pdfView(String path) {
+  return FutureBuilder(
+    future: PDFDocument.fromFile(File(path)),
+    builder: (context, snapshot) {
+      if (snapshot.connectionState == ConnectionState.done &&
+          snapshot.data != null) {
+        return Stack(
+          children: [
+            PDFViewer(
+              showIndicator: true,
+              showNavigation: true,
+              showPicker: true,
+              enableSwipeNavigation: true,
+              document: snapshot.data!,
+            ),
+            Container(
+              color: Colors.transparent,
+            )
+          ],
+        );
+      }
+      return const Center(
+        child: CircularProgressIndicator(),
+      );
+    },
+  );
+}
+
+Widget pdfViewPdfx(String path) {
+  return FutureBuilder<PdfDocument>(
+    future: PdfDocument.openFile(path),
+    builder: (context, snapshot) {
+      if (snapshot.connectionState == ConnectionState.done &&
+          snapshot.data != null) {
+        final doc = snapshot.data!;
+        final controller = PdfController(document: Future.value(doc));
+
+        return Stack(
+          children: [
+            PdfView(controller: controller),
+            Container(
+              color: Colors.transparent,
+            )
+          ],
+        );
+      }
+      return const Center(
+        child: CircularProgressIndicator(),
+      );
+    },
+  );
+}
+/*
+Widget pdfViewTest(String path) {
+  print("pdfView path: $path");
+  // 複数のpdfをロードすると落ちる？
+//  PDFDocument.fromFile(File(path));
+
+//  return Text("path: $path");
+//  final doc = await PdfDocument.openFile('assets/sample.pdf');
+  return FutureBuilder<PdfDocument>(
+      future: PdfDocument.openFile(path),
+      //PDFDocument.fromFile(File(path)),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator());
+        }
+        if (snapshot.hasError) {
+          print("pdfView error: ${snapshot.error}");
+          return Center(child: Text('PDFの読み込みに失敗しました: ${snapshot.error}'));
+        }
+
+        final doc = snapshot.data!;
+        print("pdfView doc: $doc");
+        final controller = PdfController(document: Future.value(doc));
+        return Stack(
+          children: [
+            PdfView(controller: controller),
+            // PDFViewer(
+            //   lazyLoad: false,
+            //   // showIndicator: true,
+            //   // showNavigation: true,
+            //   // showPicker: true,
+            //   // enableSwipeNavigation: true,
+            //   document: snapshot.data!,
+            // ),
+            Text("path: $path"),
+            Container(
+              color: Colors.transparent,
+            )
+          ],
+        );
+      });
+}
+*/
+
+
+class PdfGridView extends HookConsumerWidget with RepositoryFireStorage {
+  PdfGridView({
+    super.key,
+    required this.deteil,
+    required this.onPdfTap,
+    required this.onDeteilEdit,
+  });
+
+  var deteil = DetailCategory();
+
+  final Function(DetailCategory) onDeteilEdit;
+  final Function(String path) onPdfTap;
+  var _pdfPath = '';
+  var _loading = false;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final _settions = useState(<Widget>[]);
+    final _updateCnt = useState(0);
+    _settions.value.clear();
+
+    //  final pdfPath = useState('');
+
+    Future<WebViewController> initController(String path) async {
+      final html = File(path).readAsStringSync();
+      return WebViewController()
+        ..setJavaScriptMode(JavaScriptMode.unrestricted)
+        ..setNavigationDelegate(
+            NavigationDelegate(onPageStarted: (String url) {}))
+        ..loadRequest(
+          Uri.dataFromString(
+            html,
+            mimeType: "text/html",
+            encoding: Encoding.getByName("utf-8"),
+          ),
+        );
+    }
+
+    if (_loading) {
+      _loading = false;
+      Navigator.of(context, rootNavigator: true).pop();
+    } //useEffect(() {
+    deteil.contents.entries.map((a) => a).toList().forEach((element) {
+      element.value.settions.entries.map((a) => a).toList().forEach((element) {
+        print("ビルド:${element.value.pdfId}");
+
+        _settions.value = List.from(_settions.value)
+          ..add(
+            GridItem(
+              titile: element.value.settionTitle,
+              children: [
+                ConstrainedBox(
+                  constraints: BoxConstraints(
+                      minHeight: 0.h, maxHeight: 120.h), // 最大の高さを200に設定
+                  child:
+                      //MarkdownWidget(data: element.value.markdown)
+                      element.value.pdfId.isEmpty
+                          ? FutureBuilder(
+                              future: downLoadData(
+                                  context: context,
+                                  path: element.value.markdown),
+                              builder: (context, snapshot) {
+                                if (snapshot.connectionState ==
+                                    ConnectionState.done) {
+                                  if (snapshot.data == null) {
+                                    return const Center(
+                                      child: CircularProgressIndicator(),
+                                    );
+                                  } else {
+                                    return FutureBuilder(
+                                      future:
+                                          initController(snapshot.data!.path),
+                                      builder: (context, snapshot) {
+                                        if (snapshot.connectionState ==
+                                            ConnectionState.done) {
+                                          if (snapshot.data == null) {
+                                            return const Center(
+                                              child:
+                                                  CircularProgressIndicator(),
+                                            );
+                                          }
+                                          return Container(
+                                            padding: EdgeInsets.all(10.w),
+                                            color: Colors.red,
+                                            child: WebViewWidget(
+                                                controller: snapshot.data!),
+                                          );
+                                        }
+
+                                        return const Center(
+                                          child: CircularProgressIndicator(),
+                                        );
+                                      },
+                                    );
+                                  }
+                                }
+
+                                return const Center(
+                                  child: CircularProgressIndicator(),
+                                );
+                              },
+                            )
+                          : FutureBuilder(
+                              future: downLoadData(
+                                  context: context, path: element.value.pdfId),
+                              builder: (context, snapshot) {
+                                if (snapshot.data == null) {
+                                  return const Center(
+                                    child: CircularProgressIndicator(),
+                                  );
+                                } else {
+                                  if (snapshot.connectionState ==
+                                      ConnectionState.done) {
+                                    _pdfPath = snapshot.data!.path;
+                                  }
+                                  return snapshot.data == null
+                                      ? const Center(
+                                          child: CircularProgressIndicator(),
+                                        )
+                                      : FutureBuilder(
+                                          future: isFileUpdate(
+                                              context: context,
+                                              path: element.value.pdfId),
+                                          builder: (context, isUpdate) {
+                                            return GestureDetector(
+                                              onTap: () {
+                                                onPdfTap(snapshot.data!.path);
+                                              },
+                                              child: Stack(children: [
+                                                pdfViewPdfx(
+                                                    snapshot.data!.path),
+                                                Container(
+                                                  color: Colors.transparent,
+                                                ),
+                                                isUpdate.data == null
+                                                    ? Container()
+                                                    : isUpdate.data!
+                                                        ? Positioned(
+                                                            top: 0,
+                                                            right: 0,
+                                                            child: IconButton(
+                                                              iconSize: 30.w,
+                                                              icon: Icon(
+                                                                Icons
+                                                                    .download_for_offline,
+                                                              ),
+                                                              onPressed:
+                                                                  () async {
+
+                                                                await showDialog<
+                                                                    bool>(
+                                                                  context:
+                                                                      context,
+                                                                  builder:
+                                                                      (BuildContext
+                                                                          context) {
+                                                                    return CupertinoAlertDialog(
+                                                                      title: const Text(
+                                                                          '資料が更新されています。'),
+                                                                      content:
+                                                                          const Text(
+                                                                              '資料を更新しますか？　更新した場合は、現在の資料は削除されます。'),
+                                                                      actions: <Widget>[
+                                                                        TextButton(
+                                                                          onPressed:
+                                                                              () {
+                                                                            Navigator.of(context).pop();
+                                                                          },
+                                                                          child:
+                                                                              const Text('キャンセル'),
+                                                                        ),
+                                                                        TextButton(
+                                                                          onPressed:
+                                                                              () async {
+                                                                            Navigator.of(context).pop();
+
+                                                                            showDialog(
+                                                                              context: context,
+                                                                              barrierDismissible: false,
+                                                                              builder: (BuildContext context) {
+                                                                                return const Center(
+                                                                                  child: CircularProgressIndicator(),
+                                                                                );
+                                                                              },
+                                                                            );
+                                                                            _loading =
+                                                                                true;
+
+                                                                            await downLoadData(context: context, isNewUpdate: true, path: element.value.pdfId).then((value) {
+                                                                              _pdfPath = value!.path;
+                                                                              _settions.value.clear();
+                                                                              _updateCnt.value++;
+                                                                            });
+                                                                          },
+                                                                          child:
+                                                                              const Text('更新'),
+                                                                        ),
+                                                                      ],
+                                                                    );
+                                                                  },
+                                                                );
+                                                              },
+                                                            ),
+                                                          )
+                                                        : Container(),
+                                              ]),
+                                            );
+                                          },
+                                        );
+                                }
+                              },
+                            ),
+                ),
+              ],
+            ),
+          );
+      });
+    });
+
+    //  return () => customDebugPrint('dispose!');
+    //}, []);
+    print("deteil.detailTitle: ${deteil.detailTitle}");
+
+    print(
+        "settions count: ----------------------------------${_settions.value.length}");
+
+    // return SizedBox(
+    //     height: 300,
+    //     child: GridView.count(
+    //         crossAxisCount: 2,
+    //         children: [Text("1"), Text("2"), Text("3"), Text("4")]));
+            
+
+    return Container(
+      //color: const Color(0xFFEFEFEF),
+//      color: Colors.blue,
+      child: Container(
+        margin: EdgeInsets.all(10.w),
+        decoration: BoxDecoration(
+          color: const Color(0xFFEFEFEF), // 背景色
+          borderRadius: BorderRadius.circular(5.0.r), // 角丸
+        ),
+              padding: EdgeInsets.all(5.w),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+            // メモ用のペンアイコン表示部分
+            Container(
+              padding: const EdgeInsets.all(8.0),
+              color: const Color(0xFFEFEFEF),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    deteil.detailTitle,
+                    style: const TextStyle(
+                      color: Colors.black,
+                    ),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      onDeteilEdit(deteil);
+                    },
+                    icon: const Icon(Icons.edit),
+                  ),
+                ],
+              ),
+            ),
+
+            // Expanded(
+            //   child: GridView.count(
+            //       crossAxisCount: 2,
+            //       children: [Text("1"), Text("2"), Text("3"), Text("4")]),
+            // ),
+
+            SizedBox(
+                height: 200.h * (_settions.value.length / 2).ceil(),
+                child: GridView.count(
+                    shrinkWrap: true, // ← 高さを中身に合わせる
+                    physics: const NeverScrollableScrollPhysics(), // ← スクロール禁止
+                    crossAxisCount: 2,
+                    children: [..._settions.value])),
+
+            // pdfなどのコンテンツ余白（要る？）
+            // Padding(
+            //   padding: EdgeInsets.symmetric(vertical: 5.h),
+            //   child: Container(
+            //     color: Color(0xfffccfae),
+            //     child: Column(children: _settions.value),
+            //   ),
+            // ),
+
+            // Container(
+            //   color: const Color(0xFFEFEFEF),
+            //   height: 5.h,
+            // )
+                ],
+        ),
+      ),
+    );
+    
   }
 }
