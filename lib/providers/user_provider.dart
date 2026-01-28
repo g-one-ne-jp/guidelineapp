@@ -2,20 +2,18 @@
 import 'dart:async';
 import 'dart:convert';
 
-// Flutter imports:
-import 'package:flutter/material.dart';
-
-// Package imports:
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 // Project imports:
 import 'package:JCSGuidelines/module/firebase/model_firebase_pdf_config.dart';
 import 'package:JCSGuidelines/module/firebase/model_firebase_user.dart';
 import 'package:JCSGuidelines/repotitory/mixin_repository_file.dart';
 import 'package:JCSGuidelines/repotitory/mixin_repository_firestorage.dart';
 import 'package:JCSGuidelines/repotitory/mixin_repository_http.dart';
+// Package imports:
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+// Flutter imports:
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // StateNotifierクラスを外部ファイルで呼び出すプロバイダー.
 final userProvider = StateNotifierProvider<ProviderUser, ModelFirebaseUser>(
@@ -88,12 +86,12 @@ class ProviderUser extends StateNotifier<ModelFirebaseUser>
     }
   }
 
-  Future<ModelFirebasePdfConfig> readTocsJson(
+  Future<ModelFirebasePdfConfig> readTocsJson(String fineName,
       {required BuildContext context}) async {
     try {
       final file = await downLoadData(
           context: context,
-          path: 'gidline/json/gidline.json',
+          path: 'gidline/json/$fineName',
           isNewUpdate: true);
       // fileをMapに変換
       final json = jsonDecode(file!.readAsStringSync());

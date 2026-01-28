@@ -30,7 +30,8 @@ class UiPageHomeCatalogTabSearch extends HookConsumerWidget
     final _minorKeys = useState(<String>[]);
     useEffect(() {
       Future<void>(() async {
-        _tos.value = await _userNotifer.readTocsJson(context: context);
+        _tos.value =
+            await _userNotifer.readTocsJson("gidline.json", context: context);
       });
       return null;
 //      return () => customDebugPrint('dispose!');

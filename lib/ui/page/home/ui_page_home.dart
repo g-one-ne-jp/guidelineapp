@@ -38,7 +38,8 @@ class UiPageHome extends HookConsumerWidget {
           //ユーザーデータを読み込み
           _user.value = await _userNotifer.readUser<ModelFirebaseUser>(
               fromJson: ModelFirebaseUser.fromJson);
-          _tos.value = await _userNotifer.readTocsJson(context: context);
+          _tos.value =
+              await _userNotifer.readTocsJson("gidline.json", context: context);
           await Future.delayed(const Duration(seconds: 1));
           var value = _tos.value.categories.values.toList()[0];
           //選択した目次のIDを保持
