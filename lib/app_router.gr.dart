@@ -107,16 +107,6 @@ class UiRouteHomeCatalogTabHomeArgs {
   String toString() {
     return 'UiRouteHomeCatalogTabHomeArgs{key: $key}';
   }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! UiRouteHomeCatalogTabHomeArgs) return false;
-    return key == other.key;
-  }
-
-  @override
-  int get hashCode => key.hashCode;
 }
 
 /// generated route for
@@ -177,18 +167,6 @@ class UiRouteHomeCatalogTabHomeMinorArgs {
   String toString() {
     return 'UiRouteHomeCatalogTabHomeMinorArgs{key: $key, minorKey: $minorKey, viewTypeMemo: $viewTypeMemo}';
   }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! UiRouteHomeCatalogTabHomeMinorArgs) return false;
-    return key == other.key &&
-        minorKey == other.minorKey &&
-        viewTypeMemo == other.viewTypeMemo;
-  }
-
-  @override
-  int get hashCode => key.hashCode ^ minorKey.hashCode ^ viewTypeMemo.hashCode;
 }
 
 /// generated route for
@@ -376,16 +354,4 @@ class UiRouteUtilEditArgs {
   String toString() {
     return 'UiRouteUtilEditArgs{key: $key, minorKey: $minorKey, viewTypeMemo: $viewTypeMemo}';
   }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! UiRouteUtilEditArgs) return false;
-    return key == other.key &&
-        minorKey == other.minorKey &&
-        viewTypeMemo == other.viewTypeMemo;
-  }
-
-  @override
-  int get hashCode => key.hashCode ^ minorKey.hashCode ^ viewTypeMemo.hashCode;
 }
