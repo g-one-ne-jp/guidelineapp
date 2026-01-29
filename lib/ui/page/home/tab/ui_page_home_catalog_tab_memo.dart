@@ -1,18 +1,16 @@
 // Flutter imports:
-import 'package:flutter/material.dart';
-
-// Package imports:
-import 'package:auto_route/auto_route.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:flutter_quill/flutter_quill.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
-
 // Project imports:
 import 'package:JCSGuidelines/module/firebase/model_firebase_pdf_config.dart';
 import 'package:JCSGuidelines/module/firebase/model_firebase_user.dart';
 import 'package:JCSGuidelines/providers/toc_provider.dart';
 import 'package:JCSGuidelines/providers/user_provider.dart';
+// Package imports:
+import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_quill/flutter_quill.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 @RoutePage()
 class UiPageHomeCatalogTabMemo extends HookConsumerWidget {
@@ -43,18 +41,31 @@ class UiPageHomeCatalogTabMemo extends HookConsumerWidget {
           .map((entry) => entry.key)
           .toList();
 
-      // Firestore からメモされたアイテムを取得
-      final memoItemsList = await Future.wait(memoKeys.map((key) async {
-        final doc =
-            _tocNotifer.searchDetailCategoryByKeyFromMajor(_tocProvider, key);
+      // user.memos のMapには Firebaseから取得したメモデータがそのまま入っている。
+      // DetailCategoryに割り振られたキーに対応するメモデータという形。
+      // detailKey3:"[{"insert":"あ\n\n"}]"
+      // hoge_detailKey3:"[{"insert":"んんん\n\n"}]"
+      //
+      // memoKeysリストにはキーだけ
+      // ["detailKey3", "hoge_detailKey3"]
+
+      final memoItems = <String, DetailCategory>{};
+      // メモのキー一覧から...
+      for (final key in memoKeys) {
+        // 読み込み済みのガイドラインjsonの中に、メモに使われたキー(に該当するDetailCategory)が
+        // あるかを確認し、存在するものだけmemoItemsに積む。
+        // ※ガイドラインjsonを複数もつようになったため、ガイドラインAには存在するキーが
+        //   ガイドラインBには存在しない、ということが起こりうる。
+        //   また、原因は調べていないが、EmptyなDetailCategoryをエディタに食わせるとクラッシュする。
         final minorKey =
             _tocNotifer.searchminorKeyFromDetailKeyFromMajor(_tocProvider, key);
-        return MapEntry(minorKey, doc);
-      }));
-
-      // リストをマップに変換
-      final memoItems = Map<String, DetailCategory>.fromEntries(memoItemsList);
-
+        if (minorKey.isEmpty) {
+          continue;
+        }
+        final doc =
+            _tocNotifer.searchDetailCategoryByKeyFromMajor(_tocProvider, key);
+        memoItems[minorKey] = doc;
+      }
       _memoItems.value = memoItems;
 
       //

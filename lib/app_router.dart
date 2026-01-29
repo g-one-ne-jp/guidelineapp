@@ -78,8 +78,7 @@ class AppRouter extends RootStackRouter {
           path: '/catalog',
           children: [
             // /catalog/tabHome で空白のTabWrapperScreenを呼び出し...
-            AutoRoute(
-              path: 'tabHome', page: TabWrapperRoute.page, children: [
+            AutoRoute(path: 'tabHome', page: TabWrapperRoute.page, children: [
               // ↑のラッパーの子（サブルート）のカレントがUiRouteHomeCatalogTabHome
               AutoRoute(
                   path: '',
@@ -90,8 +89,12 @@ class AppRouter extends RootStackRouter {
                 path: 'toc',
                 page: UiRouteHomeCatalogTabHomeTOC.page,
               ),
-            ]
-            ),
+              // /catalog/tabHomeMinor/:minorKey/:viewTypeMemo でマイナー画面を呼び出し
+              AutoRoute(
+                path: 'toc/tabHomeMinor/:minorKey/:viewTypeMemo',
+                page: UiRouteHomeCatalogTabHomeMinor.page,
+              ),
+            ]),
             AutoRoute(
               page: UiRouteHomeCatalogTabSearch.page,
               path: 'catalogTab2',

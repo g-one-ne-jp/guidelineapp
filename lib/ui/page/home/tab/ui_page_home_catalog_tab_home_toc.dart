@@ -81,8 +81,10 @@ class UiPageHomeCatalogTabHomeTOC extends HookConsumerWidget {
                               textColor: Colors.white,
                               fontSize: 16.0);
                         } else {
+                          final currentPath =
+                              AutoRouter.of(context).currentPath;
                           context.router.pushNamed(
-                            '/tabHomeMinor/${minor.minorKey}/false',
+                            '$currentPath/tabHomeMinor/${minor.minorKey}/false',
                           );
                         }
                       });
