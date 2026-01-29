@@ -1,5 +1,6 @@
 // Flutter imports:
 // Project imports:
+import 'package:JCSGuidelines/ui/page/home/tab/tab_wrapper_screen.dart';
 import 'package:JCSGuidelines/ui/page/home/tab/ui_page_home_catalog_tab_bookmark.dart';
 import 'package:JCSGuidelines/ui/page/home/tab/ui_page_home_catalog_tab_home.dart';
 import 'package:JCSGuidelines/ui/page/home/tab/ui_page_home_catalog_tab_home_minor.dart';
@@ -28,6 +29,7 @@ class AppRouter extends RootStackRouter {
   //ルーティングの設定
   @override
   List<AutoRoute> get routes => [
+        // ログイン画面
         AutoRoute(
           initial: true,
           page: UiRouteLogin.page,
@@ -37,23 +39,58 @@ class AppRouter extends RootStackRouter {
           ],
         ), // ログイン済みでなければアクセスできない
 
+        // ガイドラインを選ぶ画面。
         AutoRoute(page: UiRouteSelectGuideline.page, path: '/selectGuideline'),
 
+        // ログイン情報があるかチェックする画面。
         AutoRoute(page: UiRouteHome.page, path: '/home'),
+        // ユーザ登録画面
         AutoRoute(page: UiRouteSingup.page, path: '/singup'),
+        // プロフィール作成画面
         AutoRoute(page: UiRouteProfileCreate.page, path: '/profileCreate'),
+        // メール認証画面
         AutoRoute(
             page: UiRouteEmailVerification.page, path: '/emailVerification'),
+
+        // 編集画面
         AutoRoute(
             page: UiRouteUtilEdit.page, path: '/edit/:minorKey/:viewTypeMemo'),
+
+        // タブがある画面
+        // /catalog で UiRouteHomeCatalog を呼び出し、この内部実装で
+        // タブの並び等を組み立て。
+        // 子要素として各種タブが、どのようなpathかを定義。
+        // 例えば [ホーム] というタブを押したときは /catalog/tabHome というpathで
+        // UiRouteHomeCatalogTabHome が表示される...など。
+/*
+            AutoRoute(
+              path: 'tab1',
+              page: Tab1WrapperRoute.page,
+              children: [
+                AutoRoute(path: '', page: Tab1Route.page),
+                AutoRoute(path: 'sub', page: Tab1SubRoute.page),
+              ],
+
+*/
 
         AutoRoute(
           page: UiRouteHomeCatalog.page,
           path: '/catalog',
           children: [
+            // /catalog/tabHome で空白のTabWrapperScreenを呼び出し...
             AutoRoute(
-              page: UiRouteHomeCatalogTabHome.page,
-              path: 'tabHome',
+              path: 'tabHome', page: TabWrapperRoute.page, children: [
+              // ↑のラッパーの子（サブルート）のカレントがUiRouteHomeCatalogTabHome
+              AutoRoute(
+                  path: '',
+                  page: UiRouteHomeCatalogTabHome.page,
+                  initial: true),
+              // /catalog/tabHome/toc でTOC画面を呼び出し
+              AutoRoute(
+                path: 'toc',
+                page: UiRouteHomeCatalogTabHomeTOC.page,
+              ),
+            ]
             ),
             AutoRoute(
               page: UiRouteHomeCatalogTabSearch.page,

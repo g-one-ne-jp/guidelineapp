@@ -11,6 +11,22 @@
 part of 'app_router.dart';
 
 /// generated route for
+/// [TabWrapperScreen]
+class TabWrapperRoute extends PageRouteInfo<void> {
+  const TabWrapperRoute({List<PageRouteInfo>? children})
+      : super(TabWrapperRoute.name, initialChildren: children);
+
+  static const String name = 'TabWrapperRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const TabWrapperScreen();
+    },
+  );
+}
+
+/// generated route for
 /// [UiPageEmailVerification]
 class UiRouteEmailVerification extends PageRouteInfo<void> {
   const UiRouteEmailVerification({List<PageRouteInfo>? children})

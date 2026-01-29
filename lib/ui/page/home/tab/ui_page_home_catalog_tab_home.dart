@@ -91,8 +91,11 @@ class UiPageHomeCatalogTabHome extends HookConsumerWidget
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () async {
+                  final currentPath = AutoRouter.of(context).currentPath;
+                  // "/catalog/tabHome" + "/toc"
+                  // のpathを組み立てて、タブ内のさぶるーととして画面遷移させる。
                   context.router.pushNamed(
-                    '/toc',
+                    '$currentPath/toc',
                   );
                 },
                 child: Text(
