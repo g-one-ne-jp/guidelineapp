@@ -6,7 +6,7 @@ import 'package:JCSGuidelines/debug/debug_print.dart';
 import 'package:JCSGuidelines/module/firebase/model_firebase_pdf_config.dart';
 import 'package:JCSGuidelines/repotitory/mixin_repository_firestorage.dart';
 // Flutter imports:
-import 'package:easy_pdf_viewer/easy_pdf_viewer.dart';
+//import 'package:easy_pdf_viewer/easy_pdf_viewer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 // Package imports:
@@ -656,33 +656,33 @@ class GridItem extends HookConsumerWidget {
   }
 }
 
-Widget pdfView(String path) {
-  return FutureBuilder(
-    future: PDFDocument.fromFile(File(path)),
-    builder: (context, snapshot) {
-      if (snapshot.connectionState == ConnectionState.done &&
-          snapshot.data != null) {
-        return Stack(
-          children: [
-            PDFViewer(
-              showIndicator: true,
-              showNavigation: true,
-              showPicker: true,
-              enableSwipeNavigation: true,
-              document: snapshot.data!,
-            ),
-            Container(
-              color: Colors.transparent,
-            )
-          ],
-        );
-      }
-      return const Center(
-        child: CircularProgressIndicator(),
-      );
-    },
-  );
-}
+// Widget pdfView(String path) {
+//   return FutureBuilder(
+//     future: PDFDocument.fromFile(File(path)),
+//     builder: (context, snapshot) {
+//       if (snapshot.connectionState == ConnectionState.done &&
+//           snapshot.data != null) {
+//         return Stack(
+//           children: [
+//             PDFViewer(
+//               showIndicator: true,
+//               showNavigation: true,
+//               showPicker: true,
+//               enableSwipeNavigation: true,
+//               document: snapshot.data!,
+//             ),
+//             Container(
+//               color: Colors.transparent,
+//             )
+//           ],
+//         );
+//       }
+//       return const Center(
+//         child: CircularProgressIndicator(),
+//       );
+//     },
+//   );
+// }
 
 Widget pdfViewPdfx(String path) {
   return FutureBuilder<PdfDocument>(
