@@ -179,7 +179,7 @@ class UiPageHomeCatalogTabSearch extends HookConsumerWidget
                         title: Text(result['title'] ?? 'No Path'),
                         onTap: () async {
                           await context.router.pushNamed(
-                            '/tabHomeMinor/${result['key']}/false',
+                            'tabHomeMinor/${result['key']}/false',
                           );
                         },
                       ),

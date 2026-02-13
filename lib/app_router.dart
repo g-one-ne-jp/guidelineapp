@@ -78,7 +78,10 @@ class AppRouter extends RootStackRouter {
           path: '/catalog',
           children: [
             // /catalog/tabHome で空白のTabWrapperScreenを呼び出し...
-            AutoRoute(path: 'tabHome', page: TabWrapperRoute.page, children: [
+            AutoRoute(
+              path: 'tabHome',
+              page: TabWrapperRouteHome.page,
+              children: [
               // ↑のラッパーの子（サブルート）のカレントがUiRouteHomeCatalogTabHome
               AutoRoute(
                   path: '',
@@ -94,15 +97,60 @@ class AppRouter extends RootStackRouter {
                 path: 'toc/tabHomeMinor/:minorKey/:viewTypeMemo',
                 page: UiRouteHomeCatalogTabHomeMinor.page,
               ),
-            ]),
-            AutoRoute(
-              page: UiRouteHomeCatalogTabSearch.page,
-              path: 'catalogTab2',
+              ],
             ),
+
+            // /catalog/catalogTab2 で空白のTabWrapperRouteSearchを呼び出し...
             AutoRoute(
-                page: UiRouteHomeCatalogTabMemo.page, path: 'catalogTab3'),
+              path: 'catalogTab2',
+              page: TabWrapperRouteSearch.page,
+              children: [
+                AutoRoute(
+                  path: '',
+                  page: UiRouteHomeCatalogTabSearch.page,
+                ),
+                AutoRoute(
+                  // ここ(UiRouteHomeCatalogTabSearch内)では
+                  //pushNamed('tabHomeMinor/${result['key']}/false');で
+                  // /tabHomeMinor/${result['key']}/false に飛べる。
+                  path: 'tabHomeMinor/:minorKey/:viewTypeMemo',
+                  page: UiRouteHomeCatalogTabHomeMinor.page,
+                ),
+              ],
+            ),
+
             AutoRoute(
-                page: UiRouteHomeCatalogTabBookmark.page, path: 'catalogTab4'),
+              path: 'catalogTab3',
+              page: TabWrapperRouteMemo.page,
+              children: [
+                AutoRoute(
+                  path: '',
+                  page: UiRouteHomeCatalogTabMemo.page,
+                ),
+                AutoRoute(
+                  path: 'tabHomeMinor/:minorKey/:viewTypeMemo',
+                  page: UiRouteHomeCatalogTabHomeMinor.page,
+                ),
+              ],
+            ),
+
+            AutoRoute(
+              path: 'catalogTab4',
+              page: TabWrapperRouteBookmark.page,
+              children: [
+                AutoRoute(
+                  path: '',
+                  page: UiRouteHomeCatalogTabBookmark.page,
+                ),
+                AutoRoute(
+                  path: 'tabHomeMinor/:minorKey/:viewTypeMemo',
+                  page: UiRouteHomeCatalogTabHomeMinor.page,
+                ),
+              ],
+            ),
+
+            // AutoRoute(
+            //     page: UiRouteHomeCatalogTabBookmark.page, path: 'catalogTab4'),
             AutoRoute(
                 page: UiRouteHomeCatalogTabMypage.page, path: 'catalogTab5'),
           ],

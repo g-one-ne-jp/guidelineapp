@@ -151,7 +151,7 @@ class UiPageHomeCatalogTabMemo extends HookConsumerWidget {
                                 title: Text(item.detailTitle ?? 'No Title'),
                                 onTap: () async {
                                   await context.router.pushNamed(
-                                    '/tabHomeMinor/$key/true',
+                                    'tabHomeMinor/$key/true',
                                   );
                                   fetchMemoItems();
                                 },
