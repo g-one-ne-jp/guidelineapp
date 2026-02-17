@@ -3,6 +3,7 @@
 // Dart imports:
 
 // Package imports:
+import 'package:JCSGuidelines/util/util_googlesingin.dart';
 import 'package:auto_route/auto_route.dart';
 // Flutter imports:
 import 'package:flutter/material.dart';
@@ -203,16 +204,27 @@ class UiPageSelectGuideline extends HookConsumerWidget {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () async {
-                      print('別ガイドライン選択');
                       GuidelineFile.instance.setFullname(EXTEND_FILE_NAME);
-
-//                      context.router.popUntilRoot();
                       context.router.pushNamed('/home');
                     },
                     child: const Text('別ガイドライン'),
                   ),
                 ),
                 //
+                Container(
+                  padding: EdgeInsets.all(10.0.w),
+                  // 横幅いっぱいにする
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () async {
+                      print('ログアウト選択');
+                      // GuidelineFile.instance.setFullname(EXTEND_FILE_NAME);
+                      // context.router.pushNamed('/home');
+                      utilAuthLogout();
+                    },
+                    child: const Text('[DBG]ログアウト'),
+                  ),
+                ),
                 SizedBox(
                   height: 16.0.h,
                 ),
