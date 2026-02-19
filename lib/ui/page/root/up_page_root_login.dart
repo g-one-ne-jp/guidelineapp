@@ -24,8 +24,12 @@ class UiPageLogin extends HookConsumerWidget {
   });
 
   void toHome(BuildContext context) {
-    context.router.popUntilRoot();
-    context.router.replaceNamed('/selectGuideline');
+    if (Navigator.canPop(context)) {
+      Navigator.pop(context);
+    } else {
+      context.router.popUntilRoot();
+      context.router.replaceNamed('/selectGuideline');
+    }
   }
 
   @override
