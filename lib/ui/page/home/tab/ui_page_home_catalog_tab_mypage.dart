@@ -252,7 +252,8 @@ class UiPageHomeCatalogTabMypage extends HookConsumerWidget {
                                 Navigator.of(context).pop(true);
                                 if (await utilAuthLogout()) {
                                   context.router.popUntilRoot();
-                                  context.router.replaceNamed('/login');
+                                  context.router
+                                      .replaceNamed('/selectGuideline');
                                   await Fluttertoast.showToast(
                                     msg: 'ログアウトしました。',
                                   );
