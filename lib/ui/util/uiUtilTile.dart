@@ -5,6 +5,8 @@ import 'dart:io';
 import 'package:JCSGuidelines/debug/debug_print.dart';
 import 'package:JCSGuidelines/module/firebase/model_firebase_pdf_config.dart';
 import 'package:JCSGuidelines/repotitory/mixin_repository_firestorage.dart';
+import 'package:JCSGuidelines/ui/util/uiUtilDialog.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 // Flutter imports:
 //import 'package:easy_pdf_viewer/easy_pdf_viewer.dart';
 import 'package:flutter/cupertino.dart';
@@ -273,6 +275,8 @@ class UiUtilWidgetTile2 extends HookConsumerWidget {
   }
 }
 
+/*
+// pdfグリッドビューに置き換え。
 class UiUtilWidgetTile3 extends HookConsumerWidget with RepositoryFireStorage {
   UiUtilWidgetTile3({
     super.key,
@@ -565,7 +569,7 @@ class UiUtilWidgetTile3 extends HookConsumerWidget with RepositoryFireStorage {
     );
   }
 }
-
+*/
 class UiUtilWidgetExpansionTile extends HookConsumerWidget {
   const UiUtilWidgetExpansionTile({
     super.key,
@@ -985,7 +989,6 @@ class PdfGridView extends HookConsumerWidget with RepositoryFireStorage {
     //         crossAxisCount: 2,
     //         children: [Text("1"), Text("2"), Text("3"), Text("4")]));
             
-
     return Container(
       //color: const Color(0xFFEFEFEF),
 //      color: Colors.blue,
@@ -1015,7 +1018,15 @@ class PdfGridView extends HookConsumerWidget with RepositoryFireStorage {
                   ),
                   IconButton(
                     onPressed: () {
-                      onDeteilEdit(deteil);
+                      if (FirebaseAuth.instance.currentUser == null) {
+                        showLoginDialog(context,
+                            content:
+                                'メモ機能を利用するには会員登録/ログインが必要です。ログイン画面に移動しますか？');
+                        return;
+                      } else {
+                        print("メモ画面へ遷移: ${deteil.detailTitle}");
+                        onDeteilEdit(deteil);
+                      }
                     },
                     icon: const Icon(Icons.edit),
                   ),
@@ -1057,3 +1068,5 @@ class PdfGridView extends HookConsumerWidget with RepositoryFireStorage {
     
   }
 }
+
+
