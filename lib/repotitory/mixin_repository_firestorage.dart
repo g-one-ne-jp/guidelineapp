@@ -2,10 +2,6 @@
 import 'dart:async';
 import 'dart:io';
 
-// Project imports:
-import 'package:JCSGuidelines/util/util_googlesingin.dart';
-// Package imports:
-import 'package:auto_route/auto_route.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 // Flutter imports:
@@ -14,6 +10,12 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:path_provider/path_provider.dart';
 
 mixin RepositoryFireStorage {
+  /// ユーザーのUIDをパスに使用するためのヘルパーメソッド
+  /// ユーザーが認証されていない場合は、'guidelineapp'を返す
+  String getUidPath(User? user) {
+    return user != null ? user.uid.toString() : 'guidelineapp';
+  }
+
   // ファイルをダウンロードする
   Future<bool> isFileUpdate(
       {required String path, required BuildContext context}) async {
@@ -22,8 +24,9 @@ mixin RepositoryFireStorage {
     }
 
     final user = FirebaseAuth.instance.currentUser;
+/*
     if (user == null) {
-      debugPrint('ユーザーが認証されていません');
+      debugPrint('ユーザーが認証されていません(4)');
       Fluttertoast.showToast(msg: 'ログインが必要です');
       try {
         if (await utilAuthLogout()) {
@@ -31,16 +34,18 @@ mixin RepositoryFireStorage {
           context.router.replaceNamed('/login');
         }
       } catch (e) {
-        debugPrint('ユーザーが認証されていません: $e');
+        debugPrint('ユーザーが認証されていません(1): $e');
       }
       return false;
     }
+*/
+    var uidPath = getUidPath(user);
 
     var islandRef = FirebaseStorage.instance.ref().child(path);
     final appDocDir = Platform.isIOS
         ? await getApplicationDocumentsDirectory()
         : await getApplicationDocumentsDirectory();
-    final fileDire = "${appDocDir.path}/${user.uid}/";
+    final fileDire = "${appDocDir.path}/$uidPath/";
     final fileName = path.split('/').last;
     final filePath = "$fileDire$fileName";
     final file = File(filePath);
@@ -71,25 +76,30 @@ mixin RepositoryFireStorage {
     }
 
     final user = FirebaseAuth.instance.currentUser;
-    if (user == null) {
-      debugPrint('ユーザーが認証されていません');
-      Fluttertoast.showToast(msg: 'ログインが必要です');
-      try {
-        if (await utilAuthLogout()) {
-          context.router.popUntilRoot();
-          context.router.replaceNamed('/login');
-        }
-      } catch (e) {
-        debugPrint('ユーザーが認証されていません: $e');
-      }
-      return null;
-    }
+    // if (user == null) {
+    //   debugPrint('ユーザーが認証されていません');
+    //   Fluttertoast.showToast(msg: 'ログインが必要です');
+    //   try {
+    //     if (await utilAuthLogout()) {
+    //       context.router.popUntilRoot();
+    //       context.router.replaceNamed('/login');
+    //     }
+    //   } catch (e) {
+    //     debugPrint('ユーザーが認証されていません: $e');
+    //   }
+    //   return null;
+    // }
+
+    // ログイン必須から外した。
+    // ログインしていないときは、ローカルディレクトリのguidelineappディレクトリに保存する。
+    // ログインしているときは、firebaseのuid/ディレクトリに保存する。
+    var uidPath = getUidPath(user);
 
     var islandRef = FirebaseStorage.instance.ref().child(path);
     final appDocDir = Platform.isIOS
         ? await getApplicationDocumentsDirectory()
         : await getApplicationDocumentsDirectory();
-    final fileDire = "${appDocDir.path}/${user.uid}/";
+    final fileDire = "${appDocDir.path}/$uidPath/";
     final fileName = path.split('/').last;
     final filePath = "$fileDire$fileName";
     final file = File(filePath);

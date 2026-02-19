@@ -44,6 +44,10 @@ class UiPageHome extends HookConsumerWidget {
           _tos.value =
               await _userNotifer.readTocsJson(name, context: context);
           await Future.delayed(const Duration(seconds: 1));
+
+          // このwriteTocは、どこかに書き込むのではなく、_tocNotiferのstateに値を入れるだけのもの。
+          // 設計として様子がおかしいが、こうすることで、/catalogに遷移したときに
+          // tocProviderをwatchしたときに、すでに値が入っている状態にしたいのではないかと考えられる。
           var value = _tos.value.categories.values.toList()[0];
           //選択した目次のIDを保持
           _tocNotifer.writeToc(data: value);

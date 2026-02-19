@@ -23,6 +23,8 @@ class UiPageHomeCatalogTabHome extends HookConsumerWidget
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    print(
+        "-------------------------------------------HOMEカタログタブ-------------------------------------------");
     final _userProvider = ref.watch(userProvider);
     final _userNotifer = ref.watch(userProvider.notifier);
 

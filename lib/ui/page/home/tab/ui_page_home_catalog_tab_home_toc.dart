@@ -18,7 +18,10 @@ class UiPageHomeCatalogTabHomeTOC extends HookConsumerWidget {
   });
 
   @override
+  /// 一番最初のガイドラインの目次画面
   Widget build(BuildContext context, WidgetRef ref) {
+    print(
+        "-------------------------------------------HOME TOC-------------------------------");
     final _userProvider = ref.watch(userProvider);
     final _userNotifer = ref.watch(userProvider.notifier);
 

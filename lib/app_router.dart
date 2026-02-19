@@ -31,16 +31,19 @@ class AppRouter extends RootStackRouter {
   List<AutoRoute> get routes => [
         // ログイン画面
         AutoRoute(
-          initial: true,
+//          initial: true,
           page: UiRouteLogin.page,
           path: '/login',
-          guards: [
-            AuthGuard(),
-          ],
+          // guards: [
+          //   AuthGuard(),
+          // ],
         ), // ログイン済みでなければアクセスできない
 
         // ガイドラインを選ぶ画面。
-        AutoRoute(page: UiRouteSelectGuideline.page, path: '/selectGuideline'),
+        AutoRoute(
+            initial: true,
+            page: UiRouteSelectGuideline.page,
+            path: '/selectGuideline'),
 
         // ログイン情報があるかチェックする画面。
         AutoRoute(page: UiRouteHome.page, path: '/home'),

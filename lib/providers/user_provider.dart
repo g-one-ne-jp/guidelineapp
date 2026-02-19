@@ -26,7 +26,7 @@ class ProviderUser extends StateNotifier<ModelFirebaseUser>
     _initializeUserData();
   }
 
-  var user = FirebaseAuth.instance.currentUser!; // 認証済みユーザーを取得
+  var user = FirebaseAuth.instance.currentUser; // 認証済みユーザーを取得
   final firestore = FirebaseFirestore.instance;
   var userData = ModelFirebaseUser();
   var selectedData = ModelFirebaseUser();
@@ -42,8 +42,14 @@ class ProviderUser extends StateNotifier<ModelFirebaseUser>
   Future<bool> writeUser({
     required Map<String, dynamic> data,
   }) async {
+    if (user == null) {
+      debugPrint('ユーザーが認証されていません(3)。');
+      return false;
+    }
+
+    // naito: TODO ログインしてないとダメ
     try {
-      await firestore.collection('users').doc(user.uid).set(data);
+      await firestore.collection('users').doc(user!.uid).set(data);
       return true;
     } catch (e) {
       debugPrint('Firestoreへの書き込みエラー: $e');
@@ -54,10 +60,14 @@ class ProviderUser extends StateNotifier<ModelFirebaseUser>
   Future<T> readUser<T extends Object>({
     required T Function(Map<String, dynamic> json) fromJson,
   }) async {
-    try {
-      user = FirebaseAuth.instance.currentUser!;
+    if (user == null) {
+      debugPrint('ユーザーが認証されていません。(2)');
+      return fromJson({}); // ユーザーが認証されていない場合は空のデータを返す
+    }
 
-      final doc = await firestore.collection('users').doc(user.uid).get();
+    // naito: TODO ログインしてないとダメ
+    try {
+      final doc = await firestore.collection('users').doc(user!.uid).get();
       if (doc.exists) {
         final data = doc.data() as Map<String, dynamic>;
         return fromJson(data);
