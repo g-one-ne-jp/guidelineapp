@@ -221,8 +221,8 @@ class UiPageLogin extends HookConsumerWidget {
                             .then((onValue) async {
                           if (onValue.isNotEmpty) {
                             if (onValue == 'newUser') {
-                              context.router.popUntilRoot();
-                              context.router.replaceNamed('/profileCreate');
+                              Navigator.pop(context);
+                              context.router.pushNamed('/profileCreate');
                             } else {
                               toastification.show(
                                 context: context,
@@ -262,8 +262,8 @@ class UiPageLogin extends HookConsumerWidget {
                               .then((onValue) async {
                             if (onValue.isNotEmpty) {
                               if (onValue == 'newUser') {
-                                context.router.popUntilRoot();
-                                context.router.replaceNamed('/profileCreate');
+                                Navigator.pop(context);
+                                context.router.pushNamed('/profileCreate');
                               } else {
                                 toastification.show(
                                   context: context,

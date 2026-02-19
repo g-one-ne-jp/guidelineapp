@@ -139,8 +139,7 @@ class UiPageProfileCreate extends HookConsumerWidget {
                                 number: _number.value,
                                 ismailmagazine: _isMailMagazine.value,
                               )) {
-                                context.router.popUntilRoot();
-                                context.router.replaceNamed('/home');
+                                Navigator.pop(context);
                               }
                             }
                           : null,
