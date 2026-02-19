@@ -624,6 +624,7 @@ class UiUtilWidgetExpansionTile extends HookConsumerWidget {
 }
 
 
+/// pdf一覧画面ののグリッドのうち、pdfの内容を指す文言の文字の部分の部品。
 class GridItem extends HookConsumerWidget {
   const GridItem({
     super.key,
@@ -651,9 +652,11 @@ class GridItem extends HookConsumerWidget {
         ...children,
         Text(
           titile,
+          maxLines: 2,
           style: const TextStyle(
-            color: Colors.red,
+              //           color: Colors.red,
           ),
+          overflow: TextOverflow.ellipsis,
         ),
       ],
     ));
@@ -805,8 +808,11 @@ class PdfGridView extends HookConsumerWidget with RepositoryFireStorage {
 
         _settions.value = List.from(_settions.value)
           ..add(
+            // グリッドの 1マス分の部品
             GridItem(
-              titile: element.value.settionTitle,
+              // pdfの内容の説明の文言
+              titile: element.value.settionTitle, 
+              // pdfのサムネイルなどの部分
               children: [
                 ConstrainedBox(
                   constraints: BoxConstraints(
@@ -883,6 +889,8 @@ class PdfGridView extends HookConsumerWidget with RepositoryFireStorage {
                                           builder: (context, isUpdate) {
                                             return GestureDetector(
                                               onTap: () {
+                                                print(
+                                                    "*****************************************pdf tap: ${snapshot.data!.path}");
                                                 onPdfTap(snapshot.data!.path);
                                               },
                                               child: Stack(children: [

@@ -111,6 +111,7 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
                 ? PdfGridView(
                     deteil: value,
                     onPdfTap: (String path) {
+                      // PDFViewerでPDFを表示する
                       showViewer(document: path);
                     },
                     onDeteilEdit: (deteil) {
