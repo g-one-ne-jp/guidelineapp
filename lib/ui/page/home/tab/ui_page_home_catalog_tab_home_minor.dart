@@ -7,9 +7,11 @@ import 'package:JCSGuidelines/module/firebase/model_firebase_pdf_config.dart';
 import 'package:JCSGuidelines/providers/toc_provider.dart';
 import 'package:JCSGuidelines/providers/user_provider.dart';
 import 'package:JCSGuidelines/repotitory/mixin_repository_firestorage.dart';
+import 'package:JCSGuidelines/ui/util/uiUtilDialog.dart';
 import 'package:JCSGuidelines/ui/util/uiUtilTile.dart';
 // Package imports:
 import 'package:auto_route/auto_route.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 // Flutter imports:
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -84,9 +86,14 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
                 ? Icons.bookmark_outline
                 : Icons.bookmark),
             onPressed: () {
-              _userNotifer.updateBookmark(
-                  key: minorKey,
-                  isBookmark: !_userNotifer.getBookmarkState(key: minorKey));
+              if (FirebaseAuth.instance.currentUser == null) {
+                showLoginDialog(context,
+                    content: 'ブックマーク機能を利用するには会員登録/ログインが必要です。ログイン画面に移動しますか？');
+              } else {
+                _userNotifer.updateBookmark(
+                    key: minorKey,
+                    isBookmark: !_userNotifer.getBookmarkState(key: minorKey));
+              }
             },
           ),
         ],
