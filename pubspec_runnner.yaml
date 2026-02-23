@@ -5,7 +5,7 @@ environment:
   sdk: '>=3.3.1 <4.0.0'
 description: 'JCS Guidelines（循環器病ガイドライン）'
 dependencies:
-  auto_route: ^9.3.0+1
+  auto_route: ^10.0.0
   cloud_firestore: '^5.4.2'
   cupertino_icons: '^1.0.6'
   dio: '^5.4.0'
@@ -58,12 +58,11 @@ dependencies:
   hive_flutter: ^1.1.0
   pdfx: ^2.9.2
 dev_dependencies:
-  analyzer: 7.3.0
-  auto_route_generator: 9.3.1
-  build_runner: ^2.4.15
+  auto_route_generator: ^10.0.0
+  build_runner: ^2.4.0
   custom_lint_builder: ^0.7.0
   flutter_gen_runner: '^5.6.0'
-  flutter_lints: ^5.0.0
+  flutter_lints: ^6.0.0
   flutter_test:
     sdk: flutter
   meta: '^1.12.0'
@@ -96,3 +95,6 @@ flutter_launcher_icons:
   min_sdk_android: 21
   adaptive_icon_background: "#FFFFFF"  # 背景色を白に
   remove_alpha_ios: true
+
+dependency_overrides:
+  analyzer_plugin: 0.13.4

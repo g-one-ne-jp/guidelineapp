@@ -9,7 +9,6 @@
 // ignore_for_file: type=lint
 // ignore_for_file: deprecated_member_use,directives_ordering,implicit_dynamic_list_literal,unnecessary_import
 
-// Flutter imports:
 import 'package:flutter/widgets.dart';
 
 class $AssetsIconGen {
@@ -28,8 +27,11 @@ class $AssetsJsonGen {
   /// File path: assets/json/gidline.json
   String get gidline => 'assets/json/gidline.json';
 
+  /// File path: assets/json/gidline_2026.json
+  String get gidline2026 => 'assets/json/gidline_2026.json';
+
   /// List of all assets
-  List<String> get values => [gidline];
+  List<String> get values => [gidline, gidline2026];
 }
 
 class $AssetsTxtGen {
