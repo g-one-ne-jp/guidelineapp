@@ -1,31 +1,32 @@
 // Dart imports:
 import 'dart:async';
 
+// Project imports:
+import 'package:JCSGuidelines/app_router.dart';
+import 'package:JCSGuidelines/debug/debug_print.dart';
+import 'package:JCSGuidelines/firebase_options.dart';
+// Package imports:
+import 'package:firebase_app_check/firebase_app_check.dart';
+import 'package:firebase_core/firebase_core.dart';
 // Flutter imports:
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-// Package imports:
-import 'package:firebase_app_check/firebase_app_check.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_quill/flutter_quill.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
-// Project imports:
-import 'package:JCSGuidelines/app_router.dart';
-import 'package:JCSGuidelines/debug/debug_print.dart';
-import 'package:JCSGuidelines/firebase_options.dart';
-import 'package:JCSGuidelines/theme.dart';
+import 'package:pdfrx/pdfrx.dart';
 
 void main() async {
   // runZonedGuardedで全体を新しいエラーゾーンを定義
   await runZonedGuarded(() async {
     // ensureInitialized()を呼んでおきます。
     WidgetsFlutterBinding.ensureInitialized();
+
+    // pdfrxの初期化を追加 (Flutterアプリでは pdfrxFlutterInitialize を使用)
+    pdfrxFlutterInitialize();
 
     // Firebaseアプリを初期化します
     await Firebase.initializeApp(

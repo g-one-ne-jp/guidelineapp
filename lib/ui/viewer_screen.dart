@@ -1,22 +1,12 @@
 import 'dart:io';
-import 'dart:ui' as ui;
 
 import 'package:auto_route/auto_route.dart';
-import 'package:easy_pdf_viewer/easy_pdf_viewer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:pdfrx/pdfrx.dart';
 
 import '../providers/viewer_provider.dart';
-
-// 型安全のためのデータモデル
-class PDFPageData {
-  final PDFPage page;
-  final double width;
-  final double height;
-
-  PDFPageData({required this.page, required this.width, required this.height});
-}
 
 @RoutePage()
 class ViewerScreen extends HookConsumerWidget {
@@ -28,65 +18,41 @@ class ViewerScreen extends HookConsumerWidget {
 
   final String pdfPath;
   final File pdfFile;
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    print("ViewerScreen opened with path: $pdfPath");
+    print("ViewerScreen opened with InteractiveViewer + pdfrx, path: $pdfPath");
     final viewerState = ref.watch(viewerProvider);
     final transformationController =
         useMemoized(() => TransformationController());
 
-    // 1. PDFドキュメント自体の読み込み（ローカルファイルから）
+    // 1. PDFドキュメントの読み込み（pdfrxを使用）
     final pdfFuture = useMemoized(
-      () {
-        // タイプセーフなルーティングに切り替えたため、パスをそのまま使用可能
-//        print("Loading PDF from path: $pdfPath");
-        var file = File(pdfPath);
-        // if (file.existsSync()) {
-        //   print(
-        //       "PDF file exists at path: $pdfPath, size: ${file.lengthSync()} bytes");
-        // } else {
-        //   print("PDF file does NOT exist at path: $pdfPath");
-        // }
-        return PDFDocument.fromFile(file);
-      },
+      () => PdfDocument.openFile(pdfPath),
       [pdfPath],
     );
     final pdfSnapshot = useFuture(pdfFuture);
 
-    // 2. 1ページ目の読み込みと寸法の取得
-    final pageDataFuture = useMemoized<Future<PDFPageData?>>(() async {
-      final document = pdfSnapshot.data;
-      if (document == null) return null;
-
-      // ページオブジェクトを取得
-      final page = await document.get(page: 1);
-
-      // 生成された画像ファイルから実際の寸法を取得
-      final bytes = await File(page.imgPath!).readAsBytes();
-      final codec = await ui.instantiateImageCodec(bytes);
-      final frame = await codec.getNextFrame();
-
-      return PDFPageData(
-        page: page,
-        width: frame.image.width.toDouble() / 2,
-        height: frame.image.height.toDouble() / 2,
-      );
+    // 2. 1ページ目のページ情報を取得 (pdfrx v2.x 以降は doc.pages[index] で取得)
+    final page = useMemoized<PdfPage?>(() {
+      final doc = pdfSnapshot.data;
+      if (doc == null || doc.pages.isEmpty) return null;
+      return doc.pages[0];
     }, [pdfSnapshot.data]);
-    final pageDataSnapshot = useFuture(pageDataFuture);
 
     // PDFの寸法が確定したらプロバイダーに通知
     useEffect(() {
-      final data = pageDataSnapshot.data;
-      if (data != null) {
+      if (page != null) {
         Future.microtask(() {
           ref.read(viewerProvider.notifier).updateContentSize(
-                Size(data.width, data.height),
+                Size(page.width, page.height),
               );
         });
       }
       return null;
-    }, [pageDataSnapshot.data]);
+    }, [page]);
 
+    // Matrix変更の監視
     useEffect(() {
       void onTransformationChanged() {
         ref
@@ -101,61 +67,51 @@ class ViewerScreen extends HookConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('PDFビューワー'),
+        title: const Text('PDFビューワー (IV + pdfrx)'),
       ),
       body: Stack(
         children: [
           Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: LayoutBuilder(builder: (context, constraints) {
-                      // 画面サイズ（ビューポート）をプロバイダーに通知
-                      WidgetsBinding.instance.addPostFrameCallback((_) {
-                        ref
-                            .read(viewerProvider.notifier)
-                            .updateViewportSize(constraints.biggest);
-                      });
+            child: LayoutBuilder(builder: (context, constraints) {
+              // 画面サイズ（ビューポート）をプロバイダーに通知
+              WidgetsBinding.instance.addPostFrameCallback((_) {
+                ref
+                    .read(viewerProvider.notifier)
+                    .updateViewportSize(constraints.biggest);
+              });
 
-                      if (pdfSnapshot.hasError || pageDataSnapshot.hasError) {
-                        return const Center(child: Text('PDFの読み込みに失敗しました'));
-                      }
+              if (pdfSnapshot.hasError) {
+                return const Center(child: Text('PDFの読み込みに失敗しました'));
+              }
 
-                      final pageData = pageDataSnapshot.data;
-                      if (pageData == null) {
-                        return const Center(child: CircularProgressIndicator());
-                      }
+              final doc = pdfSnapshot.data;
+              if (doc == null || page == null) {
+                return const Center(child: CircularProgressIndicator());
+              }
 
-                      return Container(
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.red, width: 1),
-                        ),
-                        child: InteractiveViewer(
-                          transformationController: transformationController,
-                          boundaryMargin: const EdgeInsets.all(
-                              double.infinity), // 画面外までの移動・縮小を許可
-                          constrained: false,
-                          minScale: 0.01, // さらに小さく縮小できるように変更
-                          maxScale: 5.0,
-                          child: SizedBox(
-                            width: viewerState.contentSize.width,
-                            height: viewerState.contentSize.height,
-                            // PDFのページを画像として表示
-                            child: Image.file(
-                              File(pageData.page.imgPath!),
-                              fit: BoxFit.contain,
-                            ),
-                          ),
-                        ),
-                      );
-                    }),
+              return Container(
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.red, width: 1),
+                ),
+                child: InteractiveViewer(
+                  transformationController: transformationController,
+                  boundaryMargin: const EdgeInsets.all(double.infinity),
+                  constrained: false,
+                  minScale: 0.01,
+                  maxScale: 10.0,
+                  child: SizedBox(
+                    width: page.width,
+                    height: page.height,
+                    // pdfrxのPdfPageViewを使用して1ページのみを描画
+                    // pageNumber は 1-indexed
+                    child: PdfPageView(
+                      document: doc,
+                      pageNumber: 1,
+                    ),
                   ),
                 ),
-              ],
-            ),
+              );
+            }),
           ),
           Positioned(
             top: 10,
@@ -168,7 +124,7 @@ class ViewerScreen extends HookConsumerWidget {
             child: _ThumbnailNavigator(
               viewerState: viewerState,
               transformationController: transformationController,
-              pdfPage: pageDataSnapshot.data?.page,
+              pdfDocument: pdfSnapshot.data,
             ),
           ),
         ],
@@ -220,12 +176,12 @@ class _ThumbnailNavigator extends StatelessWidget {
   const _ThumbnailNavigator({
     required this.viewerState,
     required this.transformationController,
-    this.pdfPage,
+    this.pdfDocument,
   });
 
   final ViewerState viewerState;
   final TransformationController transformationController;
-  final PDFPage? pdfPage;
+  final PdfDocument? pdfDocument;
 
   void _handleDrag(Offset localPosition, double thumbW, double thumbH) {
     final double scale = viewerState.scale;
@@ -271,7 +227,7 @@ class _ThumbnailNavigator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (viewerState.viewportSize == Size.zero || pdfPage == null) {
+    if (viewerState.viewportSize == Size.zero || pdfDocument == null) {
       return const SizedBox.shrink();
     }
 
@@ -287,8 +243,6 @@ class _ThumbnailNavigator extends StatelessWidget {
       thumbH = thumbMaxSide;
       thumbW = thumbMaxSide * aspectRatio;
     }
-
-    // --- 簡略化した計算ロジック ---
 
     // 画像全体の拡大後のサイズ
     final double contentScaledW =
@@ -328,11 +282,10 @@ class _ThumbnailNavigator extends StatelessWidget {
         ),
         child: Stack(
           children: [
-            Image.file(
-              File(pdfPage!.imgPath!),
-              width: thumbW,
-              height: thumbH,
-              fit: BoxFit.cover,
+            // pdfrxのPdfPageViewを使用してサムネイル画像を表示
+            PdfPageView(
+              document: pdfDocument!,
+              pageNumber: 1,
             ),
             Positioned(
               left: rectX,
