@@ -32,8 +32,6 @@ class AppRouter extends RootStackRouter {
   //ルーティングの設定
   @override
   List<AutoRoute> get routes => [
-        AutoRoute(path: '/viewer', page: ViewerRoute.page),
-
         // ログイン画面
         AutoRoute(
 //          initial: true,
@@ -105,6 +103,8 @@ class AppRouter extends RootStackRouter {
                 path: 'toc/tabHomeMinor/:minorKey/:viewTypeMemo',
                 page: UiRouteHomeCatalogTabHomeMinor.page,
               ),
+                // タブ内で表示するためのViewerRoute
+                AutoRoute(path: 'viewer', page: ViewerRoute.page),
               ],
             ),
 
@@ -124,6 +124,8 @@ class AppRouter extends RootStackRouter {
                   path: 'tabHomeMinor/:minorKey/:viewTypeMemo',
                   page: UiRouteHomeCatalogTabHomeMinor.page,
                 ),
+                // タブ内で表示するためのViewerRoute
+                AutoRoute(path: 'viewer', page: ViewerRoute.page),
               ],
             ),
 
@@ -139,6 +141,8 @@ class AppRouter extends RootStackRouter {
                   path: 'tabHomeMinor/:minorKey/:viewTypeMemo',
                   page: UiRouteHomeCatalogTabHomeMinor.page,
                 ),
+                // タブ内で表示するためのViewerRoute
+                AutoRoute(path: 'viewer', page: ViewerRoute.page),
               ],
             ),
 
@@ -154,6 +158,8 @@ class AppRouter extends RootStackRouter {
                   path: 'tabHomeMinor/:minorKey/:viewTypeMemo',
                   page: UiRouteHomeCatalogTabHomeMinor.page,
                 ),
+                // タブ内で表示するためのViewerRoute
+                AutoRoute(path: 'viewer', page: ViewerRoute.page),
               ],
             ),
 
