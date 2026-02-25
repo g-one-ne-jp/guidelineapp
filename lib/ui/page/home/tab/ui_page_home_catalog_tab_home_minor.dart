@@ -58,6 +58,8 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
 //      return () => customDebugPrint('dispose!');
     }, []);
 
+
+    // ここでエディター開いている。
     void showViewer({required String document}) async {
       //ビューワーのカスタムコンフィグ
       var config = Config();
@@ -111,10 +113,18 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
                 ? PdfGridView(
                     deteil: value,
                     onPdfTap: (String path) {
+                      // ここはpdfを選択肢エディタを開く。
+                      print("---------------PDF tapped: $path");
                       // PDFViewerでPDFを表示する
-                      showViewer(document: path);
+                      // showViewer(document: path);
+
+                      context.router.pushNamed('/viewer/$path');
+
+
                     },
                     onDeteilEdit: (deteil) {
+                      // ここはメモアイコンが押された時。
+                      print("---------------Edit tapped: ${deteil.detailKey}");
                       _panelKey.value = deteil.detailKey;
                       context.router
                           .pushNamed('/edit/${deteil.detailKey}/false');
