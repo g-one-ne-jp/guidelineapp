@@ -5,11 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pdfrx/pdfrx.dart';
+import 'package:pdftron_flutter/pdftron_flutter.dart';
 
 import '../providers/viewer_provider.dart';
+import '../repotitory/mixin_repository_firestorage.dart';
 
 @RoutePage()
-class ViewerScreen extends HookConsumerWidget {
+class ViewerScreen extends HookConsumerWidget with RepositoryFireStorage {
   const ViewerScreen({
     super.key,
     required this.pdfPath,
@@ -26,10 +28,13 @@ class ViewerScreen extends HookConsumerWidget {
     final transformationController =
         useMemoized(() => TransformationController());
 
+    // 再読み込みをトリガーするためのカウンター
+    final reloadCounter = useState(0);
+
     // 1. PDFドキュメントの読み込み（pdfrxを使用）
     final pdfFuture = useMemoized(
       () => PdfDocument.openFile(pdfPath),
-      [pdfPath],
+      [pdfPath, reloadCounter.value], // カウンターが変わると再読み込み
     );
     final pdfSnapshot = useFuture(pdfFuture);
 
@@ -65,9 +70,24 @@ class ViewerScreen extends HookConsumerWidget {
           transformationController.removeListener(onTransformationChanged);
     }, [transformationController]);
 
+    // 編集画面（Pdftron）を開く処理
+    void startEditing() async {
+      var config = Config();
+      PdftronFlutter.openDocument(pdfPath, config: config);
+      startLeadingNavButtonPressedListener(() async {
+        var savedTempPath = await PdftronFlutter.saveDocument();
+        if (savedTempPath != null) {
+          // Firebase Storageへアップロード
+          await uploadData(path: savedTempPath, file: File(savedTempPath));
+          // 再読み込みをトリガー
+          reloadCounter.value++;
+        }
+      });
+    }
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('PDFビューワー (IV + pdfrx)'),
+        title: const Text('独自ビューワー'),
       ),
       body: Stack(
         children: [
@@ -112,6 +132,20 @@ class ViewerScreen extends HookConsumerWidget {
                 ),
               );
             }),
+          ),
+          // 編集ボタンを右上に配置
+          Positioned(
+            top: 20,
+            right: 20,
+            child: ElevatedButton.icon(
+              onPressed: startEditing,
+              icon: const Icon(Icons.edit),
+              label: const Text('編集'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.white.withOpacity(0.8),
+                foregroundColor: Colors.black,
+              ),
+            ),
           ),
           Positioned(
             top: 10,
