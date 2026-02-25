@@ -20,10 +20,16 @@ class PDFPageData {
 
 @RoutePage()
 class ViewerScreen extends HookConsumerWidget {
-  const ViewerScreen({super.key});
+  const ViewerScreen({
+    super.key,
+    @PathParam('pdfPath') required this.pdfPath,
+  });
 
+  final String pdfPath;
+  @override
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    print("ViewerScreen opened with path: $pdfPath");
     final viewerState = ref.watch(viewerProvider);
     final transformationController =
         useMemoized(() => TransformationController());
@@ -56,6 +62,19 @@ class ViewerScreen extends HookConsumerWidget {
     }, [pdfSnapshot.data]);
     final pageDataSnapshot = useFuture(pageDataFuture);
 
+    // PDFの寸法が確定したらプロバイダーに通知
+    useEffect(() {
+      final data = pageDataSnapshot.data;
+      if (data != null) {
+        Future.microtask(() {
+          ref.read(viewerProvider.notifier).updateContentSize(
+                Size(data.width, data.height),
+              );
+        });
+      }
+      return null;
+    }, [pageDataSnapshot.data]);
+
     useEffect(() {
       void onTransformationChanged() {
         ref
@@ -82,7 +101,7 @@ class ViewerScreen extends HookConsumerWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: LayoutBuilder(builder: (context, constraints) {
-                      // 画面サイズをプロバイダーに通知
+                      // 画面サイズ（ビューポート）をプロバイダーに通知
                       WidgetsBinding.instance.addPostFrameCallback((_) {
                         ref
                             .read(viewerProvider.notifier)
@@ -97,13 +116,6 @@ class ViewerScreen extends HookConsumerWidget {
                       if (pageData == null) {
                         return const Center(child: CircularProgressIndicator());
                       }
-
-                      // PDFの寸法をプロバイダーに通知
-                      WidgetsBinding.instance.addPostFrameCallback((_) {
-                        ref.read(viewerProvider.notifier).updateContentSize(
-                              Size(pageData.width, pageData.height),
-                            );
-                      });
 
                       return Container(
                         decoration: BoxDecoration(

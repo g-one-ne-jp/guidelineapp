@@ -30,7 +30,7 @@ class AppRouter extends RootStackRouter {
   //ルーティングの設定
   @override
   List<AutoRoute> get routes => [
-        AutoRoute(path: '/viewer', page: ViewerRoute.page),
+        AutoRoute(path: '/viewer/:pdfPath', page: ViewerRoute.page),
 
         // ログイン画面
         AutoRoute(

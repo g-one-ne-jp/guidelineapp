@@ -1,5 +1,5 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class ViewerState {
   final double scale;
@@ -40,18 +40,30 @@ class ViewerNotifier extends AutoDisposeNotifier<ViewerState> {
   }
 
   void updateFromMatrix(Matrix4 matrix) {
+    final newScale = matrix.storage[0];
+    final newX = matrix.storage[12];
+    final newY = matrix.storage[13];
+
+    if (state.scale == newScale &&
+        state.xOffset == newX &&
+        state.yOffset == newY) {
+      return;
+    }
+
     state = state.copyWith(
-      scale: matrix.storage[0],
-      xOffset: matrix.storage[12],
-      yOffset: matrix.storage[13],
+      scale: newScale,
+      xOffset: newX,
+      yOffset: newY,
     );
   }
 
   void updateViewportSize(Size size) {
+    if (state.viewportSize == size) return;
     state = state.copyWith(viewportSize: size);
   }
 
   void updateContentSize(Size size) {
+    if (state.contentSize == size) return;
     state = state.copyWith(contentSize: size);
   }
 }

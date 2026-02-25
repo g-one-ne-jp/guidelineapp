@@ -217,7 +217,7 @@ class UiPageSelectGuideline extends HookConsumerWidget {
                     onPressed: () async {
 //                      print('ログアウト選択');
                       // GuidelineFile.instance.setFullname(EXTEND_FILE_NAME);
-                      context.router.pushNamed('/viewer');
+                      context.router.pushNamed('/viewer/abcdefg');
 //                      utilAuthLogout();
                     },
                     child: const Text('ビューワー'),

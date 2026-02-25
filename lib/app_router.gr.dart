@@ -422,16 +422,41 @@ class UiRouteUtilEditArgs {
 
 /// generated route for
 /// [ViewerScreen]
-class ViewerRoute extends PageRouteInfo<void> {
-  const ViewerRoute({List<PageRouteInfo>? children})
-    : super(ViewerRoute.name, initialChildren: children);
+class ViewerRoute extends PageRouteInfo<ViewerRouteArgs> {
+  ViewerRoute({
+    Key? key,
+    required String pdfPath,
+    List<PageRouteInfo>? children,
+  }) : super(
+         ViewerRoute.name,
+         args: ViewerRouteArgs(key: key, pdfPath: pdfPath),
+         rawPathParams: {'pdfPath': pdfPath},
+         initialChildren: children,
+       );
 
   static const String name = 'ViewerRoute';
 
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return const ViewerScreen();
+      final pathParams = data.inheritedPathParams;
+      final args = data.argsAs<ViewerRouteArgs>(
+        orElse: () => ViewerRouteArgs(pdfPath: pathParams.getString('pdfPath')),
+      );
+      return ViewerScreen(key: args.key, pdfPath: args.pdfPath);
     },
   );
+}
+
+class ViewerRouteArgs {
+  const ViewerRouteArgs({this.key, required this.pdfPath});
+
+  final Key? key;
+
+  final String pdfPath;
+
+  @override
+  String toString() {
+    return 'ViewerRouteArgs{key: $key, pdfPath: $pdfPath}';
+  }
 }
