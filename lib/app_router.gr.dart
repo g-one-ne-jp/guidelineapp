@@ -419,3 +419,19 @@ class UiRouteUtilEditArgs {
     return 'UiRouteUtilEditArgs{key: $key, minorKey: $minorKey, viewTypeMemo: $viewTypeMemo}';
   }
 }
+
+/// generated route for
+/// [ViewerScreen]
+class ViewerRoute extends PageRouteInfo<void> {
+  const ViewerRoute({List<PageRouteInfo>? children})
+    : super(ViewerRoute.name, initialChildren: children);
+
+  static const String name = 'ViewerRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const ViewerScreen();
+    },
+  );
+}

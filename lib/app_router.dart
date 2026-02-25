@@ -16,6 +16,7 @@ import 'package:JCSGuidelines/ui/page/root/up_page_root_profile.dart';
 import 'package:JCSGuidelines/ui/page/root/up_page_root_select_guideline.dart';
 import 'package:JCSGuidelines/ui/page/root/up_page_root_signup.dart';
 import 'package:JCSGuidelines/ui/util/uiUtilEdit.dart';
+import 'package:JCSGuidelines/ui/viewer_screen.dart';
 import 'package:JCSGuidelines/util/util_googlesingin.dart';
 // Package imports:
 import 'package:auto_route/auto_route.dart';
@@ -29,6 +30,8 @@ class AppRouter extends RootStackRouter {
   //ルーティングの設定
   @override
   List<AutoRoute> get routes => [
+        AutoRoute(path: '/viewer', page: ViewerRoute.page),
+
         // ログイン画面
         AutoRoute(
 //          initial: true,
