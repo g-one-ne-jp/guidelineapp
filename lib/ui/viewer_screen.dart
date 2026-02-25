@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:JCSGuidelines/app_router.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -28,13 +29,18 @@ class ViewerScreen extends HookConsumerWidget with RepositoryFireStorage {
     final transformationController =
         useMemoized(() => TransformationController());
 
+    // ウィジェットが生存しているかを確認するためのフック
+    final isMounted = useIsMounted();
     // 再読み込みをトリガーするためのカウンター
     final reloadCounter = useState(0);
 
     // 1. PDFドキュメントの読み込み（pdfrxを使用）
     final pdfFuture = useMemoized(
-      () => PdfDocument.openFile(pdfPath),
-      [pdfPath, reloadCounter.value], // カウンターが変わると再読み込み
+      () {
+        print("独自ビューワー reload: ${reloadCounter.value}");
+        return PdfDocument.openFile(pdfPath);
+      },
+      [reloadCounter.value], // カウンターが変わると再読み込みを実行
     );
     final pdfSnapshot = useFuture(pdfFuture);
 
@@ -78,9 +84,17 @@ class ViewerScreen extends HookConsumerWidget with RepositoryFireStorage {
         var savedTempPath = await PdftronFlutter.saveDocument();
         if (savedTempPath != null) {
           // Firebase Storageへアップロード
-          await uploadData(path: savedTempPath, file: File(savedTempPath));
-          // 再読み込みをトリガー
-          reloadCounter.value++;
+          uploadData(path: savedTempPath, file: File(savedTempPath));
+
+          if (isMounted()) {
+            // 一旦画面を閉じて、新しいパス（編集結果）で自分自身を開き直す
+            // これによりウィジェットの状態やキャッシュが完全にクリアされる
+            Navigator.of(context).pop();
+            context.router.push(ViewerRoute(
+              pdfPath: savedTempPath,
+              pdfFile: File(savedTempPath),
+            ));
+          }
         }
       });
     }
@@ -114,6 +128,8 @@ class ViewerScreen extends HookConsumerWidget with RepositoryFireStorage {
                   border: Border.all(color: Colors.red, width: 1),
                 ),
                 child: InteractiveViewer(
+                  // reloadCounterが変わった時だけウィジェットを作り直す（操作中のリビルドでは維持される）
+                  key: ValueKey(reloadCounter.value),
                   transformationController: transformationController,
                   boundaryMargin: const EdgeInsets.all(double.infinity),
                   constrained: false,
@@ -123,7 +139,6 @@ class ViewerScreen extends HookConsumerWidget with RepositoryFireStorage {
                     width: page.width,
                     height: page.height,
                     // pdfrxのPdfPageViewを使用して1ページのみを描画
-                    // pageNumber は 1-indexed
                     child: PdfPageView(
                       document: doc,
                       pageNumber: 1,
