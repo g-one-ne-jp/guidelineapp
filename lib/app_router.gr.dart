@@ -426,11 +426,11 @@ class ViewerRoute extends PageRouteInfo<ViewerRouteArgs> {
   ViewerRoute({
     Key? key,
     required String pdfPath,
+    required File pdfFile,
     List<PageRouteInfo>? children,
   }) : super(
          ViewerRoute.name,
-         args: ViewerRouteArgs(key: key, pdfPath: pdfPath),
-         rawPathParams: {'pdfPath': pdfPath},
+         args: ViewerRouteArgs(key: key, pdfPath: pdfPath, pdfFile: pdfFile),
          initialChildren: children,
        );
 
@@ -439,24 +439,31 @@ class ViewerRoute extends PageRouteInfo<ViewerRouteArgs> {
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      final pathParams = data.inheritedPathParams;
-      final args = data.argsAs<ViewerRouteArgs>(
-        orElse: () => ViewerRouteArgs(pdfPath: pathParams.getString('pdfPath')),
+      final args = data.argsAs<ViewerRouteArgs>();
+      return ViewerScreen(
+        key: args.key,
+        pdfPath: args.pdfPath,
+        pdfFile: args.pdfFile,
       );
-      return ViewerScreen(key: args.key, pdfPath: args.pdfPath);
     },
   );
 }
 
 class ViewerRouteArgs {
-  const ViewerRouteArgs({this.key, required this.pdfPath});
+  const ViewerRouteArgs({
+    this.key,
+    required this.pdfPath,
+    required this.pdfFile,
+  });
 
   final Key? key;
 
   final String pdfPath;
 
+  final File pdfFile;
+
   @override
   String toString() {
-    return 'ViewerRouteArgs{key: $key, pdfPath: $pdfPath}';
+    return 'ViewerRouteArgs{key: $key, pdfPath: $pdfPath, pdfFile: $pdfFile}';
   }
 }

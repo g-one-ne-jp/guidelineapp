@@ -1,5 +1,7 @@
 // Flutter imports:
 // Project imports:
+import 'dart:io';
+
 import 'package:JCSGuidelines/ui/page/home/tab/tab_wrapper_screen.dart';
 import 'package:JCSGuidelines/ui/page/home/tab/ui_page_home_catalog_tab_bookmark.dart';
 import 'package:JCSGuidelines/ui/page/home/tab/ui_page_home_catalog_tab_home.dart';
@@ -30,7 +32,7 @@ class AppRouter extends RootStackRouter {
   //ルーティングの設定
   @override
   List<AutoRoute> get routes => [
-        AutoRoute(path: '/viewer/:pdfPath', page: ViewerRoute.page),
+        AutoRoute(path: '/viewer', page: ViewerRoute.page),
 
         // ログイン画面
         AutoRoute(

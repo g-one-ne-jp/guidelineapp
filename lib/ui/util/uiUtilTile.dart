@@ -771,7 +771,7 @@ class PdfGridView extends HookConsumerWidget with RepositoryFireStorage {
   var deteil = DetailCategory();
 
   final Function(DetailCategory) onDeteilEdit;
-  final Function(String path) onPdfTap;
+  final Function(String path, File file) onPdfTap;
   var _pdfPath = '';
   var _loading = false;
 
@@ -891,7 +891,8 @@ class PdfGridView extends HookConsumerWidget with RepositoryFireStorage {
                                               onTap: () {
                                                 print(
                                                     "*****************************************pdf tap: ${snapshot.data!.path}");
-                                                onPdfTap(snapshot.data!.path);
+                                                onPdfTap(snapshot.data!.path,
+                                                    snapshot.data!);
                                               },
                                               child: Stack(children: [
                                                 pdfViewPdfx(

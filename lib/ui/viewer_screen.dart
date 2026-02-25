@@ -22,11 +22,12 @@ class PDFPageData {
 class ViewerScreen extends HookConsumerWidget {
   const ViewerScreen({
     super.key,
-    @PathParam('pdfPath') required this.pdfPath,
+    required this.pdfPath,
+    required this.pdfFile,
   });
 
   final String pdfPath;
-  @override
+  final File pdfFile;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     print("ViewerScreen opened with path: $pdfPath");
@@ -34,10 +35,21 @@ class ViewerScreen extends HookConsumerWidget {
     final transformationController =
         useMemoized(() => TransformationController());
 
-    // 1. PDFドキュメント自体の読み込み
+    // 1. PDFドキュメント自体の読み込み（ローカルファイルから）
     final pdfFuture = useMemoized(
-      () => PDFDocument.fromURL(
-          'https://firebasestorage.googleapis.com/v0/b/jcsguideline.firebasestorage.app/o/gidline%2Fpdf%2F2025%2Fs10.pdf?alt=media&token=a9384891-3bc3-4830-bea6-6e2da2bf3447'),
+      () {
+        // タイプセーフなルーティングに切り替えたため、パスをそのまま使用可能
+//        print("Loading PDF from path: $pdfPath");
+        var file = File(pdfPath);
+        // if (file.existsSync()) {
+        //   print(
+        //       "PDF file exists at path: $pdfPath, size: ${file.lengthSync()} bytes");
+        // } else {
+        //   print("PDF file does NOT exist at path: $pdfPath");
+        // }
+        return PDFDocument.fromFile(file);
+      },
+      [pdfPath],
     );
     final pdfSnapshot = useFuture(pdfFuture);
 

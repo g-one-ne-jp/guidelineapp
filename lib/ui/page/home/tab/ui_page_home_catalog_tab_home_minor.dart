@@ -3,6 +3,7 @@
 // Dart imports:
 import 'dart:io';
 
+import 'package:JCSGuidelines/app_router.dart';
 import 'package:JCSGuidelines/module/firebase/model_firebase_pdf_config.dart';
 import 'package:JCSGuidelines/providers/toc_provider.dart';
 import 'package:JCSGuidelines/providers/user_provider.dart';
@@ -112,16 +113,19 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
             return isMemo || !viewTypeMemo
                 ? PdfGridView(
                     deteil: value,
-                    onPdfTap: (String path) {
+                    onPdfTap: (String path, File file) {
                       // ここはpdfを選択肢エディタを開く。
-                      print("---------------PDF tapped: $path");
-                      // PDFViewerでPDFを表示する
-                      // showViewer(document: path);
-
-                      context.router.pushNamed('/viewer/$path');
-
-
+// "/data/user/0/jp.co.miceone.jcsguidelines/app_flutter/1VW4FmgSlUWiCdHHQVFzeZ6wxds2/表2.pdf"
+                      // PDFView{erでPDFを表示する
+                      if (path.endsWith("pdf")) {
+                        //showViewer(document: path);
+                        //return;
+                      }
+                      // タイプセーフなルーティングを使用（パスにスラッシュが含まれていても安全に渡せる）
+                      context.router
+                          .push(ViewerRoute(pdfPath: path, pdfFile: file));
                     },
+                    
                     onDeteilEdit: (deteil) {
                       // ここはメモアイコンが押された時。
                       print("---------------Edit tapped: ${deteil.detailKey}");
@@ -136,3 +140,8 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
     );
   }
 }
+
+// 59697
+// befor: /data/user/0/jp.co.miceone.jcsguidelines/app_flutter/PErGRIlcdYfpozdD0oXk95V2fN42/表2.pdf
+// after: /data/user/0/jp.co.miceone.jcsguidelines/app_flutter/PErGRIlcdYfpozdD0oXk95V2fN42/表2.pdf
+// 94673
