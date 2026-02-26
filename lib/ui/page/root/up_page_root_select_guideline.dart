@@ -209,23 +209,23 @@ class UiPageSelectGuideline extends HookConsumerWidget {
                   ),
                 ),
                 
-                Container(
-                  padding: EdgeInsets.all(10.0.w),
-                  // 横幅いっぱいにする
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: () async {
-//                      print('ログアウト選択');
-                      // GuidelineFile.instance.setFullname(EXTEND_FILE_NAME);
-                      context.router.pushNamed('/viewer/abcdefg');
-//                      utilAuthLogout();
-                    },
-                    child: const Text('ビューワー'),
-                  ),
-                ),
-                SizedBox(
-                  height: 16.0.h,
-                ),
+//                 Container(
+//                   padding: EdgeInsets.all(10.0.w),
+//                   // 横幅いっぱいにする
+//                   width: double.infinity,
+//                   child: ElevatedButton(
+//                     onPressed: () async {
+// //                      print('ログアウト選択');
+//                       // GuidelineFile.instance.setFullname(EXTEND_FILE_NAME);
+//                       context.router.pushNamed('/viewer/abcdefg');
+// //                      utilAuthLogout();
+//                     },
+//                     child: const Text('ビューワー'),
+//                   ),
+//                 ),
+//                 SizedBox(
+//                   height: 16.0.h,
+//                 ),
               ],
             ),
           ),
