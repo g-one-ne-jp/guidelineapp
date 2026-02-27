@@ -11,6 +11,54 @@
 part of 'app_router.dart';
 
 /// generated route for
+/// [HtmlViewerScreen]
+class HtmlViewerRoute extends PageRouteInfo<HtmlViewerRouteArgs> {
+  HtmlViewerRoute({
+    Key? key,
+    required String htmlPath,
+    required String title,
+    List<PageRouteInfo>? children,
+  }) : super(
+         HtmlViewerRoute.name,
+         args: HtmlViewerRouteArgs(key: key, htmlPath: htmlPath, title: title),
+         initialChildren: children,
+       );
+
+  static const String name = 'HtmlViewerRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<HtmlViewerRouteArgs>();
+      return HtmlViewerScreen(
+        key: args.key,
+        htmlPath: args.htmlPath,
+        title: args.title,
+      );
+    },
+  );
+}
+
+class HtmlViewerRouteArgs {
+  const HtmlViewerRouteArgs({
+    this.key,
+    required this.htmlPath,
+    required this.title,
+  });
+
+  final Key? key;
+
+  final String htmlPath;
+
+  final String title;
+
+  @override
+  String toString() {
+    return 'HtmlViewerRouteArgs{key: $key, htmlPath: $htmlPath, title: $title}';
+  }
+}
+
+/// generated route for
 /// [TabWrapperScreenBookmark]
 class TabWrapperRouteBookmark extends PageRouteInfo<void> {
   const TabWrapperRouteBookmark({List<PageRouteInfo>? children})

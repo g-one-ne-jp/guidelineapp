@@ -58,6 +58,7 @@ dependencies:
   hive_flutter: ^1.1.0
   pdfx: ^2.9.2
   pdfrx: ^2.1.5
+  url_launcher: ^6.3.2
 dev_dependencies:
   analyzer: 7.3.0
   auto_route_generator: 9.3.1

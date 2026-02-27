@@ -1,5 +1,6 @@
 // Flutter imports:
 // Project imports:
+import 'package:JCSGuidelines/ui/html_viewer_screen.dart';
 import 'package:JCSGuidelines/ui/page/home/tab/tab_wrapper_screen.dart';
 import 'package:JCSGuidelines/ui/page/home/tab/ui_page_home_catalog_tab_bookmark.dart';
 import 'package:JCSGuidelines/ui/page/home/tab/ui_page_home_catalog_tab_home.dart';
@@ -59,6 +60,9 @@ class AppRouter extends RootStackRouter {
         // 編集画面
         AutoRoute(
             page: UiRouteUtilEdit.page, path: '/edit/:minorKey/:viewTypeMemo'),
+
+        // HTMLビューワー
+        AutoRoute(page: HtmlViewerRoute.page, path: '/html-viewer'),
 
         // タブがある画面
         // /catalog で UiRouteHomeCatalog を呼び出し、この内部実装で

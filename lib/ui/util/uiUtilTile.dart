@@ -2,10 +2,12 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:JCSGuidelines/app_router.dart';
 import 'package:JCSGuidelines/debug/debug_print.dart';
 import 'package:JCSGuidelines/module/firebase/model_firebase_pdf_config.dart';
 import 'package:JCSGuidelines/repotitory/mixin_repository_firestorage.dart';
 import 'package:JCSGuidelines/ui/util/uiUtilDialog.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 // Flutter imports:
 //import 'package:easy_pdf_viewer/easy_pdf_viewer.dart';
@@ -826,31 +828,48 @@ class PdfGridView extends HookConsumerWidget with RepositoryFireStorage {
                               future: downLoadData(
                                   context: context,
                                   path: element.value.markdown),
-                              builder: (context, snapshot) {
-                                if (snapshot.connectionState ==
+                              builder: (context, fileSnapshot) {
+                                if (fileSnapshot.connectionState ==
                                     ConnectionState.done) {
-                                  if (snapshot.data == null) {
+                                  if (fileSnapshot.data == null) {
                                     return const Center(
                                       child: CircularProgressIndicator(),
                                     );
                                   } else {
-                                    return FutureBuilder(
-                                      future:
-                                          initController(snapshot.data!.path),
-                                      builder: (context, snapshot) {
-                                        if (snapshot.connectionState ==
+                                    return FutureBuilder<WebViewController>(
+                                      future: initController(
+                                          fileSnapshot.data!.path),
+                                      builder: (context, controllerSnapshot) {
+                                        if (controllerSnapshot
+                                                .connectionState ==
                                             ConnectionState.done) {
-                                          if (snapshot.data == null) {
+                                          if (controllerSnapshot.data == null) {
                                             return const Center(
                                               child:
                                                   CircularProgressIndicator(),
                                             );
                                           }
-                                          return Container(
-                                            padding: EdgeInsets.all(10.w),
-                                            color: Colors.red,
-                                            child: WebViewWidget(
-                                                controller: snapshot.data!),
+                                          return GestureDetector(
+                                            onTap: () {
+                                              // HTMLビューワーへ遷移（ファイルパスを渡す）
+                                              context.router
+                                                  .push(HtmlViewerRoute(
+                                                htmlPath:
+                                                    fileSnapshot.data!.path,
+                                                title:
+                                                    element.value.settionTitle,
+                                              ));
+                                            },
+                                            child: Container(
+                                              padding: EdgeInsets.all(10.w),
+                                              color: Colors.white,
+                                              child: IgnorePointer(
+                                                child: WebViewWidget(
+                                                    controller:
+                                                        controllerSnapshot
+                                                            .data!),
+                                              ),
+                                            ),
                                           );
                                         }
 
