@@ -99,9 +99,14 @@ class ViewerScreen extends HookConsumerWidget with RepositoryFireStorage {
       });
     }
 
+    // 表示用のファイル名を抽出
+    final fileName = pdfFile.path.split('/').last;
+
+    final bool dbgView = false;
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('独自ビューワー'),
+        title: Text(fileName),
       ),
       body: Stack(
         children: [
@@ -125,7 +130,7 @@ class ViewerScreen extends HookConsumerWidget with RepositoryFireStorage {
 
               return Container(
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colors.red, width: 1),
+//                  border: Border.all(color: Colors.red, width: 1),
                 ),
                 child: InteractiveViewer(
                   // reloadCounterが変わった時だけウィジェットを作り直す（操作中のリビルドでは維持される）
@@ -165,7 +170,9 @@ class ViewerScreen extends HookConsumerWidget with RepositoryFireStorage {
           Positioned(
             top: 10,
             left: 10,
-            child: _ViewerStatusPanel(viewerState: viewerState),
+            child: dbgView
+                ? _ViewerStatusPanel(viewerState: viewerState)
+                : Container(),
           ),
           Positioned(
             bottom: 20,
@@ -197,11 +204,6 @@ class _ViewerStatusPanel extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            '拡大率: ${viewerState.scale.toStringAsFixed(2)}x',
-            style: const TextStyle(
-                color: Colors.white, fontWeight: FontWeight.bold),
-          ),
           Text(
             '位置: X:${viewerState.xOffset.toStringAsFixed(1)}, Y:${viewerState.yOffset.toStringAsFixed(1)}',
             style: const TextStyle(
