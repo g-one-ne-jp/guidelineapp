@@ -16,11 +16,11 @@ class ViewerScreen extends HookConsumerWidget with RepositoryFireStorage {
   const ViewerScreen({
     super.key,
     required this.pdfPath,
-    required this.pdfFile,
+    required this.sessionKey,
   });
 
   final String pdfPath;
-  final File pdfFile;
+  final String sessionKey;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -92,7 +92,7 @@ class ViewerScreen extends HookConsumerWidget with RepositoryFireStorage {
             Navigator.of(context).pop();
             context.router.push(ViewerRoute(
               pdfPath: savedTempPath,
-              pdfFile: File(savedTempPath),
+              sessionKey: sessionKey,
             ));
           }
         }
@@ -100,7 +100,7 @@ class ViewerScreen extends HookConsumerWidget with RepositoryFireStorage {
     }
 
     // 表示用のファイル名を抽出
-    final fileName = pdfFile.path.split('/').last;
+    final fileName = pdfPath.split('/').last;
 
     final bool dbgView = false;
 

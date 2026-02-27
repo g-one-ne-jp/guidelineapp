@@ -426,11 +426,15 @@ class ViewerRoute extends PageRouteInfo<ViewerRouteArgs> {
   ViewerRoute({
     Key? key,
     required String pdfPath,
-    required File pdfFile,
+    required String sessionKey,
     List<PageRouteInfo>? children,
   }) : super(
          ViewerRoute.name,
-         args: ViewerRouteArgs(key: key, pdfPath: pdfPath, pdfFile: pdfFile),
+         args: ViewerRouteArgs(
+           key: key,
+           pdfPath: pdfPath,
+           sessionKey: sessionKey,
+         ),
          initialChildren: children,
        );
 
@@ -443,7 +447,7 @@ class ViewerRoute extends PageRouteInfo<ViewerRouteArgs> {
       return ViewerScreen(
         key: args.key,
         pdfPath: args.pdfPath,
-        pdfFile: args.pdfFile,
+        sessionKey: args.sessionKey,
       );
     },
   );
@@ -453,17 +457,17 @@ class ViewerRouteArgs {
   const ViewerRouteArgs({
     this.key,
     required this.pdfPath,
-    required this.pdfFile,
+    required this.sessionKey,
   });
 
   final Key? key;
 
   final String pdfPath;
 
-  final File pdfFile;
+  final String sessionKey;
 
   @override
   String toString() {
-    return 'ViewerRouteArgs{key: $key, pdfPath: $pdfPath, pdfFile: $pdfFile}';
+    return 'ViewerRouteArgs{key: $key, pdfPath: $pdfPath, sessionKey: $sessionKey}';
   }
 }

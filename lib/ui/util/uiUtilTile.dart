@@ -771,7 +771,7 @@ class PdfGridView extends HookConsumerWidget with RepositoryFireStorage {
   var deteil = DetailCategory();
 
   final Function(DetailCategory) onDeteilEdit;
-  final Function(String path, File file) onPdfTap;
+  final Function(String path, String sessionKey) onPdfTap;
   var _pdfPath = '';
   var _loading = false;
 
@@ -805,6 +805,8 @@ class PdfGridView extends HookConsumerWidget with RepositoryFireStorage {
     deteil.contents.entries.map((a) => a).toList().forEach((element) {
       element.value.settions.entries.map((a) => a).toList().forEach((element) {
         print("ビルド:${element.value.pdfId}");
+        print("ビルド　セッションキー:${element.key}");
+        final settionKey = element.key;
 
         _settions.value = List.from(_settions.value)
           ..add(
@@ -891,8 +893,10 @@ class PdfGridView extends HookConsumerWidget with RepositoryFireStorage {
                                               onTap: () {
                                                 print(
                                                     "*****************************************pdf tap: ${snapshot.data!.path}");
+
+//                                                print();
                                                 onPdfTap(snapshot.data!.path,
-                                                    snapshot.data!);
+                                                    settionKey);
                                               },
                                               child: Stack(children: [
                                                 pdfViewPdfx(

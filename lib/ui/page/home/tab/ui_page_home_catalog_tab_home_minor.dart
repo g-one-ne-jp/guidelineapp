@@ -113,7 +113,7 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
             return isMemo || !viewTypeMemo
                 ? PdfGridView(
                     deteil: value,
-                    onPdfTap: (String path, File file) {
+                    onPdfTap: (String path, String sessionKey) {
                       // ここはpdfを選択肢エディタを開く。
 // "/data/user/0/jp.co.miceone.jcsguidelines/app_flutter/1VW4FmgSlUWiCdHHQVFzeZ6wxds2/表2.pdf"
                       // PDFView{erでPDFを表示する
@@ -123,7 +123,8 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
                       }
                       // タイプセーフなルーティングを使用（パスにスラッシュが含まれていても安全に渡せる）
                       context.router
-                          .push(ViewerRoute(pdfPath: path, pdfFile: file));
+                          .push(
+                          ViewerRoute(pdfPath: path, sessionKey: sessionKey));
                     },
                     
                     onDeteilEdit: (deteil) {
