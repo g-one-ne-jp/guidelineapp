@@ -1002,7 +1002,7 @@ class PdfGridView extends HookConsumerWidget with RepositoryFireStorage {
     //         crossAxisCount: 2,
     //         children: [Text("1"), Text("2"), Text("3"), Text("4")]));
             
-    bool memoEnable = false;
+    bool memoEnable = true;
     return Container(
       //color: const Color(0xFFEFEFEF),
 //      color: Colors.blue,
