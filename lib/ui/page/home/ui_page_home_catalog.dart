@@ -43,15 +43,26 @@ class UiPageHomeCatalog extends HookConsumerWidget {
           return BottomNavigationBar(
             currentIndex: tabsRouter.activeIndex,
             onTap: (index) {
+              // タブを切り替え、かつそのタブのスタックをルートまで戻す
               if (index == 4) {
                 if (FirebaseAuth.instance.currentUser == null) {
                   showLoginDialog(context,
                       content: 'マイページを利用するには会員登録/ログインが必要です。ログイン画面に移動しますか？');
-                } else {
-                  tabsRouter.setActiveIndex(index);
+                  return;
                 }
+              }
+
+              tabsRouter.setActiveIndex(index);
+                            
+              if (index == 0) {
+                // ホーム（index: 0）の場合、スタックを完全に破棄して初期画面（カバー）で置き換える
+                // これによりロード画面から来たときと同じ状態になる
+                tabsRouter
+                    .stackRouterOfIndex(0)
+                    ?.replaceAll([UiRouteHomeCatalogTabHome()]);
               } else {
-                tabsRouter.setActiveIndex(index);
+                // 遷移先のタブのスタックを強制的にトップに戻す
+                tabsRouter.stackRouterOfIndex(index)?.popUntilRoot();
               }
             },
             backgroundColor: Colors.red,
@@ -72,3 +83,4 @@ class UiPageHomeCatalog extends HookConsumerWidget {
     );
   }
 }
+
