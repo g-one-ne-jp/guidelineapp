@@ -24,45 +24,49 @@ class UiPageHomeCatalog extends HookConsumerWidget {
 //      return () => customDebugPrint('dispose!');
     }, []);
 
-    return AutoTabsScaffold(
-      routes: [
-        UiRouteHomeCatalogTabHome(),
-        const UiRouteHomeCatalogTabSearch(),
-        const UiRouteHomeCatalogTabMemo(),
-        UiRouteHomeCatalogTabBookmark(),
-        UiRouteHomeCatalogTabMypage(),
-      ],
-      transitionBuilder: (context, child, animation) => FadeTransition(
-        opacity: animation,
-        child: child,
-      ),
-      bottomNavigationBuilder: (_, tabsRouter) {
-        return BottomNavigationBar(
-          currentIndex: tabsRouter.activeIndex,
-          onTap: (index) {
-            if (index == 4) {
-              if (FirebaseAuth.instance.currentUser == null) {
-                showLoginDialog(context,
-                    content: 'マイページを利用するには会員登録/ログインが必要です。ログイン画面に移動しますか？');
+    return PopScope(
+      canPop: false, // バックキーおよび戻るジェスチャを無効化
+      child: AutoTabsScaffold(
+        routes: [
+          UiRouteHomeCatalogTabHome(),
+          const UiRouteHomeCatalogTabSearch(),
+          const UiRouteHomeCatalogTabMemo(),
+          UiRouteHomeCatalogTabBookmark(),
+          UiRouteHomeCatalogTabMypage(),
+        ],
+        transitionBuilder: (context, child, animation) => FadeTransition(
+          opacity: animation,
+          child: child,
+        ),
+        bottomNavigationBuilder: (_, tabsRouter) {
+          return BottomNavigationBar(
+            currentIndex: tabsRouter.activeIndex,
+            onTap: (index) {
+              if (index == 4) {
+                if (FirebaseAuth.instance.currentUser == null) {
+                  showLoginDialog(context,
+                      content: 'マイページを利用するには会員登録/ログインが必要です。ログイン画面に移動しますか？');
+                } else {
+                  tabsRouter.setActiveIndex(index);
+                }
               } else {
                 tabsRouter.setActiveIndex(index);
               }
-            } else {
-              tabsRouter.setActiveIndex(index);
-            }
-          },
-          backgroundColor: Colors.red,
-          selectedItemColor: Colors.blue,
-          unselectedItemColor: Colors.grey,
-          items: const [
-            BottomNavigationBarItem(label: 'ホーム', icon: Icon(Icons.home)),
-            BottomNavigationBarItem(label: '検索', icon: Icon(Icons.search)),
-            BottomNavigationBarItem(label: 'メモ', icon: Icon(Icons.edit)),
-            BottomNavigationBarItem(label: 'ブックマーク', icon: Icon(Icons.bookmark)),
-            BottomNavigationBarItem(label: 'マイページ', icon: Icon(Icons.person)),
-          ],
-        );
-      },
+            },
+            backgroundColor: Colors.red,
+            selectedItemColor: Colors.blue,
+            unselectedItemColor: Colors.grey,
+            items: const [
+              BottomNavigationBarItem(label: 'ホーム', icon: Icon(Icons.home)),
+              BottomNavigationBarItem(label: '検索', icon: Icon(Icons.search)),
+              BottomNavigationBarItem(label: 'メモ', icon: Icon(Icons.edit)),
+              BottomNavigationBarItem(
+                  label: 'ブックマーク', icon: Icon(Icons.bookmark)),
+              BottomNavigationBarItem(label: 'マイページ', icon: Icon(Icons.person)),
+            ],
+          );
+        },
+      ),
     );
   }
 }
