@@ -81,6 +81,7 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
     final path = AutoRouter.of(context).currentPath;
     print(
         '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~detail count: ${_minor.value.details.length}');
+    final bookmarkEnable = false;
     return Scaffold(
       appBar: AppBar(
         title: Text(_minor.value.minorTitle),
@@ -94,6 +95,8 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
               Navigator.of(context, rootNavigator: path.contains('/toc')).pop(),
         ),
         actions: <Widget>[
+          bookmarkEnable
+              ? 
           IconButton(
             icon: Icon(!_userNotifer.getBookmarkState(key: minorKey)
                 ? Icons.bookmark_outline
@@ -108,7 +111,8 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
                     isBookmark: !_userNotifer.getBookmarkState(key: minorKey));
               }
             },
-          ),
+                )
+              : Container(),
         ],
       ),
       body: Container(
