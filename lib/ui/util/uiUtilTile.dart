@@ -5,8 +5,6 @@ import 'dart:io';
 import 'package:JCSGuidelines/debug/debug_print.dart';
 import 'package:JCSGuidelines/module/firebase/model_firebase_pdf_config.dart';
 import 'package:JCSGuidelines/repotitory/mixin_repository_firestorage.dart';
-import 'package:JCSGuidelines/ui/util/uiUtilDialog.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 // Flutter imports:
 //import 'package:easy_pdf_viewer/easy_pdf_viewer.dart';
 import 'package:flutter/cupertino.dart';
@@ -1017,35 +1015,35 @@ class PdfGridView extends HookConsumerWidget with RepositoryFireStorage {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
             // メモ用のペンアイコン表示部分
-            Container(
-              padding: const EdgeInsets.all(8.0),
-              color: const Color(0xFFEFEFEF),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    deteil.detailTitle,
-                    style: const TextStyle(
-                      color: Colors.black,
-                    ),
-                  ),
-                  IconButton(
-                    onPressed: () {
-                      if (FirebaseAuth.instance.currentUser == null) {
-                        showLoginDialog(context,
-                            content:
-                                'メモ機能を利用するには会員登録/ログインが必要です。ログイン画面に移動しますか？');
-                        return;
-                      } else {
-                        print("メモ画面へ遷移: ${deteil.detailTitle}");
-                        onDeteilEdit(deteil);
-                      }
-                    },
-                    icon: const Icon(Icons.message_outlined),
-                  ),
-                ],
-              ),
-            ),
+            // Container(
+            //   padding: const EdgeInsets.all(8.0),
+            //   color: const Color(0xFFEFEFEF),
+            //   child: Row(
+            //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //     children: [
+            //       Text(
+            //         deteil.detailTitle,
+            //         style: const TextStyle(
+            //           color: Colors.black,
+            //         ),
+            //       ),
+            //       IconButton(
+            //         onPressed: () {
+            //           if (FirebaseAuth.instance.currentUser == null) {
+            //             showLoginDialog(context,
+            //                 content:
+            //                     'メモ機能を利用するには会員登録/ログインが必要です。ログイン画面に移動しますか？');
+            //             return;
+            //           } else {
+            //             print("メモ画面へ遷移: ${deteil.detailTitle}");
+            //             onDeteilEdit(deteil);
+            //           }
+            //         },
+            //         icon: const Icon(Icons.message_outlined),
+            //       ),
+            //     ],
+            //   ),
+            // ),
 
             // Expanded(
             //   child: GridView.count(
