@@ -60,7 +60,8 @@ class UiPageHomeCatalog extends HookConsumerWidget {
             items: const [
               BottomNavigationBarItem(label: 'ホーム', icon: Icon(Icons.home)),
               BottomNavigationBarItem(label: '検索', icon: Icon(Icons.search)),
-              BottomNavigationBarItem(label: 'メモ', icon: Icon(Icons.edit)),
+              BottomNavigationBarItem(
+                  label: 'メモ', icon: Icon(Icons.message_outlined)),
               BottomNavigationBarItem(
                   label: 'ブックマーク', icon: Icon(Icons.bookmark)),
               BottomNavigationBarItem(label: 'マイページ', icon: Icon(Icons.person)),

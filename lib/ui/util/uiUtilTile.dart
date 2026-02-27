@@ -1041,7 +1041,7 @@ class PdfGridView extends HookConsumerWidget with RepositoryFireStorage {
                         onDeteilEdit(deteil);
                       }
                     },
-                    icon: const Icon(Icons.edit),
+                    icon: const Icon(Icons.message_outlined),
                   ),
                 ],
               ),
