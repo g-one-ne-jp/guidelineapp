@@ -67,6 +67,12 @@ class UiPageSelectGuideline extends HookConsumerWidget {
     // final _isPasswordVisible = useState(false);
 
     useEffect(() {
+      // 画面表示後、即座にガイドライン2025改訂版を選択したものとして遷移する
+      Future.microtask(() {
+        print('ガイドライン2025改訂版を自動選択して遷移します');
+        GuidelineFile.instance.setFullname(BASE_FILE_NAME);
+        context.router.pushNamed('/home');
+      });
       return null;
     }, []);
 
