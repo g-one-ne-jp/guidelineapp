@@ -1,7 +1,10 @@
 import 'dart:io';
 
 import 'package:JCSGuidelines/app_router.dart';
+import 'package:JCSGuidelines/providers/user_provider.dart';
+import 'package:JCSGuidelines/ui/util/uiUtilDialog.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -24,8 +27,16 @@ class ViewerScreen extends HookConsumerWidget with RepositoryFireStorage {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    print("ViewerScreen opened with InteractiveViewer + pdfrx, path: $pdfPath");
+    // print("ViewerScreen opened with InteractiveViewer + pdfrx, path: $pdfPath");
+    // print("sessionKey: $sessionKey");
+
+    print(
+        "-------------------------------------------ViewerScreen-------------------------------------------");
+    
     final viewerState = ref.watch(viewerProvider);
+    // userProviderの状態を監視して、ブックマーク等の変更時に再描画を走らせる
+    ref.watch(userProvider);
+
     final transformationController =
         useMemoized(() => TransformationController());
 
@@ -103,10 +114,29 @@ class ViewerScreen extends HookConsumerWidget with RepositoryFireStorage {
     final fileName = pdfPath.split('/').last;
 
     final bool dbgView = false;
+    final _userNotifer = ref.watch(userProvider.notifier);
 
     return Scaffold(
       appBar: AppBar(
         title: Text(fileName),
+        actions: [
+          IconButton(
+            icon: Icon(!_userNotifer.getBookmarkState(key: sessionKey)
+                ? Icons.bookmark_outline
+                : Icons.bookmark),
+            onPressed: () {
+              if (FirebaseAuth.instance.currentUser == null) {
+                showLoginDialog(context,
+                    content: 'ブックマーク機能を利用するには会員登録/ログインが必要です。ログイン画面に移動しますか？');
+              } else {
+                _userNotifer.updateBookmark(
+                    key: sessionKey,
+                    isBookmark:
+                        !_userNotifer.getBookmarkState(key: sessionKey));
+              }
+            },
+          ),
+        ],
       ),
       body: Stack(
         children: [

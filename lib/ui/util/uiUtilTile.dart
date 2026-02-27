@@ -804,8 +804,8 @@ class PdfGridView extends HookConsumerWidget with RepositoryFireStorage {
     } //useEffect(() {
     deteil.contents.entries.map((a) => a).toList().forEach((element) {
       element.value.settions.entries.map((a) => a).toList().forEach((element) {
-        print("ビルド:${element.value.pdfId}");
-        print("ビルド　セッションキー:${element.key}");
+        // print("ビルド:${element.value.pdfId}");
+        // print("ビルド　セッションキー:${element.key}");
         final settionKey = element.key;
 
         _settions.value = List.from(_settions.value)
