@@ -20,8 +20,8 @@ class UiPageHomeCatalogTabHomeTOC extends HookConsumerWidget {
   @override
   /// 一番最初のガイドラインの目次画面
   Widget build(BuildContext context, WidgetRef ref) {
-    print(
-        "-------------------------------------------HOME TOC-------------------------------");
+    // print(
+    //     "-------------------------------------------HOME TOC-------------------------------");
     final _userProvider = ref.watch(userProvider);
     final _userNotifer = ref.watch(userProvider.notifier);
 
@@ -41,6 +41,10 @@ class UiPageHomeCatalogTabHomeTOC extends HookConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(_tocProvider.majorTitle),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => Navigator.of(context, rootNavigator: true).pop(),
+        ),
       ),
       body: Container(
         color: Colors.white,

@@ -78,11 +78,21 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
     // }
 
     debugPrint('minorKey: $minorKey');
+    final path = AutoRouter.of(context).currentPath;
     print(
         '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~detail count: ${_minor.value.details.length}');
     return Scaffold(
       appBar: AppBar(
         title: Text(_minor.value.minorTitle),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () =>
+              // ガイドラインの目次からこの画面に来たときは ../tabHome/toc/minorというルートになるので
+              // rootNavigatorでポップして、目次に戻る。
+              // しかし、検索などのサブルートで来た場合は、タブ内のスタックでポップしたいので
+              // rootNavigator
+              Navigator.of(context, rootNavigator: path.contains('/toc')).pop(),
+        ),
         actions: <Widget>[
           IconButton(
             icon: Icon(!_userNotifer.getBookmarkState(key: minorKey)

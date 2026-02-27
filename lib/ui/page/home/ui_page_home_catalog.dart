@@ -28,7 +28,8 @@ class UiPageHomeCatalog extends HookConsumerWidget {
       canPop: false, // バックキーおよび戻るジェスチャを無効化
       child: AutoTabsScaffold(
         routes: [
-          UiRouteHomeCatalogTabHome(),
+          //UiRouteHomeCatalogTabHome(),
+          TabWrapperRouteHome(),
           const UiRouteHomeCatalogTabSearch(),
           const UiRouteHomeCatalogTabMemo(),
           UiRouteHomeCatalogTabBookmark(),

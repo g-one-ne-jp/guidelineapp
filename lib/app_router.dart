@@ -1,7 +1,5 @@
 // Flutter imports:
 // Project imports:
-import 'dart:io';
-
 import 'package:JCSGuidelines/ui/page/home/tab/tab_wrapper_screen.dart';
 import 'package:JCSGuidelines/ui/page/home/tab/ui_page_home_catalog_tab_bookmark.dart';
 import 'package:JCSGuidelines/ui/page/home/tab/ui_page_home_catalog_tab_home.dart';
@@ -87,12 +85,13 @@ class AppRouter extends RootStackRouter {
             AutoRoute(
               path: 'tabHome',
               page: TabWrapperRouteHome.page,
+              initial: true,
               children: [
               // ↑のラッパーの子（サブルート）のカレントがUiRouteHomeCatalogTabHome
               AutoRoute(
                   path: '',
                   page: UiRouteHomeCatalogTabHome.page,
-                  initial: true),
+                ),
               // /catalog/tabHome/toc でTOC画面を呼び出し
               AutoRoute(
                 path: 'toc',
