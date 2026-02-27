@@ -89,6 +89,11 @@ class ViewerScreen extends HookConsumerWidget with RepositoryFireStorage {
 
     // 編集画面（Pdftron）を開く処理
     void startEditing() async {
+      if (FirebaseAuth.instance.currentUser == null) {
+        showLoginDialog(context,
+            content: '編集機能を利用するには会員登録/ログインが必要です。ログイン画面に移動しますか？');
+        return;
+      } 
       var config = Config();
       PdftronFlutter.openDocument(pdfPath, config: config);
       startLeadingNavButtonPressedListener(() async {
