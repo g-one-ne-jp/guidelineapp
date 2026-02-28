@@ -836,47 +836,32 @@ class PdfGridView extends HookConsumerWidget with RepositoryFireStorage {
                                       child: CircularProgressIndicator(),
                                     );
                                   } else {
-                                    return FutureBuilder<WebViewController>(
-                                      future: initController(
-                                          fileSnapshot.data!.path),
-                                      builder: (context, controllerSnapshot) {
-                                        if (controllerSnapshot
-                                                .connectionState ==
-                                            ConnectionState.done) {
-                                          if (controllerSnapshot.data == null) {
-                                            return const Center(
-                                              child:
-                                                  CircularProgressIndicator(),
-                                            );
-                                          }
-                                          return GestureDetector(
-                                            onTap: () {
-                                              // HTMLビューワーへ遷移（ファイルパスを渡す）
-                                              context.router
-                                                  .push(HtmlViewerRoute(
-                                                htmlPath:
-                                                    fileSnapshot.data!.path,
-                                                title:
-                                                    element.value.settionTitle,
-                                              ));
-                                            },
-                                            child: Container(
-                                              padding: EdgeInsets.all(10.w),
-                                              color: Colors.white,
-                                              child: IgnorePointer(
-                                                child: WebViewWidget(
-                                                    controller:
-                                                        controllerSnapshot
-                                                            .data!),
-                                              ),
-                                            ),
-                                          );
-                                        }
-
-                                        return const Center(
-                                          child: CircularProgressIndicator(),
-                                        );
+                                    return GestureDetector(
+                                      onTap: () {
+                                        // HTMLビューワーへ遷移（ファイルパスを渡す）
+                                        context.router.push(HtmlViewerRoute(
+                                          htmlPath: fileSnapshot.data!.path,
+                                          title: element.value.settionTitle,
+                                        ));
                                       },
+                                      child: Container(
+                                        padding: EdgeInsets.all(10.w),
+                                        color: Colors.white,
+                                        alignment: Alignment.center,
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Icon(Icons.language,
+                                                size: 40.w, color: Colors.blue),
+                                            SizedBox(height: 4.h),
+                                            Text('HTML/WEB',
+                                                style: TextStyle(
+                                                    fontSize: 10.sp,
+                                                    color: Colors.grey)),
+                                          ],
+                                        ),
+                                      ),
                                     );
                                   }
                                 }
