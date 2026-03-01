@@ -188,18 +188,41 @@ class ViewerScreen extends HookConsumerWidget with RepositoryFireStorage {
               );
             }),
           ),
-          // 編集ボタンを右上に配置
+          // 編集・メモボタンを右上に配置
           Positioned(
             top: 20,
             right: 20,
-            child: ElevatedButton.icon(
-              onPressed: startEditing,
-              icon: const Icon(Icons.edit),
-              label: const Text('編集'),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.white.withOpacity(0.8),
-                foregroundColor: Colors.black,
-              ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                ElevatedButton.icon(
+                  onPressed: startEditing,
+                  icon: const Icon(Icons.edit),
+                  label: const Text('編集'),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white.withOpacity(0.8),
+                    foregroundColor: Colors.black,
+                  ),
+                ),
+                const SizedBox(height: 10),
+                ElevatedButton.icon(
+                  onPressed: () {
+                    if (FirebaseAuth.instance.currentUser == null) {
+                      showLoginDialog(context,
+                          content: 'メモ機能を利用するには会員登録/ログインが必要です。ログイン画面に移動しますか？');
+                      return;
+                    }
+                    // メモ画面へ遷移
+                    context.router.pushNamed('/edit/$sessionKey/false');
+                  },
+                  icon: const Icon(Icons.message_outlined),
+                  label: const Text('メモ'),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white.withOpacity(0.8),
+                    foregroundColor: Colors.black,
+                  ),
+                ),
+              ],
             ),
           ),
           Positioned(
