@@ -1,9 +1,11 @@
 // Flutter imports:
 // Project imports:
+import 'package:JCSGuidelines/app_router.dart';
 import 'package:JCSGuidelines/module/firebase/model_firebase_pdf_config.dart';
 import 'package:JCSGuidelines/module/firebase/model_firebase_user.dart';
 import 'package:JCSGuidelines/providers/toc_provider.dart';
 import 'package:JCSGuidelines/providers/user_provider.dart';
+import 'package:JCSGuidelines/repotitory/mixin_repository_firestorage.dart';
 // Package imports:
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +15,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 @RoutePage()
-class UiPageHomeCatalogTabMemo extends HookConsumerWidget {
+class UiPageHomeCatalogTabMemo extends HookConsumerWidget
+    with RepositoryFireStorage {
   const UiPageHomeCatalogTabMemo({
     super.key,
   });
@@ -26,7 +29,8 @@ class UiPageHomeCatalogTabMemo extends HookConsumerWidget {
     final _tocProvider = ref.watch(tocProvider);
     final _tocNotifer = ref.watch(tocProvider.notifier);
 
-    final _memoItems = useState<Map<String, DetailCategory>>({});
+    // キーをメモのキー(detailKey or settionKey)とし、値にアイテムとminorKeyを保持する
+    final _memoItems = useState<Map<String, dynamic>>({});
 
     // データ取得ロジックを関数に分離
     Future<void> fetchMemoItems() async {
@@ -49,27 +53,29 @@ class UiPageHomeCatalogTabMemo extends HookConsumerWidget {
       // memoKeysリストにはキーだけ
       // ["detailKey3", "hoge_detailKey3"]
 
-      final memoItems = <String, DetailCategory>{};
+      final memoItems = <String, dynamic>{};
       // メモのキー一覧から...
       for (final key in memoKeys) {
-        // 読み込み済みのガイドラインjsonの中に、メモに使われたキー(に該当するDetailCategory)が
-        // あるかを確認し、存在するものだけmemoItemsに積む。
-        // ※ガイドラインjsonを複数もつようになったため、ガイドラインAには存在するキーが
-        //   ガイドラインBには存在しない、ということが起こりうる。
-        //   また、原因は調べていないが、EmptyなDetailCategoryをエディタに食わせるとクラッシュする。
-        final minorKey =
-            _tocNotifer.searchminorKeyFromDetailKeyFromMajor(_tocProvider, key);
-        if (minorKey.isEmpty) {
+        // DetailCategory または Settion を検索
+        final result = _tocNotifer.searchMemoableItemByKey(_tocProvider, key);
+        if (result == null) {
           continue;
         }
-        final doc =
-            _tocNotifer.searchDetailCategoryByKeyFromMajor(_tocProvider, key);
-        memoItems[minorKey] = doc;
+        memoItems[key] = result;
       }
       _memoItems.value = memoItems;
+      // print("----------------------取得したメモアイテム数: ${memoItems.length}");
 
-      //
+      // for (var entry in memoItems.entries) {
+      //   final key = entry.key;
+      //   final item = entry.value['item'];
+      //   final minorKey = entry.value['minorKey'];
+      //   print(
+      //       "キー: $key, アイテムタイトル: ${item is DetailCategory ? item.detailTitle : (item as Settion).settionTitle}, minorKey: $minorKey");
+      // }
+
     }
+
 
     useEffect(() {
       fetchMemoItems();
@@ -80,7 +86,6 @@ class UiPageHomeCatalogTabMemo extends HookConsumerWidget {
       // タブが選択されたときに再実行
       void handleTabSelection() {
         if (tabsRouter.activeIndex == 2) {
-          // 1はこのタブのインデックス
           fetchMemoItems();
         }
       }
@@ -101,7 +106,7 @@ class UiPageHomeCatalogTabMemo extends HookConsumerWidget {
         color: Colors.grey[200],
         child: Column(
           children: [
-            _memoItems.value.keys.isEmpty
+            _memoItems.value.isEmpty
                 ? const Center(
                     child: Text(
                       '保存済みのメモはありません。',
@@ -115,8 +120,13 @@ class UiPageHomeCatalogTabMemo extends HookConsumerWidget {
                     child: ListView.builder(
                       itemCount: _memoItems.value.length,
                       itemBuilder: (BuildContext context, int index) {
-                        var key = _memoItems.value.keys.elementAt(index);
-                        var item = _memoItems.value[key];
+                        var itemKey = _memoItems.value.keys.elementAt(index);
+                        var result = _memoItems.value[itemKey];
+                        var item = result['item'];
+                        var minorKey = result['minorKey'];
+
+                        String title = ''; // いったん固定で空文字にする
+
                         return Padding(
                           padding: EdgeInsets.symmetric(vertical: 5.h),
                           child: Card(
@@ -124,18 +134,17 @@ class UiPageHomeCatalogTabMemo extends HookConsumerWidget {
                               borderRadius: BorderRadius.zero,
                             ),
                             color: Colors.white,
-                            child: GestureDetector(
-                              child: ListTile(
-                                subtitle: SizedBox(
-                                  width: double.infinity,
-                                  height: 20.h,
+                            child: ListTile(
+                              subtitle: SizedBox(
+                                width: double.infinity,
+                                height: 20.h,
+                                child: IgnorePointer(
                                   child: QuillEditor.basic(
                                     controller: QuillController.basic()
                                       ..readOnly = true
                                       ..document = Document.fromJson(
-                                          _userNotifer.getMemo(
-                                              key: item!.detailKey)),
-                                    config: QuillEditorConfig(
+                                          _userNotifer.getMemo(key: itemKey)),
+                                    config: const QuillEditorConfig(
                                       scrollable: false,
                                       autoFocus: false,
                                       expands: true,
@@ -143,19 +152,29 @@ class UiPageHomeCatalogTabMemo extends HookConsumerWidget {
                                       onTapOutsideEnabled: false,
                                       paintCursorAboveText: false,
                                       checkBoxReadOnly: false,
-                                      minHeight: 20.h,
-                                      maxHeight: 150.h,
                                     ),
                                   ),
                                 ),
-                                title: Text(item.detailTitle ?? 'No Title'),
-                                onTap: () async {
-                                  await context.router.pushNamed(
-                                    'tabHomeMinor/$key/true',
-                                  );
-                                  fetchMemoItems();
-                                },
                               ),
+                              title: Text(title),
+                              onTap: () async {
+                                if (item is DetailCategory) {
+                                  // DetailCategory の場合は詳細画面へ（メモ表示モード）
+                                  await context.router.pushNamed(
+                                    'tabHomeMinor/$minorKey/true',
+                                  );
+                                } else if (item is Settion) {
+                                  // Settion の場合はPDFをダウンロードして独自ビューワーへ
+                                  final file = await downLoadData(
+                                      path: item.pdfId, context: context);
+                                  if (file != null) {
+                                    context.router.push(ViewerRoute(
+                                        pdfPath: file.path,
+                                        sessionKey: itemKey));
+                                  }
+                                }
+                                fetchMemoItems();
+                              },
                             ),
                           ),
                         );
@@ -168,3 +187,4 @@ class UiPageHomeCatalogTabMemo extends HookConsumerWidget {
     );
   }
 }
+

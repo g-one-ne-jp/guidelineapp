@@ -93,4 +93,26 @@ class ProviderToc extends StateNotifier<MajorCategory> with RepositoryHttp, Repo
     }
     return null;
   }
+
+  /// メモキーから DetailCategory または Settion を検索し、その親の minorKey と共に返す
+  Map<String, dynamic>? searchMemoableItemByKey(
+      MajorCategory majorCategory, String key) {
+    for (var sub in majorCategory.subs.values) {
+      for (var minor in sub.minors.values) {
+        for (var detail in minor.details.values) {
+          // DetailCategory のチェック
+          if (detail.detailKey == key) {
+            return {'item': detail, 'minorKey': minor.minorKey};
+          }
+          // Settion のチェック
+          for (var content in detail.contents.values) {
+            if (content.settions.containsKey(key)) {
+              return {'item': content.settions[key], 'minorKey': minor.minorKey};
+            }
+          }
+        }
+      }
+    }
+    return null;
+  }
 }
