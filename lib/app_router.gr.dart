@@ -59,6 +59,43 @@ class HtmlViewerRouteArgs {
 }
 
 /// generated route for
+/// [PdfEditScreen]
+class PdfEditRoute extends PageRouteInfo<PdfEditRouteArgs> {
+  PdfEditRoute({
+    Key? key,
+    required String pdfPath,
+    List<PageRouteInfo>? children,
+  }) : super(
+         PdfEditRoute.name,
+         args: PdfEditRouteArgs(key: key, pdfPath: pdfPath),
+         initialChildren: children,
+       );
+
+  static const String name = 'PdfEditRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<PdfEditRouteArgs>();
+      return PdfEditScreen(key: args.key, pdfPath: args.pdfPath);
+    },
+  );
+}
+
+class PdfEditRouteArgs {
+  const PdfEditRouteArgs({this.key, required this.pdfPath});
+
+  final Key? key;
+
+  final String pdfPath;
+
+  @override
+  String toString() {
+    return 'PdfEditRouteArgs{key: $key, pdfPath: $pdfPath}';
+  }
+}
+
+/// generated route for
 /// [TabWrapperScreenBookmark]
 class TabWrapperRouteBookmark extends PageRouteInfo<void> {
   const TabWrapperRouteBookmark({List<PageRouteInfo>? children})

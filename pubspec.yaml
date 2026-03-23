@@ -5,6 +5,9 @@ environment:
   sdk: '>=3.3.1 <4.0.0'
 description: 'JCS Guidelines（循環器病ガイドライン）'
 dependencies:
+  flutter_pdf_annotations:
+    git:
+      url: https://github.com/moghoneim-code/flutter_pdf_annotations.git
   auto_route: ^9.3.0+1
   cloud_firestore: '^5.4.2'
   cupertino_icons: '^1.0.6'
@@ -26,7 +29,7 @@ dependencies:
   flutter_screenutil: '^5.9.3'
   flutter_secure_storage: ^10.0.0-beta.4
   flutter_signin_button: '^2.0.0'
-  fluttertoast: ^9.0.0
+  fluttertoast: ^8.2.10
   toastification: ^3.0.3
   freezed: '^2.4.6'
   freezed_annotation: '^2.4.1'

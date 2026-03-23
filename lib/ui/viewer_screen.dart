@@ -87,32 +87,103 @@ class ViewerScreen extends HookConsumerWidget with RepositoryFireStorage {
           transformationController.removeListener(onTransformationChanged);
     }, [transformationController]);
 
-    // 編集画面（Pdftron）を開く処理
+    // PDFTronで編集する処理
+    void startPdftronEditing() async {
+      try {
+        var config = Config();
+        // PDFTronを開く
+        await PdftronFlutter.openDocument(pdfPath, config: config);
+
+        // 戻るボタン（保存）を監視
+        // 注: pdftron_flutterのバージョンによりますが、一般的には
+        // startLeadingNavButtonPressedListener 等で戻りイベントを拾います。
+        // ここでは以前のコードを参考に実装します。
+        startLeadingNavButtonPressedListener(() async {
+          var path = await PdftronFlutter.saveDocument();
+          if (path != null) {
+            uploadData(path: path, file: File(path));
+            if (isMounted()) {
+              // 画面をリロードするために一旦閉じて開き直す
+              Navigator.of(context).pop();
+              context.router.push(ViewerRoute(
+                pdfPath: path,
+                sessionKey: sessionKey,
+              ));
+            }
+          }
+        });
+      } catch (e) {
+        debugPrint('PDFTronエラー: $e');
+      }
+    }
+
+    // 新しい編集画面（flutter_pdf_annotations）を開く処理
+    void startNewEditing() async {
+      // PdfEditScreenを呼び出し、編集結果（保存先パス）を待機
+      final String? savedTempPath = await context.router.push<String?>(
+        PdfEditRoute(pdfPath: pdfPath),
+      );
+
+      if (savedTempPath != null) {
+        // Firebase Storageへアップロード
+        uploadData(path: savedTempPath, file: File(savedTempPath));
+
+        if (isMounted()) {
+          // 一旦画面を閉じて、新しいパス（編集結果）で自分自身を開き直す
+          Navigator.of(context).pop();
+          context.router.push(ViewerRoute(
+            pdfPath: savedTempPath,
+            sessionKey: sessionKey,
+          ));
+        }
+      }
+    }
+
+    // 編集ボタン押下時のエントリーポイント
     void startEditing() async {
       if (FirebaseAuth.instance.currentUser == null) {
         showLoginDialog(context,
             content: '編集機能を利用するには会員登録/ログインが必要です。ログイン画面に移動しますか？');
         return;
-      } 
-      var config = Config();
-      PdftronFlutter.openDocument(pdfPath, config: config);
-      startLeadingNavButtonPressedListener(() async {
-        var savedTempPath = await PdftronFlutter.saveDocument();
-        if (savedTempPath != null) {
-          // Firebase Storageへアップロード
-          uploadData(path: savedTempPath, file: File(savedTempPath));
+      }
 
-          if (isMounted()) {
-            // 一旦画面を閉じて、新しいパス（編集結果）で自分自身を開き直す
-            // これによりウィジェットの状態やキャッシュが完全にクリアされる
-            Navigator.of(context).pop();
-            context.router.push(ViewerRoute(
-              pdfPath: savedTempPath,
-              sessionKey: sessionKey,
-            ));
-          }
-        }
-      });
+      showModalBottomSheet(
+        context: context,
+        builder: (BuildContext context) {
+          return SafeArea(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                const ListTile(
+                  title: Text(
+                    '編集エディタの選択',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ),
+                ListTile(
+                  //leading: const Icon(Icons.edit_note),
+                  title: const Text('旧エディタ (Apryse/PDFTron)'),
+//                  subtitle: const Text('高機能な編集が可能です'),
+                  onTap: () {
+                    Navigator.pop(context);
+                    startPdftronEditing();
+                  },
+                ),
+                ListTile(
+                  //leading: const Icon(Icons.auto_awesome),
+                  title: const Text('新エディタ1 (pdf_annotations)'),
+//                  subtitle: const Text('シンプルなアノテーション編集'),
+                  onTap: () {
+                    Navigator.pop(context);
+                    startNewEditing();
+                  },
+                ),
+                const SizedBox(height: 10),
+              ],
+            ),
+          );
+        },
+      );
     }
 
     // 表示用のファイル名を抽出
