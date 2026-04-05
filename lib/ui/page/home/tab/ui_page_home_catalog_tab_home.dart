@@ -42,7 +42,15 @@ class UiPageHomeCatalogTabHome extends HookConsumerWidget
     return Scaffold(
       appBar: AppBar(
         title: const Text(''),
-        automaticallyImplyLeading: false, // 戻るボタンを表示しない
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            // この画面はタブ内のサブルートである。
+            // なので、タブのルーターのルート(タブではなく親のルーター）まで遡って
+            // initialな画面に戻る。
+            context.router.root.popUntilRoot();
+          },
+        ),
       ),
       body: Container(
         color: Colors.grey[200],
