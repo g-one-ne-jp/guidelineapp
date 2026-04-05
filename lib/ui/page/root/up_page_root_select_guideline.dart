@@ -5,7 +5,6 @@
 import 'package:auto_route/auto_route.dart';
 // Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 //import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -66,15 +65,15 @@ class UiPageSelectGuideline extends HookConsumerWidget {
     // final _passwordController = useState(useTextEditingController());
     // final _isPasswordVisible = useState(false);
 
-    useEffect(() {
-      // 画面表示後、即座にガイドライン2025改訂版を選択したものとして遷移する
-      Future.microtask(() {
-        print('ガイドライン2025改訂版を自動選択して遷移します');
-        GuidelineFile.instance.setFullname(BASE_FILE_NAME);
-        context.router.pushNamed('/home');
-      });
-      return null;
-    }, []);
+    // useEffect(() {
+    //   // 画面表示後、即座にガイドライン2025改訂版を選択したものとして遷移する
+    //   Future.microtask(() {
+    //     print('ガイドライン2025改訂版を自動選択して遷移します');
+    //     GuidelineFile.instance.setFullname(BASE_FILE_NAME);
+    //     context.router.pushNamed('/home');
+    //   });
+    //   return null;
+    // }, []);
 
     return Scaffold(
       appBar: AppBar(title: const Text('JCSガイドライン選択')),
