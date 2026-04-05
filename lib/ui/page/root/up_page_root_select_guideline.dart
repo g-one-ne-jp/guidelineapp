@@ -204,13 +204,16 @@ class UiPageSelectGuideline extends HookConsumerWidget {
                   padding: EdgeInsets.all(10.0.w),
                   // 横幅いっぱいにする
                   width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: () async {
+                  child: GestureDetector(
+                    onTap: () async {
                       GuidelineFile.instance.setGuideline(
                           EXTEND_FILE_NAME, EXTEND_COVER_FILE_NAME);
                       context.router.pushNamed('/home');
                     },
-                    child: const Text('別ガイドライン'),
+                    child: Image.asset(
+                      'assets/image/banner_shinmakuen_2026.png',
+                      fit: BoxFit.contain,
+                    ),
                   ),
                 ),
                 
