@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:JCSGuidelines/providers/toc_provider.dart';
 import 'package:JCSGuidelines/providers/user_provider.dart';
 import 'package:JCSGuidelines/repotitory/mixin_repository_firestorage.dart';
+import 'package:JCSGuidelines/ui/page/root/up_page_root_select_guideline.dart';
 // Package imports:
 import 'package:auto_route/auto_route.dart';
 // Flutter imports:
@@ -42,7 +43,15 @@ class UiPageHomeCatalogTabHome extends HookConsumerWidget
     return Scaffold(
       appBar: AppBar(
         title: const Text(''),
-        automaticallyImplyLeading: false, // 戻るボタンを表示しない
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            // この画面はタブ内のサブルートである。
+            // なので、タブのルーターのルート(タブではなく親のルーター）まで遡って
+            // initialな画面に戻る。
+            context.router.root.popUntilRoot();
+          },
+        ),
       ),
       body: Container(
         color: Colors.grey[200],
@@ -51,7 +60,9 @@ class UiPageHomeCatalogTabHome extends HookConsumerWidget
             Expanded(
               child: FutureBuilder(
                 future: downLoadData(
-                    context: context, path: 'gidline/cover/ガイドライン_表紙.pdf'),
+                    context: context,
+                    path:
+                        'gidline/cover/${GuidelineFile.instance.getCoverName()}'),
                 builder: (context, snapshot) {
                   return snapshot.data == null
                       ? const Center(

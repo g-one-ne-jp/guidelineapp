@@ -5,13 +5,15 @@
 import 'package:auto_route/auto_route.dart';
 // Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 //import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final String BASE_FILE_NAME = "gidline.json";
 final String EXTEND_FILE_NAME = "gidline_2026.json";
+
+final String BASE_COVER_FILE_NAME = "ガイドライン_表紙.pdf";
+final String EXTEND_COVER_FILE_NAME = "ガイドライン_表紙_心膜炎_2026.pdf";
 
 // class Sample {
 //   // コンストラクタ（private）
@@ -24,9 +26,12 @@ final String EXTEND_FILE_NAME = "gidline_2026.json";
 
 class GuidelineFile {
   late String name;
-  late String suffix;
+  late String coverName;
 
   static final GuidelineFile instance = GuidelineFile._internal();
+
+  String getFullName() => name;
+  String getCoverName() => coverName;
 
   factory GuidelineFile() {
     return instance;
@@ -34,24 +39,16 @@ class GuidelineFile {
 
   GuidelineFile._internal() {
     name = "";
-    suffix = "";
+    coverName = "";
   }
 
-  void setGuideline(String name, String suffix) {
+  void setGuideline(String name, String coverName) {
     this.name = name;
-    this.suffix = suffix;
-  }
-
-  void setFullname(String name) {
-    this.name = name;
-  }
-
-  String getFullName() {
-    return name; //"${name}_$suffix";
+    this.coverName = coverName;
   }
 
   @override
-  String toString() => "GuidelineFile $name with suffix $suffix";
+  String toString() => "GuidelineFile $name, $coverName";
 }
 
 @RoutePage()
@@ -66,15 +63,15 @@ class UiPageSelectGuideline extends HookConsumerWidget {
     // final _passwordController = useState(useTextEditingController());
     // final _isPasswordVisible = useState(false);
 
-    useEffect(() {
-      // 画面表示後、即座にガイドライン2025改訂版を選択したものとして遷移する
-      Future.microtask(() {
-        print('ガイドライン2025改訂版を自動選択して遷移します');
-        GuidelineFile.instance.setFullname(BASE_FILE_NAME);
-        context.router.pushNamed('/home');
-      });
-      return null;
-    }, []);
+    // useEffect(() {
+    //   // 画面表示後、即座にガイドライン2025改訂版を選択したものとして遷移する
+    //   Future.microtask(() {
+    //     print('ガイドライン2025改訂版を自動選択して遷移します');
+    //     GuidelineFile.instance.setFullname(BASE_FILE_NAME);
+    //     context.router.pushNamed('/home');
+    //   });
+    //   return null;
+    // }, []);
 
     return Scaffold(
       appBar: AppBar(title: const Text('JCSガイドライン選択')),
@@ -186,14 +183,18 @@ class UiPageSelectGuideline extends HookConsumerWidget {
                   padding: EdgeInsets.all(10.0.w),
                   // 横幅いっぱいにする
                   width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: () async {
+                  child: GestureDetector(
+                    onTap: () async {
                       print('ガイドライン2025改訂版選択');
-                      GuidelineFile.instance.setFullname(BASE_FILE_NAME);
+                      GuidelineFile.instance
+                          .setGuideline(BASE_FILE_NAME, BASE_COVER_FILE_NAME);
 //                      context.router.popUntilRoot();
                       context.router.pushNamed('/home');
                     },
-                    child: const Text('ガイドライン2025改訂版'),
+                    child: Image.asset(
+                      'assets/image/banner-shinfuzen.png',
+                      fit: BoxFit.contain,
+                    ),
                   ),
                 ),
                 //
@@ -206,12 +207,16 @@ class UiPageSelectGuideline extends HookConsumerWidget {
                   padding: EdgeInsets.all(10.0.w),
                   // 横幅いっぱいにする
                   width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: () async {
-                      GuidelineFile.instance.setFullname(EXTEND_FILE_NAME);
+                  child: GestureDetector(
+                    onTap: () async {
+                      GuidelineFile.instance.setGuideline(
+                          EXTEND_FILE_NAME, EXTEND_COVER_FILE_NAME);
                       context.router.pushNamed('/home');
                     },
-                    child: const Text('別ガイドライン'),
+                    child: Image.asset(
+                      'assets/image/banner_shinmakuen_2026.png',
+                      fit: BoxFit.contain,
+                    ),
                   ),
                 ),
                 

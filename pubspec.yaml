@@ -81,6 +81,9 @@ flutter:
     - assets/json/
     - assets/txt/
     - assets/icon/icon.png
+    - assets/image/banner_shinmakuen_2026.png
+    - assets/image/banner-shinfuzen.png
+
 
 index_generator:
   exclude:
