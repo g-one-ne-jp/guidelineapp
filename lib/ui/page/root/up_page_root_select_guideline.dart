@@ -183,15 +183,18 @@ class UiPageSelectGuideline extends HookConsumerWidget {
                   padding: EdgeInsets.all(10.0.w),
                   // 横幅いっぱいにする
                   width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: () async {
+                  child: GestureDetector(
+                    onTap: () async {
                       print('ガイドライン2025改訂版選択');
                       GuidelineFile.instance
                           .setGuideline(BASE_FILE_NAME, BASE_COVER_FILE_NAME);
 //                      context.router.popUntilRoot();
                       context.router.pushNamed('/home');
                     },
-                    child: const Text('ガイドライン2025改訂版'),
+                    child: Image.asset(
+                      'assets/image/banner-shinfuzen.png',
+                      fit: BoxFit.contain,
+                    ),
                   ),
                 ),
                 //
