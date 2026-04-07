@@ -11,7 +11,7 @@
 	<key>provisioningProfiles</key>
 	<dict>
 		<key>jp.co.miceone.jcsguidelines</key>
-		<string>JCSGuidelines Distribution</string>
+		<string>guidline appstore naito</string>
 	</dict>
 	<key>signingCertificate</key>
 	<string>Apple Distribution</string>

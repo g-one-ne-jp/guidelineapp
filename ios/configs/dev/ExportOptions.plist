@@ -18,7 +18,7 @@
 	<key>provisioningProfiles</key>
 	<dict>
 		<key>jp.co.miceone.jcsguidelines</key>
-		<string>JCSGuidelines Distribution Achoc</string>
+		<string>guidline adhoc Naito</string>
 	</dict>
 	<key>signingCertificate</key>
 	<string>Apple Distribution</string>
