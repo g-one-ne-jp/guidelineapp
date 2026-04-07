@@ -66,5 +66,11 @@
 		<false/>
 		<key>NSPhotoLibraryUsageDescription</key>
 		<string>アプリに表示・使用するための写真や動画をライブラリから選択する目的でリクエストします。</string>
+		<key>NSLocalNetworkUsageDescription</key>
+		<string>同一ネットワーク上のデバイスと通信するために使用します。</string>
+
+		<key>NSBonjourServices</key>
+		<array>
+		</array>
 	</dict>
 </plist>
