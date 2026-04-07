@@ -1029,10 +1029,11 @@ class PdfGridView extends HookConsumerWidget with RepositoryFireStorage {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          deteil.detailTitle,
-                          style: const TextStyle(
-                            color: Colors.black,
+                        Expanded(
+                          child: Text(
+                            deteil.detailTitle,
+                            style: const TextStyle(
+                            ),
                           ),
                         ),
                         IconButton(
@@ -1088,5 +1089,3 @@ class PdfGridView extends HookConsumerWidget with RepositoryFireStorage {
     
   }
 }
-
-
