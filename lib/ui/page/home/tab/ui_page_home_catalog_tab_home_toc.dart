@@ -1,6 +1,7 @@
 // Flutter imports:
 import 'package:JCSGuidelines/providers/toc_provider.dart';
 import 'package:JCSGuidelines/providers/user_provider.dart';
+import 'package:JCSGuidelines/ui/util/ui_util_tab_back_handler.dart';
 import 'package:JCSGuidelines/ui/util/uiUtilTile.dart';
 // Package imports:
 import 'package:auto_route/auto_route.dart';
@@ -38,15 +39,9 @@ class UiPageHomeCatalogTabHomeTOC extends HookConsumerWidget {
 
     /// 心不全診療ガイドライン(2025改訂版)　の画面
     /// ListViewで大分類を表示している部分。
-    // PopScope でシステムバック（スワイプ / Android◀ボタン）を横取りし、
-    // AppBar の戻るボタンと同じ処理を呼ぶ。
-    return PopScope(
-      canPop: false,
-      onPopInvokedWithResult: (didPop, _) {
-        if (!didPop) {
-          Navigator.of(context, rootNavigator: true).pop();
-        }
-      },
+    // TabBackHandler: Android◀・Androidスワイプ・iOSスワイプ 全てに対応
+    return TabBackHandler(
+      onBack: () => Navigator.of(context, rootNavigator: true).pop(),
       child: Scaffold(
         appBar: AppBar(
           title: Text(_tocProvider.majorTitle),
@@ -111,7 +106,7 @@ class UiPageHomeCatalogTabHomeTOC extends HookConsumerWidget {
           ),
         ),
       ), // Scaffold
-    ); // PopScope
+    ); // TabBackHandler
   }
 }
 

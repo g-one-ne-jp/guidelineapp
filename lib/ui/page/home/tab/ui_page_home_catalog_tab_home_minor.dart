@@ -8,6 +8,7 @@ import 'package:JCSGuidelines/module/firebase/model_firebase_pdf_config.dart';
 import 'package:JCSGuidelines/providers/toc_provider.dart';
 import 'package:JCSGuidelines/providers/user_provider.dart';
 import 'package:JCSGuidelines/repotitory/mixin_repository_firestorage.dart';
+import 'package:JCSGuidelines/ui/util/ui_util_tab_back_handler.dart';
 import 'package:JCSGuidelines/ui/util/uiUtilDialog.dart';
 import 'package:JCSGuidelines/ui/util/uiUtilTile.dart';
 // Package imports:
@@ -82,17 +83,10 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
     print(
         '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~detail count: ${_minor.value.details.length}');
     final bookmarkEnable = false;
-    // PopScope でシステムバック（スワイプ / Android◀ボタン）を横取りし、
-    // AppBar の戻るボタンと同じ処理を呼ぶ。
-    // /toc 経由で来た場合は rootNavigator: true で外側のルーターへ、
-    // それ以外（検索など）は rootNavigator: false でタブ内スタックへ。
-    return PopScope(
-      canPop: false,
-      onPopInvokedWithResult: (didPop, _) {
-        if (!didPop) {
-          Navigator.of(context, rootNavigator: path.contains('/toc')).pop();
-        }
-      },
+    // TabBackHandler: Android◀・Androidスワイプ・iOSスワイプ 全てに対応
+    // /toc 経由の場合は外側の Root Navigator、それ以外はタブ内スタックへ。
+    return TabBackHandler(
+      onBack: () => Navigator.of(context, rootNavigator: path.contains('/toc')).pop(),
       child: Scaffold(
         appBar: AppBar(
           title: Text(_minor.value.minorTitle),
@@ -165,7 +159,7 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
           ),
         ),
       ), // Scaffold
-    ); // PopScope
+    ); // TabBackHandler
   }
 }
 

@@ -5,6 +5,7 @@ import 'package:JCSGuidelines/providers/toc_provider.dart';
 import 'package:JCSGuidelines/providers/user_provider.dart';
 import 'package:JCSGuidelines/repotitory/mixin_repository_firestorage.dart';
 import 'package:JCSGuidelines/ui/page/root/up_page_root_select_guideline.dart';
+import 'package:JCSGuidelines/ui/util/ui_util_tab_back_handler.dart';
 // Package imports:
 import 'package:auto_route/auto_route.dart';
 // Flutter imports:
@@ -40,15 +41,9 @@ class UiPageHomeCatalogTabHome extends HookConsumerWidget
 //      return () => customDebugPrint('dispose!');
     }, []);
 
-    // PopScope でシステムバック（スワイプ / Android◀ボタン）を横取りし、
-    // AppBar の戻るボタンと同じ popUntilRoot() を呼ぶ。
-    return PopScope(
-      canPop: false,
-      onPopInvokedWithResult: (didPop, _) {
-        if (!didPop) {
-          context.router.root.popUntilRoot();
-        }
-      },
+    // TabBackHandler: Android◀・Androidスワイプ・iOSスワイプ 全てに対応
+    return TabBackHandler(
+      onBack: () => context.router.root.popUntilRoot(),
       child: Scaffold(
         appBar: AppBar(
           title: const Text(''),
@@ -133,6 +128,6 @@ class UiPageHomeCatalogTabHome extends HookConsumerWidget
           ),
         ),
       ), // Scaffold
-    ); // PopScope
+    ); // TabBackHandler
   }
 }
