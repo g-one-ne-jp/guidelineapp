@@ -40,89 +40,99 @@ class UiPageHomeCatalogTabHome extends HookConsumerWidget
 //      return () => customDebugPrint('dispose!');
     }, []);
 
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(''),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            // この画面はタブ内のサブルートである。
-            // なので、タブのルーターのルート(タブではなく親のルーター）まで遡って
-            // initialな画面に戻る。
-            context.router.root.popUntilRoot();
-          },
+    // PopScope でシステムバック（スワイプ / Android◀ボタン）を横取りし、
+    // AppBar の戻るボタンと同じ popUntilRoot() を呼ぶ。
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, _) {
+        if (!didPop) {
+          context.router.root.popUntilRoot();
+        }
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text(''),
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () {
+              // この画面はタブ内のサブルートである。
+              // なので、タブのルーターのルート(タブではなく親のルーター）まで遡って
+              // initialな画面に戻る。
+              context.router.root.popUntilRoot();
+            },
+          ),
         ),
-      ),
-      body: Container(
-        color: Colors.grey[200],
-        child: Column(
-          children: [
-            Expanded(
-              child: FutureBuilder(
-                future: downLoadData(
-                    context: context,
-                    path:
-                        'gidline/cover/${GuidelineFile.instance.getCoverName()}'),
-                builder: (context, snapshot) {
-                  return snapshot.data == null
-                      ? const Center(
-                          child: CircularProgressIndicator(),
-                        )
-                      : FutureBuilder(
-                          future:
-                              PDFDocument.fromFile(File(snapshot.data!.path)),
-                          builder: (context, snapshot) {
-                            if (snapshot.connectionState ==
-                                ConnectionState.done) {
-                              return Stack(
-                                children: [
-                                  PDFViewer(
-                                    showIndicator: false,
-                                    showNavigation: false,
-                                    showPicker: false,
-                                    enableSwipeNavigation: false,
-                                    document: snapshot.data!,
-                                  ),
-                                  Container(
-                                    color: Colors.transparent,
-                                  )
-                                ],
+        body: Container(
+          color: Colors.grey[200],
+          child: Column(
+            children: [
+              Expanded(
+                child: FutureBuilder(
+                  future: downLoadData(
+                      context: context,
+                      path:
+                          'gidline/cover/${GuidelineFile.instance.getCoverName()}'),
+                  builder: (context, snapshot) {
+                    return snapshot.data == null
+                        ? const Center(
+                            child: CircularProgressIndicator(),
+                          )
+                        : FutureBuilder(
+                            future:
+                                PDFDocument.fromFile(File(snapshot.data!.path)),
+                            builder: (context, snapshot) {
+                              if (snapshot.connectionState ==
+                                  ConnectionState.done) {
+                                return Stack(
+                                  children: [
+                                    PDFViewer(
+                                      showIndicator: false,
+                                      showNavigation: false,
+                                      showPicker: false,
+                                      enableSwipeNavigation: false,
+                                      document: snapshot.data!,
+                                    ),
+                                    Container(
+                                      color: Colors.transparent,
+                                    )
+                                  ],
+                                );
+                              }
+                              return const Center(
+                                child: CircularProgressIndicator(),
                               );
-                            }
-                            return const Center(
-                              child: CircularProgressIndicator(),
-                            );
-                          },
-                        );
-                },
+                            },
+                          );
+                  },
+                ),
               ),
-            ),
-            //
-            Container(
-              padding: EdgeInsets.all(5.0.w),
-              // 横幅いっぱいにする
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () async {
-                  final currentPath = AutoRouter.of(context).currentPath;
-                  // "/catalog/tabHome" + "/toc"
-                  // のpathを組み立てて、タブ内のさぶるーととして画面遷移させる。
-                  context.router.pushNamed(
-                    '$currentPath/toc',
-                  );
-                },
-                child: Text(
-                  'ガイドラインを開く',
-                  style: TextStyle(
-                    fontSize: 12.sp,
-                    fontWeight: FontWeight.bold,
+              //
+              Container(
+                padding: EdgeInsets.all(5.0.w),
+                // 横幅いっぱいにする
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () async {
+                    final currentPath = AutoRouter.of(context).currentPath;
+                    // "/catalog/tabHome" + "/toc"
+                    // のpathを組み立てて、タブ内のさぶるーととして画面遷移させる。
+                    context.router.pushNamed(
+                      '$currentPath/toc',
+                    );
+                  },
+                  child: Text(
+                    'ガイドラインを開く',
+                    style: TextStyle(
+                      fontSize: 12.sp,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-      ),
-    );
+      ), // Scaffold
+    ); // PopScope
   }
 }

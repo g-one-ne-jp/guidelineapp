@@ -20,8 +20,8 @@ class UiPageHomeCatalogTabHomeTOC extends HookConsumerWidget {
   @override
   /// 一番最初のガイドラインの目次画面
   Widget build(BuildContext context, WidgetRef ref) {
-    // print(
-    //     "-------------------------------------------HOME TOC-------------------------------");
+    print(
+        "-------------------------------------------HOME TOC-------------------------------");
     final _userProvider = ref.watch(userProvider);
     final _userNotifer = ref.watch(userProvider.notifier);
 
@@ -38,70 +38,80 @@ class UiPageHomeCatalogTabHomeTOC extends HookConsumerWidget {
 
     /// 心不全診療ガイドライン(2025改訂版)　の画面
     /// ListViewで大分類を表示している部分。
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(_tocProvider.majorTitle),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () => Navigator.of(context, rootNavigator: true).pop(),
+    // PopScope でシステムバック（スワイプ / Android◀ボタン）を横取りし、
+    // AppBar の戻るボタンと同じ処理を呼ぶ。
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, _) {
+        if (!didPop) {
+          Navigator.of(context, rootNavigator: true).pop();
+        }
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(_tocProvider.majorTitle),
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () => Navigator.of(context, rootNavigator: true).pop(),
+          ),
         ),
-      ),
-      body: Container(
-        color: Colors.white,
-        child: Column(
-          children: [
-            Container(
-              width: double.infinity,
-              height: 60.h,
-              color: const Color(0xFFf6d1bf),
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Center(
-                child: FittedBox(
-                  fit: BoxFit.contain,
-                  child: Text(
-                    _tocProvider.majorSummary,
-                    style: TextStyle(color: Colors.black, fontSize: 20.sp),
+        body: Container(
+          color: Colors.white,
+          child: Column(
+            children: [
+              Container(
+                width: double.infinity,
+                height: 60.h,
+                color: const Color(0xFFf6d1bf),
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Center(
+                  child: FittedBox(
+                    fit: BoxFit.contain,
+                    child: Text(
+                      _tocProvider.majorSummary,
+                      style: TextStyle(color: Colors.black, fontSize: 20.sp),
+                    ),
                   ),
                 ),
               ),
-            ),
-            Expanded(
-              child: ListView.builder(
-                itemCount: _tocProvider.subs.keys.toList().length,
-                itemBuilder: (BuildContext context, int index) {
-                  var value = _tocProvider.subs.values.toList()[index];
-                  // 本編URL/略語一覧
-                  // I はじめに
-                  // II 定義...
-                  // などの大分類タイトルがvalueに格納されている
+              Expanded(
+                child: ListView.builder(
+                  itemCount: _tocProvider.subs.keys.toList().length,
+                  itemBuilder: (BuildContext context, int index) {
+                    var value = _tocProvider.subs.values.toList()[index];
+                    // 本編URL/略語一覧
+                    // I はじめに
+                    // II 定義...\
+                    // などの大分類タイトルがvalueに格納されている
 //                  print(value.subTitle);
-                  return UiUtilWidgetTile(
-                      sub: value,
-                      onMinorTap: (minor) {
-                        if (minor.minorKey.isEmpty) {
-                          Fluttertoast.showToast(
-                              msg: "minorKeyが空です",
-                              toastLength: Toast.LENGTH_SHORT,
-                              gravity: ToastGravity.CENTER,
-                              timeInSecForIosWeb: 1,
-                              backgroundColor: Colors.red,
-                              textColor: Colors.white,
-                              fontSize: 16.0);
-                        } else {
-                          final currentPath =
-                              AutoRouter.of(context).currentPath;
-                          context.router.pushNamed(
-                            '$currentPath/tabHomeMinor/${minor.minorKey}/false',
-                          );
-                        }
-                      });
-                },
+                    return UiUtilWidgetTile(
+                        sub: value,
+                        onMinorTap: (minor) {
+                          if (minor.minorKey.isEmpty) {
+                            Fluttertoast.showToast(
+                                msg: "minorKeyが空です",
+                                toastLength: Toast.LENGTH_SHORT,
+                                gravity: ToastGravity.CENTER,
+                                timeInSecForIosWeb: 1,
+                                backgroundColor: Colors.red,
+                                textColor: Colors.white,
+                                fontSize: 16.0);
+                          } else {
+                            final currentPath =
+                                AutoRouter.of(context).currentPath;
+                            context.router.pushNamed(
+                              '$currentPath/tabHomeMinor/${minor.minorKey}/false',
+                            );
+                          }
+                        });
+                  },
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-      ),
-    );
+      ), // Scaffold
+    ); // PopScope
   }
 }
 

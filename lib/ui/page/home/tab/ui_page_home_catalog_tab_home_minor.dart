@@ -82,77 +82,90 @@ class UiPageHomeCatalogTabHomeMinor extends HookConsumerWidget
     print(
         '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~detail count: ${_minor.value.details.length}');
     final bookmarkEnable = false;
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(_minor.value.minorTitle),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () =>
-              // ガイドラインの目次からこの画面に来たときは ../tabHome/toc/minorというルートになるので
-              // rootNavigatorでポップして、目次に戻る。
-              // しかし、検索などのサブルートで来た場合は、タブ内のスタックでポップしたいので
-              // rootNavigator
-              Navigator.of(context, rootNavigator: path.contains('/toc')).pop(),
-        ),
-        actions: <Widget>[
-          bookmarkEnable
-              ? 
-          IconButton(
-            icon: Icon(!_userNotifer.getBookmarkState(key: minorKey)
-                ? Icons.bookmark_outline
-                : Icons.bookmark),
-            onPressed: () {
-              if (FirebaseAuth.instance.currentUser == null) {
-                showLoginDialog(context,
-                    content: 'ブックマーク機能を利用するには会員登録/ログインが必要です。ログイン画面に移動しますか？');
-              } else {
-                _userNotifer.updateBookmark(
-                    key: minorKey,
-                    isBookmark: !_userNotifer.getBookmarkState(key: minorKey));
-              }
-            },
-                )
-              : Container(),
-        ],
-      ),
-      body: Container(
-        color: Colors.white,
-        child: ListView.builder(
-          itemCount: _minor.value.details.length,
-          itemBuilder: (BuildContext context, int index) {
-            var value = _minor.value.details.values.toList()[index];
-            //memoにkeyが存在しているか？
-            final isMemo =
-                _userNotifer.getMemo(key: value.detailKey).isNotEmpty;
-            return isMemo || !viewTypeMemo
-                ? PdfGridView(
-                    deteil: value,
-                    onPdfTap: (String path, String sessionKey) {
-                      // ここはpdfを選択肢エディタを開く。
-// "/data/user/0/jp.co.miceone.jcsguidelines/app_flutter/1VW4FmgSlUWiCdHHQVFzeZ6wxds2/表2.pdf"
-                      // PDFView{erでPDFを表示する
-                      if (path.endsWith("pdf")) {
-                        //showViewer(document: path);
-                        //return;
+    // PopScope でシステムバック（スワイプ / Android◀ボタン）を横取りし、
+    // AppBar の戻るボタンと同じ処理を呼ぶ。
+    // /toc 経由で来た場合は rootNavigator: true で外側のルーターへ、
+    // それ以外（検索など）は rootNavigator: false でタブ内スタックへ。
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, _) {
+        if (!didPop) {
+          Navigator.of(context, rootNavigator: path.contains('/toc')).pop();
+        }
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(_minor.value.minorTitle),
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () =>
+                // ガイドラインの目次からこの画面に来たときは ../tabHome/toc/minorというルートになるので
+                // rootNavigatorでポップして、目次に戻る。
+                // しかし、検索などのサブルートで来た場合は、タブ内のスタックでポップしたいので
+                // rootNavigator
+                Navigator.of(context, rootNavigator: path.contains('/toc'))
+                    .pop(),
+          ),
+          actions: <Widget>[
+            bookmarkEnable
+                ? IconButton(
+                    icon: Icon(!_userNotifer.getBookmarkState(key: minorKey)
+                        ? Icons.bookmark_outline
+                        : Icons.bookmark),
+                    onPressed: () {
+                      if (FirebaseAuth.instance.currentUser == null) {
+                        showLoginDialog(context,
+                            content:
+                                'ブックマーク機能を利用するには会員登録/ログインが必要です。ログイン画面に移動しますか？');
+                      } else {
+                        _userNotifer.updateBookmark(
+                            key: minorKey,
+                            isBookmark:
+                                !_userNotifer.getBookmarkState(key: minorKey));
                       }
-                      // タイプセーフなルーティングを使用（パスにスラッシュが含まれていても安全に渡せる）
-                      context.router
-                          .push(
-                          ViewerRoute(pdfPath: path, sessionKey: sessionKey));
                     },
-                    
-                    onDeteilEdit: (deteil) {
-                      // ここはメモアイコンが押された時。
-                      print("---------------Edit tapped: ${deteil.detailKey}");
-                      _panelKey.value = deteil.detailKey;
-                      context.router
-                          .pushNamed('/edit/${deteil.detailKey}/false');
-                    })
-                : Container();
-          },
+                  )
+              : Container(),
+          ],
         ),
-      ),
-    );
+        body: Container(
+          color: Colors.white,
+          child: ListView.builder(
+            itemCount: _minor.value.details.length,
+            itemBuilder: (BuildContext context, int index) {
+              var value = _minor.value.details.values.toList()[index];
+              //memoにkeyが存在しているか？
+              final isMemo =
+                  _userNotifer.getMemo(key: value.detailKey).isNotEmpty;
+              return isMemo || !viewTypeMemo
+                  ? PdfGridView(
+                      deteil: value,
+                      onPdfTap: (String path, String sessionKey) {
+                        // ここはpdfを選択肢エディタを開く。
+// "/data/user/0/jp.co.miceone.jcsguidelines/app_flutter/1VW4FmgSlUWiCdHHQVFzeZ6wxds2/表2.pdf"
+                        // PDFView{erでPDFを表示する
+                        if (path.endsWith("pdf")) {
+                          //showViewer(document: path);
+                          //return;
+                        }
+                        // タイプセーフなルーティングを使用（パスにスラッシュが含まれていても安全に渡せる）
+                        context.router.push(
+                            ViewerRoute(pdfPath: path, sessionKey: sessionKey));
+                      },
+                      onDeteilEdit: (deteil) {
+                        // ここはメモアイコンが押された時。
+                        print(
+                            "---------------Edit tapped: ${deteil.detailKey}");
+                        _panelKey.value = deteil.detailKey;
+                        context.router
+                            .pushNamed('/edit/${deteil.detailKey}/false');
+                      })
+                  : Container();
+            },
+          ),
+        ),
+      ), // Scaffold
+    ); // PopScope
   }
 }
 
