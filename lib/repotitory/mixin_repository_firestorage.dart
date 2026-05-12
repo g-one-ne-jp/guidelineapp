@@ -42,12 +42,7 @@ mixin RepositoryFireStorage {
     var uidPath = getUidPath(user);
 
     var islandRef = FirebaseStorage.instance.ref().child(path);
-    final appDocDir = Platform.isIOS
-        ? await getApplicationDocumentsDirectory()
-        : await getApplicationDocumentsDirectory();
-    final fileDire = "${appDocDir.path}/$uidPath/";
-    final fileName = path.split('/').last;
-    final filePath = "$fileDire$fileName";
+    final filePath = await _buildLocalFilePath(path, uidPath);
     final file = File(filePath);
 
     if (await _fileExists(filePath) && await file.exists()) {
@@ -96,16 +91,16 @@ mixin RepositoryFireStorage {
     var uidPath = getUidPath(user);
 
     var islandRef = FirebaseStorage.instance.ref().child(path);
-    final appDocDir = Platform.isIOS
-        ? await getApplicationDocumentsDirectory()
-        : await getApplicationDocumentsDirectory();
-    final fileDire = "${appDocDir.path}/$uidPath/";
-    final fileName = path.split('/').last;
-    final filePath = "$fileDire$fileName";
+    final filePath = await _buildLocalFilePath(path, uidPath);
     final file = File(filePath);
+    final fileDire = file.parent.path;
 
+    debugPrint("ファイルパス1: $path");
+    debugPrint("ファイルパス2: $filePath");
+    
     if (await _fileExists(filePath) && await file.exists()) {
-      debugPrint('編集済みファイルは既に存在します: ${_getLastTwoPartsOfPath(filePath)}');
+      debugPrint(
+          'ファイルパス3:編集済みファイルは既に存在します: ${_getLastTwoPartsOfPath(filePath)}');
       if (!isNewUpdate) {
         final updatedPath = _getLastTwoPartsOfPath(filePath);
         debugPrint('更新後の参照パス: $updatedPath');
@@ -127,7 +122,7 @@ mixin RepositoryFireStorage {
     }
 
     if (await file.exists()) {
-      debugPrint('新規ファイルは既に存在します: $filePath');
+      debugPrint('ファイルパス4:ファイルは既に存在します: $filePath');
       return file;
     }
 
@@ -260,5 +255,16 @@ mixin RepositoryFireStorage {
     final lastTwoParts = parts.sublist(parts.length - 2);
     // 取り出した要素を / で結合して新しいパスを作成
     return 'user/${lastTwoParts.join('/')}';
+  }
+
+  /// Firebaseのパスからローカルに保存するファイルのフルパスを構築する
+  Future<String> _buildLocalFilePath(String path, String uidPath) async {
+    final appDocDir = await getApplicationDocumentsDirectory();
+    if (path.startsWith('gidline/pdf/2025/')) {
+      final fileName = path.split('/').last;
+      return "${appDocDir.path}/$uidPath/$fileName";
+    } else {
+      return "${appDocDir.path}/$uidPath/$path";
+    }
   }
 }
