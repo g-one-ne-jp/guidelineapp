@@ -147,43 +147,7 @@ class ViewerScreen extends HookConsumerWidget with RepositoryFireStorage {
         return;
       }
 
-      showModalBottomSheet(
-        context: context,
-        builder: (BuildContext context) {
-          return SafeArea(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                const ListTile(
-                  title: Text(
-                    '編集エディタの選択',
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                ),
-                ListTile(
-                  //leading: const Icon(Icons.edit_note),
-                  title: const Text('旧エディタ (Apryse/PDFTron)'),
-//                  subtitle: const Text('高機能な編集が可能です'),
-                  onTap: () {
-                    Navigator.pop(context);
-                    startPdftronEditing();
-                  },
-                ),
-                ListTile(
-                  //leading: const Icon(Icons.auto_awesome),
-                  title: const Text('新エディタ1 (pdf_annotations)'),
-//                  subtitle: const Text('シンプルなアノテーション編集'),
-                  onTap: () {
-                    Navigator.pop(context);
-                    startNewEditing();
-                  },
-                ),
-                const SizedBox(height: 10),
-              ],
-            ),
-          );
-        },
-      );
+      startPdftronEditing();
     }
 
     // 表示用のファイル名を抽出
