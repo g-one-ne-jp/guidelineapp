@@ -6,7 +6,6 @@ import 'package:JCSGuidelines/module/firebase/model_firebase_user.dart';
 import 'package:JCSGuidelines/providers/toc_provider.dart';
 import 'package:JCSGuidelines/providers/user_provider.dart';
 import 'package:JCSGuidelines/ui/page/root/up_page_root_select_guideline.dart';
-import 'package:JCSGuidelines/util/util_googlesingin.dart';
 // Package imports:
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -55,16 +54,17 @@ class UiPageHome extends HookConsumerWidget {
           context.router.pushNamed(
             '/catalog',
           );
+          customDebugPrint('ホームで問題ない');
         } catch (e) {
-          customDebugPrint('error: $e');
-          try {
-            if (await utilAuthLogout()) {
-              context.router.popUntilRoot();
-              context.router.replaceNamed('/login');
-            }
-          } catch (e) {
-            customDebugPrint('ユーザーが認証されていません: $e');
-          }
+          customDebugPrint('ホームでエラーになったのでログアウトします: $e');
+          // try {
+          //   if (await utilAuthLogout()) {
+          //     context.router.popUntilRoot();
+          //     context.router.replaceNamed('/login');
+          //   }
+          // } catch (e) {
+          //   customDebugPrint('ユーザーが認証されていません: $e');
+          // }
         }
       });
       return null;
