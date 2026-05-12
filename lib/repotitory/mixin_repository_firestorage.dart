@@ -47,7 +47,7 @@ mixin RepositoryFireStorage {
 
     if (await _fileExists(filePath) && await file.exists()) {
       debugPrint(
-          'isFileUpdate:編集済みファイルは既に存在します: ${_getLastTwoPartsOfPath(filePath)}');
+          'isFileUpdate:編集済みファイルは既に存在します: ${_getStoragePathFromLocalPath(filePath)}');
 
       final fileLastModified = await file.lastModified();
       final storageMetadata = await islandRef.getMetadata();
@@ -100,9 +100,9 @@ mixin RepositoryFireStorage {
     
     if (await _fileExists(filePath) && await file.exists()) {
       debugPrint(
-          'ファイルパス3:編集済みファイルは既に存在します: ${_getLastTwoPartsOfPath(filePath)}');
+          'ファイルパス3:編集済みファイルは既に存在します: ${_getStoragePathFromLocalPath(filePath)}');
       if (!isNewUpdate) {
-        final updatedPath = _getLastTwoPartsOfPath(filePath);
+        final updatedPath = _getStoragePathFromLocalPath(filePath);
         debugPrint('更新後の参照パス: $updatedPath');
         islandRef = FirebaseStorage.instance.ref().child(updatedPath);
       }
@@ -154,10 +154,10 @@ mixin RepositoryFireStorage {
 
     //user/uid/ファイル名にファイルが存在する場合はそちらを使う
     if (await _fileExists(filePath)) {
-      debugPrint('編集済みファイルは既に存在します: ${_getLastTwoPartsOfPath(filePath)}');
+      debugPrint('編集済みファイルは既に存在します: ${_getStoragePathFromLocalPath(filePath)}');
       islandRef = FirebaseStorage.instance
           .ref()
-          .child(_getLastTwoPartsOfPath(filePath));
+          .child(_getStoragePathFromLocalPath(filePath));
       final fileLastModified = await file.lastModified();
       final storageMetadata = await islandRef.getMetadata();
       final storageLastModified = storageMetadata.updated;
@@ -195,7 +195,10 @@ mixin RepositoryFireStorage {
     try {
       // 取り出した要素を/で結合して新しいパスを作成
       final storageRef =
-          FirebaseStorage.instance.ref().child(_getLastTwoPartsOfPath(path));
+          FirebaseStorage.instance
+          .ref()
+          .child(_getStoragePathFromLocalPath(path));
+      debugPrint("PDFTron:アップロードパス: $path");
 
       // ファイルをアップロード
       final uploadTask = storageRef.putFile(file);
@@ -236,7 +239,9 @@ mixin RepositoryFireStorage {
   Future<bool> _fileExists(String path) async {
     try {
       final storageRef =
-          FirebaseStorage.instance.ref().child(_getLastTwoPartsOfPath(path));
+          FirebaseStorage.instance
+          .ref()
+          .child(_getStoragePathFromLocalPath(path));
       await storageRef.getMetadata();
       return true; // ファイルが存在する
     } on FirebaseException catch (e) {
@@ -248,13 +253,25 @@ mixin RepositoryFireStorage {
     }
   }
 
-  String _getLastTwoPartsOfPath(String path) {
-    // パスを / で分割してリストに変換
-    final parts = path.split('/');
-    // リストの末尾2つの要素を取り出す
-    final lastTwoParts = parts.sublist(parts.length - 2);
-    // 取り出した要素を / で結合して新しいパスを作成
-    return 'user/${lastTwoParts.join('/')}';
+  String _getStoragePathFromLocalPath(String localPath) {
+    final user = FirebaseAuth.instance.currentUser;
+    final uidPath = getUidPath(user);
+    final pathSegments = localPath.split('/');
+    // localPathの中からuidPathが最後に出現するインデックスを特定
+    final uidIndex = pathSegments.lastIndexOf(uidPath);
+
+    if (uidIndex != -1) {
+      // uidPathが見つかった場合、そこから末尾までの全ての階層を結合する
+      final remainingSegments = pathSegments.sublist(uidIndex);
+      return 'user/${remainingSegments.join('/')}';
+    }
+
+    // フォールバック：予期せずuidPathが見つからない場合は、従来の末尾2つの階層を返す
+    if (pathSegments.length >= 2) {
+      final lastTwoParts = pathSegments.sublist(pathSegments.length - 2);
+      return 'user/${lastTwoParts.join('/')}';
+    }
+    return 'user/$localPath';
   }
 
   /// Firebaseのパスからローカルに保存するファイルのフルパスを構築する

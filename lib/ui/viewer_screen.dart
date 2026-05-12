@@ -91,6 +91,7 @@ class ViewerScreen extends HookConsumerWidget with RepositoryFireStorage {
     void startPdftronEditing() async {
       try {
         var config = Config();
+        debugPrint("PDFTron:開く: $pdfPath");
         // PDFTronを開く
         await PdftronFlutter.openDocument(pdfPath, config: config);
 
@@ -100,6 +101,7 @@ class ViewerScreen extends HookConsumerWidget with RepositoryFireStorage {
         // ここでは以前のコードを参考に実装します。
         startLeadingNavButtonPressedListener(() async {
           var path = await PdftronFlutter.saveDocument();
+          debugPrint("PDFTron:保存: $path");
           if (path != null) {
             uploadData(path: path, file: File(path));
             if (isMounted()) {
