@@ -16,13 +16,11 @@ import 'package:JCSGuidelines/ui/page/root/up_page_root_login.dart';
 import 'package:JCSGuidelines/ui/page/root/up_page_root_profile.dart';
 import 'package:JCSGuidelines/ui/page/root/up_page_root_select_guideline.dart';
 import 'package:JCSGuidelines/ui/page/root/up_page_root_signup.dart';
-import 'package:JCSGuidelines/ui/util/uiUtilEdit.dart';
 import 'package:JCSGuidelines/ui/pdf_edit_screen.dart';
+import 'package:JCSGuidelines/ui/util/uiUtilEdit.dart';
 import 'package:JCSGuidelines/ui/viewer_screen.dart';
-import 'package:JCSGuidelines/util/util_googlesingin.dart';
 // Package imports:
 import 'package:auto_route/auto_route.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 part 'app_router.gr.dart';
@@ -184,28 +182,4 @@ class AppRouter extends RootStackRouter {
             page: UiRouteHomeCatalogTabHomeMinor.page,
             path: '/tabHomeMinor/:minorKey/:viewTypeMemo'),
       ];
-}
-
-class AuthGuard extends AutoRouteGuard {
-  @override
-  void onNavigation(NavigationResolver resolver, StackRouter router) {
-    // ログイン状態の確認
-    User? user = FirebaseAuth.instance.currentUser;
-    if (user != null) {
-      final user = FirebaseAuth.instance.currentUser!;
-      //email認証が終わってる？
-      if (user.emailVerified || !utilAuthIsLoginTypePassWord()) {
-        // ログイン済みの場合はホーム画面などへ遷移
-        router.replaceNamed('/selectGuideline'); // ログイン成功したら元のパスへ
-      }
-      //認証がまだ
-      else {
-        // 未ログインの場合はログイン画面へ遷移
-        resolver.next(true);
-      }
-    } else {
-      // 未ログインの場合はログイン画面へ遷移
-      resolver.next(true);
-    }
-  }
 }

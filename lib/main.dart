@@ -5,6 +5,7 @@ import 'dart:async';
 import 'package:JCSGuidelines/app_router.dart';
 import 'package:JCSGuidelines/debug/debug_print.dart';
 import 'package:JCSGuidelines/firebase_options.dart';
+import 'package:JCSGuidelines/util/util_googlesingin.dart';
 // Package imports:
 import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -39,6 +40,8 @@ void main() async {
       androidProvider:
           kReleaseMode ? AndroidProvider.playIntegrity : AndroidProvider.debug,
     );
+    // Googleサイレントサインインを実行
+    await utilGoogleSignInSilently();
     //------------------------------//
     //Flutterでキャッチされた例外/エラー
     //FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;

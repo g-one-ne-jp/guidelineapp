@@ -1,15 +1,31 @@
 // Flutter imports:
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
-
-// Package imports:
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-
 // Project imports:
 import 'package:JCSGuidelines/ui/util/uiUtilDialog.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+// Package imports:
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
+
+//Googleサイレントサインイン
+Future<void> utilGoogleSignInSilently() async {
+  debugPrint("ホーム:Googleサイレントサインインを実行前");
+  if (FirebaseAuth.instance.currentUser == null) {
+    debugPrint("ホーム:Googleサイレントサインインを実行前：ユーザーがnullです");
+  } else {
+    debugPrint("ホーム:Googleサイレントサインインを実行前：ユーザーがいます");
+  }
+
+  try {
+    final GoogleSignIn googleSignIn = GoogleSignIn();
+    await googleSignIn.signInSilently();
+    debugPrint("ホーム:Googleサイレントサインインを実行しました");
+  } catch (e) {
+    debugPrint("ホーム:Googleサイレントサインインエラー: $e");
+  }
+}
 
 //Googleサインイン
 Future<String> utilGoogleSignin({required BuildContext context}) async {

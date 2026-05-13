@@ -32,7 +32,12 @@ class ProviderUser extends StateNotifier<ModelFirebaseUser>
   var selectedData = ModelFirebaseUser();
 
   Future<void> _initializeUserData() async {
-    user = FirebaseAuth.instance.currentUser!;
+    if (FirebaseAuth.instance.currentUser == null) {
+      print("ホーム:ユーザ=null");
+    } else {
+      user = FirebaseAuth.instance.currentUser!;
+      print("ホーム:ユーザ=${user!.uid}");
+    }
     userData =
         await readUser<ModelFirebaseUser>(fromJson: ModelFirebaseUser.fromJson);
 
